@@ -10,7 +10,7 @@ PoC/MVP de un chatbot web para consultas frecuentes de CORADIR Movilidad Electri
 - `SQLite` local por defecto para facilitar la demo
 - `n8n` opcional para webhooks de contacto
 
-## Configuracion recomendada para el MVP
+## Configuracion de ejecucion del MVP
 
 1. Instala dependencias:
    `pip install -r requirements.txt`
@@ -48,7 +48,7 @@ Resultados generados:
 
 ## Guia de uso
 
-Para levantar el proyecto y abrir la interfaz web del chat:
+Documentacion de ejecucion local y acceso a la interfaz web del chat:
 
 - `docs/guia_uso_y_demo.md`
 
@@ -70,4 +70,4 @@ Para levantar el proyecto y abrir la interfaz web del chat:
 ## Notas
 
 - El flujo de audio sigue siendo opcional y no forma parte del nucleo del MVP academico.
-- Si cambias el dataset preprocesado, conviene regenerarlo con `python scripts/prepare_dataset.py`.
+- Si se actualiza el dataset preprocesado, debe regenerarse con `python scripts/prepare_dataset.py`.

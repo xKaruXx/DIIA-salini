@@ -1,6 +1,6 @@
 # Guia de Uso y Demo
 
-Esta guia explica como levantar el proyecto localmente, abrir la interfaz web del chat y preparar una demo simple para una presentacion por Zoom.
+Esta guia explica como levantar el proyecto localmente, abrir la interfaz web del chat y ejecutar una demostracion funcional.
 
 ## 1. Requisitos
 
@@ -52,7 +52,7 @@ La respuesta esperada es un JSON con estado `ok`.
 
 ## 4. Abrir el chat web
 
-La interfaz del chat ya viene incluida en el proyecto. No hace falta Gradio.
+La interfaz del chat ya viene incluida en el proyecto.
 
 El chat requiere un token temporal. La forma mas simple de abrirlo localmente es:
 
@@ -68,16 +68,16 @@ Eso hace dos cosas:
 
 Si el navegador muestra `Token invalido o expirado`, vuelve a ejecutar ese bloque para generar uno nuevo.
 
-## 5. Flujo recomendado para una demo por Zoom
+## 5. Flujo de demo local
 
-Antes de entrar a la videollamada:
+Secuencia de ejecucion:
 
 1. abre una terminal y deja corriendo `python run.py --host 127.0.0.1 --port 8851`
 2. abre `http://localhost:8851/health` para mostrar que la API esta viva
 3. ejecuta el bloque de PowerShell que genera el token y abre el chat
 4. deja listas 3 o 4 preguntas de ejemplo
 
-Preguntas recomendadas:
+Preguntas de ejemplo:
 
 - `Cual es el precio del TITO S5-300 AA?`
 - `Cuanta autonomia tiene el TITO S5 y como se carga?`
@@ -126,12 +126,10 @@ $token = (Invoke-RestMethod -Headers @{ Referer = 'http://localhost' } -Uri 'htt
 Start-Process "http://127.0.0.1:8851/chat?token=$token"
 ```
 
-## 8. Comentario sobre Gradio
+## 8. Interfaz incluida en el proyecto
 
-En clase se sugirio Gradio para pruebas rapidas, pero en este proyecto no es necesario porque el MVP ya incluye:
+El MVP incluye:
 
 - backend propio en FastAPI
 - interfaz web propia
 - comunicacion en tiempo real por WebSocket
-
-Para la entrega y la defensa conviene mostrar esta interfaz, porque corresponde al sistema implementado y no a un envoltorio extra de demo.
