@@ -16,7 +16,7 @@ PoC/MVP de un chatbot web para consultas frecuentes de CORADIR Movilidad Electri
    `pip install -r requirements.txt`
 2. Copia `.env.example` a `.env`
 3. Si vas a usar el stack open source local:
-   `ollama pull gemma3:1b`
+   `ollama pull qwen3.5:4b`
    `ollama pull nomic-embed-text`
 4. Genera la base de conocimiento preprocesada:
    `python scripts/prepare_dataset.py`
@@ -26,9 +26,9 @@ PoC/MVP de un chatbot web para consultas frecuentes de CORADIR Movilidad Electri
 La configuracion por defecto ya queda apuntando a:
 
 - `LLM_PROVIDER=ollama`
-- `CHAT_MODEL_NAME=gemma3:1b`
+- `CHAT_MODEL_NAME=qwen3.5:4b`
 - `EMBEDDING_PROVIDER=ollama`
-- `EMBEDDING_MODEL_NAME=nomic-embed-text`
+- `EMBEDDING_MODEL_NAME=nomic-embed-text:latest`
 - `DATABASE_URL=sqlite:///./chatbot_movilidad.db`
 
 ## Benchmark
@@ -39,7 +39,7 @@ Casos de validacion:
 
 Ejecucion:
 
-`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model gemma3:1b --embedding-provider ollama --embedding-model nomic-embed-text`
+`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:4b --embedding-provider ollama --embedding-model nomic-embed-text:latest`
 
 Resultados generados:
 

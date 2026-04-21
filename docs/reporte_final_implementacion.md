@@ -52,8 +52,8 @@ Tecnologias principales:
 - `Chroma`
 - `LangChain`
 - `Ollama`
-- `gemma3:1b` como modelo de chat local
-- `nomic-embed-text` como modelo de embeddings local
+- `qwen3.5:4b` como modelo de chat local
+- `nomic-embed-text:latest` como modelo de embeddings local
 
 ## 3. Datos y Preprocesamiento
 
@@ -115,7 +115,7 @@ El feedback del profesor sugeria evaluar modelos open source para evitar costos.
 - `Ollama` local
 - `OpenAI` opcional
 
-Para el MVP se eligio `Ollama + gemma3:1b + nomic-embed-text`, porque:
+Para el MVP se eligio `Ollama + qwen3.5:4b + nomic-embed-text:latest`, porque:
 
 - evita costo por consulta
 - se puede ejecutar sin servicios externos
@@ -152,9 +152,9 @@ Se implemento un script de evaluacion reproducible:
 Configuracion usada para la validacion principal:
 
 - `LLM_PROVIDER=ollama`
-- `CHAT_MODEL_NAME=gemma3:1b`
+- `CHAT_MODEL_NAME=qwen3.5:4b`
 - `EMBEDDING_PROVIDER=ollama`
-- `EMBEDDING_MODEL_NAME=nomic-embed-text`
+- `EMBEDDING_MODEL_NAME=nomic-embed-text:latest`
 
 Metricas consideradas:
 
@@ -165,8 +165,8 @@ Metricas consideradas:
 
 Resultados obtenidos sobre 15 casos:
 
-- `docs/benchmark_sales.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.82 s
-- `docs/benchmark_strict.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.83 s
+- `docs/benchmark_sales.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.01 s
+- `docs/benchmark_strict.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.01 s
 
 Analisis:
 
@@ -206,7 +206,7 @@ Trabajo futuro recomendado:
    `pip install -r requirements.txt`
 2. Copiar `.env.example` a `.env`
 3. Descargar modelos locales:
-   `ollama pull gemma3:1b`
+   `ollama pull qwen3.5:4b`
    `ollama pull nomic-embed-text`
 4. Generar la base de conocimiento:
    `python scripts/prepare_dataset.py`
@@ -229,7 +229,7 @@ Consultas recomendadas para presentar:
 
 ### Reproduccion del benchmark
 
-`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model gemma3:1b --embedding-provider ollama --embedding-model nomic-embed-text`
+`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:4b --embedding-provider ollama --embedding-model nomic-embed-text:latest`
 
 ## 9. Alcance Esperado de la Implementacion (MVP)
 

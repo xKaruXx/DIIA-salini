@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import re
+import unicodedata
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict
@@ -22,9 +23,9 @@ logger = logging.getLogger(__name__)
 
 MAX_OFF_TOPIC_CONSECUTIVE = 7  # Máximo de mensajes irrelevantes consecutivos antes de cerrar la sesión
 DEFAULT_OPENAI_CHAT_MODEL = "gpt-4o-mini"
-DEFAULT_OLLAMA_CHAT_MODEL = "gemma3:1b"
+DEFAULT_OLLAMA_CHAT_MODEL = "qwen3.5:4b"
 DEFAULT_OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
-DEFAULT_OLLAMA_EMBEDDING_MODEL = "nomic-embed-text"
+DEFAULT_OLLAMA_EMBEDDING_MODEL = "nomic-embed-text:latest"
 DEFAULT_VECTORSTORE_BASE_DIR = "./chroma_db"
 DEFAULT_DATASET_PATH = "./dataset/knowledge_base_movilidad.jsonl"
 DEFAULT_RAW_DATASET_PATH = "./dataset/dataset_movilidad.json"
@@ -325,6 +326,26 @@ class ChatService:
 
     def _normalize_search_text(self, value):
         text = str(value).lower()
+        replacement_pairs = {
+            "Ã¡": "a",
+            "Ã©": "e",
+            "Ã­": "i",
+            "Ã³": "o",
+            "Ãº": "u",
+            "Ã¼": "u",
+            "Ã±": "n",
+            "á": "a",
+            "é": "e",
+            "í": "i",
+            "ó": "o",
+            "ú": "u",
+            "ü": "u",
+            "ñ": "n",
+        }
+        for source, target in replacement_pairs.items():
+            text = text.replace(source, target)
+        text = unicodedata.normalize("NFKD", text)
+        text = "".join(char for char in text if not unicodedata.combining(char))
         replacements = str.maketrans(
             {
                 "á": "a",
@@ -455,20 +476,21 @@ class ChatService:
         return selected_lines
 
     def _build_extractive_response(self, question):
-        ranked_documents = self._keyword_search(question, limit=3)
+        ranked_documents = self._keyword_search(question, limit=8)
         if not ranked_documents:
             return None
 
         focus_terms = self._get_focus_terms(question)
         ranked_documents = sorted(
             ranked_documents,
-            key=lambda item: (
+            key=lambda item: item[0]
+            + (
                 sum(
-                    5
+                    1
                     for term in focus_terms
-                    if term in self._normalize_search_text(item[1])
-                ),
-                item[0],
+                    if term in self._normalize_search_text(f"{item[1]} {item[2]}")
+                )
+                * 2
             ),
             reverse=True,
         )
@@ -486,6 +508,25 @@ class ChatService:
             return None
 
         return self._sanitize_response_text("\n".join(extracted_lines[:4]))
+
+    def _has_strong_domain_match(self, question):
+        ranked_documents = self._keyword_search(question, limit=1)
+        if not ranked_documents:
+            return False
+
+        top_score, _, _ = ranked_documents[0]
+        return top_score >= 3
+
+    def _should_detect_name(self, text):
+        normalized = self._normalize_search_text(text)
+        name_cues = (
+            "mi nombre es",
+            "me llamo",
+            "soy ",
+            "habla ",
+            "mi nombre ",
+        )
+        return any(cue in normalized for cue in name_cues)
 
     def _sanitize_response_text(self, text):
         text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"\2", text)
@@ -666,6 +707,9 @@ class ChatService:
         """
 
     async def _is_off_topic(self, question, chat_history):
+        if self._has_strong_domain_match(question):
+            return False
+
         system_prompt = """
         Eres un detector de relevancia para un chatbot sobre CORADIR, una empresa que vende 
         vehículos eléctricos como TITO, TITA, TITA CUADRILLA, BARRE-TITA, CHIKI y servicios relacionados con movilidad eléctrica.
@@ -1053,8 +1097,11 @@ class ChatService:
             # Cargar el historial de chat
             chat_history = memory.load_memory_variables({})["chat_history"]
 
+            respuesta_texto = self._build_extractive_response(question)
+            has_domain_match = bool(respuesta_texto) or self._has_strong_domain_match(question)
+
             # Verificar si la pregunta está fuera de tema
-            is_off_topic = await self._is_off_topic(question, chat_history)
+            is_off_topic = False if has_domain_match else await self._is_off_topic(question, chat_history)
             logger.info(f"La pregunta es fuera de tema: {is_off_topic}")
 
             warning_message = ""
@@ -1078,8 +1125,6 @@ class ChatService:
                 # Reiniciar contador si la pregunta es relevante
                 self.off_topic_consecutive[user_id] = 0
             
-            respuesta_texto = self._build_extractive_response(question)
-
             if not respuesta_texto:
                 # Reformular la consulta usando el LLM si hay historial previo
                 consulta_mejorada = question
@@ -1136,14 +1181,15 @@ class ChatService:
             contact_match = re.search(contact_pattern, question)
 
             # Detectar nombre en el mensaje del usuario
-            has_name, detected_name = await self.validate_name(question)
-            if has_name:
-                db = SessionLocal()
-                try:
-                    update_user_info(db, user_id, name=detected_name)
-                    logger.info(f"Nombre detectado para usuario {user_id}: {detected_name}")
-                finally:
-                    db.close()
+            if self._should_detect_name(question):
+                has_name, detected_name = await self.validate_name(question)
+                if has_name:
+                    db = SessionLocal()
+                    try:
+                        update_user_info(db, user_id, name=detected_name)
+                        logger.info(f"Nombre detectado para usuario {user_id}: {detected_name}")
+                    finally:
+                        db.close()
             
             if contact_match:
                 contact_text = contact_match.group(0)

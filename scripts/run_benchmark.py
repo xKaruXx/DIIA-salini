@@ -101,9 +101,9 @@ def main() -> None:
     parser.add_argument("--output", type=Path, help="Ruta para guardar el reporte JSON.")
     parser.add_argument("--prompt-variant", default=os.getenv("PROMPT_VARIANT", "strict"))
     parser.add_argument("--llm-provider", default=os.getenv("LLM_PROVIDER", "ollama"))
-    parser.add_argument("--chat-model", default=os.getenv("CHAT_MODEL_NAME", "gemma3:1b"))
+    parser.add_argument("--chat-model", default=os.getenv("CHAT_MODEL_NAME", "qwen3.5:4b"))
     parser.add_argument("--embedding-provider", default=os.getenv("EMBEDDING_PROVIDER", "ollama"))
-    parser.add_argument("--embedding-model", default=os.getenv("EMBEDDING_MODEL_NAME", "nomic-embed-text"))
+    parser.add_argument("--embedding-model", default=os.getenv("EMBEDDING_MODEL_NAME", "nomic-embed-text:latest"))
     args = parser.parse_args()
 
     os.environ["PROMPT_VARIANT"] = args.prompt_variant
