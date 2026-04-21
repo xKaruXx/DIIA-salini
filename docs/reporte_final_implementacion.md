@@ -2,25 +2,25 @@
 
 ## 1. Resumen Ejecutivo de la Solucion
 
-El proyecto implementa un chatbot web para responder consultas frecuentes de CORADIR Movilidad Electrica sobre vehiculos, autonomia, carga, precios, agencias, garantias y condiciones comerciales. El objetivo fue transformar la idea inicial de la propuesta en un MVP funcional, reproducible localmente y validado con un benchmark de preguntas del dominio.
+El proyecto implementa un chatbot web para responder consultas frecuentes de CORADIR Movilidad Electrica sobre vehiculos, autonomia, carga, precios, agencias, garantias y condiciones comerciales. El objetivo consistio en transformar la idea inicial de la propuesta en un MVP funcional, reproducible localmente y validado mediante un benchmark de preguntas del dominio.
 
-La version final adopta un enfoque hibrido:
+La version final adopta un enfoque hibrido compuesto por:
 
 - base de conocimiento cerrada y curada a partir de `dataset/dataset_movilidad.json`
-- preprocesamiento para convertir el JSON original en documentos mas recuperables
+- preprocesamiento del JSON original para convertirlo en documentos mas recuperables
 - recuperacion por embeddings con `Chroma`
-- soporte para modelos open source locales via `Ollama`
+- soporte para modelos open source locales mediante `Ollama`
 - capa extractiva previa al LLM para reducir alucinaciones en preguntas factuales
 
-Esta decision responde directamente al feedback recibido:
+Esta decision responde a la retroalimentacion recibida durante la evaluacion de la propuesta:
 
-- se limpio y reproyecto la base de conocimiento antes de indexarla
+- se limpio y reproyecto la base de conocimiento antes del indexado
 - se reemplazo la dependencia obligatoria de OpenAI por una configuracion open source local
-- se habilito el uso de variantes de prompt (`baseline`, `sales`, `strict`) para comparar comportamiento
+- se habilito el uso de variantes de prompt (`baseline`, `sales`, `strict`) para comparar comportamiento sobre el mismo sistema
 
 ## 2. Arquitectura del Sistema y Tecnologias Utilizadas
 
-La arquitectura final del MVP queda organizada en los siguientes bloques:
+La arquitectura final del MVP se organiza en los siguientes bloques:
 
 1. Interfaz web de chat
    - Archivos en `chat_assets/`
@@ -74,7 +74,7 @@ La fuente principal del dominio es `dataset/dataset_movilidad.json`, que contien
 
 Durante la implementacion se detectaron dos problemas de calidad relevantes:
 
-1. El dataset original estaba en formato JSON jerarquico, util para administracion pero no ideal para recuperacion semantica directa.
+1. El dataset original estaba en formato JSON jerarquico, util para administracion, pero no ideal para recuperacion semantica directa.
 2. Parte del contenido presentaba problemas de codificacion de caracteres, por ejemplo textos con mojibake.
 
 ### Solucion de preprocesamiento
@@ -94,13 +94,13 @@ Resultado del preprocesamiento:
 
 Nota sobre OCR:
 
-En esta version del MVP no fue necesario aplicar OCR porque la base de conocimiento final usada para el benchmark es textual. De incorporarse fuentes futuras en PDF escaneado, imagenes o catalogos visuales, el pipeline deberia ampliarse con una etapa de OCR previa al indexado.
+En esta version del MVP no fue necesario aplicar OCR porque la base de conocimiento utilizada para el benchmark es textual. En caso de incorporar fuentes futuras en PDF escaneado, imagenes o catalogos visuales, el pipeline deberia ampliarse con una etapa de OCR previa al indexado.
 
 ## 4. Modelo / Logica del Sistema
 
 La logica final no depende de un unico paso generativo. Se implemento un pipeline hibrido:
 
-1. Validacion de configuracion y carga de modelo/embeddings
+1. Validacion de configuracion y carga de modelo y embeddings
 2. Carga o creacion del indice vectorial en `Chroma`
 3. Deteccion de preguntas fuera de dominio
 4. Busqueda lexical por palabras clave sobre la base preprocesada
@@ -110,16 +110,16 @@ La logica final no depende de un unico paso generativo. Se implemento un pipelin
 
 ### Decision tecnica clave
 
-El feedback del profesor sugeria evaluar modelos open source para evitar costos. La implementacion final permite dos modos:
+La retroalimentacion recibida sugirio evaluar modelos open source para evitar costos. La implementacion final permite dos modos de ejecucion:
 
 - `Ollama` local
 - `OpenAI` opcional
 
-Para el MVP se eligio `Ollama + qwen3.5:4b + nomic-embed-text:latest`, porque:
+Para el MVP se eligio `Ollama + qwen3.5:4b + nomic-embed-text:latest` por los siguientes motivos:
 
 - evita costo por consulta
-- se puede ejecutar sin servicios externos
-- hace reproducible la demo en una notebook local
+- puede ejecutarse sin servicios externos
+- favorece la reproducibilidad local de la demostracion
 
 ### Variantes de prompt
 
@@ -129,7 +129,7 @@ Se agrego `PROMPT_VARIANT` con tres opciones:
 - `sales`: tono mas orientado a beneficios comerciales
 - `strict`: prioriza precision factual y minimiza inferencias
 
-Esto permitio comparar prompts sobre el mismo benchmark sin cambiar la arquitectura.
+Esto permitio comparar prompts sobre el mismo benchmark sin modificar la arquitectura.
 
 ## 5. Evaluacion y Validacion
 
@@ -149,7 +149,7 @@ Se implemento un script de evaluacion reproducible:
 
 - `scripts/run_benchmark.py`
 
-Configuracion usada para la validacion principal:
+Configuracion utilizada para la validacion principal:
 
 - `LLM_PROVIDER=ollama`
 - `CHAT_MODEL_NAME=qwen3.5:4b`
@@ -170,33 +170,33 @@ Resultados obtenidos sobre 15 casos:
 
 Analisis:
 
-- Se supero la meta original de la propuesta, que planteaba 80% de precision sobre un set de prueba.
-- La latencia promedio tambien quedo por debajo del objetivo de 5 segundos.
-- La mejora principal no vino solo del prompt, sino del cambio estructural en el pipeline:
+- se supero la meta original de la propuesta, que planteaba 80% de precision sobre un conjunto de prueba
+- la latencia promedio quedo por debajo del objetivo de 5 segundos
+- la mejora principal no dependio exclusivamente del prompt, sino del cambio estructural del pipeline:
   - preprocesamiento de la base
   - recuperacion mas granular
   - capa extractiva para datos factuales
 
 Conclusion operativa:
 
-- Para una demo academica, `strict` es la variante recomendada porque mantiene la misma exactitud que `sales` pero esta mejor alineada con el alcance original de preguntas frecuentes.
+- en las pruebas realizadas, la variante `strict` resulto adecuada para el alcance de preguntas frecuentes definido en el proyecto, manteniendo la misma exactitud que `sales`
 
 ## 7. Limitaciones y Trabajo Futuro
 
 Limitaciones actuales:
 
-- El benchmark esta construido sobre un dominio cerrado y todavia no mide conversaciones reales de usuarios externos.
-- El flujo de audio sigue dependiendo de OpenAI y no forma parte del nucleo open source del MVP.
-- Persisten warnings tecnicos en librerias de LangChain/Chroma que convendria actualizar en una siguiente iteracion.
-- La evaluacion actual prioriza exactitud factual; aun no mide satisfaccion de usuario ni robustez ante consultas ambiguas extensas.
+- el benchmark esta construido sobre un dominio cerrado y todavia no mide conversaciones reales de usuarios externos
+- el flujo de audio sigue dependiendo de OpenAI y no forma parte del nucleo open source del MVP
+- persisten advertencias tecnicas en librerias de LangChain y Chroma que deberian actualizarse en una siguiente iteracion
+- la evaluacion actual prioriza exactitud factual; aun no mide satisfaccion de usuario ni robustez ante consultas ambiguas extensas
 
-Trabajo futuro recomendado:
+Trabajo futuro:
 
 - incorporar logs reales anonimizados para una validacion mas amplia
 - agregar OCR para futuras fuentes no textuales
 - migrar a componentes mas nuevos de `langchain-chroma`
-- sumar tests automaticos de regresion para preguntas frecuentes
-- conectar formalmente la salida comercial con CRM o automatizaciones si el caso de uso lo requiere
+- sumar pruebas automaticas de regresion para preguntas frecuentes
+- conectar formalmente la salida comercial con CRM o automatizaciones, si el caso de uso lo requiere
 
 ## 8. Guia de Ejecucion y Demo
 
@@ -217,15 +217,15 @@ Trabajo futuro recomendado:
    `python run.py --host 0.0.0.0 --port 8851`
 2. Abrir el chat o probar el backend desde el frontend existente
 
-### Demo sugerida
+### Consultas de prueba
 
-Consultas recomendadas para presentar:
+Consultas de ejemplo:
 
-- "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?"
-- "¿Cuál es el precio del TITO S5-300 AA?"
-- "¿Dónde hago un reclamo o pido servicio técnico?"
-- "¿Tienen agencia oficial en San Luis?"
-- "¿Cómo funciona la reserva y la entrega inmediata?"
+- "Cuanta autonomia tiene el TITO S5 y como se carga?"
+- "Cual es el precio del TITO S5-300 AA?"
+- "Donde hago un reclamo o pido servicio tecnico?"
+- "Tienen agencia oficial en San Luis?"
+- "Como funciona la reserva y la entrega inmediata?"
 
 ### Reproduccion del benchmark
 
@@ -253,4 +253,4 @@ Consultas recomendadas para presentar:
 
 ## Cierre
 
-La implementacion final evidencia la transicion desde una idea conceptual hacia un sistema funcional. El MVP no solo responde consultas del dominio, sino que ademas queda documentado, parametrizado y validado con evidencia empirica reproducible. Desde el punto de vista academico, el proyecto cumple con la guia de implementacion y con las recomendaciones del feedback recibido.
+La implementacion final evidencia la transicion desde una idea conceptual hacia un sistema funcional. El MVP responde consultas del dominio y, al mismo tiempo, queda documentado, parametrizado y validado con evidencia empirica reproducible. En ese sentido, el proyecto cumple con la guia de implementacion y atiende las observaciones surgidas durante la devolucion de la propuesta inicial.
