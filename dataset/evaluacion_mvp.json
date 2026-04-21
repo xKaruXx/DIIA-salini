@@ -1,0 +1,92 @@
+[
+  {
+    "id": "tito_s5_autonomia_carga",
+    "category": "vehiculos",
+    "question": "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?",
+    "expected_keywords": ["300 km", "220v", "8 horas"]
+  },
+  {
+    "id": "tito_s5_aa_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio del TITO S5-300 AA?",
+    "expected_keywords": ["17.731,25", "usd"]
+  },
+  {
+    "id": "tita_s2_capacidad",
+    "category": "vehiculos",
+    "question": "¿Qué capacidad de carga y de pasajeros tiene la TITA S2-300?",
+    "expected_keywords": ["500 kg", "2 personas"]
+  },
+  {
+    "id": "tita_furgon_refrigerado_precio",
+    "category": "precios",
+    "question": "¿Cuánto cuesta la TITA S2 300 AA con furgón refrigerado?",
+    "expected_keywords": ["23.632,00", "usd"]
+  },
+  {
+    "id": "chiki_autonomia_velocidad",
+    "category": "vehiculos",
+    "question": "¿Qué autonomía y velocidad máxima tiene el CHIKI de litio?",
+    "expected_keywords": ["110km", "45 km/h"]
+  },
+  {
+    "id": "barre_tita_capacidad",
+    "category": "vehiculos",
+    "question": "¿Cuál es la capacidad de trabajo y el tanque de agua de la BARRE-TITA?",
+    "expected_keywords": ["15000 m2/h", "150 litros"]
+  },
+  {
+    "id": "garantia",
+    "category": "posventa",
+    "question": "¿Qué garantía tienen los vehículos?",
+    "expected_keywords": ["1 año", "3 años"]
+  },
+  {
+    "id": "reclamos_servicio",
+    "category": "posventa",
+    "question": "¿Dónde hago un reclamo o pido servicio técnico?",
+    "expected_keywords": ["5264805", "0266"]
+  },
+  {
+    "id": "leasing_suspendido",
+    "category": "comercial",
+    "question": "¿Tienen leasing o alquiler con opción a compra?",
+    "expected_keywords": ["no", "leasing", "alquiler con opción a compra"]
+  },
+  {
+    "id": "beneficio_discapacidad",
+    "category": "beneficios",
+    "question": "¿Cómo es el trámite por beneficio de discapacidad?",
+    "expected_keywords": ["ley 19279", "servicio nacional de rehabilitacion"]
+  },
+  {
+    "id": "agencia_san_luis",
+    "category": "agencias",
+    "question": "¿Tienen agencia oficial en San Luis?",
+    "expected_keywords": ["san luis", "ruta 3 sur km 0.6"]
+  },
+  {
+    "id": "carga_rapida",
+    "category": "carga",
+    "question": "¿Qué ventaja ofrece la carga rápida?",
+    "expected_keywords": ["2 horas", "6-8 horas"]
+  },
+  {
+    "id": "instalacion_carga",
+    "category": "carga",
+    "question": "¿Necesito una instalación especial para cargar un vehículo?",
+    "expected_keywords": ["220v", "20a"]
+  },
+  {
+    "id": "reserva_entrega",
+    "category": "compra",
+    "question": "¿Cómo funciona la reserva y la entrega inmediata?",
+    "expected_keywords": ["usd 200", "72 horas"]
+  },
+  {
+    "id": "telefono_ventas",
+    "category": "contacto",
+    "question": "¿Cuál es el teléfono de ventas de movilidad eléctrica?",
+    "expected_keywords": ["4305996", "0266"]
+  }
+]

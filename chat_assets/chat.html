@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cora - Asistente Virtual de CORADIR</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- CSS del chat -->
+    <link rel="stylesheet" href="chat_assets/css/chat.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WG77RRX4');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG77RRX4"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="chat-container">
+        <!-- Header del chat -->
+        <div class="chat-header">
+            <div class="chat-title">
+                <span>Cora</span> - Asistente Virtual de CORADIR
+            </div>
+            <div id="header-actions">
+                <!-- Acciones adicionales si son necesarias -->
+            </div>
+        </div>
+
+        <!-- Contenedor de mensajes -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="welcome-container">
+                <div class="welcome-message">
+                    Bienvenido al asistente virtual de CORADIR. Estoy aquí para responder tus preguntas sobre nuestros productos y servicios.
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer con input y enlace -->
+        <div class="chat-footer">
+            <!-- Input de chat -->
+            <div class="chat-input">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Escribe tu mensaje..." 
+                    autocomplete="off"
+                >
+                <button id="micButton" class="mic-button" title="Mantén presionado para grabar">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button id="sendButton" title="Enviar mensaje">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <!-- Enlace a CORADIR IA -->
+            <div class="coradir-ia-link">
+                <a href="https://coradir.ai/" target="_blank" rel="noopener">
+                    <span class="pregunta">¿Querés tu propio chatbot? Visitá</span> 
+                    <span class="destacado">CORADIR IA</span>
+                    <img src="chat_assets/images/cerebro.svg" alt="IA" class="cerebro-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript del chat -->
+    <script src="chat_assets/js/chat.js"></script>
+</body>
+</html>

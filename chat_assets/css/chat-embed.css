@@ -1,0 +1,273 @@
+/* chat_assets/css/chat-embed.css */
+/* Estilos para el widget embed del chat de CORADIR */
+
+/* ===== CONTENEDOR PRINCIPAL DEL WIDGET ===== */
+#coradir-chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== BOTÓN FLOTANTE ===== */
+#coradir-chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #2E8B57;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#coradir-chat-button.pulse {
+    animation: buttonPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes buttonPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(46, 139, 87, 0.3); 
+    }
+    50% { 
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(46, 139, 87, 0.7); /
+    }
+}
+
+#coradir-chat-button:hover {
+    transform: scale(1.05);
+    background: #237446;
+    animation: none;
+}
+
+/* ===== CONTENEDOR DEL IFRAME ===== */
+#coradir-chat-iframe-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 520px;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#coradir-chat-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.coradir-chat-visible {
+    display: block !important;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ===== MENSAJE EMERGENTE (BURBUJA) ===== */
+#coradir-chat-bubble {
+    position: absolute;
+    bottom: 70px;
+    right: 10px;
+    width: 260px;
+    background: white;
+    border-radius: 18px;
+    padding: 12px 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    animation: bubblePulse 2s infinite;
+}
+
+@keyframes bubblePulse {
+    0% { box-shadow: 0 5px 15px rgba(46, 139, 87, 0.2); } 
+    50% { box-shadow: 0 5px 25px rgba(46, 139, 87, 0.5); } 
+    100% { box-shadow: 0 5px 15px rgba(46, 139, 87, 0.2); }
+}
+
+#coradir-chat-bubble.bubble-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.bubble-content {
+    display: flex;
+    align-items: center;
+}
+
+.bubble-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #2E8B57;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.bubble-message {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+}
+
+.bubble-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 1;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.bubble-close:hover {
+    background: #f5f5f5;
+    color: #666;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #coradir-chat-widget {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    #coradir-chat-button {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+    
+    #coradir-chat-iframe-container {
+        bottom: 80px;
+        right: 15px;
+        width: calc(100vw - 30px);
+        max-width: 350px;
+        height: 500px;
+    }
+    
+    #coradir-chat-bubble {
+        bottom: 65px;
+        right: 5px;
+        width: 240px;
+        padding: 10px 12px;
+    }
+    
+    .bubble-avatar {
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+    }
+    
+    .bubble-message {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    #coradir-chat-iframe-container {
+        width: calc(100vw - 20px);
+        height: calc(100vh - 150px);
+        bottom: 70px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    #coradir-chat-bubble {
+        width: 220px;
+        right: 0;
+    }
+}
+
+/* ===== MODO OSCURO ===== */
+/* @media (prefers-color-scheme: dark) {
+    #coradir-chat-bubble {
+        background: #2d2d2d;
+        color: #ffffff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .bubble-message {
+        color: #ffffff;
+    }
+    
+    .bubble-close {
+        color: #ccc;
+    }
+    
+    .bubble-close:hover {
+        background: #444;
+        color: #fff;
+    }
+} */
+
+/* ===== ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+    #coradir-chat-button,
+    #coradir-chat-bubble,
+    #coradir-chat-iframe-container {
+        animation: none;
+        transition: none;
+    }
+    
+    #coradir-chat-button:hover {
+        transform: none;
+    }
+    
+    .coradir-chat-visible {
+        animation: none;
+    }
+}
+
+/* ===== ESTADOS DE FOCUS PARA ACCESIBILIDAD ===== */
+#coradir-chat-button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.bubble-close:focus {
+    outline: 2px solid #2E8B57;
+    outline-offset: 1px;
+}

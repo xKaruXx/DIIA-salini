@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - caddy
+    restart: always
+    ports:
+      - "${PORT:-8851}:${PORT:-8851}"
+    labels:
+      - caddy=${DOMAIN:-botmov.coradir.ai}
+      - caddy.reverse_proxy="{{upstreams ${PORT:-8851}}}"
+      - caddy.header="Alt-Svc"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - N8N_WEBHOOK_URL=${N8N_WEBHOOK_URL}
+      - LLM_PROVIDER=${LLM_PROVIDER:-ollama}
+      - CHAT_MODEL_NAME=${CHAT_MODEL_NAME:-gemma3:1b}
+      - EMBEDDING_PROVIDER=${EMBEDDING_PROVIDER:-ollama}
+      - EMBEDDING_MODEL_NAME=${EMBEDDING_MODEL_NAME:-nomic-embed-text}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      - MODEL_TEMPERATURE=${MODEL_TEMPERATURE:-0.1}
+      - PROMPT_VARIANT=${PROMPT_VARIANT:-strict}
+      - RETRIEVAL_K=${RETRIEVAL_K:-4}
+      - RAG_DATASET_PATH=${RAG_DATASET_PATH:-./dataset/knowledge_base_movilidad.jsonl}
+      - RAW_DATASET_PATH=${RAW_DATASET_PATH:-./dataset/dataset_movilidad.json}
+      - VECTORSTORE_BASE_DIR=${VECTORSTORE_BASE_DIR:-./chroma_db}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - PORT=${PORT:-8851}
+      - DOMAIN=${DOMAIN:-botmov.coradir.ai}
+    volumes:
+      - chroma_db_data:/app/chroma_db
+
+networks:
+  caddy:
+    name: caddy
+    external: true
+
+volumes:
+  chroma_db_data:

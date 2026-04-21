@@ -1,0 +1,1080 @@
+{
+    "empresa": {
+      "nombre": "CORADIR S.A.",
+      "fundacion": 1995,
+      "descripcion": "Empresa argentina líder en innovación tecnológica especializada en equipos electrónicos e informáticos. Desde 2020, lidera el camino en movilidad eléctrica con vehículos 100% eléctricos fabricados en Argentina.",
+      "historia": {
+        "fundacion": "Establecida en San Luis por emprendedores argentinos y respaldada por capitales nacionales",
+        "hitos": [
+          {
+            "año": 2004,
+            "descripcion": "Obtención de la certificación ISO 9001, marcando su compromiso con la calidad"
+          },
+          {
+            "año": 2010,
+            "descripcion": "Obtención de la certificación ISO 14001, destacando su compromiso con el medio ambiente"
+          },
+          {
+            "año": 2020,
+            "descripcion": "Desarrollo de primeros vehículos eléctricos con tecnología argentina"
+          }
+        ]
+      },
+      "valores": [
+        "Continuidad con el tiempo y no un producto de oportunidad",
+        "Servicio de reparaciones de la fábrica que lo produjo",
+        "Precio competitivo",
+        "Atención especializada por la gente que desarrolló y testeó el producto"
+      ],
+      "plantas_fabricacion": [
+        {
+          "nombre": "Planta San Luis",
+          "tipo": "Casa Matriz",
+          "ubicacion": "Ruta 3 km 0.6 (Sur), San Luis Capital (CP5700)",
+          "capacidad": "5.000 m² de instalaciones"
+        },
+        {
+          "nombre": "Planta Buenos Aires",
+          "ubicacion": "Uspallata 2853, Parque Patricios, CABA (CP1437)",
+          "capacidad": "2.500 m² cubiertos"
+        }
+      ]
+    },
+    "movilidad_electrica": {
+      "filosofia": "Creemos que el futuro es eléctrico. Nuestro compromiso con la calidad, la confiabilidad y el respeto por el medio ambiente es la base de cada avance que hacemos.",
+      "beneficios_generales": [
+        "Rendimiento: Propulsor eléctrico de alta eficiencia",
+        "Carga Fácil: Directo a conector de 220v domiciliario",
+        "Silencioso: Libre de ruido y vibración",
+        "Ecológico: Sin emisiones de CO2 ni gases de efecto invernadero",
+        "Económico: Relación 10 a 1 en gastos de movilidad"
+      ],
+      "caracteristicas_vehiculos": [
+        "100% Eléctrico: Carga desde un enchufe convencional, sin aparatos adicionales",
+        "Admite cargas parciales: Carga completa en 8hs, permite cargas parciales",
+        "Cero emisiones: Medidas ambientales y energéticas para reducir CO2 y gases de efecto invernadero"
+      ]
+    },
+    "aplicaciones_coradir": {
+        "contactito_app": {
+          "descripcion": "CONTACTITO es una app de notificaciones que te ayuda a mantenerte informado sobre cualquier actualización de tu TITO.",
+          "funcion_principal": "Advertir el estado de la batería del vehículo",
+          "funcionalidades": [
+            "Supervisar el nivel de carga mientras el TITO se está cargando",
+            "Notificar cuando la batería está por debajo del 10%",
+            "Notificar cuando la batería alcanza el 100% de carga",
+            "Facilitar información importante sobre el estado del vehículo"
+          ],
+          "beneficios": "Mejora el uso del TITO y facilita acceso a información relevante del vehículo",
+          "disponibilidad": {
+            "google_play": "https://play.google.com/store/apps/details?id=com.coradir.contactito",
+            "app_store": "https://apps.apple.com/us/app/contactito/id1628571740"
+          }
+        },
+        "contactito_plus": {
+          "descripcion": "Versión premium de CONTACTITO con funcionalidad de geolocalización",
+          "funcionalidad_geolocalizacion": {
+            "descripcion": "Permite verificar el estado de la batería y saber exactamente dónde se encuentra el vehículo en todo momento",
+            "beneficios": [
+              "No preocuparse por no saber dónde se estacionó el vehículo",
+              "Detectar si alguien ha movido el vehículo sin permiso",
+              "Historial completo de ubicación del vehículo",
+              "Mayor tranquilidad y seguridad"
+            ]
+          },
+          "modalidad_pago": {
+            "opciones": ["Mensual", "Trimestral", "Semestral", "Anual"],
+            "flexibilidad": "El usuario puede elegir según sus necesidades y presupuesto"
+          },
+          "valor_agregado": "Experiencia de conducción más segura y conveniente"
+        }
+      },
+    "site_navigation": {
+      "main_menu": [
+        {
+          "seccion_vehiculos": "Catálogo completo de vehículos eléctricos de CORADIR, incluyendo modelos como TITO, TITA, TITA CUADRILLA, BARRE-TITA y CHIKI con sus especificaciones técnicas y variantes disponibles"
+        },
+        {
+          "seccion_entrega_inmediata": "Información sobre vehículos disponibles para entrega inmediata, sin necesidad de esperar tiempos de fabricación"
+        },
+        {
+          "seccion_ecocarga": "Soluciones de infraestructura de carga para vehículos eléctricos, tecnología de carga rápida y puntos de carga disponibles"
+        },
+        {
+          "seccion_consultas": "Sección para llenar un formulario con consultas"
+        },
+        {
+          "seccion_agencias": "Red de agencias oficiales de CORADIR Movilidad Eléctrica en todo el país, donde adquirir y recibir servicio técnico para los vehículos"
+        },
+        {
+          "seccion_quienes_somos": "Información sobre CORADIR S.A., su historia, filosofía y compromiso con la movilidad eléctrica y el medio ambiente"
+        }
+      ],
+      "special_actions_quiero_ser_agencia": [
+        {
+          "name": "#QUIEROSERAGENCIA",
+          "description": "Información y formulario para quienes desean convertirse en agencia oficial de CORADIR Movilidad Eléctrica",
+          "url": "https://movilidad.coradir.com.ar/agencias/"
+        }
+      ],
+      "current_site": "Movilidad Eléctrica",
+      "related_sites": [
+        {
+          "name": "CORADIR S.A.",
+          "url": "https://www.coradir.com.ar/",
+          "description": "Sitio principal de CORADIR S.A. con información sobre todos sus productos y servicios"
+        },
+        {
+          "name": "CORADIR Energía",
+          "url": "https://energia.coradir.com.ar/",
+          "description": "División especializada en soluciones de energía renovable y sustentable"
+        }
+      ]
+    },
+    "todos_los_vehiculos_disponibles": {
+      "TITO S2": {
+          "modelos_disponibles": ["TITO S2-300", "TITO S2-300 AA"],
+          "disponibilidad": "Inmediata - Unidades limitadas"
+      },
+      "TITO S5": {
+          "modelos_disponibles": ["TITO S5-300", "TITO S5-300 AA"],
+          "disponibilidad": "Inmediata - Unidades limitadas"
+      },
+      "TITA S2": {
+          "modelos_disponibles": ["TITA S2-300", "TITA S2-300 AA"],
+          "disponibilidad": "ENTREGA INMEDIATA"
+      },
+      "TITA 4P Cuadrilla": {
+          "modelos_disponibles": ["TITA 4P-300", "TITA 4P-300 AA"],
+          "disponibilidad": "ENTREGA INMEDIATA"
+      },
+      "BARRE-TITA": {
+          "modelos_disponibles": ["BARRE-TITA"],
+          "disponibilidad": "ENTREGA INMEDIATA"
+      },
+      "CHIKI": {
+          "modelos_disponibles": ["CHIKI-L (110KM) LITIO"],
+          "disponibilidad": "ENTREGA A 60 DÍAS"
+      },
+      "NOTAS_IMPORTANTES": {
+      "modelos_discontinuados": [
+        "TITO S2 100 (sin AA)",
+        "TITO S2 100 AA", 
+        "TITO S5 100 (sin AA)",
+        "TITO S5 100 AA",
+        "TITA 4P 100 (sin AA)",
+        "TITA 4P 100 AA",
+        "CHIKI G"
+      ],
+      "politica_actual": "La empresa se centra únicamente en vehículos con autonomía de 300 km (excepto CHIKI-L con 110 km). Los demás modelos no se encuentran disponibles."
+      }
+    },
+    "vehiculos_detalles": {
+      "ACLARACION_IMPORTANTE": {
+        "nota_discrepancia_web": "IMPORTANTE: La información de este chatbot está más actualizada que la página web. Si encontrás diferencias entre lo que te digo y lo que ves en la web, la información correcta es la que te proporciono aquí. La página web se está actualizando gradualmente.",
+        "modelos_discontinuados": "Los modelos de 100km de autonomía han sido discontinuados. Solo están disponibles versiones de 300km (excepto CHIKI-L con 110km)."
+      },
+      "TITO": {
+        "modelos_disponibles": [
+          {
+            "nombre": "TITO S2-300",
+            "descripcion": "Un hito en nuestra historia. Este vehículo 100% eléctrico se diseñó pensando en las necesidades de las ciudades argentinas. Con cuatro plazas y amplio espacio de carga, se convirtió en una alternativa atractiva para familias en entornos urbanos. Ahora disponible únicamente en versión 300km.",
+            "versiones_disponibles": {
+              "TITO S2-300": {
+                "autonomía": "300 Km",
+                "aire_acondicionado": "No"
+              },
+              "TITO S2-300 AA": {
+                "autonomía": "300 Km",
+                "aire_acondicionado": "Si"
+              }
+            },
+            "parametros_basicos": {
+              "bateria": "Litio LFP 21kwh 2000 ciclos",
+              "carga": "Enchufe 220V 50hz - Ficha 2073",
+              "tiempo_carga": "8 horas / Admite recarga parciales",
+              "capacidad": "4 personas",
+              "puertas": "3",
+              "pantalla": "LED HD Táctil 10\" - Reproductor multimedia",
+              "Radio": "Si",
+              "Bluetooth": "Si",
+              "Cámara de retroceso": "Si",
+              "Cierre_centralizado": "Si / Mando a distancia",
+              "Levanta vidrios eléctricos": "Si",
+              "asiento_trasero_rebatible": "Si"
+            },
+            "sistema_potencia": {
+              "dimensiones": "2830x1500x1565 mm",
+              "tipo_motor": "Asincrónico",
+              "traccion": "Trasera",
+              "potencia_nominal": "4.5 KW",
+              "Indicador de fallas en tablero": "Si",
+              "velocidad_maxima": "65 km/h"
+            },
+            "seguridad_confort": {
+              "tablero_digital": "Si",
+              "faros_led": "Si",
+              "frenos_disco": "En 4 ruedas",
+              "sensores_estacionamiento": "Trasero",
+              "calefaccion": "Si",
+              "levanta_vidrios": "Si",
+              "Sistema de cargado inteligente": "Si",
+              "Conexion Bluetooth": "Si",
+              "Radio (MP3)": "Si"
+            }
+          },
+          {
+            "nombre": "TITO S5-300",
+            "descripcion": "Evolución del TITO S2 con avanzada tecnología y características innovadoras, demostrando el compromiso con la evolución constante. Ahora disponible únicamente en versión 300km.",
+            "versiones_disponibles": {
+              "TITO S5-300": {
+                "autonomía": "300 Km",
+                "aire_acondicionado": "No"
+              },
+              "TITO S5-300 AA": {
+                "autonomía": "300 Km",
+                "aire_acondicionado": "Si"
+              }
+            },
+            "parametros_basicos": {
+              "bateria": "Litio LFP 21kwh 2000 ciclos",
+              "carga": "Enchufe 220V 50hz - Ficha 2073",
+              "tiempo_carga": "8 horas / Admite recarga parciales",
+              "capacidad": "4 personas",
+              "puertas": "5",
+              "pantalla": "LED HD Táctil 10\" - Reproductor multimedia",
+              "Radio": "Si",
+              "Bluetooth": "Si",
+              "Cámara de retroceso": "Si",
+              "cierre_centralizado": "Si / Mando a distancia",
+              "Levanta vidrios eléctricos": "Si",
+              "asiento_trasero_rebatible": "Si",
+              "neumaticos": "155/70 R12"
+            },
+            "sistema_potencia": {
+              "dimensiones": "2950x1500x1565 mm",
+              "tipo_motor": "Asincrónico",
+              "traccion": "Trasera",
+              "potencia_nominal": "4.5 KW",
+              "Indicador de fallas en tablero": "Si",
+              "velocidad_maxima": "65 km/h"
+            },
+            "seguridad_confort": {
+              "tablero_digital": "Si",
+              "faros_led": "Si",
+              "frenos_disco": "En 4 ruedas",
+              "sensores_estacionamiento": "Trasero",
+              "calefaccion": "Si",
+              "levanta_vidrios": "Si",
+              "sistema_cargado_inteligente": "Si",
+              "Conexion Bluetooth": "Si",
+              "Radio (MP3)": "Si"
+            }
+          }
+        ],
+        "colores_disponibles": ["Rosa", "Blanco", "Amarillo", "Celeste", "Naranja", "Verde", "Negro", "Rosa Bicolor (carrocería rosa, techo negro)", "Blanco Bicolor (carrocería blanca, techo negro)", "Amarillo Bicolor (carrocería amarilla, techo negro)", "Celeste Bicolor (carrocería celeste, techo negro)", "Naranja Bicolor (carrocería naranja, techo negro)", "Verde Bicolor (carrocería verde, techo negro)"],
+        "tipo": "city car",
+        "propulsion": "100% eléctrico"
+      },
+      "TITA S2 300": {
+        "nombre": "TITA S2-300 (también conocida como TITA 300)",
+        "descripcion": "Furgoneta eléctrica diseñada para satisfacer las necesidades de diversos sectores, con la combinación perfecta de capacidad, seguridad y sostenibilidad. Única versión TITA pickup disponible actualmente.",
+        "versiones_disponibles": {
+          "TITA S2-300": {
+            "autonomía": "300 Km",
+            "aire_acondicionado": "No"
+          },
+          "TITA S2-300 AA": {
+            "autonomía": "300 Km",
+            "aire_acondicionado": "Si"
+          },
+          "TITA S2-300 con Furgón": {
+            "autonomía": "300 Km",
+            "aire_acondicionado": "Opcional",
+            "accesorio": "Furgón cerrado",
+            "descripcion_accesorio": "Accesorio que convierte la pickup en furgón cerrado, caja térmicamente aislada."
+          },
+          "TITA S2-300 con Furgón Refrigerado": {
+            "autonomía": "300 Km",
+            "aire_acondicionado": "Opcional",
+            "accesorio": "Furgón refrigerado",
+            "descripcion_accesorio": "Accesorio que convierte la pickup en furgón cerrado con sistema de refrigeración"
+          }
+        },
+        "parametros_basicos": {
+          "bateria": "Litio LFP 21kwh 2000 ciclos",
+          "carga": "Enchufe 220V 50hz - Ficha 2073",
+          "tiempo_carga": "8 horas / Admite recarga parciales",
+          "capacidad": "2 personas",
+          "puertas": "2",
+          "capacidad_caja": "500 Kg",
+          "Pantalla": "LED HD",
+          "Radio": "Si",
+          "Cámara de retroceso": "Si",
+          "Caja Volcadora": "Si",
+          "dimensiones": "3750x1370x1720 mm",
+          "dimensiones_caja": "2000x1310x350 mm",
+          "apertura_caja": "Total, se abre por 3 lados, quedando totalmente playo"
+        },
+        "sistema_potencia": {
+          "tipo_motor": "Asincrónico",
+          "traccion": "Trasera",
+          "potencia_nominal": "4 KW",
+          "Indicador de fallas en tablero": "Si",
+          "velocidad_maxima": "45 km/h"
+        },
+        "seguridad_confort": {
+          "tablero_digital": "Si",
+          "faros_led": "Si",
+          "vidrios_electricos": "No",
+          "sistema_cargado_inteligente": "Si"
+        },
+        "accesorios_disponibles": {
+          "furgon": {
+            "nombre": "Furgón",
+            "descripcion": "Accesorio que convierte la pickup TITA en furgón cerrado para mayor protección de la carga",
+            "compatible_con": "TITA S2-300"
+          },
+          "furgon_refrigerado": {
+            "nombre": "Furgón Refrigerado",
+            "descripcion": "Accesorio que convierte la pickup TITA en furgón cerrado con sistema de refrigeración, ideal para transporte de productos que requieren cadena de frío",
+            "compatible_con": "TITA S2-300"
+          }
+        },
+        "tipo": "pickup",
+        "propulsion": "100% eléctrico",
+        "colores_disponibles": "Blanco"
+      },
+      "TITA 4P Cuadrilla": {
+        "nombre": "TITA 4P-300 Cuadrilla",
+        "descripcion": "Diseñada pensando en las necesidades de las cuadrillas de trabajadores que prestan servicios en las ciudades, combina eficiencia, comodidad y contribución al medio ambiente. Ahora disponible únicamente en versión 300km.",
+        "versiones_disponibles": {
+          "TITA 4P-300": {
+            "autonomía": "300 Km",
+            "aire_acondicionado": "No"
+          },
+          "TITA 4P-300 AA": {
+            "autonomía": "300 Km",
+            "aire_acondicionado": "Si"
+          }
+        },
+        "parametros_basicos": {
+          "puertas": "4",
+          "bateria": "Litio LFP 21kwh 2000 ciclos",
+          "carga": "Enchufe 220V 50hz - Ficha 2073",
+          "tiempo_carga": "8 horas / Admite recarga parciales",
+          "neumaticos": "145/70 R12",
+          "capacidad": "4 personas",
+          "pantalla": "LED HD 10\" - Reproductor multimedia",
+          "capacidad_carga": "350kg",
+          "capacidad_caja": "250kg",
+          "apertura_caja": "Apertura superior y trasera"
+        },
+        "sistema_potencia": {
+          "dimensiones": "3800x1400x1650 mm",
+          "dimensiones_caja": "1120X1300x440 mm",
+          "tipo_motor": "Asincrónico",
+          "traccion": "Trasera",
+          "potencia_nominal": "4Kw",
+          "velocidad_maxima": "50 Km/h"
+        },
+        "seguridad_confort": {
+          "tablero_digital": "Si",
+          "faros_led": "Si",
+          "frenos_disco": "Si",
+          "vidrios_electricos": "Si",
+          "sistema_cargado_inteligente": "Si",
+          "comando_multimedia_volante": "Si"
+        },
+        "tipo": "pickup",
+        "propulsion": "100% eléctrico",
+        "colores_disponibles": "Blanco"
+      },
+      "BARRE-TITA": {
+        "descripcion": "Producto revolucionario que se destaca por su rendimiento excepcional en la limpieza de superficies, equipado con 8 motores eléctricos especializados.",
+        "especificaciones": {
+          "dimensiones": "1950x1900x1900mm",
+          "peso_neto": "900 KG",
+          "ancho_limpieza": "1900 mm",
+          "capacidad_trabajo": "15000 m2/h",
+          "capacidad_tanque_agua": "150 Litros",
+          "capacidad_papelera": "180 Litros",
+          "voltaje": "48 V",
+          "motores": "conduccion 1200 W, cepillo principal 700 W, cepillo lateral 100x4 y succion 500 W",
+          "velocidad_trabajo": "0-15 km/h",
+          "autonomia": "4-6 horas",
+          "bateria": "Litio 7,2 Kwh"
+        },
+        "kit_accesorios": "Hidrolavadora, cañon rociador, lanza y pistola de hidrolavadora",
+        "tipo": "barredora",
+        "propulsion": "100% eléctrico",
+        "colores_disponibles": "Verde"
+      },
+      "CHIKI": {
+        "modelo_disponible": {
+          "nombre": "CHIKI-L (110KM) LITIO",
+          "descripcion": "Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.",
+          "parametros_basicos": {
+            "puertas": "2",
+            "bateria": "Litio NCM 4,5 KWh - 2000 ciclos",
+            "carga": "Enchufe 220V 50hz - Ficha 2073",
+            "autonomia": "110km",
+            "tiempo_carga": "7hs / admite cargas parciales",
+            "neumaticos": "135/70R-12",
+            "capacidad": "1 persona",
+            "Radio": "Si",
+            "Bluetooth": "Si",
+            "Cámara de retroceso": "Si",
+            "cierre_centralizado": "Si / Mando a distancia",
+            "levanta_vidrios_electricos": "Si",
+            "asiento_trasero_rebatible": "No"
+          },
+          "sistema_potencia": {
+            "dimensiones": "2500x1200x1630 mm",
+            "tipo_motor": "Asincrónico",
+            "traccion": "Trasera",
+            "potencia_nominal": "2 KW",
+            "Indicador de fallas en tablero": "Si",
+            "velocidad_maxima": "45 km/h"
+          },
+          "seguridad_confort": {
+            "tablero_digital": "Si",
+            "faros_led": "Si",
+            "frenos_disco": "Si",
+            "sensores_estacionamiento": "No",
+            "calefaccion": "Si",
+            "vidrios_electricos": "Si",
+            "sistema_cargado_inteligente": "Si",
+            "Conexion Bluetooth": "Si",
+            "Radio (MP3)": "Si",
+            "alarma_integrada": "Si"
+          }
+        },
+        "caracteristicas": "Primer vehículo eléctrico de San Luis",
+        "propulsion": "100% eléctrico"
+      }
+    },
+    "Precios_Vehiculos_Actualizados": {
+        "TITO S2": {
+            "TITO S2-300": {
+                "precio": "USD 15.972,50",
+                "disponibilidad": "Inmediata - Unidades limitadas"
+            },
+            "TITO S2-300 AA": {
+                "precio": "USD 16.722,50",
+                "disponibilidad": "Inmediata - Unidades limitadas"
+            }
+        },
+        "TITO S5": {
+            "TITO S5-300": {
+                "precio": "USD 16.981,25",
+                "disponibilidad": "Inmediata - Unidades limitadas"
+            },
+            "TITO S5-300 AA": {
+                "precio": "USD 17.731,25",
+                "disponibilidad": "Inmediata - Unidades limitadas"
+            }
+        },
+        "TITA S2": {
+            "TITA S2-300": {
+                "precio": "USD 16.981,25",
+                "disponibilidad": "ENTREGA INMEDIATA"
+            },
+            "TITA S2-300 AA": {
+                "precio": "USD 17.731,25",
+                "disponibilidad": "ENTREGA INMEDIATA"
+            },
+            "TITA S2 300 AA con Furgón": {
+              "precio": "USD 20.632,00", 
+              "descripcion": "TITA S2 300 AA + accesorio furgón",
+              "aclaración": "El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD"
+            },
+            "TITA S2 300 AA con Furgón Refrigerado": {
+              "precio": "USD 23.632,00",
+              "aclaración": "El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD"
+            }
+        },
+        "TITA 4P Cuadrilla": {
+            "TITA 4P-300": {
+                "precio": "USD 17.981,25",
+                "disponibilidad": "ENTREGA INMEDIATA"
+            },
+            "TITA 4P-300 AA": {
+                "precio": "USD 18.731,25",
+                "disponibilidad": "ENTREGA INMEDIATA"
+            }
+        },
+        "BARRE-TITA": {
+            "precio": "USD 29.990,00",
+            "disponibilidad": "ENTREGA INMEDIATA"
+        },
+        "CHIKI": {
+            "CHIKI-L (110KM) LITIO": {
+                "precio": "USD 9.900,00",
+                "disponibilidad": "ENTREGA A 60 DÍAS"
+            }
+        }
+    },
+    "leasing_estado_actual": {
+      "estado": "no_disponible",
+      "descripcion": "La modalidad de leasing (alquiler con opción a compra) de CORADIR está suspendida.",
+      "mensaje_principal": "Actualmente no ofrecemos planes de leasing activos para ningún modelo.",
+      "detalle": "Si un cliente consulta por leasing, aclarar que esta modalidad quedó pausada y sugerir alternativas como compra al contado u opciones de pago disponibles.",
+      "ultima_actualizacion": "octubre 2025"
+    },
+    "beneficios_discapacidad": {
+      "factura_proforma": "En el caso de aplicar el beneficio por discapacidad, CORADIR confecciona la factura proforma de acuerdo a los requerimientos de la ley 19279.",
+      "tramite_franquicia": {
+        "ley_aplicable": "Según lo que indica la ley 19279, debe realizar el trámite para verificar si se puede acceder a la franquicia impositiva",
+        "proceso": "La tramitación consiste en descargar los requisitos para realizar el mismo, junto con el formulario de solicitud de franquicia",
+        "presentacion": "Tanto la solicitud como los requisitos podrán ser presentados en la mesa de entradas del Servicio Nacional de Rehabilitación"
+      },
+      "evaluacion_medica": {
+        "requisito": "Cumplidos todos los requisitos, el interesado será sometido a una evaluación médica, realizada por una Junta Evaluadora dependiente del Servicio Nacional de Rehabilitación especialmente constituida a tal efecto",
+        "ubicacion_interior": "En caso de residir en el interior del país, la Junta Evaluadora se realiza en un Hospital Público correspondiente a su domicilio",
+        "ubicacion_caba_gba": "En caso de residir en la Ciudad Autónoma de Buenos Aires o en el Gran Buenos Aires, se realizará en el mismo Servicio Nacional de Rehabilitación",
+        "criterio_evaluacion": "La Junta evaluará si el solicitante posee una discapacidad que le impida o dificulte la utilización del transporte público de pasajeros"
+      },
+      "resolucion_final": "El Servicio Nacional de Rehabilitación finalmente emitirá el acto administrativo concediendo o denegando el beneficio, según corresponda en cada caso de la solicitud bajo examen"
+    },
+    "condiciones_compra_entrega": {
+      "reserva_pago_inicial": {
+        "reserva": "USD 200 para reservar la unidad",
+        "plazo_confirmacion": "30 días para confirmar la compra con el 20% de anticipo",
+        "forma_pago": "Pagos en pesos a cambio oficial del cierre anterior al día del efectivo pago",
+        "pagos_adicionales": "Se pueden realizar pagos adicionales hasta cancelar el total de la unidad",
+        "facturacion": "Se recibe factura correspondiente con el detalle del saldo pendiente tras cada pago"
+      },
+      "entrega_inmediata": {
+        "proceso": "Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas",
+        "plazo_pago": "Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada"
+      },
+      "plazos_entrega": {
+        "plazo_standard": "30 días posteriores a completar los trámites de patentamiento",
+        "condicion": "La unidad se entrega completamente saldada",
+        "costos_adicionales": "Los costos de patentamiento y flete NO están incluidos en el precio final y deben abonarse cuando la unidad esté lista"
+      },
+      "servicio_entrega": {
+        "disponible": "Servicio de entrega a domicilio disponible",
+        "costo": "Costo de flete no incluido en precio final"
+      },
+      "aclaracion_entrega": "Entrega de acuerdo a disponibilidad. El valor del dólar es el BNA tipo vendedor del día del efectivo pago. Los precios incluyen todos los impuestos, entre estos el IVA (TITO y CHIKI 21% - TITA, TITA Cuadrilla, TITA con Furgón, TITA con Furgón Refrigerado y BARRE-TITA 10,5%). No incluyen fletes, ni patentamiento, ni seguros."
+    },
+    "infraestructura_carga": {
+      "ecocarga": {
+        "descripcion": "CORADIR se complace en anunciar dos importantes avances que transformarán la experiencia de movilidad eléctrica en Argentina: expansión de infraestructura de carga y tecnología de carga rápida.",
+        "carga_rapida": {
+          "beneficios": [
+            "Reducción de tiempo: De 6-8 horas a solo 2 horas de carga",
+            "Comodidad y flexibilidad: Adaptada a su ritmo de vida",
+            "Sostenibilidad: Uso más eficiente de recursos, reducción de huella de carbono"
+          ],
+          "tecnologia": "Avanzada solución sin aumentar costos ni comprometer calidad, accesible y fácil de usar"
+        },
+        "puntos_carga": {
+          "ventajas_negocio": [
+            "Atrae nuevos clientes: Conductores de vehículos CORADIR",
+            "Mejora imagen del negocio: Posicionamiento como empresa innovadora y comprometida",
+            "Costo mínimo: Instalación gratuita o con costo mínimo",
+            "Reconocimiento local: Beneficio a la comunidad",
+            "Alianzas estratégicas: Posibles asociaciones con fabricantes o servicios públicos",
+            "Liderazgo en innovación: Posicionamiento como líder en el sector",
+            "Incentivos gubernamentales: Posibles beneficios fiscales",
+            "Ingresos adicionales: Posibilidad de establecer tarifas por uso"
+          ],
+          "solicitud": "Completar el formulario en el sitio web para que un representante de CORADIR se ponga en contacto"
+        }
+      }
+    },
+    "distribucion": {
+      "agencias_oficiales_por_provincia": {
+        "Buenos Aires": [
+          {
+            "nombre": "CHIAMO MOTORS SRL / Barbalace",
+            "ciudad": "MORENO",
+            "direccion": "Av. Colectora Acceso Oeste Sur 12.802 (km 42.5)"
+          },
+          {
+            "nombre": "Compañia Arrate (Necochea)",
+            "ciudad": "NECOCHEA",
+            "direccion": "Av. 59 N° 3734"
+          },
+          {
+            "nombre": "Maquinarias Pyramiz SRL",
+            "ciudad": "TORTUGUITAS",
+            "direccion": "Colectora Panamericana Oeste 1341 - Tortuguitas"
+          },
+          {
+            "nombre": "CHIAMO MOTORS SRL / Barbalace",
+            "ciudad": "LOMAS DEL MIRADOR",
+            "direccion": "Lomas Del Mirador"
+          },
+          {
+            "nombre": "Compañía Arrate SAS (Mar del Plata)",
+            "ciudad": "MAR DEL PLATA",
+            "direccion": "Av. Colon N° 3949"
+          },
+          {
+            "nombre": "Compañía Arrate SAS (Balcarce)",
+            "ciudad": "BALCARCE",
+            "direccion": "Av. G. Chavez N° 480"
+          },
+          {
+            "nombre": "ALONSO AUTOMOTORES",
+            "ciudad": "GENERAL LAS HERAS",
+            "direccion": "Av. Villamayor 677"
+          },
+          {
+            "nombre": "Compañía Arrate SAS (Tandil)",
+            "ciudad": "TANDIL",
+            "direccion": "Av. Marconi N° 1522"
+          },
+          {
+            "nombre": "Aldo Bruno Morino",
+            "ciudad": "ZARATE",
+            "direccion": "Av. Rivadavia 1037"
+          },
+          {
+            "nombre": "AUTOMOTORES BERGAMO",
+            "ciudad": "TRES ARROYOS",
+            "direccion": "Av. Moreno Nº 624"
+          },
+          {
+            "nombre": "AUTOMOTORES BODANZA",
+            "ciudad": "OLAVARRIA",
+            "direccion": "Independencia 3297"
+          },
+          {
+            "nombre": "AUTOSANZ",
+            "ciudad": "LUJAN",
+            "direccion": "Humberto 761"
+          },
+          {
+            "nombre": "Benevento Automotores",
+            "ciudad": "TEMPERLEY",
+            "direccion": "Av. Hipolito Yrigoyen 10301"
+          },
+          {
+            "nombre": "Berenstecher Julian Matias",
+            "ciudad": "VILLA MAIPU",
+            "direccion": "Av. Pte Arturo Illia 1324, Villa Maipu, San Martin"
+          },
+          {
+            "nombre": "Biaggi Motos",
+            "ciudad": "PERGAMINO",
+            "direccion": "Echevarria 383, Pergamino."
+          },
+          {
+            "nombre": "Car Max",
+            "ciudad": "9 DE JULIO",
+            "direccion": "Av. Vedia 712, 9 De Julio, Provincia De Buenos Aires"
+          },
+          {
+            "nombre": "Cassano Automotores",
+            "ciudad": "CIUDAD DE BUENOS AIRES",
+            "direccion": "Av. De Los Incas 5163"
+          },
+          {
+            "nombre": "DALIAN S.A.",
+            "ciudad": "VICENTE LOPEZ",
+            "direccion": "Av. Bme. Mitre 1717 Florida, Vicente Lopez"
+          },
+          {
+            "nombre": "Del Rio Servicios",
+            "ciudad": "CANNING",
+            "direccion": "Mariano Castex 3869"
+          },
+          {
+            "nombre": "FENGTAI",
+            "ciudad": "LANUS ESTE",
+            "direccion": "Av. Hipólito Yrigoyen 2480"
+          },
+          {
+            "nombre": "EIA- Tresa",
+            "ciudad": "BERAZATEGUI",
+            "direccion": "Av. Mitre 866, Berazategui, Provincia De Buenos Aires"
+          },
+          {
+            "nombre": "JP AUTOMOTORES",
+            "ciudad": "LA PLATA",
+            "direccion": "Calle 13 Nº 75 - Entre 33 Y 34 - La Plata"
+          },
+          {
+            "nombre": "JUANJO AUTOMOTORES",
+            "ciudad": "SALADILLO",
+            "direccion": "Ledesma 3264, Saladillo"
+          },
+          {
+            "nombre": "La Posta Automotores",
+            "ciudad": "PELLEGRINI",
+            "direccion": "Francia 151"
+          },
+          {
+            "nombre": "LC AUTOMOTORES",
+            "ciudad": "LOBOS",
+            "direccion": "Soldado Echave Y Calle 235, Lobos Prov Bs As."
+          },
+          {
+            "nombre": "Muguello SRL",
+            "ciudad": "RAMOS MEJIA",
+            "direccion": "Avenida Enrique Mosconi 2051"
+          },
+          {
+            "nombre": "Pedro Automotores",
+            "ciudad": "BURZACO",
+            "direccion": "Av. Thomas Espora 4825"
+          },
+          {
+            "nombre": "Soluciones de Movilidad S.A.",
+            "ciudad": "MUNRO",
+            "direccion": "Esmeralda 3653 (esquina Av. Mitre)"
+          },
+          {
+            "nombre": "YORUEDO S.R.L",
+            "ciudad": "MARTINEZ",
+            "direccion": "Av. Fco Beiro 5550 - Martinez"
+          },
+          {
+            "nombre": "IGARRETA SACI",
+            "ciudad": "CIUDAD DE BUENOS AIRES",
+            "direccion": "Avenida Amancio Alcorta 2260, Buenos Aires"
+          },
+          {
+            "nombre": "Showroom Coradir Movilidad Eléctrica",
+            "ciudad": "CIUDAD DE BUENOS AIRES",
+            "direccion": "Bartolomé Mitre 701, Caba, Caba"
+          }
+        ],
+        "Tierra del Fuego Antartida e Islas del Atlantico Sur": [
+          {
+            "nombre": "Gloker Trucks S.A",
+            "ciudad": "USHUAIA",
+            "direccion": "Gdor Deloqui 191 Y Pres. Bernadino Rivadavia"
+          },
+          {
+            "nombre": "Gloker Trucks SA",
+            "ciudad": "RIO GRANDE",
+            "direccion": "Av. San Martin 2527"
+          }
+        ],
+        "Chubut": [
+          {
+            "nombre": "GRUPO MALL DON BOSCO",
+            "ciudad": "TRELEW",
+            "direccion": "Irigoyen 1108"
+          },
+          {
+            "nombre": "Franco Finiguerra (GRUPO MALL DON BOSCO)",
+            "ciudad": "ESQUEL",
+            "direccion": "9 De Julio Y Perito Moreno"
+          },
+          {
+            "nombre": "Franco Finiguerra (GRUPO MALL DON BOSCO,)",
+            "ciudad": "COMODORO RIVADAVIA",
+            "direccion": "Irigoyen 853"
+          },
+          {
+            "nombre": "HUELLA CERO",
+            "ciudad": "TREVELIN",
+            "direccion": "Ruta 34 Km 1,8 Trevelin Chubut- Argentina"
+          }
+        ],
+        "Santa Fe": [
+          {
+            "nombre": "Maquinarias Pyramiz SRL",
+            "ciudad": "ROSARIO",
+            "direccion": "Ruta 9 (autopista Buenos Aires-rosario) Km 280.5 (2126)"
+          },
+          {
+            "nombre": "DE ROSSI MOTOS SRL",
+            "ciudad": "FRONTERA",
+            "direccion": "Calle 1 N°2105 - Localidad Frontera - Provincia Santa Fe - Cp2438"
+          },
+    
+          {
+            "nombre": "Dellasanta y Antonini S.A.",
+            "ciudad": "RAFAELA",
+            "direccion": "25 De Mayo 43, Rafaela"
+          },
+          {
+            "nombre": "Demagro S.R.L.",
+            "ciudad": "VENADO TUERTO",
+            "direccion": "Ruta Nacional 92 Km 29.2 Arequito - Santa Fe."
+          },
+          {
+            "nombre": "HyH Automotores",
+            "ciudad": "ESPERANZA",
+            "direccion": "Lopez Y Planes 1429"
+          },
+          {
+            "nombre": "Martelli Hnos S.R.L",
+            "ciudad": "ROSARIO",
+            "direccion": "Av Candido Carballo 171"
+          },
+          {
+            "nombre": "ORIO HNOS S.A.",
+            "ciudad": "SAN GENARO",
+            "direccion": "Belgrano 1122"
+          },
+          {
+            "nombre": "Perracino Litoral Maquinarias S.A.",
+            "ciudad": "VILLA TRINIDAD",
+            "direccion": "Colectora Ruta 23, Acceso Norte"
+          },
+          {
+            "nombre": "VOLTS",
+            "ciudad": "ROSARIO",
+            "direccion": "Ovidio Lagos 895 - Rosario - Santa Fe"
+          },
+          {
+            "nombre": "WAPA S.A.",
+            "ciudad": "ROSARIO",
+            "direccion": "Av. Eva Perón 7605, Rosario, Santa Fe"
+          },
+          {
+            "nombre": "Vehículos Eléctricos A&H Reconquista",
+            "ciudad": "RECONQUISTA",
+            "direccion": "Habegger 1122"
+          }
+        ],
+        "Cordoba": [
+          {
+            "nombre": "DEVENIR GROUP S.A.S",
+            "ciudad": "MARCOS JUAREZ",
+            "direccion": "9 De Julio 262-centro- Marcos Juarez"
+          },
+          {
+            "nombre": "Franchi Automotores",
+            "ciudad": "JESUS MARIA",
+            "direccion": "Pedro J. Frías 35, Jesús María, Córdoba"
+          },
+          {
+            "nombre": "Publicos, vivienda y credito TIO PUJIO LTDA",
+            "ciudad": "TIO PUJIO",
+            "direccion": "Juan Domingo Peron 386 Esq. Eva Duarte"
+          },
+          {
+            "nombre": "SIGNATURE S.A.",
+            "ciudad": "CORDOBA",
+            "direccion": "Av. Colon 4875"
+          },
+          {
+            "nombre": "Virglinio Automotores",
+            "ciudad": "ONCATIVO",
+            "direccion": "Av. Del Libertador 126"
+          }
+        ],
+        "Entre Rios": [
+          {
+            "nombre": "ALMAFUERTE",
+            "ciudad": "PARANA",
+            "direccion": "Av. Almafuerte 960, Parana, Entre Rios"
+          },
+          {
+            "nombre": "SOCRA S.R.L",
+            "ciudad": "COLON",
+            "direccion": "Presidente Peron Y Combatientes De Malvinas"
+          }
+        ],
+        "Misiones": [
+          {
+            "nombre": "ALMAR S.A",
+            "ciudad": "POSADAS",
+            "direccion": "Av. Uruguay 3875"
+          }
+        ],
+        "Corrientes": [
+          {
+            "nombre": "Ayala Automoviles",
+            "ciudad": "CORRIENTES",
+            "direccion": "Av.centenario 4285"
+          },
+          {
+            "nombre": "Vica Neumáticos y servicios S.A.",
+            "ciudad": "GOYA",
+            "direccion": "Mendoza 51 - Goya - Corrientes"
+          }
+        ],
+        "San Luis": [
+          {
+            "nombre": "CORADIR MOVILIDAD",
+            "ciudad": "SAN LUIS",
+            "direccion": "Ruta 3 Sur Km 0.6 San Luis Argentina"
+          }
+        ],
+        "La Pampa": [
+          {
+            "nombre": "Diego Tripi",
+            "ciudad": "GENERAL PICO",
+            "direccion": "Calle 9 Esquina 4, General Pico, La Pampa"
+          },
+          {
+            "nombre": "Osvaldo Eduardo Zudaire",
+            "ciudad": "MIGUEL RIGLOS",
+            "direccion": "Malvinas Argentinas N° 390"
+          },
+          {
+            "nombre": "RAZA SRL",
+            "ciudad": "SANTA ROSA",
+            "direccion": "Av. Pedro Luro 1105"
+          },
+          {
+            "nombre": "Sport Cars (Barbalace)",
+            "ciudad": "GENERAL PICO",
+            "direccion": "Calle 9, Esquina 4"
+          }
+        ],
+        "Chaco":[
+          {
+            "nombre": "Grupo Nuevo Horizonte S.R.L",
+            "ciudad": "RESISTENCIA",
+            "direccion": "Av. 25 De Mayo 640"
+          }
+        ],
+        "Rio Negro":[
+          {
+            "nombre": "L&U S.A. - Lovagnini Automotores",
+            "ciudad": "CIPOLLETTI",
+            "direccion": "España Y Gral Fernandez Oro 40"
+          }
+        ],
+        "San Juan": [
+          {
+            "nombre": "LE PONT SA",
+            "ciudad": "SAN JUAN",
+            "direccion": "Lateral De Circunvalacion Sur - Este 1575"
+          }
+        ],
+        "Catamarca": [
+          {
+            "nombre": "LEDIAN S.A.",
+            "ciudad": "SAN FERNANDO DEL VALLE DE CATAMARCA",
+            "direccion": "Av Belgrano N° 1600 - San Fernando Del Valle De Catamarca"
+          }
+        ],
+        "Santa Cruz": [
+          {
+            "nombre": "MATIAS JAVIER LEONETTI",
+            "ciudad": "RIO GALLEGOS",
+            "direccion": "Pellegrini 54, Río Gallegos, Santa Cruz"
+          }
+        ],
+        "Tucuman": [
+          {
+            "nombre": "Mercado Z SAS / Ecomovil Tucuman",
+            "ciudad": "SAN MIGUEL DE TUCUMAN",
+            "direccion": "San Martin 2183 - San Miguel De Tucuman"
+          }
+        ],
+        "Formosa": [
+          {
+            "nombre": "SOCSA S.R.L (SAAVEDRA MOTORS)",
+            "ciudad": "FORMOSA",
+            "direccion": "Saavedra 2105"
+          }
+        ],
+        "Neuquen": [
+          {
+            "nombre": "Sur Car S.A.",
+            "ciudad": "NEUQUEN",
+            "direccion": "Perticone 1197"
+          }
+        ],
+        "Mendoza": [
+          {
+            "nombre": "Valentino Motos S.A.S",
+            "ciudad": "GODOY CRUZ",
+            "direccion": "San Martin Sur 1055"
+          }
+        ]
+      }
+    },
+    "preguntas_frecuentes": {
+      "general": [
+        {
+          "pregunta": "¿Qué es Coradir Movilidad Eléctrica?",
+          "respuesta": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina."
+        },
+        {
+          "pregunta": "¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "respuesta": "Nuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital."
+        }, 
+        {
+          "pregunta": "¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "respuesta": "Estos vehiculos están diseñados solo para circulación urbana, no se recomienda su uso en autopistas o rutas"
+        }
+      ],
+      "vehiculos": [
+        {
+          "pregunta": "¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "respuesta": "Dependiendo del modelo, ofrecemos versiones con autonomía de 70 km hasta 300 km. La autonomía varía según el modelo y tipo de batería."
+        },
+        {
+          "pregunta": "¿Cuánto tiempo toma cargar completamente la batería?",
+          "respuesta": "Normalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas."
+        }
+      ],
+      "carga": [
+        {
+          "pregunta": "¿Necesito una instalación especial para cargar mi vehículo?",
+          "respuesta": "No, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A."
+        },
+        {
+          "pregunta": "¿Puedo realizar cargas parciales?",
+          "respuesta": "Sí, todos nuestros vehículos admiten cargas parciales. No es necesario esperar a que la batería se agote completamente para recargarla."
+        },
+        {
+          "pregunta": "¿Qué es la tecnología de carga rápida?",
+          "respuesta": "Es una avanzada solución que reduce el tiempo de carga de 6-8 horas a aproximadamente 2 horas, brindando mayor comodidad y flexibilidad sin comprometer el rendimiento ni la autonomía del vehículo."
+        }
+      ],
+      "mantenimiento": [
+        {
+          "pregunta": "¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "respuesta": "Nuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos."
+        },
+        {
+          "pregunta": "¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?",
+          "respuesta": "Contamos con una amplia red de servicio técnico en todo el país. Para más información, puede contactar al (0266) 5264805"
+        },
+        {
+          "pregunta": "¿Qué garantía tienen los vehículos?",
+          "respuesta": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado."
+        }
+      ],
+      "adquisicion": [
+        {
+          "pregunta": "¿Dónde puedo comprar un vehículo eléctrico Coradir?",
+          "respuesta": "Puede adquirirlos en nuestras agencias oficiales distribuidas por todo el país. Consulte la lista completa en nuestro sitio web."
+        },
+        {
+          "pregunta": "¿Qué es eso de la entrega inmediata?",
+          "respuesta": "Esta modalidad básicamente consiste en que el cliente puede comprar un vehículo y llevarlo al instante, sin necesidad de esperar la fabricación del mismo."
+        }
+      ],
+      "ambiental": [
+        {
+          "pregunta": "¿Cuál es el impacto ambiental de los vehículos eléctricos Coradir?",
+          "respuesta": "Nuestros vehículos no generan emisiones de CO2 ni gases de efecto invernadero durante su uso. Además, son silenciosos, reduciendo la contaminación sonora en las ciudades."
+        },
+        {
+          "pregunta": "¿Qué sucede con las baterías al final de su vida útil?",
+          "respuesta": "Contamos con un programa de reciclaje responsable de baterías, alineado con nuestro compromiso ambiental respaldado por la certificación ISO 14001."
+        }
+      ]
+    },
+    "contactos": {
+      "telefono_general_empresa_coradir": "(0266) 4458255 (Telefono de la casa matriz de CORADIR S.A.)",
+      "email_movilidad_ventas": "autos@coradir.com.ar",
+      "direccion": "Ruta 3 km 0.6 (Sur) – San Luis Capital (CP5700)",
+      "telefono_movilidad_posventa": "(0266) 5264805 (Se usa para llamar al área posventa y también se usa para servicio técnico y reclamos)",
+      "telefono_movilidad_ventas": "(0266) 4305996 (Se usa para llamar al área de ventas de movilidad eléctrica)"
+    },
+    "sitios_web": {
+      "principal": "https://www.coradir.com.ar/",
+      "movilidad_electrica": "https://movilidad.coradir.com.ar/",
+      "movilidad_electrica_reservas": "Esta URL permite iniciar la reserva de un vehiculo https://movilidad.coradir.com.ar/reservas/",
+      "energias_renovables": "https://energia.coradir.com.ar/"
+    }
+  }
+
