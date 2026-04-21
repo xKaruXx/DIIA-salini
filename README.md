@@ -46,6 +46,12 @@ Resultados generados:
 - `docs/benchmark_strict.json`
 - `docs/benchmark_sales.json`
 
+## Guia de uso
+
+Para levantar el proyecto y abrir la interfaz web del chat:
+
+- `docs/guia_uso_y_demo.md`
+
 ## Variables de entorno principales
 
 - `DATABASE_URL`: por defecto usa SQLite local
