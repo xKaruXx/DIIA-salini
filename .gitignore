@@ -13,4 +13,4 @@ __pycache__/
 
 # Artefactos generados localmente
 chatbot_movilidad.db
-chroma_db/ollama_nomic-embed-text/
+chroma_db/

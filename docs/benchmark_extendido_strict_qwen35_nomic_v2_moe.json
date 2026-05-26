@@ -1,0 +1,1007 @@
+{
+  "summary": {
+    "total_cases": 64,
+    "passed_cases": 35,
+    "accuracy": 0.5469,
+    "average_latency_seconds": 0.01,
+    "prompt_variant": "strict",
+    "llm_provider": "ollama",
+    "chat_model_name": "qwen3.5:latest",
+    "embedding_provider": "ollama",
+    "embedding_model_name": "nomic-embed-text-v2-moe:latest"
+  },
+  "results": [
+    {
+      "index": 1,
+      "id": "tito_s5_autonomia_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?",
+      "expected_keywords": [
+        "300 km",
+        "220v",
+        "8 horas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "carga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales\nautonomía: 300 Km\nsistema cargado inteligente: Si"
+    },
+    {
+      "index": 2,
+      "id": "tito_s5_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 AA?",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 16.981,25\nprecio: USD 17.731,25\nnombre: TITO S5-300\nTITO S5-300:"
+    },
+    {
+      "index": 3,
+      "id": "tita_s2_capacidad",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de carga y de pasajeros tiene la TITA S2-300?",
+      "expected_keywords": [
+        "500 kg",
+        "2 personas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "carga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales\ncapacidad: 2 personas\ncapacidad caja: 500 Kg"
+    },
+    {
+      "index": 4,
+      "id": "tita_furgon_refrigerado_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con furgón refrigerado?",
+      "expected_keywords": [
+        "23.632,00",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "aclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nautonomía: 300 Km\naccesorio: Furgón refrigerado\ndescripcion accesorio: Accesorio que convierte la pickup en furgón cerrado con sistema de refrigeración"
+    },
+    {
+      "index": 5,
+      "id": "chiki_autonomia_velocidad",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y velocidad máxima tiene el CHIKI de litio?",
+      "expected_keywords": [
+        "110km",
+        "45 km/h"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "velocidad maxima: 45 km/h\ndescripcion: Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.\nautonomia: 110km\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado."
+    },
+    {
+      "index": 6,
+      "id": "barre_tita_capacidad",
+      "category": "vehiculos",
+      "question": "¿Cuál es la capacidad de trabajo y el tanque de agua de la BARRE-TITA?",
+      "expected_keywords": [
+        "15000 m2/h",
+        "150 litros"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "capacidad tanque agua: 150 Litros\ncapacidad trabajo: 15000 m2/h\ncapacidad papelera: 180 Litros\npeso neto: 900 KG"
+    },
+    {
+      "index": 7,
+      "id": "garantia",
+      "category": "posventa",
+      "question": "¿Qué garantía tienen los vehículos?",
+      "expected_keywords": [
+        "1 año",
+        "3 años"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?\nNuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?"
+    },
+    {
+      "index": 8,
+      "id": "reclamos_servicio",
+      "category": "posventa",
+      "question": "¿Dónde hago un reclamo o pido servicio técnico?",
+      "expected_keywords": [
+        "5264805",
+        "0266"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Contamos con una amplia red de servicio técnico en todo el país. Para más información, puede contactar al (0266) 5264805\nPregunta: ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?\nNuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nPregunta: ¿Dónde se fabrican los vehículos eléctricos de Coradir?"
+    },
+    {
+      "index": 9,
+      "id": "leasing_suspendido",
+      "category": "comercial",
+      "question": "¿Tienen leasing o alquiler con opción a compra?",
+      "expected_keywords": [
+        "no",
+        "leasing",
+        "alquiler con opción a compra"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "La modalidad de leasing (alquiler con opción a compra) de CORADIR está suspendida.\nSi un cliente consulta por leasing, aclarar que esta modalidad quedó pausada y sugerir alternativas como compra al contado u opciones de pago disponibles.\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado."
+    },
+    {
+      "index": 10,
+      "id": "beneficio_discapacidad",
+      "category": "beneficios",
+      "question": "¿Cómo es el trámite por beneficio de discapacidad?",
+      "expected_keywords": [
+        "ley 19279",
+        "servicio nacional de rehabilitacion"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "ley aplicable: Según lo que indica la ley 19279, debe realizar el trámite para verificar si se puede acceder a la franquicia impositiva\nproceso: La tramitación consiste en descargar los requisitos para realizar el mismo, junto con el formulario de solicitud de franquicia\npresentacion: Tanto la solicitud como los requisitos podrán ser presentados en la mesa de entradas del Servicio Nacional de Rehabilitación\nEn el caso de aplicar el beneficio por discapacidad, CORADIR confecciona la factura proforma de acuerdo a los requerimientos de la ley 19279."
+    },
+    {
+      "index": 11,
+      "id": "agencia_san_luis",
+      "category": "agencias",
+      "question": "¿Tienen agencia oficial en San Luis?",
+      "expected_keywords": [
+        "san luis",
+        "ruta 3 sur km 0.6"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "ciudad: SAN LUIS\ndireccion: Ruta 3 Sur Km 0.6 San Luis Argentina\ndireccion: Calle 1 N°2105 - Localidad Frontera - Provincia Santa Fe - Cp2438\ndireccion: Ruta Nacional 92 Km 29.2 Arequito - Santa Fe."
+    },
+    {
+      "index": 12,
+      "id": "carga_rapida",
+      "category": "carga",
+      "question": "¿Qué ventaja ofrece la carga rápida?",
+      "expected_keywords": [
+        "2 horas",
+        "6-8 horas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Es una avanzada solución que reduce el tiempo de carga de 6-8 horas a aproximadamente 2 horas, brindando mayor comodidad y flexibilidad sin comprometer el rendimiento ni la autonomía del vehículo.\nPregunta: ¿Qué es la tecnología de carga rápida?\nReducción de tiempo: De 6-8 horas a solo 2 horas de carga\ndescripcion: CORADIR se complace en anunciar dos importantes avances que transformarán la experiencia de movilidad eléctrica en Argentina: expansión de infraestructura de carga y tecnología de carga rápida."
+    },
+    {
+      "index": 13,
+      "id": "instalacion_carga",
+      "category": "carga",
+      "question": "¿Necesito una instalación especial para cargar un vehículo?",
+      "expected_keywords": [
+        "220v",
+        "20a"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "No, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A.\nPregunta: ¿Necesito una instalación especial para cargar mi vehículo?\nNormalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas.\nPregunta: ¿Cuánto tiempo toma cargar completamente la batería?"
+    },
+    {
+      "index": 14,
+      "id": "reserva_entrega",
+      "category": "compra",
+      "question": "¿Cómo funciona la reserva y la entrega inmediata?",
+      "expected_keywords": [
+        "usd 200",
+        "72 horas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "proceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada\nreserva: USD 200 para reservar la unidad\nplazo confirmacion: 30 días para confirmar la compra con el 20% de anticipo"
+    },
+    {
+      "index": 15,
+      "id": "telefono_ventas",
+      "category": "contacto",
+      "question": "¿Cuál es el teléfono de ventas de movilidad eléctrica?",
+      "expected_keywords": [
+        "4305996",
+        "0266"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "(0266) 4305996 (Se usa para llamar al área de ventas de movilidad eléctrica)\n(0266) 5264805 (Se usa para llamar al área posventa y también se usa para servicio técnico y reclamos)\nCoradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina."
+    },
+    {
+      "index": 16,
+      "id": "empresa_que_es_coradir_movilidad",
+      "category": "empresa",
+      "question": "¿Qué es Coradir Movilidad Eléctrica?",
+      "expected_keywords": [
+        "CORADIR S.A.",
+        "2020"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nCreemos que el futuro es eléctrico. Nuestro compromiso con la calidad, la confiabilidad y el respeto por el medio ambiente es la base de cada avance que hacemos.\nhttps://movilidad.coradir.com.ar/"
+    },
+    {
+      "index": 17,
+      "id": "empresa_donde_se_fabrican",
+      "category": "empresa",
+      "question": "¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+      "expected_keywords": [
+        "Argentina",
+        "Ruta 3 km 0.6",
+        "San Luis"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Pregunta: ¿Dónde se fabrican los vehículos eléctricos de Coradir?\nNuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nPregunta: ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?\nDependiendo del modelo, ofrecemos versiones con autonomía de 70 km hasta 300 km. La autonomía varía según el modelo y tipo de batería."
+    },
+    {
+      "index": 18,
+      "id": "empresa_plantas_fabricacion",
+      "category": "empresa",
+      "question": "¿Qué plantas de fabricación tiene CORADIR?",
+      "expected_keywords": [
+        "Planta San Luis",
+        "Planta Buenos Aires",
+        "Uspallata 2853"
+      ],
+      "missing_keywords": [
+        "Planta San Luis",
+        "Planta Buenos Aires",
+        "Uspallata 2853"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?"
+    },
+    {
+      "index": 19,
+      "id": "empresa_certificaciones_iso",
+      "category": "empresa",
+      "question": "¿Qué certificaciones ISO se mencionan en la historia de CORADIR?",
+      "expected_keywords": [
+        "ISO 9001",
+        "ISO 14001"
+      ],
+      "missing_keywords": [
+        "ISO 9001",
+        "ISO 14001"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nNuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?"
+    },
+    {
+      "index": 20,
+      "id": "empresa_valores",
+      "category": "empresa",
+      "question": "¿Qué valores destaca CORADIR para sus vehículos eléctricos?",
+      "expected_keywords": [
+        "precio competitivo",
+        "atención especializada"
+      ],
+      "missing_keywords": [
+        "precio competitivo",
+        "atención especializada"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Nuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?\nNuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nPregunta: ¿Dónde se fabrican los vehículos eléctricos de Coradir?"
+    },
+    {
+      "index": 21,
+      "id": "movilidad_beneficios_generales",
+      "category": "movilidad",
+      "question": "¿Qué beneficios generales tiene la movilidad eléctrica de Coradir?",
+      "expected_keywords": [
+        "220v",
+        "silencioso",
+        "sin emisiones"
+      ],
+      "missing_keywords": [
+        "220v",
+        "silencioso",
+        "sin emisiones"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nEconómico: Relación 10 a 1 en gastos de movilidad\nCreemos que el futuro es eléctrico. Nuestro compromiso con la calidad, la confiabilidad y el respeto por el medio ambiente es la base de cada avance que hacemos."
+    },
+    {
+      "index": 22,
+      "id": "movilidad_relacion_gastos",
+      "category": "movilidad",
+      "question": "¿Qué relación de gastos de movilidad menciona Coradir?",
+      "expected_keywords": [
+        "10 a 1",
+        "movilidad"
+      ],
+      "missing_keywords": [
+        "10 a 1"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nNuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?"
+    },
+    {
+      "index": 23,
+      "id": "app_contactito_funciones",
+      "category": "app",
+      "question": "¿Para qué sirve la app CONTACTITO?",
+      "expected_keywords": [
+        "batería",
+        "10%",
+        "100%"
+      ],
+      "missing_keywords": [
+        "batería",
+        "10%",
+        "100%"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "descripcion: CONTACTITO es una app de notificaciones que te ayuda a mantenerte informado sobre cualquier actualización de tu TITO.\ngoogle play: https://play.google.com/store/apps/details?id=com.coradir.contactito\napp store: https://apps.apple.com/us/app/contactito/id1628571740\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado."
+    },
+    {
+      "index": 24,
+      "id": "app_contactito_plus",
+      "category": "app",
+      "question": "¿Qué agrega CONTACTITO Plus?",
+      "expected_keywords": [
+        "geolocalización",
+        "historial",
+        "ubicación"
+      ],
+      "missing_keywords": [
+        "historial",
+        "ubicación"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "descripcion: Versión premium de CONTACTITO con funcionalidad de geolocalización\nvalor agregado: Experiencia de conducción más segura y conveniente\ndescripcion: CONTACTITO es una app de notificaciones que te ayuda a mantenerte informado sobre cualquier actualización de tu TITO.\ngoogle play: https://play.google.com/store/apps/details?id=com.coradir.contactito"
+    },
+    {
+      "index": 25,
+      "id": "web_reservas",
+      "category": "sitios_web",
+      "question": "¿Cuál es la URL para iniciar la reserva de un vehículo?",
+      "expected_keywords": [
+        "movilidad.coradir.com.ar/reservas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Dependiendo del modelo, ofrecemos versiones con autonomía de 70 km hasta 300 km. La autonomía varía según el modelo y tipo de batería.\nNo, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A.\nNuestros vehículos no generan emisiones de CO2 ni gases de efecto invernadero durante su uso. Además, son silenciosos, reduciendo la contaminación sonora en las ciudades.\nEsta URL permite iniciar la reserva de un vehiculo https://movilidad.coradir.com.ar/reservas/"
+    },
+    {
+      "index": 26,
+      "id": "modelos_discontinuados",
+      "category": "vehiculos",
+      "question": "¿Qué pasó con los modelos de 100 km y el CHIKI-G?",
+      "expected_keywords": [
+        "100km",
+        "discontinuados",
+        "CHIKI-G"
+      ],
+      "missing_keywords": [
+        "100km",
+        "discontinuados",
+        "CHIKI-G"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Nuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?"
+    },
+    {
+      "index": 27,
+      "id": "tito_s2_modelos_disponibles",
+      "category": "vehiculos",
+      "question": "¿Qué versiones están disponibles del TITO S2?",
+      "expected_keywords": [
+        "TITO S2-300",
+        "TITO S2-300 AA"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "nombre: TITO S2-300\nTITO S2-300:\nTITO S2-300 AA:\nversiones disponibles:"
+    },
+    {
+      "index": 28,
+      "id": "tito_s5_modelos_disponibles",
+      "category": "vehiculos",
+      "question": "¿Qué versiones están disponibles del TITO S5?",
+      "expected_keywords": [
+        "TITO S5-300",
+        "TITO S5-300 AA"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "nombre: TITO S5-300\nTITO S5-300:\nTITO S5-300 AA:\ndescripcion: Evolución del TITO S2 con avanzada tecnología y características innovadoras, demostrando el compromiso con la evolución constante. Ahora disponible únicamente en versión 300km."
+    },
+    {
+      "index": 29,
+      "id": "tito_s2_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S2-300?",
+      "expected_keywords": [
+        "15.972,50",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 15.972,50\nprecio: USD 16.722,50\nnombre: TITO S2-300\nTITO S2-300:"
+    },
+    {
+      "index": 30,
+      "id": "tito_s2_300_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S2-300 AA?",
+      "expected_keywords": [
+        "16.722,50",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 15.972,50\nprecio: USD 16.722,50\nnombre: TITO S2-300\nTITO S2-300:"
+    },
+    {
+      "index": 31,
+      "id": "tito_s5_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 sin aire acondicionado?",
+      "expected_keywords": [
+        "16.981,25",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 16.981,25\nprecio: USD 17.731,25\nnombre: TITO S5-300\nTITO S5-300:"
+    },
+    {
+      "index": 32,
+      "id": "tito_capacidad_autonomia",
+      "category": "vehiculos",
+      "question": "¿Cuántas personas lleva un TITO y qué autonomía tienen las versiones actuales?",
+      "expected_keywords": [
+        "4 personas",
+        "300 Km"
+      ],
+      "missing_keywords": [
+        "4 personas"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nautonomía: 300 Km\nautonomía: 300 Km\nautonomía: 300 Km"
+    },
+    {
+      "index": 33,
+      "id": "tito_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene el TITO?",
+      "expected_keywords": [
+        "65 km/h",
+        "4.5 KW"
+      ],
+      "missing_keywords": [
+        "4.5 KW"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "velocidad maxima: 65 km/h\nvelocidad maxima: 65 km/h\nvelocidad maxima: 65 km/h\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado."
+    },
+    {
+      "index": 34,
+      "id": "tito_colores",
+      "category": "vehiculos",
+      "question": "¿Qué colores se ofrecen para el TITO?",
+      "expected_keywords": [
+        "Rosa",
+        "Verde",
+        "Bicolor"
+      ],
+      "missing_keywords": [
+        "Rosa",
+        "Verde",
+        "Bicolor"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "nombre: TITO S2-300\ndescripcion: Un hito en nuestra historia. Este vehículo 100% eléctrico se diseñó pensando en las necesidades de las ciudades argentinas. Con cuatro plazas y amplio espacio de carga, se convirtió en una alternativa atractiva para familias en entornos urbanos. Ahora disponible únicamente en versión 300km.\nTITO S2-300:\nTITO S2-300 AA:"
+    },
+    {
+      "index": 35,
+      "id": "tita_s2_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA S2-300?",
+      "expected_keywords": [
+        "16.981,25",
+        "usd"
+      ],
+      "missing_keywords": [
+        "16.981,25"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "aclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\nprecio: USD 20.632,00\ndescripcion: TITA S2 300 AA + accesorio furgón\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD"
+    },
+    {
+      "index": 36,
+      "id": "tita_s2_300_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA S2-300 AA?",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "aclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\nprecio: USD 20.632,00\ndescripcion: TITA S2 300 AA + accesorio furgón\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD"
+    },
+    {
+      "index": 37,
+      "id": "tita_s2_furgon_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con Furgón?",
+      "expected_keywords": [
+        "20.632,00",
+        "2.900",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "aclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\ndescripcion: TITA S2 300 AA + accesorio furgón\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nautonomía: 300 Km"
+    },
+    {
+      "index": 38,
+      "id": "tita_s2_dimensiones",
+      "category": "vehiculos",
+      "question": "¿Cuáles son las dimensiones de la TITA S2-300 y de su caja?",
+      "expected_keywords": [
+        "3750x1370x1720",
+        "2000x1310x350"
+      ],
+      "missing_keywords": [
+        "3750x1370x1720",
+        "2000x1310x350"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "nombre: TITA S2-300 (también conocida como TITA 300)\nTITA S2-300:\nTITA S2-300 AA:\nTITA S2-300 con Furgón:"
+    },
+    {
+      "index": 39,
+      "id": "tita_s2_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA S2-300?",
+      "expected_keywords": [
+        "45 km/h",
+        "4 KW"
+      ],
+      "missing_keywords": [
+        "4 KW"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "velocidad maxima: 45 km/h\nnombre: TITA S2-300 (también conocida como TITA 300)\nTITA S2-300:\nTITA S2-300 AA:"
+    },
+    {
+      "index": 40,
+      "id": "tita_s2_accesorios",
+      "category": "vehiculos",
+      "question": "¿Qué accesorios están disponibles para la TITA S2-300?",
+      "expected_keywords": [
+        "Furgón",
+        "Furgón Refrigerado"
+      ],
+      "missing_keywords": [
+        "Furgón Refrigerado"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "nombre: TITA S2-300 (también conocida como TITA 300)\nTITA S2-300:\nTITA S2-300 AA:\nTITA S2-300 con Furgón:"
+    },
+    {
+      "index": 41,
+      "id": "tita_s2_color",
+      "category": "vehiculos",
+      "question": "¿Qué color está disponible para la TITA S2-300?",
+      "expected_keywords": [
+        "Blanco"
+      ],
+      "missing_keywords": [
+        "Blanco"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "nombre: TITA S2-300 (también conocida como TITA 300)\nTITA S2-300:\nTITA S2-300 AA:\nTITA S2-300 con Furgón:"
+    },
+    {
+      "index": 42,
+      "id": "tita_4p_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA 4P-300?",
+      "expected_keywords": [
+        "17.981,25",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 17.981,25\nprecio: USD 18.731,25\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\nprecio: USD 20.632,00"
+    },
+    {
+      "index": 43,
+      "id": "tita_4p_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA 4P-300 AA?",
+      "expected_keywords": [
+        "18.731,25",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 17.981,25\nprecio: USD 18.731,25\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\nprecio: USD 20.632,00"
+    },
+    {
+      "index": 44,
+      "id": "tita_4p_capacidades",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de pasajeros, carga y caja tiene la TITA 4P Cuadrilla?",
+      "expected_keywords": [
+        "4 personas",
+        "350kg",
+        "250kg"
+      ],
+      "missing_keywords": [
+        "4 personas"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "capacidad carga: 350kg\ncarga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales\ncapacidad caja: 250kg"
+    },
+    {
+      "index": 45,
+      "id": "tita_4p_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA 4P Cuadrilla?",
+      "expected_keywords": [
+        "50 Km/h",
+        "4Kw"
+      ],
+      "missing_keywords": [
+        "4Kw"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "velocidad maxima: 50 Km/h\nnombre: TITA 4P-300 Cuadrilla\nTITA 4P-300:\nTITA 4P-300 AA:"
+    },
+    {
+      "index": 46,
+      "id": "barre_tita_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la BARRE-TITA?",
+      "expected_keywords": [
+        "29.990,00",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 29.990,00\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nprecio: USD 16.981,25"
+    },
+    {
+      "index": 47,
+      "id": "barre_tita_dimensiones_peso",
+      "category": "vehiculos",
+      "question": "¿Qué dimensiones, ancho de limpieza y peso neto tiene la BARRE-TITA?",
+      "expected_keywords": [
+        "1950x1900x1900mm",
+        "1900 mm",
+        "900 KG"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "descripcion: Producto revolucionario que se destaca por su rendimiento excepcional en la limpieza de superficies, equipado con 8 motores eléctricos especializados.\npeso neto: 900 KG\nancho limpieza: 1900 mm\ndimensiones: 1950x1900x1900mm"
+    },
+    {
+      "index": 48,
+      "id": "barre_tita_autonomia_bateria",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y batería tiene la BARRE-TITA?",
+      "expected_keywords": [
+        "4-6 horas",
+        "Litio 7,2 Kwh"
+      ],
+      "missing_keywords": [
+        "Litio 7,2 Kwh"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "autonomia: 4-6 horas\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nContamos con un programa de reciclaje responsable de baterías, alineado con nuestro compromiso ambiental respaldado por la certificación ISO 14001.\nautonomía: 300 Km"
+    },
+    {
+      "index": 49,
+      "id": "barre_tita_accesorios",
+      "category": "vehiculos",
+      "question": "¿Qué incluye el kit de accesorios de la BARRE-TITA?",
+      "expected_keywords": [
+        "Hidrolavadora",
+        "cañon rociador",
+        "lanza"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "kit accesorios: Hidrolavadora, cañon rociador, lanza y pistola de hidrolavadora\ndescripcion: Producto revolucionario que se destaca por su rendimiento excepcional en la limpieza de superficies, equipado con 8 motores eléctricos especializados.\ncapacidad tanque agua: 150 Litros\ntipo: barredora"
+    },
+    {
+      "index": 50,
+      "id": "chiki_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del CHIKI-L de litio?",
+      "expected_keywords": [
+        "9.900,00",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 9.900,00\nprecio: USD 9.900,00\ndescripcion: Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.\nDependiendo del modelo, ofrecemos versiones con autonomía de 70 km hasta 300 km. La autonomía varía según el modelo y tipo de batería."
+    },
+    {
+      "index": 51,
+      "id": "chiki_capacidad_puertas",
+      "category": "vehiculos",
+      "question": "¿Cuántas puertas y qué capacidad tiene el CHIKI-L?",
+      "expected_keywords": [
+        "2",
+        "1 persona"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "capacidad: 1 persona\ncarga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 7hs / admite cargas parciales\nsistema cargado inteligente: Si"
+    },
+    {
+      "index": 52,
+      "id": "chiki_bateria_ciclos",
+      "category": "vehiculos",
+      "question": "¿Qué batería y ciclos tiene el CHIKI-L?",
+      "expected_keywords": [
+        "Litio NCM 4,5 KWh",
+        "2000 ciclos"
+      ],
+      "missing_keywords": [
+        "Litio NCM 4,5 KWh",
+        "2000 ciclos"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?\nContamos con un programa de reciclaje responsable de baterías, alineado con nuestro compromiso ambiental respaldado por la certificación ISO 14001.\nPregunta: ¿Qué sucede con las baterías al final de su vida útil?"
+    },
+    {
+      "index": 53,
+      "id": "chiki_tiempo_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánto tarda en cargar el CHIKI-L y desde qué enchufe carga?",
+      "expected_keywords": [
+        "7hs",
+        "220V"
+      ],
+      "missing_keywords": [
+        "7hs"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Normalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas.\nPregunta: ¿Cuánto tiempo toma cargar completamente la batería?\nNo, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A.\nPregunta: ¿Necesito una instalación especial para cargar mi vehículo?"
+    },
+    {
+      "index": 54,
+      "id": "reserva_anticipo",
+      "category": "compra",
+      "question": "¿Cuál es la reserva inicial y el anticipo para confirmar la compra?",
+      "expected_keywords": [
+        "USD 200",
+        "30 días",
+        "20%"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "reserva: USD 200 para reservar la unidad\nplazo confirmacion: 30 días para confirmar la compra con el 20% de anticipo\nproceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada"
+    },
+    {
+      "index": 55,
+      "id": "entrega_inmediata_plazo",
+      "category": "compra",
+      "question": "¿Cuánto tiempo queda asignada la unidad en entrega inmediata?",
+      "expected_keywords": [
+        "72 horas",
+        "saldar"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "proceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada\nNormalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas.\nPregunta: ¿Cuánto tiempo toma cargar completamente la batería?"
+    },
+    {
+      "index": 56,
+      "id": "costos_no_incluidos",
+      "category": "compra",
+      "question": "¿Qué costos no están incluidos en el precio final?",
+      "expected_keywords": [
+        "patentamiento",
+        "flete",
+        "NO están incluidos"
+      ],
+      "missing_keywords": [
+        "patentamiento",
+        "flete",
+        "NO están incluidos"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "aclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nprecio: USD 16.981,25\nprecio: USD 17.731,25"
+    },
+    {
+      "index": 57,
+      "id": "tipo_cambio_bna",
+      "category": "compra",
+      "question": "¿Qué tipo de cambio se usa para los pagos en pesos?",
+      "expected_keywords": [
+        "BNA",
+        "tipo vendedor",
+        "efectivo pago"
+      ],
+      "missing_keywords": [
+        "BNA",
+        "tipo vendedor",
+        "efectivo pago"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?\nNuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?"
+    },
+    {
+      "index": 58,
+      "id": "cargas_parciales",
+      "category": "carga",
+      "question": "¿Puedo hacer cargas parciales o tengo que esperar a que se agote la batería?",
+      "expected_keywords": [
+        "cargas parciales",
+        "no es necesario"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Sí, todos nuestros vehículos admiten cargas parciales. No es necesario esperar a que la batería se agote completamente para recargarla.\nPregunta: ¿Puedo realizar cargas parciales?\nEs una avanzada solución que reduce el tiempo de carga de 6-8 horas a aproximadamente 2 horas, brindando mayor comodidad y flexibilidad sin comprometer el rendimiento ni la autonomía del vehículo.\nPregunta: ¿Qué es la tecnología de carga rápida?"
+    },
+    {
+      "index": 59,
+      "id": "ecocarga_negocios",
+      "category": "carga",
+      "question": "¿Qué ventajas tiene instalar puntos de carga para un negocio?",
+      "expected_keywords": [
+        "Atrae nuevos clientes",
+        "Instalación gratuita",
+        "Ingresos adicionales"
+      ],
+      "missing_keywords": [
+        "Atrae nuevos clientes",
+        "Instalación gratuita",
+        "Ingresos adicionales"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "No, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A.\nPregunta: ¿Necesito una instalación especial para cargar mi vehículo?\nEs una avanzada solución que reduce el tiempo de carga de 6-8 horas a aproximadamente 2 horas, brindando mayor comodidad y flexibilidad sin comprometer el rendimiento ni la autonomía del vehículo.\nPregunta: ¿Qué es la tecnología de carga rápida?"
+    },
+    {
+      "index": 60,
+      "id": "agencia_buenos_aires_moreno",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Moreno, Buenos Aires?",
+      "expected_keywords": [
+        "CHIAMO MOTORS",
+        "Acceso Oeste Sur 12.802"
+      ],
+      "missing_keywords": [
+        "CHIAMO MOTORS",
+        "Acceso Oeste Sur 12.802"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "direccion: Av. Vedia 712, 9 De Julio, Provincia De Buenos Aires\ndireccion: Av. Mitre 866, Berazategui, Provincia De Buenos Aires\nciudad: CIUDAD DE BUENOS AIRES\ndireccion: Avenida Amancio Alcorta 2260, Buenos Aires"
+    },
+    {
+      "index": 61,
+      "id": "agencia_rosario_volts",
+      "category": "agencias",
+      "question": "¿Hay una agencia VOLTS en Rosario y cuál es su dirección?",
+      "expected_keywords": [
+        "VOLTS",
+        "Ovidio Lagos 895"
+      ],
+      "missing_keywords": [
+        "VOLTS"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "direccion: Calle 1 N°2105 - Localidad Frontera - Provincia Santa Fe - Cp2438\ndireccion: Ruta 9 (autopista Buenos Aires-rosario) Km 280.5 (2126)\ndireccion: Ovidio Lagos 895 - Rosario - Santa Fe\ndireccion: Av. Eva Perón 7605, Rosario, Santa Fe"
+    },
+    {
+      "index": 62,
+      "id": "agencia_cordoba_signature",
+      "category": "agencias",
+      "question": "¿Qué dirección tiene SIGNATURE S.A. en Córdoba?",
+      "expected_keywords": [
+        "SIGNATURE",
+        "Av. Colon 4875"
+      ],
+      "missing_keywords": [
+        "SIGNATURE",
+        "Av. Colon 4875"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?\ndireccion: Pedro J. Frías 35, Jesús María, Córdoba\ndireccion: 9 De Julio 262-centro- Marcos Juarez"
+    },
+    {
+      "index": 63,
+      "id": "agencia_mendoza_valentino",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Godoy Cruz, Mendoza?",
+      "expected_keywords": [
+        "Valentino Motos",
+        "San Martin Sur 1055"
+      ],
+      "missing_keywords": [
+        "Valentino Motos"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "ciudad: GODOY CRUZ\ndireccion: San Martin Sur 1055\ndireccion: Pellegrini 54, Río Gallegos, Santa Cruz\nciudad: RIO GALLEGOS"
+    },
+    {
+      "index": 64,
+      "id": "agencia_neuquen_sur_car",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Neuquén?",
+      "expected_keywords": [
+        "Sur Car",
+        "Perticone 1197"
+      ],
+      "missing_keywords": [
+        "Sur Car"
+      ],
+      "passed": false,
+      "latency_seconds": 0.01,
+      "response": "ciudad: NEUQUEN\ndireccion: Perticone 1197\ndireccion: Av. Vedia 712, 9 De Julio, Provincia De Buenos Aires\ndireccion: Av. Mitre 866, Berazategui, Provincia De Buenos Aires"
+    }
+  ]
+}

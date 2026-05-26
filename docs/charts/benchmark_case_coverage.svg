@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="586" viewBox="0 0 980 586">
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}
+.title{font-size:20px;font-weight:700}
+.subtitle{font-size:12px;fill:#52616b}
+.axis{stroke:#9aa5b1;stroke-width:1}
+.grid{stroke:#e4e7eb;stroke-width:1}
+.label{font-size:11px}
+.tick{font-size:10px;fill:#52616b}
+.value{font-size:11px;font-weight:700}
+.legend{font-size:12px}
+</style>
+<text x="40" y="32" class="title">Cobertura por caso y variante</text>
+<text x="40" y="52" class="subtitle">OK = todas las palabras clave esperadas presentes en la respuesta</text>
+<text x="325.0" y="78" text-anchor="middle" class="legend">sales / text</text>
+<text x="455.0" y="78" text-anchor="middle" class="legend">strict / text</text>
+<text x="40" y="108" class="label">Q1 - vehiculos</text>
+<rect x="260" y="92" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="108" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="92" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="108" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="138" class="label">Q2 - precios</text>
+<rect x="260" y="122" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="138" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="122" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="138" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="168" class="label">Q3 - vehiculos</text>
+<rect x="260" y="152" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="168" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="152" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="168" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="198" class="label">Q4 - precios</text>
+<rect x="260" y="182" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="198" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="182" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="198" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="228" class="label">Q5 - vehiculos</text>
+<rect x="260" y="212" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="228" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="212" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="228" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="258" class="label">Q6 - vehiculos</text>
+<rect x="260" y="242" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="258" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="242" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="258" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="288" class="label">Q7 - posventa</text>
+<rect x="260" y="272" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="288" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="272" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="288" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="318" class="label">Q8 - posventa</text>
+<rect x="260" y="302" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="318" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="302" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="318" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="348" class="label">Q9 - comercial</text>
+<rect x="260" y="332" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="348" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="332" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="348" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="378" class="label">Q10 - beneficios</text>
+<rect x="260" y="362" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="378" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="362" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="378" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="408" class="label">Q11 - agencias</text>
+<rect x="260" y="392" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="408" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="392" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="408" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="438" class="label">Q12 - carga</text>
+<rect x="260" y="422" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="438" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="422" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="438" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="468" class="label">Q13 - carga</text>
+<rect x="260" y="452" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="468" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="452" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="468" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="498" class="label">Q14 - compra</text>
+<rect x="260" y="482" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="498" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="482" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="498" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="528" class="label">Q15 - contacto</text>
+<rect x="260" y="512" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="528" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="512" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="528" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+</svg>

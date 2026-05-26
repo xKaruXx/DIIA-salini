@@ -112,6 +112,10 @@ if not os.path.exists(chat_assets_dir):
     
 app.mount("/chat_assets", StaticFiles(directory=chat_assets_dir, html=True), name="chat_assets")
 
+docs_dir = "docs"
+if os.path.exists(docs_dir):
+    app.mount("/docs", StaticFiles(directory=docs_dir, html=True), name="docs")
+
 # Crear una instancia del servicio de chat
 chat_service = ChatService()
 

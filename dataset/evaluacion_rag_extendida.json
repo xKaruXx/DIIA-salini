@@ -1,0 +1,450 @@
+[
+  {
+    "id": "tito_s5_autonomia_carga",
+    "category": "vehiculos",
+    "question": "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?",
+    "expected_keywords": ["300 km", "220v", "8 horas"],
+    "expected_sources": ["vehiculos_detalles.TITO"]
+  },
+  {
+    "id": "tito_s5_aa_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio del TITO S5-300 AA?",
+    "expected_keywords": ["17.731,25", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"]
+  },
+  {
+    "id": "tita_s2_capacidad",
+    "category": "vehiculos",
+    "question": "¿Qué capacidad de carga y de pasajeros tiene la TITA S2-300?",
+    "expected_keywords": ["500 kg", "2 personas"],
+    "expected_sources": ["vehiculos_detalles.TITA S2 300"]
+  },
+  {
+    "id": "tita_furgon_refrigerado_precio",
+    "category": "precios",
+    "question": "¿Cuánto cuesta la TITA S2 300 AA con furgón refrigerado?",
+    "expected_keywords": ["23.632,00", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"]
+  },
+  {
+    "id": "chiki_autonomia_velocidad",
+    "category": "vehiculos",
+    "question": "¿Qué autonomía y velocidad máxima tiene el CHIKI de litio?",
+    "expected_keywords": ["110km", "45 km/h"],
+    "expected_sources": ["vehiculos_detalles.CHIKI"]
+  },
+  {
+    "id": "barre_tita_capacidad",
+    "category": "vehiculos",
+    "question": "¿Cuál es la capacidad de trabajo y el tanque de agua de la BARRE-TITA?",
+    "expected_keywords": ["15000 m2/h", "150 litros"],
+    "expected_sources": ["vehiculos_detalles.BARRE-TITA"]
+  },
+  {
+    "id": "garantia",
+    "category": "posventa",
+    "question": "¿Qué garantía tienen los vehículos?",
+    "expected_keywords": ["1 año", "3 años"],
+    "expected_sources": ["preguntas_frecuentes.mantenimiento"]
+  },
+  {
+    "id": "reclamos_servicio",
+    "category": "posventa",
+    "question": "¿Dónde hago un reclamo o pido servicio técnico?",
+    "expected_keywords": ["5264805", "0266"],
+    "expected_sources": ["contactos.telefono_movilidad_posventa", "preguntas_frecuentes.mantenimiento"]
+  },
+  {
+    "id": "leasing_suspendido",
+    "category": "comercial",
+    "question": "¿Tienen leasing o alquiler con opción a compra?",
+    "expected_keywords": ["no", "leasing", "alquiler con opción a compra"],
+    "expected_sources": ["leasing_estado_actual"]
+  },
+  {
+    "id": "beneficio_discapacidad",
+    "category": "beneficios",
+    "question": "¿Cómo es el trámite por beneficio de discapacidad?",
+    "expected_keywords": ["ley 19279", "servicio nacional de rehabilitacion"],
+    "expected_sources": ["beneficios_discapacidad.tramite_franquicia"]
+  },
+  {
+    "id": "agencia_san_luis",
+    "category": "agencias",
+    "question": "¿Tienen agencia oficial en San Luis?",
+    "expected_keywords": ["san luis", "ruta 3 sur km 0.6"],
+    "expected_sources": ["distribucion.agencias_oficiales_por_provincia.San Luis"]
+  },
+  {
+    "id": "carga_rapida",
+    "category": "carga",
+    "question": "¿Qué ventaja ofrece la carga rápida?",
+    "expected_keywords": ["2 horas", "6-8 horas"],
+    "expected_sources": ["infraestructura_carga.ecocarga.carga_rapida", "preguntas_frecuentes.carga"]
+  },
+  {
+    "id": "instalacion_carga",
+    "category": "carga",
+    "question": "¿Necesito una instalación especial para cargar un vehículo?",
+    "expected_keywords": ["220v", "20a"],
+    "expected_sources": ["preguntas_frecuentes.carga"]
+  },
+  {
+    "id": "reserva_entrega",
+    "category": "compra",
+    "question": "¿Cómo funciona la reserva y la entrega inmediata?",
+    "expected_keywords": ["usd 200", "72 horas"],
+    "expected_sources": ["condiciones_compra_entrega.reserva_pago_inicial", "condiciones_compra_entrega.entrega_inmediata"]
+  },
+  {
+    "id": "telefono_ventas",
+    "category": "contacto",
+    "question": "¿Cuál es el teléfono de ventas de movilidad eléctrica?",
+    "expected_keywords": ["4305996", "0266"],
+    "expected_sources": ["contactos.telefono_movilidad_ventas"]
+  },
+  {
+    "id": "empresa_que_es_coradir_movilidad",
+    "category": "empresa",
+    "question": "¿Qué es Coradir Movilidad Eléctrica?",
+    "expected_keywords": ["CORADIR S.A.", "2020"],
+    "expected_sources": ["preguntas_frecuentes.general[0]", "empresa.descripcion"]
+  },
+  {
+    "id": "empresa_donde_se_fabrican",
+    "category": "empresa",
+    "question": "¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+    "expected_keywords": ["Argentina", "Ruta 3 km 0.6", "San Luis"],
+    "expected_sources": ["preguntas_frecuentes.general[1]", "empresa.plantas_fabricacion"]
+  },
+  {
+    "id": "empresa_plantas_fabricacion",
+    "category": "empresa",
+    "question": "¿Qué plantas de fabricación tiene CORADIR?",
+    "expected_keywords": ["Planta San Luis", "Planta Buenos Aires", "Uspallata 2853"],
+    "expected_sources": ["empresa.plantas_fabricacion"]
+  },
+  {
+    "id": "empresa_certificaciones_iso",
+    "category": "empresa",
+    "question": "¿Qué certificaciones ISO se mencionan en la historia de CORADIR?",
+    "expected_keywords": ["ISO 9001", "ISO 14001"],
+    "expected_sources": ["empresa.historia"]
+  },
+  {
+    "id": "empresa_valores",
+    "category": "empresa",
+    "question": "¿Qué valores destaca CORADIR para sus vehículos eléctricos?",
+    "expected_keywords": ["precio competitivo", "atención especializada"],
+    "expected_sources": ["empresa.valores"]
+  },
+  {
+    "id": "movilidad_beneficios_generales",
+    "category": "movilidad",
+    "question": "¿Qué beneficios generales tiene la movilidad eléctrica de Coradir?",
+    "expected_keywords": ["220v", "silencioso", "sin emisiones"],
+    "expected_sources": ["movilidad_electrica.beneficios_generales"]
+  },
+  {
+    "id": "movilidad_relacion_gastos",
+    "category": "movilidad",
+    "question": "¿Qué relación de gastos de movilidad menciona Coradir?",
+    "expected_keywords": ["10 a 1", "movilidad"],
+    "expected_sources": ["movilidad_electrica.beneficios_generales"]
+  },
+  {
+    "id": "app_contactito_funciones",
+    "category": "app",
+    "question": "¿Para qué sirve la app CONTACTITO?",
+    "expected_keywords": ["batería", "10%", "100%"],
+    "expected_sources": ["aplicaciones_coradir.contactito_app"]
+  },
+  {
+    "id": "app_contactito_plus",
+    "category": "app",
+    "question": "¿Qué agrega CONTACTITO Plus?",
+    "expected_keywords": ["geolocalización", "historial", "ubicación"],
+    "expected_sources": ["aplicaciones_coradir.contactito_plus"]
+  },
+  {
+    "id": "web_reservas",
+    "category": "sitios_web",
+    "question": "¿Cuál es la URL para iniciar la reserva de un vehículo?",
+    "expected_keywords": ["movilidad.coradir.com.ar/reservas"],
+    "expected_sources": ["sitios_web.movilidad_electrica_reservas"]
+  },
+  {
+    "id": "modelos_discontinuados",
+    "category": "vehiculos",
+    "question": "¿Qué pasó con los modelos de 100 km y el CHIKI-G?",
+    "expected_keywords": ["100km", "discontinuados", "CHIKI-G"],
+    "expected_sources": ["vehiculos_detalles.ACLARACION_IMPORTANTE", "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES"]
+  },
+  {
+    "id": "tito_s2_modelos_disponibles",
+    "category": "vehiculos",
+    "question": "¿Qué versiones están disponibles del TITO S2?",
+    "expected_keywords": ["TITO S2-300", "TITO S2-300 AA"],
+    "expected_sources": ["todos_los_vehiculos_disponibles.TITO S2", "vehiculos_detalles.TITO"]
+  },
+  {
+    "id": "tito_s5_modelos_disponibles",
+    "category": "vehiculos",
+    "question": "¿Qué versiones están disponibles del TITO S5?",
+    "expected_keywords": ["TITO S5-300", "TITO S5-300 AA"],
+    "expected_sources": ["todos_los_vehiculos_disponibles.TITO S5", "vehiculos_detalles.TITO"]
+  },
+  {
+    "id": "tito_s2_300_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio del TITO S2-300?",
+    "expected_keywords": ["15.972,50", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"]
+  },
+  {
+    "id": "tito_s2_300_aa_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio del TITO S2-300 AA?",
+    "expected_keywords": ["16.722,50", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"]
+  },
+  {
+    "id": "tito_s5_300_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio del TITO S5-300 sin aire acondicionado?",
+    "expected_keywords": ["16.981,25", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"]
+  },
+  {
+    "id": "tito_capacidad_autonomia",
+    "category": "vehiculos",
+    "question": "¿Cuántas personas lleva un TITO y qué autonomía tienen las versiones actuales?",
+    "expected_keywords": ["4 personas", "300 Km"],
+    "expected_sources": ["vehiculos_detalles.TITO"]
+  },
+  {
+    "id": "tito_velocidad_potencia",
+    "category": "vehiculos",
+    "question": "¿Qué velocidad máxima y potencia nominal tiene el TITO?",
+    "expected_keywords": ["65 km/h", "4.5 KW"],
+    "expected_sources": ["vehiculos_detalles.TITO"]
+  },
+  {
+    "id": "tito_colores",
+    "category": "vehiculos",
+    "question": "¿Qué colores se ofrecen para el TITO?",
+    "expected_keywords": ["Rosa", "Verde", "Bicolor"],
+    "expected_sources": ["vehiculos_detalles.TITO.colores_disponibles"]
+  },
+  {
+    "id": "tita_s2_300_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio de la TITA S2-300?",
+    "expected_keywords": ["16.981,25", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"]
+  },
+  {
+    "id": "tita_s2_300_aa_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio de la TITA S2-300 AA?",
+    "expected_keywords": ["17.731,25", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA"]
+  },
+  {
+    "id": "tita_s2_furgon_precio",
+    "category": "precios",
+    "question": "¿Cuánto cuesta la TITA S2 300 AA con Furgón?",
+    "expected_keywords": ["20.632,00", "2.900", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"]
+  },
+  {
+    "id": "tita_s2_dimensiones",
+    "category": "vehiculos",
+    "question": "¿Cuáles son las dimensiones de la TITA S2-300 y de su caja?",
+    "expected_keywords": ["3750x1370x1720", "2000x1310x350"],
+    "expected_sources": ["vehiculos_detalles.TITA S2 300"]
+  },
+  {
+    "id": "tita_s2_velocidad_potencia",
+    "category": "vehiculos",
+    "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA S2-300?",
+    "expected_keywords": ["45 km/h", "4 KW"],
+    "expected_sources": ["vehiculos_detalles.TITA S2 300"]
+  },
+  {
+    "id": "tita_s2_accesorios",
+    "category": "vehiculos",
+    "question": "¿Qué accesorios están disponibles para la TITA S2-300?",
+    "expected_keywords": ["Furgón", "Furgón Refrigerado"],
+    "expected_sources": ["vehiculos_detalles.TITA S2 300.accesorios_disponibles"]
+  },
+  {
+    "id": "tita_s2_color",
+    "category": "vehiculos",
+    "question": "¿Qué color está disponible para la TITA S2-300?",
+    "expected_keywords": ["Blanco"],
+    "expected_sources": ["vehiculos_detalles.TITA S2 300.colores_disponibles"]
+  },
+  {
+    "id": "tita_4p_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio de la TITA 4P-300?",
+    "expected_keywords": ["17.981,25", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300"]
+  },
+  {
+    "id": "tita_4p_aa_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio de la TITA 4P-300 AA?",
+    "expected_keywords": ["18.731,25", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"]
+  },
+  {
+    "id": "tita_4p_capacidades",
+    "category": "vehiculos",
+    "question": "¿Qué capacidad de pasajeros, carga y caja tiene la TITA 4P Cuadrilla?",
+    "expected_keywords": ["4 personas", "350kg", "250kg"],
+    "expected_sources": ["vehiculos_detalles.TITA 4P Cuadrilla"]
+  },
+  {
+    "id": "tita_4p_velocidad_potencia",
+    "category": "vehiculos",
+    "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA 4P Cuadrilla?",
+    "expected_keywords": ["50 Km/h", "4Kw"],
+    "expected_sources": ["vehiculos_detalles.TITA 4P Cuadrilla"]
+  },
+  {
+    "id": "barre_tita_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio de la BARRE-TITA?",
+    "expected_keywords": ["29.990,00", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.BARRE-TITA"]
+  },
+  {
+    "id": "barre_tita_dimensiones_peso",
+    "category": "vehiculos",
+    "question": "¿Qué dimensiones, ancho de limpieza y peso neto tiene la BARRE-TITA?",
+    "expected_keywords": ["1950x1900x1900mm", "1900 mm", "900 KG"],
+    "expected_sources": ["vehiculos_detalles.BARRE-TITA"]
+  },
+  {
+    "id": "barre_tita_autonomia_bateria",
+    "category": "vehiculos",
+    "question": "¿Qué autonomía y batería tiene la BARRE-TITA?",
+    "expected_keywords": ["4-6 horas", "Litio 7,2 Kwh"],
+    "expected_sources": ["vehiculos_detalles.BARRE-TITA"]
+  },
+  {
+    "id": "barre_tita_accesorios",
+    "category": "vehiculos",
+    "question": "¿Qué incluye el kit de accesorios de la BARRE-TITA?",
+    "expected_keywords": ["Hidrolavadora", "cañon rociador", "lanza"],
+    "expected_sources": ["vehiculos_detalles.BARRE-TITA.kit_accesorios"]
+  },
+  {
+    "id": "chiki_precio",
+    "category": "precios",
+    "question": "¿Cuál es el precio del CHIKI-L de litio?",
+    "expected_keywords": ["9.900,00", "usd"],
+    "expected_sources": ["Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"]
+  },
+  {
+    "id": "chiki_capacidad_puertas",
+    "category": "vehiculos",
+    "question": "¿Cuántas puertas y qué capacidad tiene el CHIKI-L?",
+    "expected_keywords": ["2", "1 persona"],
+    "expected_sources": ["vehiculos_detalles.CHIKI"]
+  },
+  {
+    "id": "chiki_bateria_ciclos",
+    "category": "vehiculos",
+    "question": "¿Qué batería y ciclos tiene el CHIKI-L?",
+    "expected_keywords": ["Litio NCM 4,5 KWh", "2000 ciclos"],
+    "expected_sources": ["vehiculos_detalles.CHIKI"]
+  },
+  {
+    "id": "chiki_tiempo_carga",
+    "category": "vehiculos",
+    "question": "¿Cuánto tarda en cargar el CHIKI-L y desde qué enchufe carga?",
+    "expected_keywords": ["7hs", "220V"],
+    "expected_sources": ["vehiculos_detalles.CHIKI"]
+  },
+  {
+    "id": "reserva_anticipo",
+    "category": "compra",
+    "question": "¿Cuál es la reserva inicial y el anticipo para confirmar la compra?",
+    "expected_keywords": ["USD 200", "30 días", "20%"],
+    "expected_sources": ["condiciones_compra_entrega.reserva_pago_inicial"]
+  },
+  {
+    "id": "entrega_inmediata_plazo",
+    "category": "compra",
+    "question": "¿Cuánto tiempo queda asignada la unidad en entrega inmediata?",
+    "expected_keywords": ["72 horas", "saldar"],
+    "expected_sources": ["condiciones_compra_entrega.entrega_inmediata"]
+  },
+  {
+    "id": "costos_no_incluidos",
+    "category": "compra",
+    "question": "¿Qué costos no están incluidos en el precio final?",
+    "expected_keywords": ["patentamiento", "flete", "NO están incluidos"],
+    "expected_sources": ["condiciones_compra_entrega.plazos_entrega", "condiciones_compra_entrega.aclaracion_entrega"]
+  },
+  {
+    "id": "tipo_cambio_bna",
+    "category": "compra",
+    "question": "¿Qué tipo de cambio se usa para los pagos en pesos?",
+    "expected_keywords": ["BNA", "tipo vendedor", "efectivo pago"],
+    "expected_sources": ["condiciones_compra_entrega.aclaracion_entrega"]
+  },
+  {
+    "id": "cargas_parciales",
+    "category": "carga",
+    "question": "¿Puedo hacer cargas parciales o tengo que esperar a que se agote la batería?",
+    "expected_keywords": ["cargas parciales", "no es necesario"],
+    "expected_sources": ["preguntas_frecuentes.carga[1]"]
+  },
+  {
+    "id": "ecocarga_negocios",
+    "category": "carga",
+    "question": "¿Qué ventajas tiene instalar puntos de carga para un negocio?",
+    "expected_keywords": ["Atrae nuevos clientes", "Instalación gratuita", "Ingresos adicionales"],
+    "expected_sources": ["infraestructura_carga.ecocarga.puntos_carga"]
+  },
+  {
+    "id": "agencia_buenos_aires_moreno",
+    "category": "agencias",
+    "question": "¿Qué agencia figura en Moreno, Buenos Aires?",
+    "expected_keywords": ["CHIAMO MOTORS", "Acceso Oeste Sur 12.802"],
+    "expected_sources": ["distribucion.agencias_oficiales_por_provincia.Buenos Aires"]
+  },
+  {
+    "id": "agencia_rosario_volts",
+    "category": "agencias",
+    "question": "¿Hay una agencia VOLTS en Rosario y cuál es su dirección?",
+    "expected_keywords": ["VOLTS", "Ovidio Lagos 895"],
+    "expected_sources": ["distribucion.agencias_oficiales_por_provincia.Santa Fe"]
+  },
+  {
+    "id": "agencia_cordoba_signature",
+    "category": "agencias",
+    "question": "¿Qué dirección tiene SIGNATURE S.A. en Córdoba?",
+    "expected_keywords": ["SIGNATURE", "Av. Colon 4875"],
+    "expected_sources": ["distribucion.agencias_oficiales_por_provincia.Cordoba"]
+  },
+  {
+    "id": "agencia_mendoza_valentino",
+    "category": "agencias",
+    "question": "¿Qué agencia figura en Godoy Cruz, Mendoza?",
+    "expected_keywords": ["Valentino Motos", "San Martin Sur 1055"],
+    "expected_sources": ["distribucion.agencias_oficiales_por_provincia.Mendoza"]
+  },
+  {
+    "id": "agencia_neuquen_sur_car",
+    "category": "agencias",
+    "question": "¿Qué agencia figura en Neuquén?",
+    "expected_keywords": ["Sur Car", "Perticone 1197"],
+    "expected_sources": ["distribucion.agencias_oficiales_por_provincia.Neuquen"]
+  }
+]

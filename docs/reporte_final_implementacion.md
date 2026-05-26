@@ -52,7 +52,7 @@ Tecnologias principales:
 - `Chroma`
 - `LangChain`
 - `Ollama`
-- `qwen3.5:4b` como modelo de chat local
+- `qwen3.5:0.8b` como modelo de chat local por defecto liviano
 - `nomic-embed-text:latest` como modelo de embeddings local
 
 ## 3. Datos y Preprocesamiento
@@ -115,7 +115,7 @@ La retroalimentacion recibida sugirio evaluar modelos open source para evitar co
 - `Ollama` local
 - `OpenAI` opcional
 
-Para el MVP se eligio `Ollama + qwen3.5:4b + nomic-embed-text:latest` por los siguientes motivos:
+Para el MVP final se eligio `Ollama + qwen3.5:0.8b + nomic-embed-text:latest` por defecto, manteniendo `qwen3.5:latest` como fallback, por los siguientes motivos:
 
 - evita costo por consulta
 - puede ejecutarse sin servicios externos
@@ -152,7 +152,7 @@ Se implemento un script de evaluacion reproducible:
 Configuracion utilizada para la validacion principal:
 
 - `LLM_PROVIDER=ollama`
-- `CHAT_MODEL_NAME=qwen3.5:4b`
+- `CHAT_MODEL_NAME=qwen3.5:0.8b`
 - `EMBEDDING_PROVIDER=ollama`
 - `EMBEDDING_MODEL_NAME=nomic-embed-text:latest`
 
@@ -165,8 +165,14 @@ Metricas consideradas:
 
 Resultados obtenidos sobre 15 casos:
 
-- `docs/benchmark_sales.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.01 s
-- `docs/benchmark_strict.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.01 s
+- `docs/benchmark_real_sales_qwen35_latest.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.01 s
+- `docs/benchmark_real_strict_qwen35_latest.json`: 15/15 correctos, exactitud 100.0%, latencia promedio 0.01 s
+
+Evaluacion extendida posterior:
+
+- baseline extendido: 35/64 correctos, exactitud 54.7%
+- mejora de extraccion contextual final: `docs/benchmark_extendido_strict_post_extraccion_v3.json`, 64/64 correctos, exactitud 100.0%
+- metricas de retrieval asociadas: Recall@5 0.969, MRR 0.916 y Top-1 0.875
 
 Analisis:
 
@@ -189,6 +195,7 @@ Limitaciones actuales:
 - el flujo de audio sigue dependiendo de OpenAI y no forma parte del nucleo open source del MVP
 - persisten advertencias tecnicas en librerias de LangChain y Chroma que deberian actualizarse en una siguiente iteracion
 - la evaluacion actual prioriza exactitud factual; aun no mide satisfaccion de usuario ni robustez ante consultas ambiguas extensas
+- la evaluacion actual no mide todavia metricas especificas de retrieval como Precision@K, Recall@K o MRR
 
 Trabajo futuro:
 
@@ -197,8 +204,60 @@ Trabajo futuro:
 - migrar a componentes mas nuevos de `langchain-chroma`
 - sumar pruebas automaticas de regresion para preguntas frecuentes
 - conectar formalmente la salida comercial con CRM o automatizaciones, si el caso de uso lo requiere
+- extender el benchmark para registrar documentos recuperados y calcular metricas RAG
 
-## 8. Guia de Ejecucion y Demo
+## 8. Plan de Mejoras y Trazabilidad
+
+Para dejar registradas las mejoras del sistema con formato ejecutivo y detalle tecnico, se agrego el documento:
+
+- `docs/plan_mejoras_sistema.md`
+- `docs/evidencia_benchmark_actual.md`
+- `docs/evaluacion_visual_benchmark.md`
+- `docs/evaluacion_dataset_extendido.md`
+- `docs/evaluacion_retrieval_extendida.md`
+- `docs/analisis_fallas_respuesta_vs_retrieval.md`
+- `docs/mejora_extraccion_contextual.md`
+- `docs/evaluacion_visual_mejora_extraccion.md`
+- `docs/comparacion_modelos_embedding.md`
+- `docs/matriz_revision_factual.md`
+- `docs/mejoras_derivadas_clase_4.md`
+- `docs/evaluacion_retrieval.md`
+- `docs/eda_corpus_rag.md`
+- `docs/evaluacion_no_respondibles.md`
+- `docs/optimizacion_hardware_modelos.md`
+- `docs/investigacion_modelos_locales.md`
+- `docs/evaluacion_modelos_livianos.md`
+- `docs/evaluacion_modelos_fuera_dominio.md`
+- `docs/evaluacion_embeddings_locales.md`
+
+El plan de mejoras funciona como bitacora viva del proyecto. Resume el baseline actual, las mejoras ya implementadas, la evidencia disponible, las limitaciones de medicion y los proximos pasos recomendados. Los anexos complementarios dejan una vista ejecutiva del benchmark, graficos de evaluacion, un benchmark extendido, medicion de retrieval y una matriz para revision factual manual.
+
+Las mejoras documentadas son:
+
+- preprocesamiento de la base de conocimiento
+- recuperacion granular de contexto
+- capa extractiva para consultas factuales
+- variantes de prompt
+- stack local open source
+- benchmark reproducible
+
+El siguiente paso recomendado es cruzar las fallas de respuesta con las metricas de retrieval para distinguir fallas de recuperacion, ranking, extraccion y redaccion.
+
+El material nuevo de clase 4 permite sumar tres mejoras metodologicas adicionales: evaluar la calidad del corpus con TTR/MATTR y longitud de chunks, enriquecer metadatos de dominio para mejorar filtros de retrieval, y agregar casos no respondibles para medir rechazo correcto. Estas mejoras quedan documentadas como trabajo futuro priorizado.
+
+Como avance de esas mejoras, se extendio el benchmark para registrar fuentes recuperadas y calcular metricas RAG. La primera corrida retrieval-only sobre 64 casos obtuvo `Recall@5=89.8%`, `MRR=75.9%` y `Top-1 source accuracy=65.6%`. Tambien se agrego un EDA del corpus: 111 documentos, promedio de 44.21 tokens por documento y `MATTR` promedio de 0.8538, lo que no justifica aplicar lematizacion global sin una revision mas fina.
+
+Ademas, se preparo una linea de evaluacion para optimizar hardware mediante modelos de respuesta mas chicos. Se agrego `scripts/run_model_efficiency_matrix.py` para comparar el baseline `qwen3.5:latest` contra candidatos livianos usando los mismos casos de benchmark. La decision propuesta es aceptar un modelo chico solo si mantiene calidad en preguntas criticas, rechazo correcto y mejora observable de latencia o consumo local.
+
+La matriz de modelos locales se ejecuto sobre el benchmark MVP de 15 casos. `qwen3.5:latest`, `qwen3.5:0.8b`, `deepseek-r1:1.5b`, `lfm2.5-thinking:1.2b`, `granite4:350m` y `gemma4:e4b` obtuvieron 15/15. Esto sugiere que las consultas factuales frecuentes pueden resolverse con modelos mucho mas chicos gracias al pipeline extractivo.
+
+Tambien se ejecuto una matriz de embeddings en modo vector-only. `embeddinggemma:latest` obtuvo el mejor `MRR` y `Top-1 source accuracy`, mientras que `qwen3-embedding:0.6b` obtuvo el mejor `Recall@5`. Esta evidencia abre una mejora concreta: probar `embeddinggemma:latest` como embedding por defecto y medir si la mejora de retrieval se traduce en mejor accuracy final.
+
+La evaluacion con casos por fuera del corpus detecto una mejora necesaria: antes de elegir un modelo chico, el sistema debia rechazar de forma deterministica consultas fuera de dominio o datos no presentes. Se agrego un guardrail previo a la capa extractiva y, tras esa mejora, los modelos candidatos obtuvieron 6/6 en el dataset no respondible. Esto refuerza la estrategia de hardware: usar reglas y retrieval para reducir trabajo del LLM, y reservar el modelo grande solo como fallback.
+
+Tambien se ejecuto el benchmark extendido con `qwen3.5:0.8b`, obteniendo 35/64 casos correctos, el mismo resultado que el baseline con `qwen3.5:latest`. Por eso se deja `qwen3.5:0.8b` como default liviano del proyecto.
+
+## 9. Guia de Ejecucion y Demo
 
 ### Preparacion
 
@@ -206,7 +265,7 @@ Trabajo futuro:
    `pip install -r requirements.txt`
 2. Copiar `.env.example` a `.env`
 3. Descargar modelos locales:
-   `ollama pull qwen3.5:4b`
+   `ollama pull qwen3.5:0.8b`
    `ollama pull nomic-embed-text`
 4. Generar la base de conocimiento:
    `python scripts/prepare_dataset.py`
@@ -229,9 +288,9 @@ Consultas de ejemplo:
 
 ### Reproduccion del benchmark
 
-`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:4b --embedding-provider ollama --embedding-model nomic-embed-text:latest`
+`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:0.8b --embedding-provider ollama --embedding-model nomic-embed-text:latest`
 
-## 9. Alcance Esperado de la Implementacion (MVP)
+## 10. Alcance Esperado de la Implementacion (MVP)
 
 ### Incluido en el MVP final
 

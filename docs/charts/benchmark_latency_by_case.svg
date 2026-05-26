@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520">
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}
+.title{font-size:20px;font-weight:700}
+.subtitle{font-size:12px;fill:#52616b}
+.axis{stroke:#9aa5b1;stroke-width:1}
+.grid{stroke:#e4e7eb;stroke-width:1}
+.label{font-size:11px}
+.tick{font-size:10px;fill:#52616b}
+.value{font-size:11px;font-weight:700}
+.legend{font-size:12px}
+</style>
+<text x="70" y="32" class="title">Latencia por caso</text>
+<text x="70" y="52" class="subtitle">Segundos por consulta</text>
+<line x1="70" y1="428.0" x2="950" y2="428.0" class="grid"/>
+<text x="60" y="432.0" text-anchor="end" class="tick">0.00s</text>
+<line x1="70" y1="356.8" x2="950" y2="356.8" class="grid"/>
+<text x="60" y="360.8" text-anchor="end" class="tick">0.01s</text>
+<line x1="70" y1="285.6" x2="950" y2="285.6" class="grid"/>
+<text x="60" y="289.6" text-anchor="end" class="tick">0.02s</text>
+<line x1="70" y1="214.4" x2="950" y2="214.4" class="grid"/>
+<text x="60" y="218.4" text-anchor="end" class="tick">0.03s</text>
+<line x1="70" y1="143.2" x2="950" y2="143.2" class="grid"/>
+<text x="60" y="147.2" text-anchor="end" class="tick">0.04s</text>
+<line x1="70" y1="72.0" x2="950" y2="72.0" class="grid"/>
+<text x="60" y="76.0" text-anchor="end" class="tick">0.06s</text>
+<line x1="70" y1="428" x2="950" y2="428" class="axis"/>
+<line x1="70" y1="72" x2="70" y2="428" class="axis"/>
+<rect x="82.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="89.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="102.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="109.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="99.3" y="474" text-anchor="middle" class="label">Q1</text>
+<rect x="140.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="147.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="161.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="168.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="158.0" y="474" text-anchor="middle" class="label">Q2</text>
+<rect x="199.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="206.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="219.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="226.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="216.7" y="474" text-anchor="middle" class="label">Q3</text>
+<rect x="258.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="265.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="278.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="285.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="275.3" y="474" text-anchor="middle" class="label">Q4</text>
+<rect x="316.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="323.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="337.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="344.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="334.0" y="474" text-anchor="middle" class="label">Q5</text>
+<rect x="375.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="382.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="395.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="402.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="392.7" y="474" text-anchor="middle" class="label">Q6</text>
+<rect x="434.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="441.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="454.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="461.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="451.3" y="474" text-anchor="middle" class="label">Q7</text>
+<rect x="492.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="499.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="513.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="520.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="510.0" y="474" text-anchor="middle" class="label">Q8</text>
+<rect x="551.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="558.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="571.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="578.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="568.7" y="474" text-anchor="middle" class="label">Q9</text>
+<rect x="610.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="617.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="630.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="637.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="627.3" y="474" text-anchor="middle" class="label">Q10</text>
+<rect x="668.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="675.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="689.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="696.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="686.0" y="474" text-anchor="middle" class="label">Q11</text>
+<rect x="727.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="734.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="747.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="754.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="744.7" y="474" text-anchor="middle" class="label">Q12</text>
+<rect x="786.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="793.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="806.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="813.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="803.3" y="474" text-anchor="middle" class="label">Q13</text>
+<rect x="844.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="851.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="865.0" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="872.2" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="862.0" y="474" text-anchor="middle" class="label">Q14</text>
+<rect x="903.3" y="364.4" width="14.3" height="63.6" rx="2" fill="#2f80ed"/>
+<text x="910.5" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<rect x="923.7" y="364.4" width="14.3" height="63.6" rx="2" fill="#27ae60"/>
+<text x="930.8" y="359.4" text-anchor="middle" class="value">0.01s</text>
+<text x="920.7" y="474" text-anchor="middle" class="label">Q15</text>
+<rect x="70" y="492" width="12" height="12" fill="#2f80ed"/>
+<text x="88" y="502" class="legend">sales</text>
+<rect x="220" y="492" width="12" height="12" fill="#27ae60"/>
+<text x="238" y="502" class="legend">strict</text>
+</svg>

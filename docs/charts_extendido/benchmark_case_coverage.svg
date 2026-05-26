@@ -1,0 +1,337 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="2056" viewBox="0 0 980 2056">
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}
+.title{font-size:20px;font-weight:700}
+.subtitle{font-size:12px;fill:#52616b}
+.axis{stroke:#9aa5b1;stroke-width:1}
+.grid{stroke:#e4e7eb;stroke-width:1}
+.label{font-size:11px}
+.tick{font-size:10px;fill:#52616b}
+.value{font-size:11px;font-weight:700}
+.legend{font-size:12px}
+</style>
+<text x="40" y="32" class="title">Cobertura por caso y variante</text>
+<text x="40" y="52" class="subtitle">OK = todas las palabras clave esperadas presentes en la respuesta</text>
+<text x="325.0" y="78" text-anchor="middle" class="legend">strict / text-v2-moe</text>
+<text x="455.0" y="78" text-anchor="middle" class="legend">strict / text</text>
+<text x="40" y="108" class="label">Q1 - vehiculos</text>
+<rect x="260" y="92" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="108" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="92" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="108" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="138" class="label">Q2 - precios</text>
+<rect x="260" y="122" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="138" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="122" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="138" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="168" class="label">Q3 - vehiculos</text>
+<rect x="260" y="152" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="168" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="152" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="168" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="198" class="label">Q4 - precios</text>
+<rect x="260" y="182" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="198" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="182" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="198" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="228" class="label">Q5 - vehiculos</text>
+<rect x="260" y="212" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="228" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="212" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="228" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="258" class="label">Q6 - vehiculos</text>
+<rect x="260" y="242" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="258" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="242" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="258" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="288" class="label">Q7 - posventa</text>
+<rect x="260" y="272" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="288" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="272" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="288" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="318" class="label">Q8 - posventa</text>
+<rect x="260" y="302" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="318" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="302" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="318" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="348" class="label">Q9 - comercial</text>
+<rect x="260" y="332" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="348" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="332" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="348" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="378" class="label">Q10 - beneficios</text>
+<rect x="260" y="362" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="378" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="362" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="378" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="408" class="label">Q11 - agencias</text>
+<rect x="260" y="392" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="408" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="392" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="408" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="438" class="label">Q12 - carga</text>
+<rect x="260" y="422" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="438" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="422" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="438" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="468" class="label">Q13 - carga</text>
+<rect x="260" y="452" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="468" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="452" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="468" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="498" class="label">Q14 - compra</text>
+<rect x="260" y="482" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="498" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="482" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="498" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="528" class="label">Q15 - contacto</text>
+<rect x="260" y="512" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="528" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="512" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="528" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="558" class="label">Q16 - empresa</text>
+<rect x="260" y="542" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="558" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="542" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="558" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="588" class="label">Q17 - empresa</text>
+<rect x="260" y="572" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="588" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="572" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="588" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="618" class="label">Q18 - empresa</text>
+<rect x="260" y="602" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="618" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="602" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="618" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="648" class="label">Q19 - empresa</text>
+<rect x="260" y="632" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="648" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="632" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="648" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="678" class="label">Q20 - empresa</text>
+<rect x="260" y="662" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="678" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="662" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="678" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="708" class="label">Q21 - movilidad</text>
+<rect x="260" y="692" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="708" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="692" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="708" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="738" class="label">Q22 - movilidad</text>
+<rect x="260" y="722" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="738" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="722" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="738" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="768" class="label">Q23 - app</text>
+<rect x="260" y="752" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="768" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="752" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="768" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="798" class="label">Q24 - app</text>
+<rect x="260" y="782" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="798" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="782" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="798" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="828" class="label">Q25 - sitios_web</text>
+<rect x="260" y="812" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="828" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="812" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="828" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="858" class="label">Q26 - vehiculos</text>
+<rect x="260" y="842" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="858" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="842" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="858" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="888" class="label">Q27 - vehiculos</text>
+<rect x="260" y="872" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="888" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="872" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="888" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="918" class="label">Q28 - vehiculos</text>
+<rect x="260" y="902" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="918" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="902" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="918" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="948" class="label">Q29 - precios</text>
+<rect x="260" y="932" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="948" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="932" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="948" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="978" class="label">Q30 - precios</text>
+<rect x="260" y="962" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="978" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="962" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="978" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1008" class="label">Q31 - precios</text>
+<rect x="260" y="992" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1008" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="992" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1008" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1038" class="label">Q32 - vehiculos</text>
+<rect x="260" y="1022" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1038" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1022" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1038" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1068" class="label">Q33 - vehiculos</text>
+<rect x="260" y="1052" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1068" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1052" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1068" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1098" class="label">Q34 - vehiculos</text>
+<rect x="260" y="1082" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1098" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1082" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1098" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1128" class="label">Q35 - precios</text>
+<rect x="260" y="1112" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1128" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1112" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1128" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1158" class="label">Q36 - precios</text>
+<rect x="260" y="1142" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1158" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1142" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1158" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1188" class="label">Q37 - precios</text>
+<rect x="260" y="1172" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1188" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1172" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1188" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1218" class="label">Q38 - vehiculos</text>
+<rect x="260" y="1202" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1218" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1202" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1218" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1248" class="label">Q39 - vehiculos</text>
+<rect x="260" y="1232" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1248" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1232" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1248" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1278" class="label">Q40 - vehiculos</text>
+<rect x="260" y="1262" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1278" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1262" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1278" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1308" class="label">Q41 - vehiculos</text>
+<rect x="260" y="1292" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1308" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1292" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1308" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1338" class="label">Q42 - precios</text>
+<rect x="260" y="1322" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1338" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1322" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1338" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1368" class="label">Q43 - precios</text>
+<rect x="260" y="1352" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1368" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1352" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1368" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1398" class="label">Q44 - vehiculos</text>
+<rect x="260" y="1382" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1398" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1382" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1398" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1428" class="label">Q45 - vehiculos</text>
+<rect x="260" y="1412" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1428" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1412" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1428" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1458" class="label">Q46 - precios</text>
+<rect x="260" y="1442" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1458" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1442" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1458" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1488" class="label">Q47 - vehiculos</text>
+<rect x="260" y="1472" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1488" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1472" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1488" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1518" class="label">Q48 - vehiculos</text>
+<rect x="260" y="1502" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1518" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1502" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1518" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1548" class="label">Q49 - vehiculos</text>
+<rect x="260" y="1532" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1548" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1532" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1548" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1578" class="label">Q50 - precios</text>
+<rect x="260" y="1562" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1578" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1562" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1578" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1608" class="label">Q51 - vehiculos</text>
+<rect x="260" y="1592" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1608" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1592" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1608" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1638" class="label">Q52 - vehiculos</text>
+<rect x="260" y="1622" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1638" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1622" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1638" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1668" class="label">Q53 - vehiculos</text>
+<rect x="260" y="1652" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1668" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1652" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1668" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1698" class="label">Q54 - compra</text>
+<rect x="260" y="1682" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1698" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1682" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1698" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1728" class="label">Q55 - compra</text>
+<rect x="260" y="1712" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1728" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1712" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1728" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1758" class="label">Q56 - compra</text>
+<rect x="260" y="1742" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1758" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1742" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1758" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1788" class="label">Q57 - compra</text>
+<rect x="260" y="1772" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1788" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1772" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1788" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1818" class="label">Q58 - carga</text>
+<rect x="260" y="1802" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="318.0" y="1818" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<rect x="390" y="1802" width="116" height="22" rx="4" fill="#27ae60"/>
+<text x="448.0" y="1818" text-anchor="middle" class="value" fill="#ffffff">OK</text>
+<text x="40" y="1848" class="label">Q59 - carga</text>
+<rect x="260" y="1832" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1848" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1832" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1848" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1878" class="label">Q60 - agencias</text>
+<rect x="260" y="1862" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1878" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1862" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1878" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1908" class="label">Q61 - agencias</text>
+<rect x="260" y="1892" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1908" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1892" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1908" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1938" class="label">Q62 - agencias</text>
+<rect x="260" y="1922" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1938" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1922" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1938" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1968" class="label">Q63 - agencias</text>
+<rect x="260" y="1952" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1968" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1952" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1968" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<text x="40" y="1998" class="label">Q64 - agencias</text>
+<rect x="260" y="1982" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="318.0" y="1998" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+<rect x="390" y="1982" width="116" height="22" rx="4" fill="#eb5757"/>
+<text x="448.0" y="1998" text-anchor="middle" class="value" fill="#ffffff">Falla</text>
+</svg>

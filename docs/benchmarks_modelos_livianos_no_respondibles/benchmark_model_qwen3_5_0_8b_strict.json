@@ -1,0 +1,346 @@
+{
+  "summary": {
+    "total_cases": 6,
+    "passed_cases": 6,
+    "response_evaluated_cases": 6,
+    "accuracy": 1.0,
+    "average_latency_seconds": 0.0,
+    "prompt_variant": "strict",
+    "llm_provider": "ollama",
+    "chat_model_name": "qwen3.5:0.8b",
+    "embedding_provider": "ollama",
+    "embedding_model_name": "nomic-embed-text:latest",
+    "retrieval": {},
+    "retrieval_mode": "hybrid"
+  },
+  "results": [
+    {
+      "index": 1,
+      "id": "offtopic_resultado_futbol",
+      "category": "no_respondible",
+      "question": "¿Quién ganó el último partido de Boca?",
+      "expected_keywords": [
+        "CORADIR"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.0,
+      "response": "No tengo informacion sobre ese tema. Este asistente esta orientado a consultas sobre CORADIR Movilidad Electrica.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 1,
+          "section": "site_navigation",
+          "title": "site navigation - main menu",
+          "source_path": "site_navigation.main_menu"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 1,
+          "section": "site_navigation",
+          "title": "site navigation - special actions quiero ser agencia",
+          "source_path": "site_navigation.special_actions_quiero_ser_agencia"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 1,
+          "section": "empresa",
+          "title": "empresa - valores",
+          "source_path": "empresa.valores"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 2,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 3,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 2,
+      "id": "offtopic_receta",
+      "category": "no_respondible",
+      "question": "Dame una receta de ñoquis caseros.",
+      "expected_keywords": [
+        "CORADIR"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.0,
+      "response": "No tengo informacion sobre ese tema. Este asistente esta orientado a consultas sobre CORADIR Movilidad Electrica.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 2,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 1,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Puedo realizar cargas parciales?",
+          "source_path": "preguntas_frecuentes.carga[1]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 2,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - evaluacion medica",
+          "source_path": "beneficios_discapacidad.evaluacion_medica"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 3,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 3,
+      "id": "dato_no_presente_stock_hoy",
+      "category": "no_respondible",
+      "question": "¿Cuántas unidades exactas del TITO hay en stock hoy?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.0,
+      "response": "No tengo informacion suficiente en la base disponible para responder ese dato con precision. Puedo ayudarte con informacion documentada sobre vehiculos, precios, carga, agencias, garantias y condiciones comerciales de CORADIR Movilidad Electrica.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 1,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Dónde puedo comprar un vehículo eléctrico Coradir?",
+          "source_path": "preguntas_frecuentes.adquisicion[0]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 2,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 3,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 4,
+      "id": "dato_no_presente_financiacion_banco",
+      "category": "no_respondible",
+      "question": "¿Qué tasa ofrece el Banco Nación para financiar un TITO esta semana?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.0,
+      "response": "No tengo informacion suficiente en la base disponible para responder ese dato con precision. Puedo ayudarte con informacion documentada sobre vehiculos, precios, carga, agencias, garantias y condiciones comerciales de CORADIR Movilidad Electrica.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITO",
+          "source_path": "vehiculos_detalles.TITO"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 2,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 3,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 4,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 5,
+      "id": "producto_no_cubierto_camion",
+      "category": "no_respondible",
+      "question": "¿CORADIR vende camiones eléctricos de larga distancia?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.0,
+      "response": "No tengo informacion suficiente en la base disponible para responder ese dato con precision. Puedo ayudarte con informacion documentada sobre vehiculos, precios, carga, agencias, garantias y condiciones comerciales de CORADIR Movilidad Electrica.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 1,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 2,
+          "section": "precios",
+          "title": "Precio TITO S5-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 3,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 6,
+      "id": "legal_no_cubierto_patentamiento",
+      "category": "no_respondible",
+      "question": "¿Qué artículo legal exacto regula el patentamiento de la TITA en mi municipio?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.0,
+      "response": "No tengo informacion suficiente en la base disponible para responder ese dato con precision. Puedo ayudarte con informacion documentada sobre vehiculos, precios, carga, agencias, garantias y condiciones comerciales de CORADIR Movilidad Electrica.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 1,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - tramite franquicia",
+          "source_path": "beneficios_discapacidad.tramite_franquicia"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 2,
+          "section": "agencias",
+          "title": "Agencias en Misiones",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Misiones"
+        },
+        {
+          "retrieval_mode": "vector",
+          "score": null,
+          "vector_rank": 3,
+          "section": "agencias",
+          "title": "Agencias en Formosa",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Formosa"
+        }
+      ],
+      "retrieval": null
+    }
+  ]
+}

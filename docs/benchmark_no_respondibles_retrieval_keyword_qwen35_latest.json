@@ -1,0 +1,314 @@
+{
+  "summary": {
+    "total_cases": 6,
+    "passed_cases": 0,
+    "response_evaluated_cases": 0,
+    "accuracy": null,
+    "average_latency_seconds": 0,
+    "prompt_variant": "strict",
+    "llm_provider": "ollama",
+    "chat_model_name": "qwen3.5:latest",
+    "embedding_provider": "ollama",
+    "embedding_model_name": "nomic-embed-text:latest",
+    "retrieval": {}
+  },
+  "results": [
+    {
+      "index": 1,
+      "id": "offtopic_resultado_futbol",
+      "category": "no_respondible",
+      "question": "¿Quién ganó el último partido de Boca?",
+      "expected_keywords": [
+        "CORADIR"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 1,
+          "section": "site_navigation",
+          "title": "site navigation - main menu",
+          "source_path": "site_navigation.main_menu"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 1,
+          "section": "site_navigation",
+          "title": "site navigation - special actions quiero ser agencia",
+          "source_path": "site_navigation.special_actions_quiero_ser_agencia"
+        },
+        {
+          "retrieval_mode": "vector_unavailable",
+          "score": null,
+          "section": "",
+          "title": "Vector retrieval unavailable",
+          "source_path": "",
+          "error": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 2,
+      "id": "offtopic_receta",
+      "category": "no_respondible",
+      "question": "Dame una receta de ñoquis caseros.",
+      "expected_keywords": [
+        "CORADIR"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 2,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 2,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 1,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 1,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?",
+          "source_path": "preguntas_frecuentes.mantenimiento[1]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 3,
+      "id": "dato_no_presente_stock_hoy",
+      "category": "no_respondible",
+      "question": "¿Cuántas unidades exactas del TITO hay en stock hoy?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITO S2",
+          "source_path": "todos_los_vehiculos_disponibles.TITO S2"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITO S5",
+          "source_path": "todos_los_vehiculos_disponibles.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITO",
+          "source_path": "vehiculos_detalles.TITO"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 4,
+      "id": "dato_no_presente_financiacion_banco",
+      "category": "no_respondible",
+      "question": "¿Qué tasa ofrece el Banco Nación para financiar un TITO esta semana?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITO",
+          "source_path": "vehiculos_detalles.TITO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito app",
+          "source_path": "aplicaciones_coradir.contactito_app"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 5,
+      "id": "producto_no_cubierto_camion",
+      "category": "no_respondible",
+      "question": "¿CORADIR vende camiones eléctricos de larga distancia?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Cuál es el impacto ambiental de los vehículos eléctricos Coradir?",
+          "source_path": "preguntas_frecuentes.ambiental[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 6,
+      "id": "legal_no_cubierto_patentamiento",
+      "category": "no_respondible",
+      "question": "¿Qué artículo legal exacto regula el patentamiento de la TITA en mi municipio?",
+      "expected_keywords": [
+        "no tengo",
+        "información"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA 4P Cuadrilla",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        }
+      ],
+      "retrieval": null
+    }
+  ]
+}

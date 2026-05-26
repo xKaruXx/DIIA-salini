@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520">
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}
+.title{font-size:20px;font-weight:700}
+.subtitle{font-size:12px;fill:#52616b}
+.axis{stroke:#9aa5b1;stroke-width:1}
+.grid{stroke:#e4e7eb;stroke-width:1}
+.label{font-size:11px}
+.tick{font-size:10px;fill:#52616b}
+.value{font-size:11px;font-weight:700}
+.legend{font-size:12px}
+</style>
+<text x="70" y="32" class="title">Accuracy por categoria</text>
+<text x="70" y="52" class="subtitle">Porcentaje de casos aprobados por categoria</text>
+<line x1="70" y1="428.0" x2="950" y2="428.0" class="grid"/>
+<text x="60" y="432.0" text-anchor="end" class="tick">0%</text>
+<line x1="70" y1="356.8" x2="950" y2="356.8" class="grid"/>
+<text x="60" y="360.8" text-anchor="end" class="tick">22%</text>
+<line x1="70" y1="285.6" x2="950" y2="285.6" class="grid"/>
+<text x="60" y="289.6" text-anchor="end" class="tick">45%</text>
+<line x1="70" y1="214.4" x2="950" y2="214.4" class="grid"/>
+<text x="60" y="218.4" text-anchor="end" class="tick">67%</text>
+<line x1="70" y1="143.2" x2="950" y2="143.2" class="grid"/>
+<text x="60" y="147.2" text-anchor="end" class="tick">90%</text>
+<line x1="70" y1="72.0" x2="950" y2="72.0" class="grid"/>
+<text x="60" y="76.0" text-anchor="end" class="tick">112%</text>
+<line x1="70" y1="428" x2="950" y2="428" class="axis"/>
+<line x1="70" y1="72" x2="70" y2="428" class="axis"/>
+<rect x="78.8" y="375.0" width="8.0" height="53.0" rx="2" fill="#2f80ed"/>
+<text x="82.8" y="370.0" text-anchor="middle" class="value">17%</text>
+<rect x="92.8" y="110.1" width="8.0" height="317.9" rx="2" fill="#27ae60"/>
+<text x="96.8" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="106.8" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="110.8" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="120.8" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="124.8" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="103.8" y="474" text-anchor="middle" class="label">agencias</text>
+<rect x="146.5" y="428.0" width="8.0" height="0.0" rx="2" fill="#2f80ed"/>
+<text x="150.5" y="423.0" text-anchor="middle" class="value">0%</text>
+<rect x="160.5" y="269.1" width="8.0" height="158.9" rx="2" fill="#27ae60"/>
+<text x="164.5" y="264.1" text-anchor="middle" class="value">50%</text>
+<rect x="174.5" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="178.5" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="188.5" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="192.5" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="171.5" y="474" text-anchor="middle" class="label">app</text>
+<rect x="214.2" y="110.1" width="8.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="218.2" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="228.2" y="110.1" width="8.0" height="317.9" rx="2" fill="#27ae60"/>
+<text x="232.2" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="242.2" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="246.2" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="256.2" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="260.2" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="239.2" y="474" text-anchor="middle" class="label">beneficios</text>
+<rect x="281.9" y="189.6" width="8.0" height="238.4" rx="2" fill="#2f80ed"/>
+<text x="285.9" y="184.6" text-anchor="middle" class="value">75%</text>
+<rect x="295.9" y="189.6" width="8.0" height="238.4" rx="2" fill="#27ae60"/>
+<text x="299.9" y="184.6" text-anchor="middle" class="value">75%</text>
+<rect x="309.9" y="189.6" width="8.0" height="238.4" rx="2" fill="#f2994a"/>
+<text x="313.9" y="184.6" text-anchor="middle" class="value">75%</text>
+<rect x="323.9" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="327.9" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="306.9" y="474" text-anchor="middle" class="label">carga</text>
+<rect x="349.6" y="110.1" width="8.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="353.6" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="363.6" y="110.1" width="8.0" height="317.9" rx="2" fill="#27ae60"/>
+<text x="367.6" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="377.6" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="381.6" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="391.6" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="395.6" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="374.6" y="474" text-anchor="middle" class="label">comercial</text>
+<rect x="417.3" y="237.3" width="8.0" height="190.7" rx="2" fill="#2f80ed"/>
+<text x="421.3" y="232.3" text-anchor="middle" class="value">60%</text>
+<rect x="431.3" y="237.3" width="8.0" height="190.7" rx="2" fill="#27ae60"/>
+<text x="435.3" y="232.3" text-anchor="middle" class="value">60%</text>
+<rect x="445.3" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="449.3" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="459.3" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="463.3" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="442.3" y="474" text-anchor="middle" class="label">compra</text>
+<rect x="485.0" y="110.1" width="8.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="489.0" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="499.0" y="110.1" width="8.0" height="317.9" rx="2" fill="#27ae60"/>
+<text x="503.0" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="513.0" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="517.0" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="527.0" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="531.0" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="510.0" y="474" text-anchor="middle" class="label">contacto</text>
+<rect x="552.7" y="300.9" width="8.0" height="127.1" rx="2" fill="#2f80ed"/>
+<text x="556.7" y="295.9" text-anchor="middle" class="value">40%</text>
+<rect x="566.7" y="173.7" width="8.0" height="254.3" rx="2" fill="#27ae60"/>
+<text x="570.7" y="168.7" text-anchor="middle" class="value">80%</text>
+<rect x="580.7" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="584.7" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="594.7" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="598.7" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="577.7" y="474" text-anchor="middle" class="label">empresa</text>
+<rect x="620.4" y="428.0" width="8.0" height="0.0" rx="2" fill="#2f80ed"/>
+<text x="624.4" y="423.0" text-anchor="middle" class="value">0%</text>
+<rect x="634.4" y="269.1" width="8.0" height="158.9" rx="2" fill="#27ae60"/>
+<text x="638.4" y="264.1" text-anchor="middle" class="value">50%</text>
+<rect x="648.4" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="652.4" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="662.4" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="666.4" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="645.4" y="474" text-anchor="middle" class="label">movilidad</text>
+<rect x="688.1" y="110.1" width="8.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="692.1" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="702.1" y="110.1" width="8.0" height="317.9" rx="2" fill="#27ae60"/>
+<text x="706.1" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="716.1" y="110.1" width="8.0" height="317.9" rx="2" fill="#f2994a"/>
+<text x="720.1" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="730.1" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="734.1" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="713.1" y="474" text-anchor="middle" class="label">posventa</text>
+<rect x="755.8" y="136.6" width="8.0" height="291.4" rx="2" fill="#2f80ed"/>
+<text x="759.8" y="131.6" text-anchor="middle" class="value">92%</text>
+<rect x="769.8" y="136.6" width="8.0" height="291.4" rx="2" fill="#27ae60"/>
+<text x="773.8" y="131.6" text-anchor="middle" class="value">92%</text>
+<rect x="783.8" y="136.6" width="8.0" height="291.4" rx="2" fill="#f2994a"/>
+<text x="787.8" y="131.6" text-anchor="middle" class="value">92%</text>
+<rect x="797.8" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="801.8" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="780.8" y="474" text-anchor="middle" class="label">precios</text>
+<rect x="823.5" y="110.1" width="8.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="827.5" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="837.5" y="110.1" width="8.0" height="317.9" rx="2" fill="#27ae60"/>
+<text x="841.5" y="105.1" text-anchor="middle" class="value">100%</text>
+<rect x="851.5" y="428.0" width="8.0" height="0.0" rx="2" fill="#f2994a"/>
+<text x="855.5" y="423.0" text-anchor="middle" class="value">0%</text>
+<rect x="865.5" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="869.5" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="848.5" y="474" text-anchor="middle" class="label">sitios_web</text>
+<rect x="891.2" y="298.0" width="8.0" height="130.0" rx="2" fill="#2f80ed"/>
+<text x="895.2" y="293.0" text-anchor="middle" class="value">41%</text>
+<rect x="905.2" y="269.1" width="8.0" height="158.9" rx="2" fill="#27ae60"/>
+<text x="909.2" y="264.1" text-anchor="middle" class="value">50%</text>
+<rect x="919.2" y="167.9" width="8.0" height="260.1" rx="2" fill="#f2994a"/>
+<text x="923.2" y="162.9" text-anchor="middle" class="value">82%</text>
+<rect x="933.2" y="110.1" width="8.0" height="317.9" rx="2" fill="#9b51e0"/>
+<text x="937.2" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="916.2" y="474" text-anchor="middle" class="label">vehiculos</text>
+<rect x="70" y="492" width="12" height="12" fill="#2f80ed"/>
+<text x="88" y="502" class="legend">qwen35 nomic v2 moe</text>
+<rect x="220" y="492" width="12" height="12" fill="#27ae60"/>
+<text x="238" y="502" class="legend">post extraccion</text>
+<rect x="370" y="492" width="12" height="12" fill="#f2994a"/>
+<text x="388" y="502" class="legend">post extraccion v2</text>
+<rect x="520" y="492" width="12" height="12" fill="#9b51e0"/>
+<text x="538" y="502" class="legend">post extraccion v3</text>
+</svg>

@@ -1,0 +1,799 @@
+{
+  "summary": {
+    "total_cases": 15,
+    "passed_cases": 15,
+    "response_evaluated_cases": 15,
+    "accuracy": 1.0,
+    "average_latency_seconds": 0.01,
+    "prompt_variant": "strict",
+    "llm_provider": "ollama",
+    "chat_model_name": "lfm2.5-thinking:1.2b",
+    "embedding_provider": "ollama",
+    "embedding_model_name": "nomic-embed-text:latest",
+    "retrieval": {}
+  },
+  "results": [
+    {
+      "index": 1,
+      "id": "tito_s5_autonomia_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?",
+      "expected_keywords": [
+        "300 km",
+        "220v",
+        "8 horas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "carga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales\nautonomía: 300 Km\nsistema cargado inteligente: Si",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITO S5",
+          "source_path": "todos_los_vehiculos_disponibles.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios TITO S5",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITO S5-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 2,
+      "id": "tito_s5_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 AA?",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "precio: USD 16.981,25\nprecio: USD 17.731,25\nnombre: TITO S5-300\nTITO S5-300:",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S5-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITO S5",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 3,
+      "id": "tita_s2_capacidad",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de carga y de pasajeros tiene la TITA S2-300?",
+      "expected_keywords": [
+        "500 kg",
+        "2 personas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "carga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales\ncapacidad: 2 personas\ncapacidad caja: 500 Kg",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 18,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 4,
+      "id": "tita_furgon_refrigerado_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con furgón refrigerado?",
+      "expected_keywords": [
+        "23.632,00",
+        "usd"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "aclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nautonomía: 300 Km\naccesorio: Furgón refrigerado\ndescripcion accesorio: Accesorio que convierte la pickup en furgón cerrado con sistema de refrigeración",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 31,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 30,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 26,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 25,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 18,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 5,
+      "id": "chiki_autonomia_velocidad",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y velocidad máxima tiene el CHIKI de litio?",
+      "expected_keywords": [
+        "110km",
+        "45 km/h"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "velocidad maxima: 45 km/h\ndescripcion: Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.\nautonomia: 110km\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio CHIKI-L (110KM) LITIO",
+          "source_path": "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad CHIKI",
+          "source_path": "todos_los_vehiculos_disponibles.CHIKI"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 6,
+      "id": "barre_tita_capacidad",
+      "category": "vehiculos",
+      "question": "¿Cuál es la capacidad de trabajo y el tanque de agua de la BARRE-TITA?",
+      "expected_keywords": [
+        "15000 m2/h",
+        "150 litros"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "capacidad tanque agua: 150 Litros\ncapacidad trabajo: 15000 m2/h\ncapacidad papelera: 180 Litros\npeso neto: 900 KG",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 14,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad BARRE-TITA",
+          "source_path": "todos_los_vehiculos_disponibles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios BARRE-TITA",
+          "source_path": "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA 4P Cuadrilla",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 7,
+      "id": "garantia",
+      "category": "posventa",
+      "question": "¿Qué garantía tienen los vehículos?",
+      "expected_keywords": [
+        "1 año",
+        "3 años"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?\nNuestros vehículos requieren menos mantenimiento que los convencionales. Principalmente revisiones periódicas de los sistemas eléctricos, frenos y neumáticos.\nPregunta: ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 25,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 8,
+      "id": "reclamos_servicio",
+      "category": "posventa",
+      "question": "¿Dónde hago un reclamo o pido servicio técnico?",
+      "expected_keywords": [
+        "5264805",
+        "0266"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Contamos con una amplia red de servicio técnico en todo el país. Para más información, puede contactar al (0266) 5264805\nPregunta: ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?\nNuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nPregunta: ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?",
+          "source_path": "preguntas_frecuentes.mantenimiento[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Dónde puedo comprar un vehículo eléctrico Coradir?",
+          "source_path": "preguntas_frecuentes.adquisicion[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - servicio entrega",
+          "source_path": "condiciones_compra_entrega.servicio_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 3,
+          "section": "site_navigation",
+          "title": "site navigation - main menu",
+          "source_path": "site_navigation.main_menu"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 9,
+      "id": "leasing_suspendido",
+      "category": "comercial",
+      "question": "¿Tienen leasing o alquiler con opción a compra?",
+      "expected_keywords": [
+        "no",
+        "leasing",
+        "alquiler con opción a compra"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "La modalidad de leasing (alquiler con opción a compra) de CORADIR está suspendida.\nSi un cliente consulta por leasing, aclarar que esta modalidad quedó pausada y sugerir alternativas como compra al contado u opciones de pago disponibles.\nTodos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - reserva pago inicial",
+          "source_path": "condiciones_compra_entrega.reserva_pago_inicial"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - plazos entrega",
+          "source_path": "condiciones_compra_entrega.plazos_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - servicio entrega",
+          "source_path": "condiciones_compra_entrega.servicio_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - aclaracion entrega",
+          "source_path": "condiciones_compra_entrega.aclaracion_entrega"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 10,
+      "id": "beneficio_discapacidad",
+      "category": "beneficios",
+      "question": "¿Cómo es el trámite por beneficio de discapacidad?",
+      "expected_keywords": [
+        "ley 19279",
+        "servicio nacional de rehabilitacion"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "ley aplicable: Según lo que indica la ley 19279, debe realizar el trámite para verificar si se puede acceder a la franquicia impositiva\nproceso: La tramitación consiste en descargar los requisitos para realizar el mismo, junto con el formulario de solicitud de franquicia\npresentacion: Tanto la solicitud como los requisitos podrán ser presentados en la mesa de entradas del Servicio Nacional de Rehabilitación\nEn el caso de aplicar el beneficio por discapacidad, CORADIR confecciona la factura proforma de acuerdo a los requerimientos de la ley 19279.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - tramite franquicia",
+          "source_path": "beneficios_discapacidad.tramite_franquicia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - factura proforma",
+          "source_path": "beneficios_discapacidad.factura_proforma"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - evaluacion medica",
+          "source_path": "beneficios_discapacidad.evaluacion_medica"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - resolucion final",
+          "source_path": "beneficios_discapacidad.resolucion_final"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 11,
+      "id": "agencia_san_luis",
+      "category": "agencias",
+      "question": "¿Tienen agencia oficial en San Luis?",
+      "expected_keywords": [
+        "san luis",
+        "ruta 3 sur km 0.6"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "ciudad: SAN LUIS\ndireccion: Ruta 3 Sur Km 0.6 San Luis Argentina\ndireccion: Calle 1 N°2105 - Localidad Frontera - Provincia Santa Fe - Cp2438\ndireccion: Ruta Nacional 92 Km 29.2 Arequito - Santa Fe.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "agencias",
+          "title": "Agencias en San Luis",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.San Luis"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Santa Fe",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Fe"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en San Juan",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.San Juan"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Santa Cruz",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Cruz"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Buenos Aires",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 12,
+      "id": "carga_rapida",
+      "category": "carga",
+      "question": "¿Qué ventaja ofrece la carga rápida?",
+      "expected_keywords": [
+        "2 horas",
+        "6-8 horas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "Es una avanzada solución que reduce el tiempo de carga de 6-8 horas a aproximadamente 2 horas, brindando mayor comodidad y flexibilidad sin comprometer el rendimiento ni la autonomía del vehículo.\nPregunta: ¿Qué es la tecnología de carga rápida?\nReducción de tiempo: De 6-8 horas a solo 2 horas de carga\ndescripcion: CORADIR se complace en anunciar dos importantes avances que transformarán la experiencia de movilidad eléctrica en Argentina: expansión de infraestructura de carga y tecnología de carga rápida.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 8,
+          "section": "infraestructura_carga",
+          "title": "infraestructura carga - ecocarga",
+          "source_path": "infraestructura_carga.ecocarga"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Puedo realizar cargas parciales?",
+          "source_path": "preguntas_frecuentes.carga[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 13,
+      "id": "instalacion_carga",
+      "category": "carga",
+      "question": "¿Necesito una instalación especial para cargar un vehículo?",
+      "expected_keywords": [
+        "220v",
+        "20a"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "No, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A.\nPregunta: ¿Necesito una instalación especial para cargar mi vehículo?\nNormalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas.\nPregunta: ¿Cuánto tiempo toma cargar completamente la batería?",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 35,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?",
+          "source_path": "preguntas_frecuentes.mantenimiento[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 14,
+      "id": "reserva_entrega",
+      "category": "compra",
+      "question": "¿Cómo funciona la reserva y la entrega inmediata?",
+      "expected_keywords": [
+        "usd 200",
+        "72 horas"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "proceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada\nreserva: USD 200 para reservar la unidad\nplazo confirmacion: 30 días para confirmar la compra con el 20% de anticipo",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Qué es eso de la entrega inmediata?",
+          "source_path": "preguntas_frecuentes.adquisicion[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - reserva pago inicial",
+          "source_path": "condiciones_compra_entrega.reserva_pago_inicial"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - plazos entrega",
+          "source_path": "condiciones_compra_entrega.plazos_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - servicio entrega",
+          "source_path": "condiciones_compra_entrega.servicio_entrega"
+        }
+      ],
+      "retrieval": null
+    },
+    {
+      "index": 15,
+      "id": "telefono_ventas",
+      "category": "contacto",
+      "question": "¿Cuál es el teléfono de ventas de movilidad eléctrica?",
+      "expected_keywords": [
+        "4305996",
+        "0266"
+      ],
+      "missing_keywords": [],
+      "passed": true,
+      "latency_seconds": 0.01,
+      "response": "(0266) 4305996 (Se usa para llamar al área de ventas de movilidad eléctrica)\n(0266) 5264805 (Se usa para llamar al área posventa y también se usa para servicio técnico y reclamos)\nCoradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "contactos",
+          "title": "contactos - telefono movilidad ventas",
+          "source_path": "contactos.telefono_movilidad_ventas"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - filosofia",
+          "source_path": "movilidad_electrica.filosofia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - beneficios generales",
+          "source_path": "movilidad_electrica.beneficios_generales"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - caracteristicas vehiculos",
+          "source_path": "movilidad_electrica.caracteristicas_vehiculos"
+        }
+      ],
+      "retrieval": null
+    }
+  ]
+}

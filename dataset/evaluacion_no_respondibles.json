@@ -1,0 +1,44 @@
+[
+  {
+    "id": "offtopic_resultado_futbol",
+    "category": "no_respondible",
+    "answerability": "not_answerable",
+    "question": "¿Quién ganó el último partido de Boca?",
+    "expected_keywords": ["CORADIR"]
+  },
+  {
+    "id": "offtopic_receta",
+    "category": "no_respondible",
+    "answerability": "not_answerable",
+    "question": "Dame una receta de ñoquis caseros.",
+    "expected_keywords": ["CORADIR"]
+  },
+  {
+    "id": "dato_no_presente_stock_hoy",
+    "category": "no_respondible",
+    "answerability": "not_answerable",
+    "question": "¿Cuántas unidades exactas del TITO hay en stock hoy?",
+    "expected_keywords": ["no tengo", "información"]
+  },
+  {
+    "id": "dato_no_presente_financiacion_banco",
+    "category": "no_respondible",
+    "answerability": "not_answerable",
+    "question": "¿Qué tasa ofrece el Banco Nación para financiar un TITO esta semana?",
+    "expected_keywords": ["no tengo", "información"]
+  },
+  {
+    "id": "producto_no_cubierto_camion",
+    "category": "no_respondible",
+    "answerability": "not_answerable",
+    "question": "¿CORADIR vende camiones eléctricos de larga distancia?",
+    "expected_keywords": ["no tengo", "información"]
+  },
+  {
+    "id": "legal_no_cubierto_patentamiento",
+    "category": "no_respondible",
+    "answerability": "not_answerable",
+    "question": "¿Qué artículo legal exacto regula el patentamiento de la TITA en mi municipio?",
+    "expected_keywords": ["no tengo", "información"]
+  }
+]

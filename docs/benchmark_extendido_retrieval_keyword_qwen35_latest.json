@@ -1,0 +1,4811 @@
+{
+  "summary": {
+    "total_cases": 64,
+    "passed_cases": 0,
+    "response_evaluated_cases": 0,
+    "accuracy": null,
+    "average_latency_seconds": 0,
+    "prompt_variant": "strict",
+    "llm_provider": "ollama",
+    "chat_model_name": "qwen3.5:latest",
+    "embedding_provider": "ollama",
+    "embedding_model_name": "nomic-embed-text:latest",
+    "retrieval": {
+      "top_k": 5,
+      "evaluated_cases": 64,
+      "mean_precision_at_k": 0.3187,
+      "mean_recall_at_k": 0.8984,
+      "mrr": 0.7589,
+      "top_1_source_accuracy": 0.6562
+    }
+  },
+  "results": [
+    {
+      "index": 1,
+      "id": "tito_s5_autonomia_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?",
+      "expected_keywords": [
+        "300 km",
+        "220v",
+        "8 horas"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITO S5",
+          "source_path": "todos_los_vehiculos_disponibles.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios TITO S5",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITO S5-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITO"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "todos_los_vehiculos_disponibles.TITO S5",
+          "Precios_Vehiculos_Actualizados.TITO S5",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITO"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 2,
+      "id": "tito_s5_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 AA?",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S5-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITO S5",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+          "Precios_Vehiculos_Actualizados.TITO S5",
+          "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        ],
+        "relevant_positions": [
+          2,
+          3,
+          4
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 3,
+      "id": "tita_s2_capacidad",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de carga y de pasajeros tiene la TITA S2-300?",
+      "expected_keywords": [
+        "500 kg",
+        "2 personas"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 18,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA S2 300",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "relevant_positions": [
+          1,
+          4,
+          5
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 4,
+      "id": "tita_furgon_refrigerado_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con furgón refrigerado?",
+      "expected_keywords": [
+        "23.632,00",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 31,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 30,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 26,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 25,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 18,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        ],
+        "relevant_positions": [
+          1,
+          3
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 5,
+      "id": "chiki_autonomia_velocidad",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y velocidad máxima tiene el CHIKI de litio?",
+      "expected_keywords": [
+        "110km",
+        "45 km/h"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio CHIKI-L (110KM) LITIO",
+          "source_path": "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad CHIKI",
+          "source_path": "todos_los_vehiculos_disponibles.CHIKI"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+          "vehiculos_detalles.CHIKI",
+          "preguntas_frecuentes.carga[2]",
+          "todos_los_vehiculos_disponibles.CHIKI"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "relevant_positions": [
+          3
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.3333,
+        "first_relevant_rank": 3
+      }
+    },
+    {
+      "index": 6,
+      "id": "barre_tita_capacidad",
+      "category": "vehiculos",
+      "question": "¿Cuál es la capacidad de trabajo y el tanque de agua de la BARRE-TITA?",
+      "expected_keywords": [
+        "15000 m2/h",
+        "150 litros"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 14,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad BARRE-TITA",
+          "source_path": "todos_los_vehiculos_disponibles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios BARRE-TITA",
+          "source_path": "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA 4P Cuadrilla",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.BARRE-TITA"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.BARRE-TITA",
+          "todos_los_vehiculos_disponibles.BARRE-TITA",
+          "Precios_Vehiculos_Actualizados.BARRE-TITA",
+          "vehiculos_detalles.TITA S2 300",
+          "vehiculos_detalles.TITA 4P Cuadrilla"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.BARRE-TITA"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 7,
+      "id": "garantia",
+      "category": "posventa",
+      "question": "¿Qué garantía tienen los vehículos?",
+      "expected_keywords": [
+        "1 año",
+        "3 años"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 25,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "preguntas_frecuentes.mantenimiento"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.mantenimiento[0]",
+          "preguntas_frecuentes.general[1]",
+          "preguntas_frecuentes.general[2]",
+          "preguntas_frecuentes.vehiculos[0]"
+        ],
+        "matched_expected_sources": [
+          "preguntas_frecuentes.mantenimiento"
+        ],
+        "relevant_positions": [
+          1,
+          2
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 8,
+      "id": "reclamos_servicio",
+      "category": "posventa",
+      "question": "¿Dónde hago un reclamo o pido servicio técnico?",
+      "expected_keywords": [
+        "5264805",
+        "0266"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?",
+          "source_path": "preguntas_frecuentes.mantenimiento[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Dónde puedo comprar un vehículo eléctrico Coradir?",
+          "source_path": "preguntas_frecuentes.adquisicion[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - servicio entrega",
+          "source_path": "condiciones_compra_entrega.servicio_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 3,
+          "section": "site_navigation",
+          "title": "site navigation - main menu",
+          "source_path": "site_navigation.main_menu"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "contactos.telefono_movilidad_posventa",
+          "preguntas_frecuentes.mantenimiento"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[1]",
+          "preguntas_frecuentes.general[1]",
+          "preguntas_frecuentes.adquisicion[0]",
+          "condiciones_compra_entrega.servicio_entrega",
+          "site_navigation.main_menu"
+        ],
+        "matched_expected_sources": [
+          "preguntas_frecuentes.mantenimiento"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.5,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 9,
+      "id": "leasing_suspendido",
+      "category": "comercial",
+      "question": "¿Tienen leasing o alquiler con opción a compra?",
+      "expected_keywords": [
+        "no",
+        "leasing",
+        "alquiler con opción a compra"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - reserva pago inicial",
+          "source_path": "condiciones_compra_entrega.reserva_pago_inicial"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - plazos entrega",
+          "source_path": "condiciones_compra_entrega.plazos_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - servicio entrega",
+          "source_path": "condiciones_compra_entrega.servicio_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - aclaracion entrega",
+          "source_path": "condiciones_compra_entrega.aclaracion_entrega"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "leasing_estado_actual"
+        ],
+        "retrieved_sources": [
+          "condiciones_compra_entrega.reserva_pago_inicial",
+          "condiciones_compra_entrega.entrega_inmediata",
+          "condiciones_compra_entrega.plazos_entrega",
+          "condiciones_compra_entrega.servicio_entrega",
+          "condiciones_compra_entrega.aclaracion_entrega"
+        ],
+        "matched_expected_sources": [],
+        "relevant_positions": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "first_relevant_rank": null
+      }
+    },
+    {
+      "index": 10,
+      "id": "beneficio_discapacidad",
+      "category": "beneficios",
+      "question": "¿Cómo es el trámite por beneficio de discapacidad?",
+      "expected_keywords": [
+        "ley 19279",
+        "servicio nacional de rehabilitacion"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - tramite franquicia",
+          "source_path": "beneficios_discapacidad.tramite_franquicia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - factura proforma",
+          "source_path": "beneficios_discapacidad.factura_proforma"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - evaluacion medica",
+          "source_path": "beneficios_discapacidad.evaluacion_medica"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - resolucion final",
+          "source_path": "beneficios_discapacidad.resolucion_final"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "beneficios_discapacidad.tramite_franquicia"
+        ],
+        "retrieved_sources": [
+          "beneficios_discapacidad.tramite_franquicia",
+          "beneficios_discapacidad.factura_proforma",
+          "beneficios_discapacidad.evaluacion_medica",
+          "beneficios_discapacidad.resolucion_final",
+          "preguntas_frecuentes.general[2]"
+        ],
+        "matched_expected_sources": [
+          "beneficios_discapacidad.tramite_franquicia"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 11,
+      "id": "agencia_san_luis",
+      "category": "agencias",
+      "question": "¿Tienen agencia oficial en San Luis?",
+      "expected_keywords": [
+        "san luis",
+        "ruta 3 sur km 0.6"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "agencias",
+          "title": "Agencias en San Luis",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.San Luis"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Santa Fe",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Fe"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en San Juan",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.San Juan"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Santa Cruz",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Cruz"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Buenos Aires",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.San Luis"
+        ],
+        "retrieved_sources": [
+          "distribucion.agencias_oficiales_por_provincia.San Luis",
+          "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+          "distribucion.agencias_oficiales_por_provincia.San Juan",
+          "distribucion.agencias_oficiales_por_provincia.Santa Cruz",
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        ],
+        "matched_expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.San Luis"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 12,
+      "id": "carga_rapida",
+      "category": "carga",
+      "question": "¿Qué ventaja ofrece la carga rápida?",
+      "expected_keywords": [
+        "2 horas",
+        "6-8 horas"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 8,
+          "section": "infraestructura_carga",
+          "title": "infraestructura carga - ecocarga",
+          "source_path": "infraestructura_carga.ecocarga"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Puedo realizar cargas parciales?",
+          "source_path": "preguntas_frecuentes.carga[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "infraestructura_carga.ecocarga.carga_rapida",
+          "preguntas_frecuentes.carga"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.carga[2]",
+          "infraestructura_carga.ecocarga",
+          "preguntas_frecuentes.vehiculos[1]",
+          "preguntas_frecuentes.carga[1]",
+          "preguntas_frecuentes.general[0]"
+        ],
+        "matched_expected_sources": [
+          "infraestructura_carga.ecocarga.carga_rapida",
+          "preguntas_frecuentes.carga"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          4
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 13,
+      "id": "instalacion_carga",
+      "category": "carga",
+      "question": "¿Necesito una instalación especial para cargar un vehículo?",
+      "expected_keywords": [
+        "220v",
+        "20a"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 35,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?",
+          "source_path": "preguntas_frecuentes.mantenimiento[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "preguntas_frecuentes.carga"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.carga[0]",
+          "preguntas_frecuentes.vehiculos[1]",
+          "preguntas_frecuentes.mantenimiento[1]",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.general[2]"
+        ],
+        "matched_expected_sources": [
+          "preguntas_frecuentes.carga"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 14,
+      "id": "reserva_entrega",
+      "category": "compra",
+      "question": "¿Cómo funciona la reserva y la entrega inmediata?",
+      "expected_keywords": [
+        "usd 200",
+        "72 horas"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Qué es eso de la entrega inmediata?",
+          "source_path": "preguntas_frecuentes.adquisicion[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - reserva pago inicial",
+          "source_path": "condiciones_compra_entrega.reserva_pago_inicial"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - plazos entrega",
+          "source_path": "condiciones_compra_entrega.plazos_entrega"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - servicio entrega",
+          "source_path": "condiciones_compra_entrega.servicio_entrega"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "condiciones_compra_entrega.reserva_pago_inicial",
+          "condiciones_compra_entrega.entrega_inmediata"
+        ],
+        "retrieved_sources": [
+          "condiciones_compra_entrega.entrega_inmediata",
+          "preguntas_frecuentes.adquisicion[1]",
+          "condiciones_compra_entrega.reserva_pago_inicial",
+          "condiciones_compra_entrega.plazos_entrega",
+          "condiciones_compra_entrega.servicio_entrega"
+        ],
+        "matched_expected_sources": [
+          "condiciones_compra_entrega.reserva_pago_inicial",
+          "condiciones_compra_entrega.entrega_inmediata"
+        ],
+        "relevant_positions": [
+          1,
+          3
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 15,
+      "id": "telefono_ventas",
+      "category": "contacto",
+      "question": "¿Cuál es el teléfono de ventas de movilidad eléctrica?",
+      "expected_keywords": [
+        "4305996",
+        "0266"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "contactos",
+          "title": "contactos - telefono movilidad ventas",
+          "source_path": "contactos.telefono_movilidad_ventas"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - filosofia",
+          "source_path": "movilidad_electrica.filosofia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - beneficios generales",
+          "source_path": "movilidad_electrica.beneficios_generales"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - caracteristicas vehiculos",
+          "source_path": "movilidad_electrica.caracteristicas_vehiculos"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "contactos.telefono_movilidad_ventas"
+        ],
+        "retrieved_sources": [
+          "contactos.telefono_movilidad_ventas",
+          "preguntas_frecuentes.general[0]",
+          "movilidad_electrica.filosofia",
+          "movilidad_electrica.beneficios_generales",
+          "movilidad_electrica.caracteristicas_vehiculos"
+        ],
+        "matched_expected_sources": [
+          "contactos.telefono_movilidad_ventas"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 16,
+      "id": "empresa_que_es_coradir_movilidad",
+      "category": "empresa",
+      "question": "¿Qué es Coradir Movilidad Eléctrica?",
+      "expected_keywords": [
+        "CORADIR S.A.",
+        "2020"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - filosofia",
+          "source_path": "movilidad_electrica.filosofia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "sitios_web",
+          "title": "sitios web - movilidad electrica",
+          "source_path": "sitios_web.movilidad_electrica"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "sitios_web",
+          "title": "sitios web - movilidad electrica reservas",
+          "source_path": "sitios_web.movilidad_electrica_reservas"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "preguntas_frecuentes.general[0]",
+          "empresa.descripcion"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.general[0]",
+          "movilidad_electrica.filosofia",
+          "sitios_web.movilidad_electrica",
+          "sitios_web.movilidad_electrica_reservas",
+          "preguntas_frecuentes.mantenimiento[0]"
+        ],
+        "matched_expected_sources": [
+          "preguntas_frecuentes.general[0]"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.5,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 17,
+      "id": "empresa_donde_se_fabrican",
+      "category": "empresa",
+      "question": "¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+      "expected_keywords": [
+        "Argentina",
+        "Ruta 3 km 0.6",
+        "San Luis"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 30,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Cuál es el impacto ambiental de los vehículos eléctricos Coradir?",
+          "source_path": "preguntas_frecuentes.ambiental[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Dónde puedo comprar un vehículo eléctrico Coradir?",
+          "source_path": "preguntas_frecuentes.adquisicion[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "preguntas_frecuentes.general[1]",
+          "empresa.plantas_fabricacion"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.general[1]",
+          "preguntas_frecuentes.vehiculos[0]",
+          "preguntas_frecuentes.mantenimiento[0]",
+          "preguntas_frecuentes.ambiental[0]",
+          "preguntas_frecuentes.adquisicion[0]"
+        ],
+        "matched_expected_sources": [
+          "preguntas_frecuentes.general[1]"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.5,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 18,
+      "id": "empresa_plantas_fabricacion",
+      "category": "empresa",
+      "question": "¿Qué plantas de fabricación tiene CORADIR?",
+      "expected_keywords": [
+        "Planta San Luis",
+        "Planta Buenos Aires",
+        "Uspallata 2853"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "empresa",
+          "title": "empresa - plantas fabricacion",
+          "source_path": "empresa.plantas_fabricacion"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Qué es eso de la entrega inmediata?",
+          "source_path": "preguntas_frecuentes.adquisicion[1]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "empresa.plantas_fabricacion"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "empresa.plantas_fabricacion",
+          "preguntas_frecuentes.mantenimiento[0]",
+          "preguntas_frecuentes.adquisicion[1]"
+        ],
+        "matched_expected_sources": [
+          "empresa.plantas_fabricacion"
+        ],
+        "relevant_positions": [
+          3
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.3333,
+        "first_relevant_rank": 3
+      }
+    },
+    {
+      "index": 19,
+      "id": "empresa_certificaciones_iso",
+      "category": "empresa",
+      "question": "¿Qué certificaciones ISO se mencionan en la historia de CORADIR?",
+      "expected_keywords": [
+        "ISO 9001",
+        "ISO 14001"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito plus",
+          "source_path": "aplicaciones_coradir.contactito_plus"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "empresa",
+          "title": "empresa - historia",
+          "source_path": "empresa.historia"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "empresa.historia"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.mantenimiento[0]",
+          "aplicaciones_coradir.contactito_plus",
+          "preguntas_frecuentes.ambiental[1]",
+          "empresa.historia"
+        ],
+        "matched_expected_sources": [
+          "empresa.historia"
+        ],
+        "relevant_positions": [
+          5
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.2,
+        "first_relevant_rank": 5
+      }
+    },
+    {
+      "index": 20,
+      "id": "empresa_valores",
+      "category": "empresa",
+      "question": "¿Qué valores destaca CORADIR para sus vehículos eléctricos?",
+      "expected_keywords": [
+        "precio competitivo",
+        "atención especializada"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.general[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Cuál es el impacto ambiental de los vehículos eléctricos Coradir?",
+          "source_path": "preguntas_frecuentes.ambiental[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "empresa.valores"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[0]",
+          "preguntas_frecuentes.general[1]",
+          "preguntas_frecuentes.vehiculos[0]",
+          "preguntas_frecuentes.ambiental[0]",
+          "preguntas_frecuentes.general[0]"
+        ],
+        "matched_expected_sources": [],
+        "relevant_positions": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "first_relevant_rank": null
+      }
+    },
+    {
+      "index": 21,
+      "id": "movilidad_beneficios_generales",
+      "category": "movilidad",
+      "question": "¿Qué beneficios generales tiene la movilidad eléctrica de Coradir?",
+      "expected_keywords": [
+        "220v",
+        "silencioso",
+        "sin emisiones"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - beneficios generales",
+          "source_path": "movilidad_electrica.beneficios_generales"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - filosofia",
+          "source_path": "movilidad_electrica.filosofia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "sitios_web",
+          "title": "sitios web - movilidad electrica",
+          "source_path": "sitios_web.movilidad_electrica"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "sitios_web",
+          "title": "sitios web - movilidad electrica reservas",
+          "source_path": "sitios_web.movilidad_electrica_reservas"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "movilidad_electrica.beneficios_generales"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.general[0]",
+          "movilidad_electrica.beneficios_generales",
+          "movilidad_electrica.filosofia",
+          "sitios_web.movilidad_electrica",
+          "sitios_web.movilidad_electrica_reservas"
+        ],
+        "matched_expected_sources": [
+          "movilidad_electrica.beneficios_generales"
+        ],
+        "relevant_positions": [
+          2
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 22,
+      "id": "movilidad_relacion_gastos",
+      "category": "movilidad",
+      "question": "¿Qué relación de gastos de movilidad menciona Coradir?",
+      "expected_keywords": [
+        "10 a 1",
+        "movilidad"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - beneficios generales",
+          "source_path": "movilidad_electrica.beneficios_generales"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "movilidad_electrica",
+          "title": "movilidad electrica - filosofia",
+          "source_path": "movilidad_electrica.filosofia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito app",
+          "source_path": "aplicaciones_coradir.contactito_app"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "movilidad_electrica.beneficios_generales"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.mantenimiento[0]",
+          "movilidad_electrica.beneficios_generales",
+          "movilidad_electrica.filosofia",
+          "aplicaciones_coradir.contactito_app"
+        ],
+        "matched_expected_sources": [
+          "movilidad_electrica.beneficios_generales"
+        ],
+        "relevant_positions": [
+          3
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.3333,
+        "first_relevant_rank": 3
+      }
+    },
+    {
+      "index": 23,
+      "id": "app_contactito_funciones",
+      "category": "app",
+      "question": "¿Para qué sirve la app CONTACTITO?",
+      "expected_keywords": [
+        "batería",
+        "10%",
+        "100%"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito app",
+          "source_path": "aplicaciones_coradir.contactito_app"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "aplicaciones_coradir.contactito_app"
+        ],
+        "retrieved_sources": [
+          "aplicaciones_coradir.contactito_app",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.carga[0]",
+          "preguntas_frecuentes.carga[2]"
+        ],
+        "matched_expected_sources": [
+          "aplicaciones_coradir.contactito_app"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 24,
+      "id": "app_contactito_plus",
+      "category": "app",
+      "question": "¿Qué agrega CONTACTITO Plus?",
+      "expected_keywords": [
+        "geolocalización",
+        "historial",
+        "ubicación"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito plus",
+          "source_path": "aplicaciones_coradir.contactito_plus"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito app",
+          "source_path": "aplicaciones_coradir.contactito_app"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "aplicaciones_coradir.contactito_plus"
+        ],
+        "retrieved_sources": [
+          "aplicaciones_coradir.contactito_plus",
+          "aplicaciones_coradir.contactito_app",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.carga[2]",
+          "preguntas_frecuentes.mantenimiento[0]"
+        ],
+        "matched_expected_sources": [
+          "aplicaciones_coradir.contactito_plus"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 25,
+      "id": "web_reservas",
+      "category": "sitios_web",
+      "question": "¿Cuál es la URL para iniciar la reserva de un vehículo?",
+      "expected_keywords": [
+        "movilidad.coradir.com.ar/reservas"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Cuál es el impacto ambiental de los vehículos eléctricos Coradir?",
+          "source_path": "preguntas_frecuentes.ambiental[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 8,
+          "section": "sitios_web",
+          "title": "sitios web - movilidad electrica reservas",
+          "source_path": "sitios_web.movilidad_electrica_reservas"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "sitios_web.movilidad_electrica_reservas"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.vehiculos[0]",
+          "preguntas_frecuentes.carga[0]",
+          "preguntas_frecuentes.ambiental[0]",
+          "sitios_web.movilidad_electrica_reservas",
+          "preguntas_frecuentes.general[2]"
+        ],
+        "matched_expected_sources": [
+          "sitios_web.movilidad_electrica_reservas"
+        ],
+        "relevant_positions": [
+          4
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.25,
+        "first_relevant_rank": 4
+      }
+    },
+    {
+      "index": 26,
+      "id": "modelos_discontinuados",
+      "category": "vehiculos",
+      "question": "¿Qué pasó con los modelos de 100 km y el CHIKI-G?",
+      "expected_keywords": [
+        "100km",
+        "discontinuados",
+        "CHIKI-G"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 8,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.ACLARACION_IMPORTANTE",
+          "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[0]",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.general[2]",
+          "preguntas_frecuentes.ambiental[1]",
+          "vehiculos_detalles.CHIKI"
+        ],
+        "matched_expected_sources": [],
+        "relevant_positions": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "first_relevant_rank": null
+      }
+    },
+    {
+      "index": 27,
+      "id": "tito_s2_modelos_disponibles",
+      "category": "vehiculos",
+      "question": "¿Qué versiones están disponibles del TITO S2?",
+      "expected_keywords": [
+        "TITO S2-300",
+        "TITO S2-300 AA"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 13,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITO S2",
+          "source_path": "todos_los_vehiculos_disponibles.TITO S2"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios TITO S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITO S2-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "todos_los_vehiculos_disponibles.TITO S2",
+          "vehiculos_detalles.TITO"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "todos_los_vehiculos_disponibles.TITO S2",
+          "Precios_Vehiculos_Actualizados.TITO S2",
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"
+        ],
+        "matched_expected_sources": [
+          "todos_los_vehiculos_disponibles.TITO S2",
+          "vehiculos_detalles.TITO"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 28,
+      "id": "tito_s5_modelos_disponibles",
+      "category": "vehiculos",
+      "question": "¿Qué versiones están disponibles del TITO S5?",
+      "expected_keywords": [
+        "TITO S5-300",
+        "TITO S5-300 AA"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITO S5",
+          "source_path": "todos_los_vehiculos_disponibles.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios TITO S5",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "todos_los_vehiculos_disponibles.TITO S5",
+          "vehiculos_detalles.TITO"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "todos_los_vehiculos_disponibles.TITO S5",
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "Precios_Vehiculos_Actualizados.TITO S5",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        ],
+        "matched_expected_sources": [
+          "todos_los_vehiculos_disponibles.TITO S5",
+          "vehiculos_detalles.TITO"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 29,
+      "id": "tito_s2_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S2-300?",
+      "expected_keywords": [
+        "15.972,50",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S2-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S2-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITO S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "Precios_Vehiculos_Actualizados.TITO S2"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"
+        ],
+        "relevant_positions": [
+          2,
+          3,
+          5
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 30,
+      "id": "tito_s2_300_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S2-300 AA?",
+      "expected_keywords": [
+        "16.722,50",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S2-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S2-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITO S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S2"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "Precios_Vehiculos_Actualizados.TITO S2"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+        ],
+        "relevant_positions": [
+          2,
+          3,
+          5
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 31,
+      "id": "tito_s5_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 sin aire acondicionado?",
+      "expected_keywords": [
+        "16.981,25",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 23,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S5-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITO S5-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 18,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITO S5",
+          "source_path": "Precios_Vehiculos_Actualizados.TITO S5"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "Precios_Vehiculos_Actualizados.TITO S5"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300"
+        ],
+        "relevant_positions": [
+          2,
+          3,
+          5
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 32,
+      "id": "tito_capacidad_autonomia",
+      "category": "vehiculos",
+      "question": "¿Cuántas personas lleva un TITO y qué autonomía tienen las versiones actuales?",
+      "expected_keywords": [
+        "4 personas",
+        "300 Km"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITO",
+          "source_path": "vehiculos_detalles.TITO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITO"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.ambiental[1]",
+          "vehiculos_detalles.TITO",
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITO"
+        ],
+        "relevant_positions": [
+          3,
+          4,
+          5
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.3333,
+        "first_relevant_rank": 3
+      }
+    },
+    {
+      "index": 33,
+      "id": "tito_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene el TITO?",
+      "expected_keywords": [
+        "65 km/h",
+        "4.5 KW"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITO",
+          "source_path": "vehiculos_detalles.TITO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 9,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito app",
+          "source_path": "aplicaciones_coradir.contactito_app"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITO"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "vehiculos_detalles.TITO",
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "aplicaciones_coradir.contactito_app"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITO"
+        ],
+        "relevant_positions": [
+          2,
+          3,
+          4
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 34,
+      "id": "tito_colores",
+      "category": "vehiculos",
+      "question": "¿Qué colores se ofrecen para el TITO?",
+      "expected_keywords": [
+        "Rosa",
+        "Verde",
+        "Bicolor"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITO",
+          "source_path": "vehiculos_detalles.TITO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S2-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Modelo TITO S5-300",
+          "source_path": "vehiculos_detalles.TITO.modelos_disponibles[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "aplicaciones_coradir",
+          "title": "aplicaciones coradir - contactito app",
+          "source_path": "aplicaciones_coradir.contactito_app"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITO.colores_disponibles"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITO",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "vehiculos_detalles.TITO.modelos_disponibles[0]",
+          "vehiculos_detalles.TITO.modelos_disponibles[1]",
+          "aplicaciones_coradir.contactito_app"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITO.colores_disponibles"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 35,
+      "id": "tita_s2_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA S2-300?",
+      "expected_keywords": [
+        "16.981,25",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITA S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "Precios_Vehiculos_Actualizados.TITA S2"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 36,
+      "id": "tita_s2_300_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA S2-300 AA?",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITA S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "Precios_Vehiculos_Actualizados.TITA S2"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 37,
+      "id": "tita_s2_furgon_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con Furgón?",
+      "expected_keywords": [
+        "20.632,00",
+        "2.900",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 26,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 26,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 25,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 25,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        ],
+        "relevant_positions": [
+          1,
+          2
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 38,
+      "id": "tita_s2_dimensiones",
+      "category": "vehiculos",
+      "question": "¿Cuáles son las dimensiones de la TITA S2-300 y de su caja?",
+      "expected_keywords": [
+        "3750x1370x1720",
+        "2000x1310x350"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 19,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 AA",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA S2 300",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 39,
+      "id": "tita_s2_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA S2-300?",
+      "expected_keywords": [
+        "45 km/h",
+        "4 KW"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA S2 300",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "relevant_positions": [
+          1,
+          4,
+          5
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 40,
+      "id": "tita_s2_accesorios",
+      "category": "vehiculos",
+      "question": "¿Qué accesorios están disponibles para la TITA S2-300?",
+      "expected_keywords": [
+        "Furgón",
+        "Furgón Refrigerado"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 19,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA S2 300.accesorios_disponibles"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA S2 300",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA S2 300.accesorios_disponibles"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 41,
+      "id": "tita_s2_color",
+      "category": "vehiculos",
+      "question": "¿Qué color está disponible para la TITA S2-300?",
+      "expected_keywords": [
+        "Blanco"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 19,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón Refrigerado",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA S2 300.colores_disponibles"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA S2 300",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA S2 300.colores_disponibles"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 42,
+      "id": "tita_4p_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA 4P-300?",
+      "expected_keywords": [
+        "17.981,25",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA 4P-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA 4P-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITA 4P Cuadrilla",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA 4P-300",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA 4P-300 AA",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+          "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300",
+          "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 43,
+      "id": "tita_4p_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA 4P-300 AA?",
+      "expected_keywords": [
+        "18.731,25",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA 4P-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "precios",
+          "title": "Precio TITA 4P-300 AA",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "precios",
+          "title": "Precios TITA 4P Cuadrilla",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA 4P-300",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA 4P-300 AA",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+          "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300",
+          "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+        ],
+        "relevant_positions": [
+          1,
+          2,
+          3
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 44,
+      "id": "tita_4p_capacidades",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de pasajeros, carga y caja tiene la TITA 4P Cuadrilla?",
+      "expected_keywords": [
+        "4 personas",
+        "350kg",
+        "250kg"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 19,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA 4P Cuadrilla",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITA 4P Cuadrilla",
+          "source_path": "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "precios",
+          "title": "Precios TITA 4P Cuadrilla",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA 4P Cuadrilla"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA 4P Cuadrilla",
+          "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+          "preguntas_frecuentes.carga[2]",
+          "preguntas_frecuentes.mantenimiento[2]"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA 4P Cuadrilla"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 45,
+      "id": "tita_4p_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA 4P Cuadrilla?",
+      "expected_keywords": [
+        "50 Km/h",
+        "4Kw"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA 4P Cuadrilla",
+          "source_path": "vehiculos_detalles.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad TITA 4P Cuadrilla",
+          "source_path": "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "precios",
+          "title": "Precios TITA 4P Cuadrilla",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.TITA 4P Cuadrilla"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.TITA 4P Cuadrilla",
+          "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+          "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.TITA 4P Cuadrilla"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 46,
+      "id": "barre_tita_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la BARRE-TITA?",
+      "expected_keywords": [
+        "29.990,00",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "precios",
+          "title": "Precios BARRE-TITA",
+          "source_path": "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad BARRE-TITA",
+          "source_path": "todos_los_vehiculos_disponibles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios TITA S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precio TITA S2-300",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.BARRE-TITA",
+          "todos_los_vehiculos_disponibles.BARRE-TITA",
+          "vehiculos_detalles.BARRE-TITA",
+          "Precios_Vehiculos_Actualizados.TITA S2",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 47,
+      "id": "barre_tita_dimensiones_peso",
+      "category": "vehiculos",
+      "question": "¿Qué dimensiones, ancho de limpieza y peso neto tiene la BARRE-TITA?",
+      "expected_keywords": [
+        "1950x1900x1900mm",
+        "1900 mm",
+        "900 KG"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad BARRE-TITA",
+          "source_path": "todos_los_vehiculos_disponibles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios BARRE-TITA",
+          "source_path": "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.BARRE-TITA"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.BARRE-TITA",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "todos_los_vehiculos_disponibles.BARRE-TITA",
+          "Precios_Vehiculos_Actualizados.BARRE-TITA",
+          "vehiculos_detalles.TITA S2 300"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.BARRE-TITA"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 48,
+      "id": "barre_tita_autonomia_bateria",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y batería tiene la BARRE-TITA?",
+      "expected_keywords": [
+        "4-6 horas",
+        "Litio 7,2 Kwh"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 13,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad BARRE-TITA",
+          "source_path": "todos_los_vehiculos_disponibles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios BARRE-TITA",
+          "source_path": "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.BARRE-TITA"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.BARRE-TITA",
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.ambiental[1]",
+          "todos_los_vehiculos_disponibles.BARRE-TITA",
+          "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.BARRE-TITA"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 49,
+      "id": "barre_tita_accesorios",
+      "category": "vehiculos",
+      "question": "¿Qué incluye el kit de accesorios de la BARRE-TITA?",
+      "expected_keywords": [
+        "Hidrolavadora",
+        "cañon rociador",
+        "lanza"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 13,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica BARRE-TITA",
+          "source_path": "vehiculos_detalles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad BARRE-TITA",
+          "source_path": "todos_los_vehiculos_disponibles.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "precios",
+          "title": "Precios BARRE-TITA",
+          "source_path": "Precios_Vehiculos_Actualizados.BARRE-TITA"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica TITA S2 300",
+          "source_path": "vehiculos_detalles.TITA S2 300"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "vehiculos_detalles",
+          "title": "Version TITA S2-300 con Furgón",
+          "source_path": "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.BARRE-TITA.kit_accesorios"
+        ],
+        "retrieved_sources": [
+          "vehiculos_detalles.BARRE-TITA",
+          "todos_los_vehiculos_disponibles.BARRE-TITA",
+          "Precios_Vehiculos_Actualizados.BARRE-TITA",
+          "vehiculos_detalles.TITA S2 300",
+          "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.BARRE-TITA.kit_accesorios"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 50,
+      "id": "chiki_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del CHIKI-L de litio?",
+      "expected_keywords": [
+        "9.900,00",
+        "usd"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "precios",
+          "title": "Precio CHIKI-L (110KM) LITIO",
+          "source_path": "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "precios",
+          "title": "Precios CHIKI",
+          "source_path": "Precios_Vehiculos_Actualizados.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "disponibilidad_vehiculos",
+          "title": "Disponibilidad CHIKI",
+          "source_path": "todos_los_vehiculos_disponibles.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"
+        ],
+        "retrieved_sources": [
+          "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+          "Precios_Vehiculos_Actualizados.CHIKI",
+          "todos_los_vehiculos_disponibles.CHIKI",
+          "vehiculos_detalles.CHIKI",
+          "preguntas_frecuentes.vehiculos[0]"
+        ],
+        "matched_expected_sources": [
+          "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"
+        ],
+        "relevant_positions": [
+          1,
+          2
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 51,
+      "id": "chiki_capacidad_puertas",
+      "category": "vehiculos",
+      "question": "¿Cuántas puertas y qué capacidad tiene el CHIKI-L?",
+      "expected_keywords": [
+        "2",
+        "1 persona"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - factura proforma",
+          "source_path": "beneficios_discapacidad.factura_proforma"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - tramite franquicia",
+          "source_path": "beneficios_discapacidad.tramite_franquicia"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "beneficios_discapacidad",
+          "title": "beneficios discapacidad - evaluacion medica",
+          "source_path": "beneficios_discapacidad.evaluacion_medica"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "vehiculos_detalles.CHIKI",
+          "beneficios_discapacidad.factura_proforma",
+          "beneficios_discapacidad.tramite_franquicia",
+          "beneficios_discapacidad.evaluacion_medica"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "relevant_positions": [
+          2
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 52,
+      "id": "chiki_bateria_ciclos",
+      "category": "vehiculos",
+      "question": "¿Qué batería y ciclos tiene el CHIKI-L?",
+      "expected_keywords": [
+        "Litio NCM 4,5 KWh",
+        "2000 ciclos"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.ambiental[1]",
+          "vehiculos_detalles.CHIKI",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.vehiculos[1]"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "relevant_positions": [
+          3
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.3333,
+        "first_relevant_rank": 3
+      }
+    },
+    {
+      "index": 53,
+      "id": "chiki_tiempo_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánto tarda en cargar el CHIKI-L y desde qué enchufe carga?",
+      "expected_keywords": [
+        "7hs",
+        "220V"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 16,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Puedo realizar cargas parciales?",
+          "source_path": "preguntas_frecuentes.carga[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "vehiculos_detalles",
+          "title": "Ficha tecnica CHIKI",
+          "source_path": "vehiculos_detalles.CHIKI"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.vehiculos[1]",
+          "preguntas_frecuentes.carga[0]",
+          "preguntas_frecuentes.carga[2]",
+          "preguntas_frecuentes.carga[1]",
+          "vehiculos_detalles.CHIKI"
+        ],
+        "matched_expected_sources": [
+          "vehiculos_detalles.CHIKI"
+        ],
+        "relevant_positions": [
+          5
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.2,
+        "first_relevant_rank": 5
+      }
+    },
+    {
+      "index": 54,
+      "id": "reserva_anticipo",
+      "category": "compra",
+      "question": "¿Cuál es la reserva inicial y el anticipo para confirmar la compra?",
+      "expected_keywords": [
+        "USD 200",
+        "30 días",
+        "20%"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 18,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - reserva pago inicial",
+          "source_path": "condiciones_compra_entrega.reserva_pago_inicial"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Dónde puedo comprar un vehículo eléctrico Coradir?",
+          "source_path": "preguntas_frecuentes.adquisicion[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "condiciones_compra_entrega.reserva_pago_inicial"
+        ],
+        "retrieved_sources": [
+          "condiciones_compra_entrega.reserva_pago_inicial",
+          "condiciones_compra_entrega.entrega_inmediata",
+          "preguntas_frecuentes.vehiculos[0]",
+          "preguntas_frecuentes.carga[0]",
+          "preguntas_frecuentes.adquisicion[0]"
+        ],
+        "matched_expected_sources": [
+          "condiciones_compra_entrega.reserva_pago_inicial"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 55,
+      "id": "entrega_inmediata_plazo",
+      "category": "compra",
+      "question": "¿Cuánto tiempo queda asignada la unidad en entrega inmediata?",
+      "expected_keywords": [
+        "72 horas",
+        "saldar"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - entrega inmediata",
+          "source_path": "condiciones_compra_entrega.entrega_inmediata"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuánto tiempo toma cargar completamente la batería?",
+          "source_path": "preguntas_frecuentes.vehiculos[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Qué es eso de la entrega inmediata?",
+          "source_path": "preguntas_frecuentes.adquisicion[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - reserva pago inicial",
+          "source_path": "condiciones_compra_entrega.reserva_pago_inicial"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "condiciones_compra_entrega",
+          "title": "condiciones compra entrega - plazos entrega",
+          "source_path": "condiciones_compra_entrega.plazos_entrega"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "condiciones_compra_entrega.entrega_inmediata"
+        ],
+        "retrieved_sources": [
+          "condiciones_compra_entrega.entrega_inmediata",
+          "preguntas_frecuentes.vehiculos[1]",
+          "preguntas_frecuentes.adquisicion[1]",
+          "condiciones_compra_entrega.reserva_pago_inicial",
+          "condiciones_compra_entrega.plazos_entrega"
+        ],
+        "matched_expected_sources": [
+          "condiciones_compra_entrega.entrega_inmediata"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 56,
+      "id": "costos_no_incluidos",
+      "category": "compra",
+      "question": "¿Qué costos no están incluidos en el precio final?",
+      "expected_keywords": [
+        "patentamiento",
+        "flete",
+        "NO están incluidos"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "precios",
+          "title": "Precios TITA S2",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "precios",
+          "title": "Precio TITA S2 300 AA con Furgón Refrigerado",
+          "source_path": "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "condiciones_compra_entrega.plazos_entrega",
+          "condiciones_compra_entrega.aclaracion_entrega"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.ambiental[1]",
+          "Precios_Vehiculos_Actualizados.TITA S2",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+          "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+          "preguntas_frecuentes.general[0]"
+        ],
+        "matched_expected_sources": [],
+        "relevant_positions": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "first_relevant_rank": null
+      }
+    },
+    {
+      "index": 57,
+      "id": "tipo_cambio_bna",
+      "category": "compra",
+      "question": "¿Qué tipo de cambio se usa para los pagos en pesos?",
+      "expected_keywords": [
+        "BNA",
+        "tipo vendedor",
+        "efectivo pago"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué mantenimiento requieren los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.mantenimiento[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Se puede circular por autopistas o rutas con estos vehículos?",
+          "source_path": "preguntas_frecuentes.general[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ vehiculos - ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?",
+          "source_path": "preguntas_frecuentes.vehiculos[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "condiciones_compra_entrega.aclaracion_entrega"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.mantenimiento[0]",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.general[2]",
+          "preguntas_frecuentes.vehiculos[0]"
+        ],
+        "matched_expected_sources": [],
+        "relevant_positions": [],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "first_relevant_rank": null
+      }
+    },
+    {
+      "index": 58,
+      "id": "cargas_parciales",
+      "category": "carga",
+      "question": "¿Puedo hacer cargas parciales o tengo que esperar a que se agote la batería?",
+      "expected_keywords": [
+        "cargas parciales",
+        "no es necesario"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 20,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Puedo realizar cargas parciales?",
+          "source_path": "preguntas_frecuentes.carga[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ ambiental - ¿Qué sucede con las baterías al final de su vida útil?",
+          "source_path": "preguntas_frecuentes.ambiental[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ adquisicion - ¿Qué es eso de la entrega inmediata?",
+          "source_path": "preguntas_frecuentes.adquisicion[1]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "preguntas_frecuentes.carga[1]"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.carga[1]",
+          "preguntas_frecuentes.ambiental[1]",
+          "preguntas_frecuentes.adquisicion[1]",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.carga[2]"
+        ],
+        "matched_expected_sources": [
+          "preguntas_frecuentes.carga[1]"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 59,
+      "id": "ecocarga_negocios",
+      "category": "carga",
+      "question": "¿Qué ventajas tiene instalar puntos de carga para un negocio?",
+      "expected_keywords": [
+        "Atrae nuevos clientes",
+        "Instalación gratuita",
+        "Ingresos adicionales"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 11,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Necesito una instalación especial para cargar mi vehículo?",
+          "source_path": "preguntas_frecuentes.carga[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "infraestructura_carga",
+          "title": "infraestructura carga - ecocarga",
+          "source_path": "infraestructura_carga.ecocarga"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Puedo realizar cargas parciales?",
+          "source_path": "preguntas_frecuentes.carga[1]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "infraestructura_carga.ecocarga.puntos_carga"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "preguntas_frecuentes.carga[0]",
+          "preguntas_frecuentes.carga[2]",
+          "infraestructura_carga.ecocarga",
+          "preguntas_frecuentes.carga[1]"
+        ],
+        "matched_expected_sources": [
+          "infraestructura_carga.ecocarga.puntos_carga"
+        ],
+        "relevant_positions": [
+          4
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.25,
+        "first_relevant_rank": 4
+      }
+    },
+    {
+      "index": 60,
+      "id": "agencia_buenos_aires_moreno",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Moreno, Buenos Aires?",
+      "expected_keywords": [
+        "CHIAMO MOTORS",
+        "Acceso Oeste Sur 12.802"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 17,
+          "section": "agencias",
+          "title": "Agencias en Buenos Aires",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Neuquen",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Neuquen"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "agencias",
+          "title": "Agencias en Chubut",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Chubut"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "agencias",
+          "title": "Agencias en Santa Fe",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Fe"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        ],
+        "retrieved_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+          "distribucion.agencias_oficiales_por_provincia.Neuquen",
+          "distribucion.agencias_oficiales_por_provincia.Chubut",
+          "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+          "preguntas_frecuentes.general[0]"
+        ],
+        "matched_expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 61,
+      "id": "agencia_rosario_volts",
+      "category": "agencias",
+      "question": "¿Hay una agencia VOLTS en Rosario y cuál es su dirección?",
+      "expected_keywords": [
+        "VOLTS",
+        "Ovidio Lagos 895"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 8,
+          "section": "agencias",
+          "title": "Agencias en Santa Fe",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Fe"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Buenos Aires",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Tierra del Fuego Antartida e Islas del Atlantico Sur",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Tierra del Fuego Antartida e Islas del Atlantico Sur"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Chubut",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Chubut"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Cordoba",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Cordoba"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Santa Fe"
+        ],
+        "retrieved_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+          "distribucion.agencias_oficiales_por_provincia.Tierra del Fuego Antartida e Islas del Atlantico Sur",
+          "distribucion.agencias_oficiales_por_provincia.Chubut",
+          "distribucion.agencias_oficiales_por_provincia.Cordoba"
+        ],
+        "matched_expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Santa Fe"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 62,
+      "id": "agencia_cordoba_signature",
+      "category": "agencias",
+      "question": "¿Qué dirección tiene SIGNATURE S.A. en Córdoba?",
+      "expected_keywords": [
+        "SIGNATURE",
+        "Av. Colon 4875"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ mantenimiento - ¿Qué garantía tienen los vehículos?",
+          "source_path": "preguntas_frecuentes.mantenimiento[2]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 7,
+          "section": "agencias",
+          "title": "Agencias en Cordoba",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Cordoba"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Neuquen",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Neuquen"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Cordoba"
+        ],
+        "retrieved_sources": [
+          "preguntas_frecuentes.mantenimiento[2]",
+          "distribucion.agencias_oficiales_por_provincia.Cordoba",
+          "distribucion.agencias_oficiales_por_provincia.Neuquen",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.carga[2]"
+        ],
+        "matched_expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Cordoba"
+        ],
+        "relevant_positions": [
+          2
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "first_relevant_rank": 2
+      }
+    },
+    {
+      "index": 63,
+      "id": "agencia_mendoza_valentino",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Godoy Cruz, Mendoza?",
+      "expected_keywords": [
+        "Valentino Motos",
+        "San Martin Sur 1055"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 12,
+          "section": "agencias",
+          "title": "Agencias en Mendoza",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Mendoza"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Santa Cruz",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Santa Cruz"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 10,
+          "section": "agencias",
+          "title": "Agencias en Neuquen",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Neuquen"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Buenos Aires",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Chubut",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Chubut"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Mendoza"
+        ],
+        "retrieved_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Mendoza",
+          "distribucion.agencias_oficiales_por_provincia.Santa Cruz",
+          "distribucion.agencias_oficiales_por_provincia.Neuquen",
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+          "distribucion.agencias_oficiales_por_provincia.Chubut"
+        ],
+        "matched_expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Mendoza"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    },
+    {
+      "index": 64,
+      "id": "agencia_neuquen_sur_car",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Neuquén?",
+      "expected_keywords": [
+        "Sur Car",
+        "Perticone 1197"
+      ],
+      "missing_keywords": null,
+      "passed": null,
+      "latency_seconds": 0,
+      "response": "",
+      "retrieved_documents": [
+        {
+          "retrieval_mode": "keyword",
+          "score": 15,
+          "section": "agencias",
+          "title": "Agencias en Neuquen",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Neuquen"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Buenos Aires",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 6,
+          "section": "agencias",
+          "title": "Agencias en Chubut",
+          "source_path": "distribucion.agencias_oficiales_por_provincia.Chubut"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ general - ¿Qué es Coradir Movilidad Eléctrica?",
+          "source_path": "preguntas_frecuentes.general[0]"
+        },
+        {
+          "retrieval_mode": "keyword",
+          "score": 5,
+          "section": "preguntas_frecuentes",
+          "title": "FAQ carga - ¿Qué es la tecnología de carga rápida?",
+          "source_path": "preguntas_frecuentes.carga[2]"
+        }
+      ],
+      "retrieval": {
+        "top_k": 5,
+        "expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Neuquen"
+        ],
+        "retrieved_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Neuquen",
+          "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+          "distribucion.agencias_oficiales_por_provincia.Chubut",
+          "preguntas_frecuentes.general[0]",
+          "preguntas_frecuentes.carga[2]"
+        ],
+        "matched_expected_sources": [
+          "distribucion.agencias_oficiales_por_provincia.Neuquen"
+        ],
+        "relevant_positions": [
+          1
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 1.0,
+        "reciprocal_rank": 1.0,
+        "first_relevant_rank": 1
+      }
+    }
+  ]
+}

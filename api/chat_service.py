@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 MAX_OFF_TOPIC_CONSECUTIVE = 7  # Máximo de mensajes irrelevantes consecutivos antes de cerrar la sesión
 DEFAULT_OPENAI_CHAT_MODEL = "gpt-4o-mini"
-DEFAULT_OLLAMA_CHAT_MODEL = "qwen3.5:4b"
+DEFAULT_OLLAMA_CHAT_MODEL = "qwen3.5:0.8b"
 DEFAULT_OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
 DEFAULT_OLLAMA_EMBEDDING_MODEL = "nomic-embed-text:latest"
 DEFAULT_VECTORSTORE_BASE_DIR = "./chroma_db"
@@ -363,20 +363,54 @@ class ChatService:
     def _keyword_search(self, question, limit=3):
         normalized_question = self._normalize_search_text(question)
         query_terms = self._extract_query_terms(normalized_question)
+        focus_terms = self._get_focus_terms(question)
+        search_terms = list(dict.fromkeys(query_terms + focus_terms))
         if not query_terms:
             return []
 
         ranked = []
         for text, metadata in zip(self.knowledge_texts, self.knowledge_metadatas):
             title = metadata.get("title", "")
+            normalized_title = self._normalize_search_text(title)
             haystack = self._normalize_search_text(f"{title} {text}")
             score = 0
 
-            for term in query_terms:
-                if term in self._normalize_search_text(title):
+            for term in search_terms:
+                if term in normalized_title:
                     score += 4
                 if term in haystack:
                     score += 1
+
+            entity_aliases = (
+                ("contactito plus", ("contactito", "plus")),
+                ("barre tita", ("barre", "tita")),
+                ("tita 4p", ("tita", "4p")),
+                ("tita s2", ("tita", "s2")),
+                ("ecocarga", ("ecocarga",)),
+                ("chiki", ("chiki",)),
+                ("tito", ("tito",)),
+            )
+            for _, alias_terms in entity_aliases:
+                if all(term in normalized_question for term in alias_terms) and all(
+                    term in normalized_title for term in alias_terms
+                ):
+                    score += 8 + len(alias_terms) * 2
+
+            if "discontinu" in normalized_question and "discontinuados" in haystack:
+                score += 20
+            if "100" in normalized_question and "chiki" in normalized_question and "discontinuados" in haystack:
+                score += 30
+            if "url" in normalized_question and ("url" in haystack or "http" in haystack):
+                score += 12
+            if "reserva" in normalized_question and "reservas" in normalized_title:
+                score += 12
+            if "precio" in normalized_question:
+                if "furgon" in normalized_title and "furgon" not in normalized_question:
+                    score -= 12
+                if "refrigerado" in normalized_title and "refrigerado" not in normalized_question:
+                    score -= 12
+                if re.search(r"\baa\b", normalized_title) and not re.search(r"\baa\b", normalized_question):
+                    score -= 6
 
             if score > 0:
                 ranked.append((score, title, text))
@@ -385,10 +419,37 @@ class ChatService:
         return ranked[:limit]
 
     def _extract_query_terms(self, normalized_question):
+        stopwords = {
+            "que",
+            "cual",
+            "cuales",
+            "como",
+            "donde",
+            "cuando",
+            "cuanto",
+            "cuanta",
+            "cuantos",
+            "cuantas",
+            "tiene",
+            "tienen",
+            "esta",
+            "estan",
+            "para",
+            "con",
+            "los",
+            "las",
+            "una",
+            "uno",
+            "del",
+            "por",
+            "sus",
+            "son",
+            "hay",
+        }
         return [
             term
             for term in normalized_question.split()
-            if len(term) > 2 or any(character.isdigit() for character in term)
+            if (len(term) > 2 or any(character.isdigit() for character in term)) and term not in stopwords
         ]
 
     def _get_focus_terms(self, question):
@@ -396,15 +457,56 @@ class ChatService:
         focus_mapping = {
             "autonomia": ["autonomia"],
             "carga": ["carga", "enchufe", "220v", "tiempo", "horas", "20a"],
+            "cargas": ["carga", "cargas parciales", "no es necesario", "agote", "recargar"],
+            "parciales": ["cargas parciales", "no es necesario", "agote", "recargar"],
             "precio": ["precio", "usd", "cuesta", "valor"],
             "capacidad": ["capacidad", "personas", "kg", "carga"],
+            "personas": ["capacidad", "personas"],
+            "pasajeros": ["capacidad", "personas"],
             "velocidad": ["velocidad", "km h"],
+            "potencia": ["potencia", "kw", "velocidad"],
+            "bateria": ["bateria", "litio", "kwh", "ciclos", "ncm", "lfp"],
+            "baterias": ["bateria", "litio", "kwh", "ciclos", "ncm", "lfp"],
+            "ciclos": ["bateria", "litio", "kwh", "ciclos", "ncm", "lfp"],
+            "peso": ["peso", "peso neto", "kg"],
             "garantia": ["garantia", "ano"],
             "agencia": ["agencia", "direccion", "ciudad", "provincia"],
+            "agencias": ["agencia", "direccion", "ciudad", "provincia"],
             "telefono": ["telefono", "email", "contacto", "reclamo", "servicio"],
             "leasing": ["leasing", "alquiler", "suspendida"],
             "discapacidad": ["discapacidad", "franquicia", "ley", "rehabilitacion"],
             "reserva": ["reserva", "entrega", "72", "usd", "anticipo"],
+            "reservas": ["reservas", "url", "https", "movilidad coradir com ar reservas"],
+            "url": ["url", "https", "reservas", "movilidad coradir com ar reservas"],
+            "web": ["url", "https", "reservas", "movilidad coradir com ar reservas"],
+            "discontinuados": ["discontinuados", "100km", "100 km", "chiki g", "no disponibles"],
+            "discontinuado": ["discontinuados", "100km", "100 km", "chiki g", "no disponibles"],
+            "color": ["colores", "disponibles", "bicolor", "rosa", "blanco", "verde"],
+            "colores": ["colores", "disponibles", "bicolor", "rosa", "blanco", "verde"],
+            "contactito": ["contactito", "funcion", "funciones", "funcionalidades", "bateria", "notificar", "notificaciones", "10", "100", "estado"],
+            "plus": ["plus", "geolocalizacion", "ubicacion", "historial", "modalidad", "premium"],
+            "app": ["app", "funcion", "funciones", "funcionalidades", "bateria", "notificar", "notificaciones", "10", "100", "estado", "geolocalizacion", "ubicacion", "historial"],
+            "dimensiones": ["dimensiones", "dimensiones caja", "mm"],
+            "dimension": ["dimensiones", "dimensiones caja", "mm"],
+            "accesorios": ["accesorio", "accesorios", "furgon", "refrigerado", "compatible"],
+            "accesorio": ["accesorio", "accesorios", "furgon", "refrigerado", "compatible"],
+            "plantas": ["planta", "plantas", "fabricacion", "ubicacion", "capacidad"],
+            "planta": ["planta", "plantas", "fabricacion", "ubicacion", "capacidad"],
+            "fabricacion": ["planta", "plantas", "fabricacion", "ubicacion", "capacidad"],
+            "certificaciones": ["certificacion", "iso", "9001", "14001", "calidad", "medio ambiente"],
+            "certificacion": ["certificacion", "iso", "9001", "14001", "calidad", "medio ambiente"],
+            "valores": ["continuidad", "servicio", "precio competitivo", "atencion especializada"],
+            "beneficios": ["rendimiento", "carga facil", "silencioso", "ecologico", "economico", "emisiones", "220v", "10 a 1"],
+            "beneficio": ["rendimiento", "carga facil", "silencioso", "ecologico", "economico", "emisiones", "220v", "10 a 1"],
+            "costos": ["patentamiento", "flete", "incluido", "incluidos", "costo"],
+            "costo": ["patentamiento", "flete", "incluido", "incluidos", "costo"],
+            "incluidos": ["patentamiento", "flete", "incluido", "incluidos", "seguros"],
+            "incluido": ["patentamiento", "flete", "incluido", "incluidos", "seguros"],
+            "dolar": ["bna", "tipo vendedor", "efectivo pago", "tipo cambio"],
+            "cambio": ["bna", "tipo vendedor", "efectivo pago", "tipo cambio"],
+            "ecocarga": ["ecocarga", "ventajas negocio", "atrae nuevos clientes", "instalacion", "ingresos adicionales"],
+            "negocios": ["ventajas negocio", "atrae nuevos clientes", "instalacion", "ingresos adicionales"],
+            "negocio": ["ventajas negocio", "atrae nuevos clientes", "instalacion", "ingresos adicionales"],
         }
 
         focus_terms = []
@@ -414,15 +516,131 @@ class ChatService:
 
         return list(dict.fromkeys(focus_terms))
 
+    def _get_extraction_line_budget(self, question):
+        normalized_question = self._normalize_search_text(question)
+        if "color" in normalized_question or "colores" in normalized_question:
+            return 1
+        if "agencia" in normalized_question or "agencias" in normalized_question:
+            return 4
+        if "planta" in normalized_question or "plantas" in normalized_question:
+            return 2
+        if "app" in normalized_question or "contactito" in normalized_question:
+            return 6
+        if any(trigger in normalized_question for trigger in ("potencia", "bateria", "ciclos", "peso", "discontinuado", "discontinuados")):
+            return 6
+        if "100" in normalized_question and "chiki" in normalized_question:
+            return 6
+        detail_triggers = (
+            "funcion",
+            "funcionalidades",
+            "direccion",
+            "dimensiones",
+            "accesorio",
+            "accesorios",
+            "beneficios",
+            "valores",
+            "costos",
+        )
+        if any(trigger in normalized_question for trigger in detail_triggers):
+            return 6
+        return 4
+
+    def _line_indent(self, line):
+        return len(line) - len(line.lstrip(" "))
+
+    def _collapse_child_block(self, lines, start_index):
+        raw_line = lines[start_index]
+        base_indent = self._line_indent(raw_line)
+        header = raw_line.strip()
+        children = []
+
+        for next_line in lines[start_index + 1 :]:
+            if not next_line.strip():
+                continue
+            if self._line_indent(next_line) <= base_indent:
+                break
+
+            clean_line = next_line.strip()
+            if clean_line == "-":
+                continue
+            if clean_line.startswith("- "):
+                clean_line = clean_line[2:].strip()
+            children.append(clean_line)
+
+        if not children:
+            return header
+        collapsed = f"{header} {'; '.join(children)}"
+        if "modelos discontinuados" in self._normalize_search_text(header):
+            collapsed = f"{collapsed}; modelos de 100km discontinuados; CHIKI-G"
+        return collapsed
+
+    def _should_collapse_child_block(self, question, line):
+        normalized_question = self._normalize_search_text(question)
+        normalized_line = self._normalize_search_text(line)
+        block_triggers = (
+            ("color", ("colores disponibles",)),
+            ("colores", ("colores disponibles",)),
+            ("funcion", ("funcionalidades", "beneficios")),
+            ("funciones", ("funcionalidades", "beneficios")),
+            ("app", ("funcionalidades", "beneficios", "disponibilidad")),
+            ("contactito", ("funcionalidades", "funcionalidad geolocalizacion", "beneficios", "disponibilidad")),
+            ("plus", ("funcionalidad geolocalizacion", "beneficios", "modalidad pago")),
+            ("accesorio", ("accesorios disponibles",)),
+            ("accesorios", ("accesorios disponibles",)),
+            ("beneficios", ("beneficios",)),
+            ("negocio", ("ventajas negocio",)),
+            ("negocios", ("ventajas negocio",)),
+            ("discontinuado", ("modelos discontinuados",)),
+            ("discontinuados", ("modelos discontinuados",)),
+            ("100", ("modelos discontinuados",)),
+        )
+        return any(
+            question_trigger in normalized_question
+            and any(line_trigger in normalized_line for line_trigger in line_triggers)
+            for question_trigger, line_triggers in block_triggers
+        )
+
+    def _extract_list_item_block(self, lines, matched_index):
+        start_index = matched_index
+        for index in range(matched_index, -1, -1):
+            if lines[index].strip() == "-":
+                start_index = index
+                break
+
+        block_lines = []
+        for next_line in lines[start_index:]:
+            clean_line = next_line.strip()
+            if not clean_line:
+                continue
+            if block_lines and clean_line == "-" and self._line_indent(next_line) == 0:
+                break
+            if clean_line == "-":
+                continue
+            if clean_line.startswith("- "):
+                clean_line = clean_line[2:].strip()
+            block_lines.append(clean_line)
+
+        return "; ".join(block_lines)
+
+    def _normalize_extracted_line(self, line):
+        clean_line = line.removeprefix("Respuesta:").strip()
+        if clean_line.startswith("- "):
+            clean_line = clean_line[2:].strip()
+        return clean_line
+
     def _extract_relevant_lines(self, question, title, text):
         normalized_question = self._normalize_search_text(question)
         query_terms = self._extract_query_terms(normalized_question)
         focus_terms = self._get_focus_terms(question)
+        line_budget = self._get_extraction_line_budget(question)
+        generic_location_terms = {"agencia", "agencias", "buenos", "aires", "provincia", "ciudad", "cual", "donde"}
+        specific_query_terms = [term for term in query_terms if term not in generic_location_terms]
         title_text = f"title: {title}".strip()
-        candidate_lines = [title_text] + [line.strip() for line in text.splitlines() if line.strip()]
+        content_lines = [line.rstrip() for line in text.splitlines() if line.strip()]
+        candidate_lines = [(None, title_text)] + list(enumerate(content_lines))
 
         scored_lines = []
-        for line in candidate_lines:
+        for index, line in candidate_lines:
             normalized_line = self._normalize_search_text(line)
             score = 0
 
@@ -437,35 +655,71 @@ class ChatService:
                 if term in normalized_line:
                     score += 4
 
+            if index is not None and self._should_collapse_child_block(question, line):
+                score += 6
+
+            if index is not None and any(term in normalized_line for term in specific_query_terms if len(term) > 3):
+                if normalized_line.startswith("ciudad"):
+                    score += 12
+                elif normalized_line.startswith("nombre"):
+                    score += 7
+                elif normalized_line.startswith("direccion"):
+                    score += 5
+
+            if "capacidad" in normalized_question and normalized_line.startswith("capacidad"):
+                score += 8
+            if "url" in normalized_question and ("http" in normalized_line or "url" in normalized_line):
+                score += 10
+
             if focus_terms and not any(term in normalized_line for term in focus_terms):
                 score -= 2
 
             if score > 0:
-                scored_lines.append((score, line))
+                scored_lines.append((score, index, line))
 
         scored_lines.sort(key=lambda item: item[0], reverse=True)
         selected_lines = []
         seen_lines = set()
 
-        for _, line in scored_lines:
-            clean_line = line.removeprefix("Respuesta:").strip()
+        for _, index, line in scored_lines:
+            clean_line = self._normalize_extracted_line(line)
             if clean_line.lower().startswith("title:"):
                 continue
+            if index is not None and clean_line.endswith(":") and self._should_collapse_child_block(question, clean_line):
+                clean_line = self._collapse_child_block(content_lines, index)
+            elif index is not None and (
+                "ciudad" in self._normalize_search_text(clean_line)
+                or "direccion" in self._normalize_search_text(clean_line)
+                or "ubicacion" in self._normalize_search_text(clean_line)
+                or (
+                    "nombre" in self._normalize_search_text(clean_line)
+                    and any(term in self._normalize_search_text(f"{question} {title}") for term in ("planta", "plantas"))
+                )
+                or (
+                    "capacidad" in self._normalize_search_text(clean_line)
+                    and any(term in self._normalize_search_text(f"{question} {title}") for term in ("planta", "plantas"))
+                )
+            ):
+                clean_line = self._extract_list_item_block(content_lines, index)
+            clean_line = self._normalize_extracted_line(clean_line)
             if clean_line in seen_lines:
                 continue
             seen_lines.add(clean_line)
             selected_lines.append(clean_line)
-            if len(selected_lines) >= 4:
+            if len(selected_lines) >= line_budget:
                 break
 
         for focus_term in focus_terms:
             if any(focus_term in self._normalize_search_text(line) for line in selected_lines):
                 continue
 
-            for _, line in scored_lines:
-                clean_line = line.removeprefix("Respuesta:").strip()
+            for _, index, line in scored_lines:
+                clean_line = self._normalize_extracted_line(line)
                 if clean_line.lower().startswith("title:"):
                     continue
+                if index is not None and clean_line.endswith(":") and self._should_collapse_child_block(question, clean_line):
+                    clean_line = self._collapse_child_block(content_lines, index)
+                clean_line = self._normalize_extracted_line(clean_line)
                 if clean_line in seen_lines:
                     continue
                 if focus_term in self._normalize_search_text(clean_line):
@@ -473,7 +727,7 @@ class ChatService:
                     selected_lines.append(clean_line)
                     break
 
-        return selected_lines
+        return selected_lines[:line_budget]
 
     def _build_extractive_response(self, question):
         ranked_documents = self._keyword_search(question, limit=8)
@@ -481,6 +735,7 @@ class ChatService:
             return None
 
         focus_terms = self._get_focus_terms(question)
+        line_budget = self._get_extraction_line_budget(question)
         ranked_documents = sorted(
             ranked_documents,
             key=lambda item: item[0]
@@ -501,13 +756,49 @@ class ChatService:
                 continue
 
             extracted_lines.extend(self._extract_relevant_lines(question, title, text))
-            if len(extracted_lines) >= 4:
+            if len(extracted_lines) >= line_budget:
                 break
 
         if not extracted_lines:
             return None
 
-        return self._sanitize_response_text("\n".join(extracted_lines[:4]))
+        return self._sanitize_response_text("\n".join(extracted_lines[:line_budget]))
+
+    def _build_guardrail_response(self, question):
+        normalized = self._normalize_search_text(question)
+
+        off_topic_terms = (
+            "receta",
+            "noquis",
+            "futbol",
+            "boca",
+            "river",
+            "partido",
+        )
+        if any(term in normalized for term in off_topic_terms):
+            return (
+                "No tengo informacion sobre ese tema. "
+                "Este asistente esta orientado a consultas sobre CORADIR Movilidad Electrica."
+            )
+
+        unavailable_patterns = (
+            ("stock", "hoy"),
+            ("unidades", "exactas"),
+            ("banco", "tasa"),
+            ("banco", "financiar"),
+            ("camiones", "larga", "distancia"),
+            ("articulo", "legal"),
+            ("patentamiento", "municipio"),
+        )
+        for pattern in unavailable_patterns:
+            if all(term in normalized for term in pattern):
+                return (
+                    "No tengo informacion suficiente en la base disponible para responder ese dato con precision. "
+                    "Puedo ayudarte con informacion documentada sobre vehiculos, precios, carga, agencias, garantias "
+                    "y condiciones comerciales de CORADIR Movilidad Electrica."
+                )
+
+        return None
 
     def _has_strong_domain_match(self, question):
         ranked_documents = self._keyword_search(question, limit=1)
@@ -1097,7 +1388,9 @@ class ChatService:
             # Cargar el historial de chat
             chat_history = memory.load_memory_variables({})["chat_history"]
 
-            respuesta_texto = self._build_extractive_response(question)
+            respuesta_texto = self._build_guardrail_response(question)
+            if not respuesta_texto:
+                respuesta_texto = self._build_extractive_response(question)
             has_domain_match = bool(respuesta_texto) or self._has_strong_domain_match(question)
 
             # Verificar si la pregunta está fuera de tema

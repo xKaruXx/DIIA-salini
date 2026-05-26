@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentacion Final - Chatbot RAG CORADIR</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --paper: #0f172a;
+      --paper-2: #111827;
+      --ink: #e5eefb;
+      --muted: #94a3b8;
+      --line: #233044;
+      --accent: #14b8a6;
+      --accent-soft: #123c3d;
+      --orange: #ea580c;
+      --blue: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 28px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(2, 6, 23, 0.94);
+      backdrop-filter: blur(10px);
+    }
+    .brand { font-weight: 800; letter-spacing: 0; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 6px 9px;
+      border-radius: 6px;
+    }
+    nav a:hover { background: var(--accent-soft); color: #5eead4; }
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 36px;
+      align-items: center;
+      padding: 72px 7vw 48px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.1; letter-spacing: 0; }
+    h1 { font-size: clamp(42px, 6vw, 74px); max-width: 980px; }
+    h2 { font-size: clamp(30px, 4vw, 50px); max-width: 980px; }
+    h3 { font-size: 20px; margin-bottom: 10px; }
+    .lead {
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 23px);
+      max-width: 860px;
+      margin: 22px 0 0;
+    }
+    .hero-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.38);
+    }
+    .metric {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .metric:last-child { border-bottom: 0; }
+    .metric strong { font-size: 34px; color: var(--accent); }
+    .metric span { color: var(--muted); }
+    .section {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+      gap: 44px;
+      align-items: center;
+      padding: 72px 7vw;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-copy ul, .section-copy ol {
+      margin: 28px 0 0;
+      padding-left: 22px;
+      font-size: 19px;
+    }
+    .section-copy li { margin: 12px 0; }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .cards-3, .cards-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card {
+      min-height: 160px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+    }
+    .card p { margin: 0; color: var(--muted); }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 0;
+    }
+    .flow span {
+      position: relative;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: #99f6e4;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .chart {
+      margin: 0;
+      padding: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+    }
+    .chart img { display: block; width: 100%; height: auto; }
+    .demo-panel {
+      min-height: 620px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+    }
+    .demo-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .demo-toolbar button, .demo-toolbar a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #042f2e;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .demo-toolbar a {
+      background: #1e293b;
+      color: var(--ink);
+    }
+    .demo-status {
+      min-height: 38px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    #chatDemoFrame {
+      display: block;
+      width: 100%;
+      height: 520px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #020617;
+    }
+    .footer {
+      padding: 34px 7vw;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    code {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    @media (max-width: 900px) {
+      .hero, .section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 48px 22px;
+      }
+      .topbar { align-items: flex-start; flex-direction: column; padding: 12px 18px; }
+      nav { justify-content: flex-start; }
+      .cards-3, .cards-4 { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .topbar { display: none; }
+      .hero, .section { min-height: 100vh; break-after: page; }
+      body { background: var(--bg); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Chatbot RAG CORADIR</div>
+    <nav><a href="#inicio">Trabajo final</a>
+<a href="#problema">1. Problema</a>
+<a href="#solucion">2. Solucion</a>
+<a href="#datos">3. Datos</a>
+<a href="#evaluacion">4. Evaluacion</a>
+<a href="#metricas">5. Metricas RAG</a>
+<a href="#resultados">6. Resultados</a>
+<a href="#retrieval">7. Retrieval</a>
+<a href="#corpus">8. Corpus</a>
+<a href="#embeddings">9. Comparacion</a>
+<a href="#hardware">10. Hardware</a>
+<a href="#fuera-dominio">11. Guardrail</a>
+<a href="#demo">12. Demo</a>
+<a href="#cierre">13. Cierre</a></nav>
+  </header>
+  <main>
+    <section class="hero" id="portada">
+      <div>
+        <span class="eyebrow">Presentacion final</span>
+        <h1>Chatbot RAG para CORADIR Movilidad Electrica</h1>
+        <p class="lead">MVP funcional, reproducible localmente y evaluado con evidencia. La evaluacion separa recuperacion, respuesta final, calidad del corpus y costo de hardware.</p>
+      </div>
+      <aside class="hero-panel">
+        <div class="metric"><strong>111</strong><span>documentos indexables generados desde la base original.</span></div>
+        <div class="metric"><strong>15/15</strong><span>casos correctos en el benchmark MVP.</span></div>
+        <div class="metric"><strong>64</strong><span>casos en el benchmark extendido para detectar limites.</span></div>
+        <div class="metric"><strong>89.8%</strong><span>Recall@5 en la primera evaluacion retrieval-only.</span></div>
+        <div class="metric"><strong>0.85</strong><span>MATTR promedio del corpus RAG.</span></div>
+      </aside>
+    </section>
+    <section class="section" id="inicio">
+<div class="section-copy">
+<span class="eyebrow">Trabajo final</span>
+<h2>Chatbot RAG para CORADIR Movilidad Electrica</h2>
+<p class="lead">MVP funcional para responder consultas frecuentes sobre vehiculos, precios, carga, garantias, agencias y condiciones comerciales.</p>
+<ul><li>Base de conocimiento cerrada y curada.</li><li>Backend FastAPI con chat web.</li><li>RAG con Chroma, embeddings locales y Ollama.</li><li>Benchmark reproducible y metricas RAG para auditar la calidad.</li></ul>
+</div>
+</section>
+<section class="section" id="problema">
+<div class="section-copy">
+<span class="eyebrow">1. Problema</span>
+<h2>La informacion existia, pero no estaba lista para responder bien</h2>
+<p class="lead">El desafio no era solo conectar un LLM: habia que transformar datos administrativos en evidencia recuperable y auditable.</p>
+</div>
+<div class="grid cards-3">
+        <article class="card">
+          <h3>Datos jerarquicos</h3>
+          <p>El dataset original estaba en JSON, util para administrar informacion, pero poco conveniente para recuperacion semantica directa.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Riesgo de mezcla</h3>
+          <p>Una respuesta generativa libre podia combinar versiones, precios o condiciones comerciales de forma incorrecta.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Necesidad academica</h3>
+          <p>La presentacion necesitaba evidencia medible, no solo una demo aparentemente correcta.</p>
+        </article>
+        </div>
+</section>
+<section class="section" id="solucion">
+<div class="section-copy">
+<span class="eyebrow">2. Solucion</span>
+<h2>Un pipeline hibrido: recuperar, verificar y recien despues redactar</h2>
+<p class="lead">La mejora principal fue estructural: preprocesar la base, recuperar fragmentos mas precisos y usar una capa extractiva para datos factuales.</p>
+<div class="flow"><span>Usuario</span><span>FastAPI</span><span>Clasificacion</span><span>Retrieval</span><span>Capa extractiva</span><span>LLM</span><span>Respuesta</span></div>
+<ul><li>111 documentos indexables generados desde el dataset original.</li><li>Chroma como base vectorial local.</li><li>Ollama con qwen3.5:0.8b como default liviano y qwen3.5:latest como fallback.</li><li>Prompts baseline, sales y strict para comparar comportamiento.</li></ul>
+</div>
+</section>
+<section class="section" id="datos">
+<div class="section-copy">
+<span class="eyebrow">3. Datos</span>
+<h2>Preprocesamiento orientado a RAG</h2>
+<p class="lead">El sistema no indexa el JSON completo como un bloque: lo transforma en unidades semanticas mas chicas y consultables.</p>
+</div>
+<div class="grid cards-3">
+        <article class="card">
+          <h3>Fuente</h3>
+          <p>dataset/dataset_movilidad.json con informacion institucional, vehiculos, precios, agencias, carga, FAQs y condiciones comerciales.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Transformacion</h3>
+          <p>scripts/prepare_dataset.py normaliza claves, corrige codificacion y genera dataset/knowledge_base_movilidad.jsonl.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Impacto</h3>
+          <p>Menos ruido en el contexto, respuestas mas concretas y mejor trazabilidad de la evidencia usada.</p>
+        </article>
+        </div>
+</section>
+<section class="section" id="evaluacion">
+<div class="section-copy">
+<span class="eyebrow">4. Evaluacion</span>
+<h2>El benchmark inicial valida el MVP, el extendido muestra los limites</h2>
+<p class="lead">La evaluacion se separo en dos niveles: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales.</p>
+<ul><li>Benchmark MVP: 15/15 casos correctos en variantes strict y sales.</li><li>Benchmark extendido: 35/64 casos correctos.</li><li>El descenso no invalida el proyecto: muestra que el nuevo dataset es mas exigente y sensible.</li><li>La lectura tecnica es que falta medir retrieval directamente.</li></ul>
+</div>
+<figure class="chart"><img src="charts_presentacion/accuracy_overview.png" alt="El benchmark inicial valida el MVP, el extendido muestra los limites"></figure>
+</section>
+<section class="section" id="metricas">
+<div class="section-copy">
+<span class="eyebrow">5. Metricas RAG</span>
+<h2>Mejora: separar recuperacion y redaccion</h2>
+<p class="lead">A partir de los criterios trabajados durante la cursada, la evaluacion se amplio para distinguir si falla la busqueda de evidencia o la respuesta final.</p>
+</div>
+<div class="grid cards-4">
+        <article class="card">
+          <h3>Precision@K</h3>
+          <p>De los documentos recuperados en el top K, cuantos eran relevantes. Ayuda a medir ruido en el contexto.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Recall@K</h3>
+          <p>De todos los documentos relevantes esperados, cuantos aparecieron en el top K. Ayuda a detectar omisiones.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>MRR</h3>
+          <p>Mide en que posicion aparece el primer documento relevante. Es importante cuando la respuesta debe salir rapido.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Faithfulness</h3>
+          <p>Evalua si cada afirmacion de la respuesta esta respaldada por las fuentes recuperadas.</p>
+        </article>
+        </div>
+</section>
+<section class="section" id="resultados">
+<div class="section-copy">
+<span class="eyebrow">6. Resultados</span>
+<h2>Resultados actuales y lectura honesta</h2>
+<p class="lead">El sistema funciona en el alcance MVP, pero el benchmark extendido muestra donde conviene mejorar antes de afirmar robustez general.</p>
+<ul><li>Los fallos aparecen sobre todo en vehiculos especificos, agencias puntuales e informacion institucional.</li><li>Puede haber fallos por recuperacion, respuesta parcial, keyword demasiado estricta o dato ausente.</li><li>El proximo paso metodologico es guardar fuentes recuperadas por consulta.</li></ul>
+</div>
+<figure class="chart"><img src="charts_presentacion/extended_benchmark.png" alt="Resultados actuales y lectura honesta"></figure>
+</section>
+<section class="section" id="retrieval">
+<div class="section-copy">
+<span class="eyebrow">7. Retrieval</span>
+<h2>Nueva mejora: medir si aparece la fuente correcta</h2>
+<p class="lead">El benchmark ahora guarda documentos recuperados y calcula Precision@5, Recall@5, MRR y Top-1 source accuracy.</p>
+<ul><li>Corrida retrieval-only sobre 64 casos del dataset extendido.</li><li>Recall@5: 89.8%. La fuente esperada aparece en el top 5 en la mayoria de los casos.</li><li>Top-1: 65.6%. Todavia hay margen para ordenar mejor el contexto.</li><li>MRR: 75.9%. Sirve para distinguir fallas de recuperacion de fallas de redaccion.</li></ul>
+</div>
+<figure class="chart"><img src="charts_presentacion/retrieval_metrics.png" alt="Nueva mejora: medir si aparece la fuente correcta"></figure>
+</section>
+<section class="section" id="corpus">
+<div class="section-copy">
+<span class="eyebrow">8. Corpus</span>
+<h2>Nueva mejora: EDA de chunks con TTR y MATTR</h2>
+<p class="lead">Antes de lematizar o cambiar chunking, se midio la calidad del corpus RAG generado.</p>
+<ul><li>111 documentos analizados desde knowledge_base_movilidad.jsonl.</li><li>Promedio de 44.21 tokens por documento.</li><li>MATTR promedio: 0.8538, una densidad lexica alta.</li><li>Decision: no aplicar lematizacion global por ahora; priorizar metadata y retrieval.</li></ul>
+</div>
+<figure class="chart"><img src="charts_presentacion/corpus_eda.png" alt="Nueva mejora: EDA de chunks con TTR y MATTR"></figure>
+</section>
+<section class="section" id="embeddings">
+<div class="section-copy">
+<span class="eyebrow">9. Comparacion</span>
+<h2>Nueva evidencia: los embeddings locales si cambian el retrieval</h2>
+<p class="lead">Al medir retrieval vectorial puro, los embeddings nuevos superaron al baseline nomic-embed-text.</p>
+<ul><li>qwen3-embedding:0.6b obtuvo el mejor Recall@5: 81.2%.</li><li>embeddinggemma obtuvo el mejor MRR: 69.5% y Top-1: 60.9%.</li><li>nomic-embed-text fue el mas liviano, pero quedo bajo en retrieval vectorial puro.</li><li>Recomendacion: probar embeddinggemma como nuevo default y validar accuracy final.</li></ul>
+</div>
+<figure class="chart"><img src="charts_modelos/embedding_vector_metrics.png" alt="Nueva evidencia: los embeddings locales si cambian el retrieval"></figure>
+</section>
+<section class="section" id="hardware">
+<div class="section-copy">
+<span class="eyebrow">10. Hardware</span>
+<h2>Nueva mejora: evaluar modelos mas chicos</h2>
+<p class="lead">Como el sistema ya reduce la carga del LLM con retrieval y respuesta extractiva, se preparo una matriz para probar si modelos livianos alcanzan para preguntas frecuentes.</p>
+<ul><li>Todos los modelos locales evaluados obtuvieron 15/15 en el benchmark MVP.</li><li>Con guardrail previo, los candidatos tambien obtuvieron 6/6 en casos por fuera.</li><li>granite4:350m, lfm2.5-thinking:1.2b y qwen3.5:0.8b son candidatos fuertes para rutas factuales.</li><li>El resultado muestra que la capa extractiva reduce la necesidad de un modelo grande.</li><li>Estrategia recomendada: modelo chico para FAQ factual y qwen3.5:latest como fallback complejo.</li></ul>
+</div>
+<figure class="chart"><img src="charts_modelos/chat_quality_vs_size.png" alt="Nueva mejora: evaluar modelos mas chicos"></figure>
+</section>
+<section class="section" id="fuera-dominio">
+<div class="section-copy">
+<span class="eyebrow">11. Guardrail</span>
+<h2>Casos por fuera: la mejora no fue cambiar de modelo, sino evitar alucinacion</h2>
+<p class="lead">La comparacion mostro que los modelos no debian recibir consultas que el sistema podia rechazar por reglas de alcance.</p>
+<ul><li>Antes del guardrail, la capa extractiva podia traer contexto irrelevante.</li><li>Despues del guardrail, todos los candidatos evaluados lograron 6/6.</li><li>La latencia queda en 0.0 s porque no se llama al LLM.</li><li>Esto permite usar modelos chicos con menor riesgo operativo.</li></ul>
+</div>
+<figure class="chart"><img src="charts_modelos/chat_no_respondibles_accuracy.png" alt="Casos por fuera: la mejora no fue cambiar de modelo, sino evitar alucinacion"></figure>
+</section>
+<section class="section" id="demo">
+<div class="section-copy">
+<span class="eyebrow">12. Demo</span>
+<h2>Demo en vivo dentro de la presentacion</h2>
+<p class="lead">La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.</p>
+<ol><li>Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?</li><li>Preguntar: Cual es el precio del TITO S5-300 AA?</li><li>Preguntar: Donde hago un reclamo o pido servicio tecnico?</li><li>Si el chat no carga, verificar que la API este levantada en http://localhost:8851.</li><li>Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.</li></ol>
+</div>
+
+            <div class="demo-panel">
+              <div class="demo-toolbar">
+                <button type="button" id="loadChatDemo">Cargar chat</button>
+                <a href="/chat_assets/chat.html" target="_blank" rel="noopener">Abrir fallback</a>
+              </div>
+              <div id="chatDemoStatus" class="demo-status">Abrir esta presentacion desde http://localhost:8851/docs/presentacion_final_chatbot_coradir.html y presionar "Cargar chat".</div>
+              <iframe id="chatDemoFrame" title="Chatbot CORADIR embebido"></iframe>
+            </div>
+            
+</section>
+<section class="section" id="cierre">
+<div class="section-copy">
+<span class="eyebrow">13. Cierre</span>
+<h2>El MVP no solo responde: tambien deja evidencia para auditarlo</h2>
+<p class="lead">El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.</p>
+</div>
+<div class="grid cards-3">
+        <article class="card">
+          <h3>Implementado</h3>
+          <p>Chat web, backend, base preprocesada, RAG local, prompts comparables y benchmark automatizado.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Validado</h3>
+          <p>15/15 en benchmark MVP y benchmark extendido preparado para encontrar limites reales.</p>
+        </article>
+        
+
+        <article class="card">
+          <h3>Siguiente salto</h3>
+          <p>Medir retrieval, revisar faithfulness y separar fallos de recuperacion de fallos de generacion.</p>
+        </article>
+        </div>
+</section>
+  </main>
+  <footer class="footer">
+    Fuentes internas: <code>docs/reporte_final_implementacion.md</code>, <code>docs/evaluacion_retrieval.md</code>, <code>docs/eda_corpus_rag.md</code>, <code>docs/evaluacion_no_respondibles.md</code> y <code>docs/optimizacion_hardware_modelos.md</code>.
+  </footer>
+  <script>
+    async function loadChatDemo() {
+      const status = document.getElementById('chatDemoStatus');
+      const frame = document.getElementById('chatDemoFrame');
+      if (!status || !frame) return;
+      status.textContent = 'Solicitando token local...';
+      try {
+        const response = await fetch('/generate-token', { credentials: 'include' });
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status);
+        }
+        const data = await response.json();
+        frame.src = '/chat?token=' + encodeURIComponent(data.token);
+        status.textContent = 'Chat cargado. Probar una pregunta del recorrido sugerido.';
+      } catch (error) {
+        status.textContent = 'No se pudo cargar el chat embebido. Abrir la presentacion desde http://localhost:8851/docs/presentacion_final_chatbot_coradir.html con la API levantada. Detalle: ' + error.message;
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('loadChatDemo');
+      if (button) button.addEventListener('click', loadChatDemo);
+    });
+  </script>
+</body>
+</html>

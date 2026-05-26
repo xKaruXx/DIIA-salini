@@ -21,7 +21,7 @@ Copy-Item .env.example .env
 Descarga los modelos que usa el MVP:
 
 ```powershell
-ollama pull qwen3.5:4b
+ollama pull qwen3.5:0.8b
 ollama pull nomic-embed-text
 ```
 
@@ -90,15 +90,31 @@ Preguntas de ejemplo:
 Para mostrar validacion tecnica durante la presentacion:
 
 ```powershell
-python scripts\run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:4b --embedding-provider ollama --embedding-model nomic-embed-text:latest
+python scripts\run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:0.8b --embedding-provider ollama --embedding-model nomic-embed-text:latest
 ```
 
 Resultados disponibles en:
 
 - `docs/benchmark_strict.json`
 - `docs/benchmark_sales.json`
+- `docs/benchmark_real_strict_qwen35_latest.json`
+- `docs/benchmark_real_sales_qwen35_latest.json`
 
-## 7. Problemas comunes
+## 7. Presentacion con chat embebido
+
+La presentacion final incluye una seccion de demo que puede cargar el chat real dentro del HTML.
+
+Con la API levantada, abrir:
+
+```powershell
+Start-Process "http://localhost:8851/docs/presentacion_final_chatbot_coradir.html"
+```
+
+Luego ir a la seccion "Demo en vivo" y presionar `Cargar chat`.
+
+Importante: si se abre el HTML directamente desde el explorador de archivos, el chat embebido no puede pedir token local. Para la demo interactiva conviene abrirlo desde `http://localhost:8851/docs/presentacion_final_chatbot_coradir.html`.
+
+## 8. Problemas comunes
 
 ### El chat no abre
 
@@ -113,7 +129,7 @@ Verifica primero:
 Vuelve a descargar los modelos:
 
 ```powershell
-ollama pull qwen3.5:4b
+ollama pull qwen3.5:0.8b
 ollama pull nomic-embed-text
 ```
 
@@ -126,7 +142,7 @@ $token = (Invoke-RestMethod -Headers @{ Referer = 'http://localhost' } -Uri 'htt
 Start-Process "http://127.0.0.1:8851/chat?token=$token"
 ```
 
-## 8. Interfaz incluida en el proyecto
+## 9. Interfaz incluida en el proyecto
 
 El MVP incluye:
 

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520">
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#1f2933}
+.title{font-size:20px;font-weight:700}
+.subtitle{font-size:12px;fill:#52616b}
+.axis{stroke:#9aa5b1;stroke-width:1}
+.grid{stroke:#e4e7eb;stroke-width:1}
+.label{font-size:11px}
+.tick{font-size:10px;fill:#52616b}
+.value{font-size:11px;font-weight:700}
+.legend{font-size:12px}
+</style>
+<text x="70" y="32" class="title">Accuracy por variante</text>
+<text x="70" y="52" class="subtitle">Porcentaje de casos aprobados</text>
+<line x1="70" y1="428.0" x2="950" y2="428.0" class="grid"/>
+<text x="60" y="432.0" text-anchor="end" class="tick">0%</text>
+<line x1="70" y1="356.8" x2="950" y2="356.8" class="grid"/>
+<text x="60" y="360.8" text-anchor="end" class="tick">22%</text>
+<line x1="70" y1="285.6" x2="950" y2="285.6" class="grid"/>
+<text x="60" y="289.6" text-anchor="end" class="tick">45%</text>
+<line x1="70" y1="214.4" x2="950" y2="214.4" class="grid"/>
+<text x="60" y="218.4" text-anchor="end" class="tick">67%</text>
+<line x1="70" y1="143.2" x2="950" y2="143.2" class="grid"/>
+<text x="60" y="147.2" text-anchor="end" class="tick">90%</text>
+<line x1="70" y1="72.0" x2="950" y2="72.0" class="grid"/>
+<text x="60" y="76.0" text-anchor="end" class="tick">112%</text>
+<line x1="70" y1="428" x2="950" y2="428" class="axis"/>
+<line x1="70" y1="72" x2="70" y2="428" class="axis"/>
+<rect x="273.0" y="110.1" width="34.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="290.0" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="290.0" y="474" text-anchor="middle" class="label">sales</text>
+<rect x="713.0" y="110.1" width="34.0" height="317.9" rx="2" fill="#2f80ed"/>
+<text x="730.0" y="105.1" text-anchor="middle" class="value">100%</text>
+<text x="730.0" y="474" text-anchor="middle" class="label">strict</text>
+<rect x="70" y="492" width="12" height="12" fill="#2f80ed"/>
+<text x="88" y="502" class="legend">Accuracy</text>
+</svg>
