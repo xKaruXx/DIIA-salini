@@ -153,7 +153,7 @@ La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuesta
 
 - qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.
 - qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.
-- qwen3.5:4b queda como mejor compromiso preliminar entre calidad y latencia.
+- qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.
 - nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.
 - gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.
 
@@ -166,7 +166,17 @@ El segundo grafico separa el rendimiento por tipo de pregunta. Esto evita elegir
 - Los casos fuera de dominio miden si evita inventar informacion.
 - La metrica automatica orienta la seleccion, pero la columna de score manual define la decision final.
 
-## 15. Demo - Demo en vivo dentro de la presentacion
+## 15. Costo operativo - La mejor decision cruza acierto, latencia y peso local
+
+El modelo recomendado no debe ser solo el de mayor score. Tambien importa cuanto tarda en responder y cuanto ocupa/carga en memoria para una demo local estable.
+
+- El eje vertical muestra respuestas aceptables sobre las 21 preguntas.
+- El eje horizontal muestra latencia promedio: mas a la izquierda es mejor.
+- El tamano de cada punto representa el peso local aproximado del modelo.
+- qwen3.5:latest logra el mayor acierto, pero tambien mayor latencia y peso.
+- qwen3.5:4b queda como candidato de equilibrio: alto acierto con menor costo que latest.
+
+## 16. Demo - Demo en vivo dentro de la presentacion
 
 La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.
 
@@ -177,7 +187,7 @@ La presentacion puede cargar el chat real si se abre desde la API local. Esto pe
 - Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.
 - Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.
 
-## 16. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
+## 17. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
 
 El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.
 

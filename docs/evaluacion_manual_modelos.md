@@ -124,9 +124,10 @@ Los resultados de esta matriz deben usarse para decidir el modelo por defecto o 
 
 ## Graficos para la presentacion
 
-La presentacion final incluye dos graficos generados desde `docs/evaluacion_manual_modelos_respuestas.json`:
+La presentacion final incluye tres graficos generados desde `docs/evaluacion_manual_modelos_respuestas.json`:
 
 - `docs/charts_modelos/manual_model_accuracy.png`: ranking de respuestas aceptables por modelo. Se considera aceptable un score sintetico 4 o 5.
 - `docs/charts_modelos/manual_model_criteria.png`: score promedio por tipo de pregunta: factual clara, ambigua y fuera de dominio.
+- `docs/charts_modelos/manual_model_tradeoff.png`: cruce entre acierto, latencia promedio y peso local aproximado del modelo.
 
-La lectura preliminar de la corrida automatica indica que `qwen3.5:latest` tuvo el mayor acierto bruto, mientras que `qwen3.5:4b` queda como candidato de compromiso por calidad cercana y menor latencia. Esta recomendacion debe validarse con el score manual.
+La lectura preliminar de la corrida automatica indica que `qwen3.5:latest` tuvo el mayor acierto bruto, mientras que `qwen3.5:4b` queda como candidato de compromiso por calidad cercana, menor latencia y menor peso local. Esta recomendacion debe validarse con el score manual.

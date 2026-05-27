@@ -359,8 +359,9 @@
 <a href="#manual-modelos">12. Revision manual</a>
 <a href="#seleccion-modelo">13. Seleccion de modelo</a>
 <a href="#criterios-modelo">14. Criterios</a>
-<a href="#demo">15. Demo</a>
-<a href="#cierre">16. Cierre</a></nav>
+<a href="#costo-modelo">15. Costo operativo</a>
+<a href="#demo">16. Demo</a>
+<a href="#cierre">17. Cierre</a></nav>
   </header>
   <main>
     <section class="hero" id="portada">
@@ -551,7 +552,7 @@
 <span class="eyebrow">13. Seleccion de modelo</span>
 <h2>Segun la matriz, Qwen 3.5 fue el candidato mas acertado</h2>
 <p class="lead">La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.</p>
-<ul><li>qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.</li><li>qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.</li><li>qwen3.5:4b queda como mejor compromiso preliminar entre calidad y latencia.</li><li>nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.</li><li>gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.</li></ul>
+<ul><li>qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.</li><li>qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.</li><li>qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.</li><li>nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.</li><li>gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.</li></ul>
 </div>
 <figure class="chart"><img src="charts_modelos/manual_model_accuracy.png" alt="Segun la matriz, Qwen 3.5 fue el candidato mas acertado"></figure>
 </section>
@@ -564,9 +565,18 @@
 </div>
 <figure class="chart"><img src="charts_modelos/manual_model_criteria.png" alt="La decision no depende de un solo promedio"></figure>
 </section>
+<section class="section" id="costo-modelo">
+<div class="section-copy">
+<span class="eyebrow">15. Costo operativo</span>
+<h2>La mejor decision cruza acierto, latencia y peso local</h2>
+<p class="lead">El modelo recomendado no debe ser solo el de mayor score. Tambien importa cuanto tarda en responder y cuanto ocupa/carga en memoria para una demo local estable.</p>
+<ul><li>El eje vertical muestra respuestas aceptables sobre las 21 preguntas.</li><li>El eje horizontal muestra latencia promedio: mas a la izquierda es mejor.</li><li>El tamano de cada punto representa el peso local aproximado del modelo.</li><li>qwen3.5:latest logra el mayor acierto, pero tambien mayor latencia y peso.</li><li>qwen3.5:4b queda como candidato de equilibrio: alto acierto con menor costo que latest.</li></ul>
+</div>
+<figure class="chart"><img src="charts_modelos/manual_model_tradeoff.png" alt="La mejor decision cruza acierto, latencia y peso local"></figure>
+</section>
 <section class="section" id="demo">
 <div class="section-copy">
-<span class="eyebrow">15. Demo</span>
+<span class="eyebrow">16. Demo</span>
 <h2>Demo en vivo dentro de la presentacion</h2>
 <p class="lead">La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.</p>
 <ol><li>Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?</li><li>Preguntar: Cual es el precio del TITO S5-300 AA?</li><li>Preguntar: Donde hago un reclamo o pido servicio tecnico?</li><li>Para preparar la demo completa en Windows, ejecutar scripts/start_presentation_demo.ps1.</li><li>Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.</li><li>Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.</li></ol>
@@ -598,7 +608,7 @@
 </section>
 <section class="section" id="cierre">
 <div class="section-copy">
-<span class="eyebrow">16. Cierre</span>
+<span class="eyebrow">17. Cierre</span>
 <h2>El MVP no solo responde: tambien deja evidencia para auditarlo</h2>
 <p class="lead">El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.</p>
 </div>

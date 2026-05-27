@@ -247,7 +247,7 @@ SECTIONS = [
         "bullets": [
             "qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.",
             "qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.",
-            "qwen3.5:4b queda como mejor compromiso preliminar entre calidad y latencia.",
+            "qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.",
             "nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.",
             "gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.",
         ],
@@ -266,8 +266,22 @@ SECTIONS = [
         ],
     },
     {
+        "id": "costo-modelo",
+        "eyebrow": "15. Costo operativo",
+        "title": "La mejor decision cruza acierto, latencia y peso local",
+        "lead": "El modelo recomendado no debe ser solo el de mayor score. Tambien importa cuanto tarda en responder y cuanto ocupa/carga en memoria para una demo local estable.",
+        "chart": "charts_modelos/manual_model_tradeoff.png",
+        "bullets": [
+            "El eje vertical muestra respuestas aceptables sobre las 21 preguntas.",
+            "El eje horizontal muestra latencia promedio: mas a la izquierda es mejor.",
+            "El tamano de cada punto representa el peso local aproximado del modelo.",
+            "qwen3.5:latest logra el mayor acierto, pero tambien mayor latencia y peso.",
+            "qwen3.5:4b queda como candidato de equilibrio: alto acierto con menor costo que latest.",
+        ],
+    },
+    {
         "id": "demo",
-        "eyebrow": "15. Demo",
+        "eyebrow": "16. Demo",
         "title": "Demo en vivo dentro de la presentacion",
         "lead": "La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.",
         "demo": True,
@@ -282,7 +296,7 @@ SECTIONS = [
     },
     {
         "id": "cierre",
-        "eyebrow": "16. Cierre",
+        "eyebrow": "17. Cierre",
         "title": "El MVP no solo responde: tambien deja evidencia para auditarlo",
         "lead": "El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.",
         "cards": [
@@ -346,6 +360,7 @@ def load_manual_model_metrics() -> list[dict]:
                 "acceptable_pct": acceptable / total * 100,
                 "total": total,
                 "avg_latency": sum(latencies) / len(latencies) if latencies else 0.0,
+                "size_gb": MODEL_SIZES_GB.get(model, 0.0),
                 "status_counts": dict(status_counts),
                 "groups": {
                     group: sum(values) / len(values)
@@ -436,6 +451,48 @@ def create_manual_model_charts() -> None:
         ax.text(index, 5.12, f"prom {score:.2f}\n{latency:.1f}s", ha="center", fontsize=8, color="#cbd5e1")
     fig.tight_layout()
     fig.savefig(MODEL_CHART_DIR / "manual_model_criteria.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    fig, ax = plt.subplots(figsize=(9.2, 5.6), facecolor="#0f172a")
+    ax.set_facecolor("#111827")
+    for item in ranked:
+        size_gb = item["size_gb"] or 0.5
+        marker_size = 130 + size_gb * 70
+        ax.scatter(
+            item["avg_latency"],
+            item["acceptable_pct"],
+            s=marker_size,
+            color=MODEL_COLORS.get(item["model"], "#38bdf8"),
+            edgecolor="#e5eefb",
+            linewidth=1.1,
+            alpha=0.9,
+            zorder=3,
+        )
+        ax.text(
+            item["avg_latency"] + 0.08,
+            item["acceptable_pct"] + 0.7,
+            f"{item['model']}\n{item['size_gb']:.1f} GB",
+            fontsize=8,
+            color="#e5eefb",
+        )
+
+    ax.set_xlim(0, max(item["avg_latency"] for item in ranked) + 1.2)
+    ax.set_ylim(0, 86)
+    ax.set_xlabel("Latencia promedio por respuesta (s)")
+    ax.set_ylabel("Respuestas aceptables (%)")
+    ax.set_title("Decision operativa: acierto vs latencia vs peso")
+    ax.grid(axis="both", alpha=0.18, color="#94a3b8")
+    ax.text(
+        0.02,
+        0.03,
+        "Burbuja mas grande = modelo mas pesado en disco/memoria local",
+        transform=ax.transAxes,
+        fontsize=9,
+        color="#cbd5e1",
+        bbox={"boxstyle": "round,pad=0.35", "facecolor": "#0f172a", "edgecolor": "#334155"},
+    )
+    fig.tight_layout()
+    fig.savefig(MODEL_CHART_DIR / "manual_model_tradeoff.png", dpi=180, bbox_inches="tight")
     plt.close(fig)
 
 

@@ -55,16 +55,18 @@ Estos puntajes son solo una preevaluacion sintetica del asistente. No reemplazan
 
 ## Graficos agregados a la presentacion
 
-Se agregaron dos graficos a `docs/presentacion_final_chatbot_coradir.html`:
+Se agregaron tres graficos a `docs/presentacion_final_chatbot_coradir.html`:
 
 - `docs/charts_modelos/manual_model_accuracy.png`: ranking por respuestas aceptables, considerando score sintetico 4 o 5 como respuesta correcta/usable.
 - `docs/charts_modelos/manual_model_criteria.png`: comparacion por criterio, separando preguntas factuales claras, ambiguas y fuera de dominio.
+- `docs/charts_modelos/manual_model_tradeoff.png`: decision operativa combinando acierto, latencia promedio y peso local aproximado del modelo.
 
 Lectura para la presentacion:
 
 - `qwen3.5:latest` fue el mejor por porcentaje de respuestas aceptables: 16/21.
 - `qwen3.5:4b` y `nemotron-3-nano:4b` empataron con 15/21 respuestas aceptables.
-- `qwen3.5:4b` queda como recomendacion preliminar de compromiso porque se acerca al mejor score con menor latencia que `qwen3.5:latest`.
+- `qwen3.5:latest` tiene el mayor acierto bruto, pero tambien mayor latencia promedio y mayor peso local.
+- `qwen3.5:4b` queda como recomendacion preliminar de compromiso porque se acerca al mejor score con menor latencia y menor peso que `qwen3.5:latest`.
 - La decision final debe tomarse despues de completar el score manual del autor.
 
 ## Archivos generados
