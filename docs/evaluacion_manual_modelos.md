@@ -18,6 +18,7 @@ Ultima revision con `ollama list`:
 - `deepseek-r1:1.5b`
 - `lfm2.5-thinking:1.2b`
 - `llama3.2:3b`
+- `granite4.1:3b`
 - `nemotron-3-nano:4b`
 - `qwen3.5:4b`
 - `qwen3.5:latest`
@@ -66,7 +67,7 @@ py scripts\run_manual_model_evaluation.py --template-only
 Ejecutar modelos seleccionados:
 
 ```powershell
-py scripts\run_manual_model_evaluation.py --models gemma3:270m granite4:350m qwen3.5:0.8b lfm2.5-thinking:1.2b llama3.2:3b nemotron-3-nano:4b qwen3.5:4b --timeout 120
+py scripts\run_manual_model_evaluation.py --models gemma3:270m granite4:350m qwen3.5:0.8b lfm2.5-thinking:1.2b llama3.2:3b granite4.1:3b nemotron-3-nano:4b qwen3.5:4b --timeout 120
 ```
 
 Ejecutar todos los modelos de chat disponibles en Ollama:

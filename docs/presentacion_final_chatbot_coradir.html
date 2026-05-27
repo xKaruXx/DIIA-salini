@@ -544,7 +544,7 @@
 <span class="eyebrow">12. Revision manual</span>
 <h2>Nueva mejora: matriz para revision manual del autor</h2>
 <p class="lead">Las respuestas en vivo mostraron que no alcanza con la evaluacion sintetica por keywords y latencia: algunas respuestas fueron vacias, lentas o poco utiles. Se agrega una matriz humana balanceada: 7 factuales, 7 ambiguas y 7 fuera de dominio.</p>
-<ul><li>Nuevo dataset: dataset/evaluacion_manual_modelos.json con 21 casos balanceados.</li><li>Nuevo script: scripts/run_manual_model_evaluation.py.</li><li>El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.</li><li>La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.</li><li>Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.</li><li>Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b y nemotron-3-nano:4b.</li><li>El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.</li></ul>
+<ul><li>Nuevo dataset: dataset/evaluacion_manual_modelos.json con 21 casos balanceados.</li><li>Nuevo script: scripts/run_manual_model_evaluation.py.</li><li>El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.</li><li>La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.</li><li>Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.</li><li>Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b, granite4.1:3b y nemotron-3-nano:4b.</li><li>El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.</li></ul>
 </div>
 </section>
 <section class="section" id="seleccion-modelo">
@@ -552,7 +552,7 @@
 <span class="eyebrow">13. Seleccion de modelo</span>
 <h2>Segun la matriz, Qwen 3.5 fue el candidato mas acertado</h2>
 <p class="lead">La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.</p>
-<ul><li>qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.</li><li>qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.</li><li>qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.</li><li>nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.</li><li>gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.</li></ul>
+<ul><li>qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.</li><li>qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.</li><li>qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.</li><li>granite4.1:3b quedo en nivel medio: 12/21 aceptables, 3.48 de score promedio y 1.58 s de latencia.</li><li>nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.</li><li>gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.</li></ul>
 </div>
 <figure class="chart"><img src="charts_modelos/manual_model_accuracy.png" alt="Segun la matriz, Qwen 3.5 fue el candidato mas acertado"></figure>
 </section>

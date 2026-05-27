@@ -144,7 +144,7 @@ Las respuestas en vivo mostraron que no alcanza con la evaluacion sintetica por 
 - El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.
 - La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.
 - Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.
-- Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b y nemotron-3-nano:4b.
+- Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b, granite4.1:3b y nemotron-3-nano:4b.
 - El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.
 
 ## 13. Seleccion de modelo - Segun la matriz, Qwen 3.5 fue el candidato mas acertado
@@ -154,6 +154,7 @@ La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuesta
 - qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.
 - qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.
 - qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.
+- granite4.1:3b quedo en nivel medio: 12/21 aceptables, 3.48 de score promedio y 1.58 s de latencia.
 - nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.
 - gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.
 

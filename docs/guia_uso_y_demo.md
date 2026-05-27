@@ -31,6 +31,7 @@ Para comparar modelos en vivo desde la presentacion, descarga tambien los candid
 ollama pull granite4:350m
 ollama pull lfm2.5-thinking:1.2b
 ollama pull deepseek-r1:1.5b
+ollama pull granite4.1:3b
 ollama pull qwen3.5:4b
 ```
 
@@ -136,7 +137,7 @@ Resultados disponibles en:
 Para comparar calidad real de respuestas entre modelos locales, se agrego una matriz para revision manual del autor con 21 preguntas balanceadas: 7 factuales claras, 7 ambiguas y 7 fuera de dominio/no respondibles. Esta etapa es distinta de la primera evaluacion sintetica/automatica por keywords y latencia:
 
 ```powershell
-py scripts\run_manual_model_evaluation.py --models gemma3:270m granite4:350m qwen3.5:0.8b lfm2.5-thinking:1.2b llama3.2:3b nemotron-3-nano:4b qwen3.5:4b --timeout 120
+py scripts\run_manual_model_evaluation.py --models gemma3:270m granite4:350m qwen3.5:0.8b lfm2.5-thinking:1.2b llama3.2:3b granite4.1:3b nemotron-3-nano:4b qwen3.5:4b --timeout 120
 ```
 
 Salidas:

@@ -18,8 +18,8 @@ Muestra evaluada:
 - 7 preguntas factuales claras
 - 7 preguntas ambiguas
 - 7 preguntas fuera de dominio/no respondibles
-- 10 modelos locales
-- 210 respuestas generadas
+- 11 modelos locales
+- 231 respuestas generadas
 
 ## Manejo de modelos thinking
 
@@ -39,6 +39,7 @@ Estos puntajes son solo una preevaluacion sintetica del asistente. No reemplazan
 | `qwen3.5:0.8b` | 21 ok | 3.43 | 3.29 | 3.71 | 3.29 | 1.28 s |
 | `deepseek-r1:1.5b` | 21 ok | 2.81 | 3.43 | 2.86 | 2.14 | 1.14 s |
 | `llama3.2:3b` | 21 ok | 3.62 | 3.71 | 3.57 | 3.57 | 1.39 s |
+| `granite4.1:3b` | 21 ok | 3.48 | 3.86 | 3.86 | 2.71 | 1.58 s |
 | `nemotron-3-nano:4b` | 21 ok | 3.95 | 3.43 | 3.43 | 5.00 | 1.31 s |
 | `qwen3.5:4b` | 21 ok | 4.19 | 3.71 | 4.71 | 4.14 | 3.84 s |
 | `qwen3.5:latest` | 21 ok | 4.29 | 3.71 | 4.71 | 4.43 | 5.18 s |
@@ -50,6 +51,7 @@ Estos puntajes son solo una preevaluacion sintetica del asistente. No reemplazan
 - `lfm2.5-thinking:1.2b` no queda usable con esta configuracion porque no produjo respuesta final evaluable.
 - `qwen3.5:0.8b` mejoro al usar `think: false`, pero queda por debajo de los Qwen mas grandes.
 - `llama3.2:3b` produjo respuestas completas, pero el score automatico debe revisarse manualmente porque ya se observaron posibles alucinaciones.
+- `granite4.1:3b` respondio todos los casos, con buen comportamiento en factuales y ambiguas, pero quedo flojo en fuera de dominio.
 - `nemotron-3-nano:4b` aparece fuerte en rechazo fuera de dominio, pero requiere revision humana en preguntas factuales y ambiguas.
 - `qwen3.5:4b` y `qwen3.5:latest` quedaron como mejores candidatos preliminares por score, con mayor costo de latencia.
 
