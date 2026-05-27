@@ -149,6 +149,13 @@ El script completa respuestas, estado, latencia y un score preliminar `assistant
 
 Para modelos Qwen o modelos `thinking`, el script usa `think: false`, remueve bloques `<think>...</think>` si aparecen y marca `thinking_removed`. Si no queda una respuesta final evaluable, el estado queda como `thinking_only`.
 
+La presentacion final usa esa salida para mostrar dos graficos:
+
+- ranking de respuestas aceptables por modelo (`score 4 o 5`)
+- medicion por criterio: factuales claras, ambiguas y fuera de dominio
+
+En la corrida actual, `qwen3.5:latest` queda primero por acierto bruto y `qwen3.5:4b` queda como candidato de compromiso por calidad/latencia. Esa seleccion se debe confirmar con la revision manual.
+
 ## 7. Presentacion con chat embebido
 
 La presentacion final incluye una seccion de demo que puede cargar el chat real dentro del HTML.

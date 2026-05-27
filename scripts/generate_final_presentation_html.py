@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections import defaultdict
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -11,22 +12,31 @@ OUTPUT_MD = Path("docs/presentacion_final_chatbot_coradir.md")
 CHART_DIR = Path("docs/charts_presentacion")
 MODEL_CHART_DIR = Path("docs/charts_modelos")
 MODEL_BENCHMARK_DIR = Path("docs/benchmarks_modelos_livianos")
+MANUAL_MODEL_EVAL_PATH = Path("docs/evaluacion_manual_modelos_respuestas.json")
 
 
 MODEL_SIZES_GB = {
+    "gemma3:270m": 0.291,
     "granite4:350m": 0.708,
     "lfm2.5-thinking:1.2b": 0.731,
     "qwen3.5:0.8b": 1.0,
     "deepseek-r1:1.5b": 1.1,
+    "llama3.2:3b": 2.0,
+    "nemotron-3-nano:4b": 2.7,
+    "qwen3.5:4b": 2.7,
     "qwen3.5:latest": 6.6,
     "gemma4:e4b": 9.6,
 }
 
 MODEL_COLORS = {
+    "gemma3:270m": "#64748b",
     "granite4:350m": "#22c55e",
     "lfm2.5-thinking:1.2b": "#38bdf8",
     "qwen3.5:0.8b": "#f97316",
     "deepseek-r1:1.5b": "#a78bfa",
+    "llama3.2:3b": "#2dd4bf",
+    "nemotron-3-nano:4b": "#60a5fa",
+    "qwen3.5:4b": "#fb923c",
     "qwen3.5:latest": "#facc15",
     "gemma4:e4b": "#fb7185",
 }
@@ -229,8 +239,35 @@ SECTIONS = [
         ],
     },
     {
+        "id": "seleccion-modelo",
+        "eyebrow": "13. Seleccion de modelo",
+        "title": "Segun la matriz, Qwen 3.5 fue el candidato mas acertado",
+        "lead": "La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.",
+        "chart": "charts_modelos/manual_model_accuracy.png",
+        "bullets": [
+            "qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.",
+            "qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.",
+            "qwen3.5:4b queda como mejor compromiso preliminar entre calidad y latencia.",
+            "nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.",
+            "gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.",
+        ],
+    },
+    {
+        "id": "criterios-modelo",
+        "eyebrow": "14. Criterios",
+        "title": "La decision no depende de un solo promedio",
+        "lead": "El segundo grafico separa el rendimiento por tipo de pregunta. Esto evita elegir un modelo que sea bueno solo en preguntas simples y flojo en ambiguas o fuera de dominio.",
+        "chart": "charts_modelos/manual_model_criteria.png",
+        "bullets": [
+            "Las preguntas factuales miden precision contra datos tecnicos y comerciales.",
+            "Las preguntas ambiguas miden si el modelo pide contexto o responde con cautela.",
+            "Los casos fuera de dominio miden si evita inventar informacion.",
+            "La metrica automatica orienta la seleccion, pero la columna de score manual define la decision final.",
+        ],
+    },
+    {
         "id": "demo",
-        "eyebrow": "13. Demo",
+        "eyebrow": "15. Demo",
         "title": "Demo en vivo dentro de la presentacion",
         "lead": "La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.",
         "demo": True,
@@ -245,7 +282,7 @@ SECTIONS = [
     },
     {
         "id": "cierre",
-        "eyebrow": "14. Cierre",
+        "eyebrow": "16. Cierre",
         "title": "El MVP no solo responde: tambien deja evidencia para auditarlo",
         "lead": "El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.",
         "cards": [
@@ -266,11 +303,148 @@ SECTIONS = [
 ]
 
 
+def load_manual_model_metrics() -> list[dict]:
+    if not MANUAL_MODEL_EVAL_PATH.exists():
+        return []
+
+    payload = json.loads(MANUAL_MODEL_EVAL_PATH.read_text(encoding="utf-8"))
+    rows = payload.get("rows", [])
+    by_model: dict[str, list[dict]] = defaultdict(list)
+    for row in rows:
+        by_model[row.get("model", "")].append(row)
+
+    metrics = []
+    for model, model_rows in by_model.items():
+        scores = []
+        latencies = []
+        group_scores: dict[str, list[int]] = defaultdict(list)
+        status_counts: dict[str, int] = defaultdict(int)
+        for row in model_rows:
+            score_value = row.get("assistant_score_1_5")
+            try:
+                score = int(score_value)
+            except (TypeError, ValueError):
+                continue
+            scores.append(score)
+            group_scores[row.get("evaluation_group", "")].append(score)
+            status_counts[row.get("status", "unknown")] += 1
+            try:
+                latencies.append(float(row.get("latency_seconds", 0.0)))
+            except (TypeError, ValueError):
+                latencies.append(0.0)
+
+        if not scores:
+            continue
+
+        acceptable = sum(1 for score in scores if score >= 4)
+        total = len(model_rows) or len(scores)
+        metrics.append(
+            {
+                "model": model,
+                "avg_score": sum(scores) / len(scores),
+                "acceptable": acceptable,
+                "acceptable_pct": acceptable / total * 100,
+                "total": total,
+                "avg_latency": sum(latencies) / len(latencies) if latencies else 0.0,
+                "status_counts": dict(status_counts),
+                "groups": {
+                    group: sum(values) / len(values)
+                    for group, values in group_scores.items()
+                    if values
+                },
+            }
+        )
+
+    return sorted(metrics, key=lambda item: (item["acceptable_pct"], item["avg_score"]), reverse=True)
+
+
+def create_manual_model_charts() -> None:
+    metrics = load_manual_model_metrics()
+    if not metrics:
+        return
+
+    ranked = metrics
+    labels = [item["model"] for item in ranked]
+    acceptable = [item["acceptable_pct"] for item in ranked]
+    avg_scores = [item["avg_score"] for item in ranked]
+    latencies = [item["avg_latency"] for item in ranked]
+    colors = [MODEL_COLORS.get(item["model"], "#38bdf8") for item in ranked]
+
+    fig, ax = plt.subplots(figsize=(9.2, 5.6), facecolor="#0f172a")
+    ax.set_facecolor("#111827")
+    y_positions = list(range(len(labels)))
+    bars = ax.barh(y_positions, acceptable, color=colors)
+    ax.set_yticks(y_positions)
+    ax.set_yticklabels(labels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 100)
+    ax.set_xlabel("Respuestas aceptables (%)")
+    ax.set_title("Ranking preliminar por respuestas correctas")
+    ax.grid(axis="x", alpha=0.18, color="#94a3b8")
+    for bar, pct, item in zip(bars, acceptable, ranked):
+        ax.text(
+            pct + 1.2,
+            bar.get_y() + bar.get_height() / 2,
+            f"{item['acceptable']}/{item['total']} | score {item['avg_score']:.2f}",
+            va="center",
+            fontsize=9,
+            fontweight="bold",
+        )
+    fig.tight_layout()
+    fig.savefig(MODEL_CHART_DIR / "manual_model_accuracy.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+    top_metrics = ranked[:6]
+    group_order = [
+        ("factual_clara", "Factuales"),
+        ("ambigua", "Ambiguas"),
+        ("fuera_dominio", "Fuera dominio"),
+    ]
+    x_positions = list(range(len(top_metrics)))
+    width = 0.24
+
+    fig, ax = plt.subplots(figsize=(9.2, 5.6), facecolor="#0f172a")
+    ax.set_facecolor("#111827")
+    for index, (group_key, group_label) in enumerate(group_order):
+        values = [item["groups"].get(group_key, 0.0) for item in top_metrics]
+        offset = (index - 1) * width
+        bars = ax.bar(
+            [position + offset for position in x_positions],
+            values,
+            width=width,
+            label=group_label,
+            color=["#38bdf8", "#14b8a6", "#f97316"][index],
+        )
+        for bar, value in zip(bars, values):
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                value + 0.06,
+                f"{value:.1f}",
+                ha="center",
+                fontsize=8,
+                fontweight="bold",
+            )
+
+    ax.set_xticks(x_positions)
+    ax.set_xticklabels([item["model"] for item in top_metrics], rotation=18, ha="right")
+    ax.set_ylim(0, 5.4)
+    ax.set_ylabel("Score promedio 1-5")
+    ax.set_title("Medicion por criterio de respuesta")
+    ax.grid(axis="y", alpha=0.18, color="#94a3b8")
+    ax.legend(frameon=False, labelcolor="#e5eefb")
+    for index, (score, latency) in enumerate(zip(avg_scores[:6], latencies[:6])):
+        ax.text(index, 5.12, f"prom {score:.2f}\n{latency:.1f}s", ha="center", fontsize=8, color="#cbd5e1")
+    fig.tight_layout()
+    fig.savefig(MODEL_CHART_DIR / "manual_model_criteria.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+
+
 def create_charts() -> None:
     CHART_DIR.mkdir(parents=True, exist_ok=True)
     MODEL_CHART_DIR.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update({"font.family": "DejaVu Sans"})
     plt.style.use("dark_background")
+    create_manual_model_charts()
 
     fig, ax = plt.subplots(figsize=(7.4, 4.2), facecolor="#0f172a")
     ax.set_facecolor("#111827")
@@ -823,7 +997,7 @@ def build_html() -> None:
     {sections}
   </main>
   <footer class="footer">
-    Fuentes internas: <code>docs/reporte_final_implementacion.md</code>, <code>docs/evaluacion_retrieval.md</code>, <code>docs/eda_corpus_rag.md</code>, <code>docs/evaluacion_no_respondibles.md</code> y <code>docs/optimizacion_hardware_modelos.md</code>.
+    Fuentes internas: <code>docs/reporte_final_implementacion.md</code>, <code>docs/evaluacion_retrieval.md</code>, <code>docs/eda_corpus_rag.md</code>, <code>docs/evaluacion_no_respondibles.md</code>, <code>docs/optimizacion_hardware_modelos.md</code> y <code>docs/evaluacion_manual_modelos_resumen.md</code>.
   </footer>
   <script>
     const progressTimers = {{}};

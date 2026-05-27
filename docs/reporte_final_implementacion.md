@@ -265,6 +265,8 @@ Tambien se agrego manejo especifico para modelos thinking. Algunas variantes Qwe
 
 La corrida completa quedo resumida en `docs/evaluacion_manual_modelos_resumen.md`. En esa corrida, el ajuste efectivo para Qwen fue usar `think: false` en Ollama, ya que `/no_think` no evitaba que el contenido quedara vacio. La matriz se ejecuto de menor a mayor modelo, descargando cada modelo al finalizar su bloque.
 
+Sobre esa misma matriz se agregaron graficos a la presentacion final para justificar la seleccion del modelo. El ranking considera como aceptables las respuestas con `assistant_score_1_5` igual a 4 o 5, y separa el resultado por preguntas factuales, ambiguas y fuera de dominio. La lectura preliminar ubica a `qwen3.5:latest` como el de mayor acierto bruto, y a `qwen3.5:4b` como mejor candidato de compromiso por mantener calidad cercana con menor latencia. Esta recomendacion queda marcada como preliminar hasta completar la revision manual del autor.
+
 ## 9. Guia de Ejecucion y Demo
 
 ### Preparacion

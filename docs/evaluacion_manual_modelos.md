@@ -121,3 +121,12 @@ Una respuesta no debe evaluarse solo por si menciona una palabra clave. Tambien 
 - si responde en un tiempo aceptable
 
 Los resultados de esta matriz deben usarse para decidir el modelo por defecto o una estrategia mixta: modelo chico para preguntas factuales simples y modelo mas robusto o fallback para preguntas ambiguas o comerciales.
+
+## Graficos para la presentacion
+
+La presentacion final incluye dos graficos generados desde `docs/evaluacion_manual_modelos_respuestas.json`:
+
+- `docs/charts_modelos/manual_model_accuracy.png`: ranking de respuestas aceptables por modelo. Se considera aceptable un score sintetico 4 o 5.
+- `docs/charts_modelos/manual_model_criteria.png`: score promedio por tipo de pregunta: factual clara, ambigua y fuera de dominio.
+
+La lectura preliminar de la corrida automatica indica que `qwen3.5:latest` tuvo el mayor acierto bruto, mientras que `qwen3.5:4b` queda como candidato de compromiso por calidad cercana y menor latencia. Esta recomendacion debe validarse con el score manual.

@@ -357,8 +357,10 @@
 <a href="#hardware">10. Hardware</a>
 <a href="#fuera-dominio">11. Guardrail</a>
 <a href="#manual-modelos">12. Revision manual</a>
-<a href="#demo">13. Demo</a>
-<a href="#cierre">14. Cierre</a></nav>
+<a href="#seleccion-modelo">13. Seleccion de modelo</a>
+<a href="#criterios-modelo">14. Criterios</a>
+<a href="#demo">15. Demo</a>
+<a href="#cierre">16. Cierre</a></nav>
   </header>
   <main>
     <section class="hero" id="portada">
@@ -544,9 +546,27 @@
 <ul><li>Nuevo dataset: dataset/evaluacion_manual_modelos.json con 21 casos balanceados.</li><li>Nuevo script: scripts/run_manual_model_evaluation.py.</li><li>El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.</li><li>La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.</li><li>Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.</li><li>Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b y nemotron-3-nano:4b.</li><li>El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.</li></ul>
 </div>
 </section>
+<section class="section" id="seleccion-modelo">
+<div class="section-copy">
+<span class="eyebrow">13. Seleccion de modelo</span>
+<h2>Segun la matriz, Qwen 3.5 fue el candidato mas acertado</h2>
+<p class="lead">La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.</p>
+<ul><li>qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.</li><li>qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.</li><li>qwen3.5:4b queda como mejor compromiso preliminar entre calidad y latencia.</li><li>nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.</li><li>gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.</li></ul>
+</div>
+<figure class="chart"><img src="charts_modelos/manual_model_accuracy.png" alt="Segun la matriz, Qwen 3.5 fue el candidato mas acertado"></figure>
+</section>
+<section class="section" id="criterios-modelo">
+<div class="section-copy">
+<span class="eyebrow">14. Criterios</span>
+<h2>La decision no depende de un solo promedio</h2>
+<p class="lead">El segundo grafico separa el rendimiento por tipo de pregunta. Esto evita elegir un modelo que sea bueno solo en preguntas simples y flojo en ambiguas o fuera de dominio.</p>
+<ul><li>Las preguntas factuales miden precision contra datos tecnicos y comerciales.</li><li>Las preguntas ambiguas miden si el modelo pide contexto o responde con cautela.</li><li>Los casos fuera de dominio miden si evita inventar informacion.</li><li>La metrica automatica orienta la seleccion, pero la columna de score manual define la decision final.</li></ul>
+</div>
+<figure class="chart"><img src="charts_modelos/manual_model_criteria.png" alt="La decision no depende de un solo promedio"></figure>
+</section>
 <section class="section" id="demo">
 <div class="section-copy">
-<span class="eyebrow">13. Demo</span>
+<span class="eyebrow">15. Demo</span>
 <h2>Demo en vivo dentro de la presentacion</h2>
 <p class="lead">La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.</p>
 <ol><li>Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?</li><li>Preguntar: Cual es el precio del TITO S5-300 AA?</li><li>Preguntar: Donde hago un reclamo o pido servicio tecnico?</li><li>Para preparar la demo completa en Windows, ejecutar scripts/start_presentation_demo.ps1.</li><li>Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.</li><li>Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.</li></ol>
@@ -578,7 +598,7 @@
 </section>
 <section class="section" id="cierre">
 <div class="section-copy">
-<span class="eyebrow">14. Cierre</span>
+<span class="eyebrow">16. Cierre</span>
 <h2>El MVP no solo responde: tambien deja evidencia para auditarlo</h2>
 <p class="lead">El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.</p>
 </div>
@@ -603,7 +623,7 @@
 </section>
   </main>
   <footer class="footer">
-    Fuentes internas: <code>docs/reporte_final_implementacion.md</code>, <code>docs/evaluacion_retrieval.md</code>, <code>docs/eda_corpus_rag.md</code>, <code>docs/evaluacion_no_respondibles.md</code> y <code>docs/optimizacion_hardware_modelos.md</code>.
+    Fuentes internas: <code>docs/reporte_final_implementacion.md</code>, <code>docs/evaluacion_retrieval.md</code>, <code>docs/eda_corpus_rag.md</code>, <code>docs/evaluacion_no_respondibles.md</code>, <code>docs/optimizacion_hardware_modelos.md</code> y <code>docs/evaluacion_manual_modelos_resumen.md</code>.
   </footer>
   <script>
     const progressTimers = {};

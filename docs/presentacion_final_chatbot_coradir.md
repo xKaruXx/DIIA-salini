@@ -147,7 +147,26 @@ Las respuestas en vivo mostraron que no alcanza con la evaluacion sintetica por 
 - Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b y nemotron-3-nano:4b.
 - El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.
 
-## 13. Demo - Demo en vivo dentro de la presentacion
+## 13. Seleccion de modelo - Segun la matriz, Qwen 3.5 fue el candidato mas acertado
+
+La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.
+
+- qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.
+- qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.
+- qwen3.5:4b queda como mejor compromiso preliminar entre calidad y latencia.
+- nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.
+- gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.
+
+## 14. Criterios - La decision no depende de un solo promedio
+
+El segundo grafico separa el rendimiento por tipo de pregunta. Esto evita elegir un modelo que sea bueno solo en preguntas simples y flojo en ambiguas o fuera de dominio.
+
+- Las preguntas factuales miden precision contra datos tecnicos y comerciales.
+- Las preguntas ambiguas miden si el modelo pide contexto o responde con cautela.
+- Los casos fuera de dominio miden si evita inventar informacion.
+- La metrica automatica orienta la seleccion, pero la columna de score manual define la decision final.
+
+## 15. Demo - Demo en vivo dentro de la presentacion
 
 La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.
 
@@ -158,7 +177,7 @@ La presentacion puede cargar el chat real si se abre desde la API local. Esto pe
 - Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.
 - Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.
 
-## 14. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
+## 16. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
 
 El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.
 
