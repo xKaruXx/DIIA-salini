@@ -638,6 +638,13 @@ def render_cards(cards: list[dict[str, str]]) -> str:
     )
 
 
+def versioned_asset_path(relative_path: str) -> str:
+    path = Path("docs") / relative_path
+    if not path.exists():
+        return relative_path
+    return f"{relative_path}?v={int(path.stat().st_mtime)}"
+
+
 def render_section(section: dict) -> str:
     html = [
         f'<section class="section" id="{section["id"]}">',
@@ -656,7 +663,9 @@ def render_section(section: dict) -> str:
     if "cards" in section:
         html.append(f'<div class="grid cards-{min(len(section["cards"]), 4)}">{render_cards(section["cards"])}</div>')
     if "chart" in section:
-        html.append(f'<figure class="chart"><img src="{section["chart"]}" alt="{section["title"]}"></figure>')
+        html.append(
+            f'<figure class="chart"><img src="{versioned_asset_path(section["chart"])}" alt="{section["title"]}"></figure>'
+        )
     if section.get("demo"):
         html.append(
             """

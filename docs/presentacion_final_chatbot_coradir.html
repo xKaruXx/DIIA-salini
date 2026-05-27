@@ -452,7 +452,7 @@
 <p class="lead">La evaluacion inicial fue sintetica y automatica: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales mediante keywords, fuentes y latencia.</p>
 <ul><li>Benchmark MVP: 15/15 casos correctos en variantes strict y sales.</li><li>Benchmark extendido: 35/64 casos correctos.</li><li>El descenso no invalida el proyecto: muestra que el nuevo dataset es mas exigente y sensible.</li><li>La lectura tecnica es que falta medir retrieval directamente.</li></ul>
 </div>
-<figure class="chart"><img src="charts_presentacion/accuracy_overview.png" alt="La primera evaluacion sintetica valida el MVP y muestra limites"></figure>
+<figure class="chart"><img src="charts_presentacion/accuracy_overview.png?v=1779921560" alt="La primera evaluacion sintetica valida el MVP y muestra limites"></figure>
 </section>
 <section class="section" id="metricas">
 <div class="section-copy">
@@ -492,7 +492,7 @@
 <p class="lead">El sistema funciona en el alcance MVP, pero el benchmark extendido muestra donde conviene mejorar antes de afirmar robustez general.</p>
 <ul><li>Los fallos aparecen sobre todo en vehiculos especificos, agencias puntuales e informacion institucional.</li><li>Puede haber fallos por recuperacion, respuesta parcial, keyword demasiado estricta o dato ausente.</li><li>El proximo paso metodologico es guardar fuentes recuperadas por consulta.</li></ul>
 </div>
-<figure class="chart"><img src="charts_presentacion/extended_benchmark.png" alt="Resultados actuales y lectura honesta"></figure>
+<figure class="chart"><img src="charts_presentacion/extended_benchmark.png?v=1779921560" alt="Resultados actuales y lectura honesta"></figure>
 </section>
 <section class="section" id="retrieval">
 <div class="section-copy">
@@ -501,7 +501,7 @@
 <p class="lead">El benchmark ahora guarda documentos recuperados y calcula Precision@5, Recall@5, MRR y Top-1 source accuracy.</p>
 <ul><li>Corrida retrieval-only sobre 64 casos del dataset extendido.</li><li>Recall@5: 89.8%. La fuente esperada aparece en el top 5 en la mayoria de los casos.</li><li>Top-1: 65.6%. Todavia hay margen para ordenar mejor el contexto.</li><li>MRR: 75.9%. Sirve para distinguir fallas de recuperacion de fallas de redaccion.</li></ul>
 </div>
-<figure class="chart"><img src="charts_presentacion/retrieval_metrics.png" alt="Nueva mejora: medir si aparece la fuente correcta"></figure>
+<figure class="chart"><img src="charts_presentacion/retrieval_metrics.png?v=1779921560" alt="Nueva mejora: medir si aparece la fuente correcta"></figure>
 </section>
 <section class="section" id="corpus">
 <div class="section-copy">
@@ -510,7 +510,7 @@
 <p class="lead">Antes de lematizar o cambiar chunking, se midio la calidad del corpus RAG generado.</p>
 <ul><li>111 documentos analizados desde knowledge_base_movilidad.jsonl.</li><li>Promedio de 44.21 tokens por documento.</li><li>MATTR promedio: 0.8538, una densidad lexica alta.</li><li>Decision: no aplicar lematizacion global por ahora; priorizar metadata y retrieval.</li></ul>
 </div>
-<figure class="chart"><img src="charts_presentacion/corpus_eda.png" alt="Nueva mejora: EDA de chunks con TTR y MATTR"></figure>
+<figure class="chart"><img src="charts_presentacion/corpus_eda.png?v=1779921560" alt="Nueva mejora: EDA de chunks con TTR y MATTR"></figure>
 </section>
 <section class="section" id="embeddings">
 <div class="section-copy">
@@ -519,7 +519,7 @@
 <p class="lead">Al medir retrieval vectorial puro, los embeddings nuevos superaron al baseline nomic-embed-text.</p>
 <ul><li>qwen3-embedding:0.6b obtuvo el mejor Recall@5: 81.2%.</li><li>embeddinggemma obtuvo el mejor MRR: 69.5% y Top-1: 60.9%.</li><li>nomic-embed-text fue el mas liviano, pero quedo bajo en retrieval vectorial puro.</li><li>Recomendacion: probar embeddinggemma como nuevo default y validar accuracy final.</li></ul>
 </div>
-<figure class="chart"><img src="charts_modelos/embedding_vector_metrics.png" alt="Nueva evidencia: los embeddings locales si cambian el retrieval"></figure>
+<figure class="chart"><img src="charts_modelos/embedding_vector_metrics.png?v=1779636130" alt="Nueva evidencia: los embeddings locales si cambian el retrieval"></figure>
 </section>
 <section class="section" id="hardware">
 <div class="section-copy">
@@ -528,7 +528,7 @@
 <p class="lead">Como el sistema ya reduce la carga del LLM con retrieval y respuesta extractiva, se preparo una matriz para probar si modelos livianos alcanzan para preguntas frecuentes.</p>
 <ul><li>Todos los modelos locales evaluados obtuvieron 15/15 en el benchmark MVP.</li><li>Con guardrail previo, los candidatos tambien obtuvieron 6/6 en casos por fuera.</li><li>granite4:350m, lfm2.5-thinking:1.2b y qwen3.5:0.8b son candidatos fuertes para rutas factuales.</li><li>El resultado muestra que la capa extractiva reduce la necesidad de un modelo grande.</li><li>Estrategia recomendada: modelo chico para FAQ factual y qwen3.5:latest como fallback complejo.</li></ul>
 </div>
-<figure class="chart"><img src="charts_modelos/chat_quality_vs_size.png" alt="Nueva mejora: evaluar modelos mas chicos"></figure>
+<figure class="chart"><img src="charts_modelos/chat_quality_vs_size.png?v=1779921560" alt="Nueva mejora: evaluar modelos mas chicos"></figure>
 </section>
 <section class="section" id="fuera-dominio">
 <div class="section-copy">
@@ -537,7 +537,7 @@
 <p class="lead">La comparacion mostro que los modelos no debian recibir consultas que el sistema podia rechazar por reglas de alcance.</p>
 <ul><li>Antes del guardrail, la capa extractiva podia traer contexto irrelevante.</li><li>Despues del guardrail, todos los candidatos evaluados lograron 6/6.</li><li>La latencia queda en 0.0 s porque no se llama al LLM.</li><li>Esto permite usar modelos chicos con menor riesgo operativo.</li></ul>
 </div>
-<figure class="chart"><img src="charts_modelos/chat_no_respondibles_accuracy.png" alt="Casos por fuera: la mejora no fue cambiar de modelo, sino evitar alucinacion"></figure>
+<figure class="chart"><img src="charts_modelos/chat_no_respondibles_accuracy.png?v=1779649730" alt="Casos por fuera: la mejora no fue cambiar de modelo, sino evitar alucinacion"></figure>
 </section>
 <section class="section" id="manual-modelos">
 <div class="section-copy">
@@ -554,7 +554,7 @@
 <p class="lead">La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.</p>
 <ul><li>qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.</li><li>qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.</li><li>qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.</li><li>granite4.1:3b quedo en nivel medio: 12/21 aceptables, 3.48 de score promedio y 1.58 s de latencia.</li><li>nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.</li><li>gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.</li></ul>
 </div>
-<figure class="chart"><img src="charts_modelos/manual_model_accuracy.png" alt="Segun la matriz, Qwen 3.5 fue el candidato mas acertado"></figure>
+<figure class="chart"><img src="charts_modelos/manual_model_accuracy.png?v=1779921559" alt="Segun la matriz, Qwen 3.5 fue el candidato mas acertado"></figure>
 </section>
 <section class="section" id="criterios-modelo">
 <div class="section-copy">
@@ -563,7 +563,7 @@
 <p class="lead">El segundo grafico separa el rendimiento por tipo de pregunta. Esto evita elegir un modelo que sea bueno solo en preguntas simples y flojo en ambiguas o fuera de dominio.</p>
 <ul><li>Las preguntas factuales miden precision contra datos tecnicos y comerciales.</li><li>Las preguntas ambiguas miden si el modelo pide contexto o responde con cautela.</li><li>Los casos fuera de dominio miden si evita inventar informacion.</li><li>La metrica automatica orienta la seleccion, pero la columna de score manual define la decision final.</li></ul>
 </div>
-<figure class="chart"><img src="charts_modelos/manual_model_criteria.png" alt="La decision no depende de un solo promedio"></figure>
+<figure class="chart"><img src="charts_modelos/manual_model_criteria.png?v=1779921559" alt="La decision no depende de un solo promedio"></figure>
 </section>
 <section class="section" id="costo-modelo">
 <div class="section-copy">
@@ -572,7 +572,7 @@
 <p class="lead">El modelo recomendado no debe ser solo el de mayor score. Tambien importa cuanto tarda en responder y cuanto ocupa/carga en memoria para una demo local estable.</p>
 <ul><li>El eje vertical muestra respuestas aceptables sobre las 21 preguntas.</li><li>El eje horizontal muestra latencia promedio: mas a la izquierda es mejor.</li><li>El tamano de cada punto representa el peso local aproximado del modelo.</li><li>qwen3.5:latest logra el mayor acierto, pero tambien mayor latencia y peso.</li><li>qwen3.5:4b queda como candidato de equilibrio: alto acierto con menor costo que latest.</li></ul>
 </div>
-<figure class="chart"><img src="charts_modelos/manual_model_tradeoff.png" alt="La mejor decision cruza acierto, latencia y peso local"></figure>
+<figure class="chart"><img src="charts_modelos/manual_model_tradeoff.png?v=1779921559" alt="La mejor decision cruza acierto, latencia y peso local"></figure>
 </section>
 <section class="section" id="demo">
 <div class="section-copy">
