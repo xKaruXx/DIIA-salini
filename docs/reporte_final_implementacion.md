@@ -70,6 +70,8 @@ La fuente principal del dominio es `dataset/dataset_movilidad.json`, que contien
 - preguntas frecuentes
 - datos de contacto
 
+Antes de consolidarse como JSON, la base se armo a partir de fuentes textuales del dominio: preguntas frecuentes publicadas en la web, informacion tecnica recopilada durante el relevamiento y fichas tecnicas de los vehiculos. A partir de esa informacion se estructuro `dataset/dataset_movilidad.json` como fuente unica para el MVP, y luego se genero el JSONL indexable para RAG.
+
 ### Problemas detectados
 
 Durante la implementacion se detectaron dos problemas de calidad relevantes:
@@ -145,7 +147,7 @@ Se construyo una base de validacion en `dataset/evaluacion_mvp.json` con 15 caso
 - agencias
 - condiciones de reserva y entrega
 
-Se implemento un script de evaluacion reproducible:
+Se implemento un script de evaluacion sintetica reproducible:
 
 - `scripts/run_benchmark.py`
 
@@ -156,7 +158,7 @@ Configuracion utilizada para la validacion principal:
 - `EMBEDDING_PROVIDER=ollama`
 - `EMBEDDING_MODEL_NAME=nomic-embed-text:latest`
 
-Metricas consideradas:
+Metricas consideradas en esa primera revision sintetica:
 
 - exactitud por coincidencia de palabras clave esperadas
 - latencia promedio por consulta
@@ -247,15 +249,21 @@ El material nuevo de clase 4 permite sumar tres mejoras metodologicas adicionale
 
 Como avance de esas mejoras, se extendio el benchmark para registrar fuentes recuperadas y calcular metricas RAG. La primera corrida retrieval-only sobre 64 casos obtuvo `Recall@5=89.8%`, `MRR=75.9%` y `Top-1 source accuracy=65.6%`. Tambien se agrego un EDA del corpus: 111 documentos, promedio de 44.21 tokens por documento y `MATTR` promedio de 0.8538, lo que no justifica aplicar lematizacion global sin una revision mas fina.
 
-Ademas, se preparo una linea de evaluacion para optimizar hardware mediante modelos de respuesta mas chicos. Se agrego `scripts/run_model_efficiency_matrix.py` para comparar el baseline `qwen3.5:latest` contra candidatos livianos usando los mismos casos de benchmark. La decision propuesta es aceptar un modelo chico solo si mantiene calidad en preguntas criticas, rechazo correcto y mejora observable de latencia o consumo local.
+Ademas, se preparo una linea de evaluacion sintetica para optimizar hardware mediante modelos de respuesta mas chicos. Se agrego `scripts/run_model_efficiency_matrix.py` para comparar el baseline `qwen3.5:latest` contra candidatos livianos usando los mismos casos de benchmark. La decision propuesta es aceptar un modelo chico solo si mantiene calidad en preguntas criticas, rechazo correcto y mejora observable de latencia o consumo local.
 
-La matriz de modelos locales se ejecuto sobre el benchmark MVP de 15 casos. `qwen3.5:latest`, `qwen3.5:0.8b`, `deepseek-r1:1.5b`, `lfm2.5-thinking:1.2b`, `granite4:350m` y `gemma4:e4b` obtuvieron 15/15. Esto sugiere que las consultas factuales frecuentes pueden resolverse con modelos mucho mas chicos gracias al pipeline extractivo.
+La primera matriz sintetica de modelos locales se ejecuto sobre el benchmark MVP de 15 casos. `qwen3.5:latest`, `qwen3.5:0.8b`, `deepseek-r1:1.5b`, `lfm2.5-thinking:1.2b`, `granite4:350m` y `gemma4:e4b` obtuvieron 15/15. Esto sugiere que las consultas factuales frecuentes pueden resolverse con modelos mucho mas chicos gracias al pipeline extractivo, pero no debe interpretarse como una revision humana de calidad conversacional.
 
 Tambien se ejecuto una matriz de embeddings en modo vector-only. `embeddinggemma:latest` obtuvo el mejor `MRR` y `Top-1 source accuracy`, mientras que `qwen3-embedding:0.6b` obtuvo el mejor `Recall@5`. Esta evidencia abre una mejora concreta: probar `embeddinggemma:latest` como embedding por defecto y medir si la mejora de retrieval se traduce en mejor accuracy final.
 
 La evaluacion con casos por fuera del corpus detecto una mejora necesaria: antes de elegir un modelo chico, el sistema debia rechazar de forma deterministica consultas fuera de dominio o datos no presentes. Se agrego un guardrail previo a la capa extractiva y, tras esa mejora, los modelos candidatos obtuvieron 6/6 en el dataset no respondible. Esto refuerza la estrategia de hardware: usar reglas y retrieval para reducir trabajo del LLM, y reservar el modelo grande solo como fallback.
 
 Tambien se ejecuto el benchmark extendido con `qwen3.5:0.8b`, obteniendo 35/64 casos correctos, el mismo resultado que el baseline con `qwen3.5:latest`. Por eso se deja `qwen3.5:0.8b` como default liviano del proyecto.
+
+Como nueva mejora metodologica, se agrega una revision manual de modelos locales separada de la evaluacion sintetica anterior. La comparacion visual en la presentacion permite ver respuestas en vivo, pero no alcanza para elegir un modelo porque algunas respuestas resultaron insatisfactorias, vacias o demasiado lentas. Para resolverlo se incorporo `dataset/evaluacion_manual_modelos.json` con una muestra homogenea de 21 preguntas: 7 factuales claras, 7 ambiguas y 7 fuera de dominio/no respondibles. `scripts/run_manual_model_evaluation.py` genera una matriz CSV/Markdown/JSON con respuestas, latencias y un score preliminar automatico `assistant_score_1_5`, pero deja la correccion, el score 1-5 y las notas finales para la revision manual del autor. Esta revision permite comparar modelos chicos como `gemma3:270m`, `granite4:350m`, `lfm2.5-thinking:1.2b`, `llama3.2:3b` y `nemotron-3-nano:4b` contra variantes Qwen y otros modelos locales.
+
+Tambien se agrego manejo especifico para modelos thinking. Algunas variantes Qwen o modelos con razonamiento pueden devolver bloques `<think>...</think>` o cadenas de razonamiento antes de la respuesta final. Esa traza no debe evaluarse como respuesta ni mostrarse al usuario. Por eso la evaluacion manual usa `think: false` en Ollama, remueve bloques de razonamiento si aparecen, marca la columna `thinking_removed` y registra `thinking_only` cuando no hay respuesta final util.
+
+La corrida completa quedo resumida en `docs/evaluacion_manual_modelos_resumen.md`. En esa corrida, el ajuste efectivo para Qwen fue usar `think: false` en Ollama, ya que `/no_think` no evitaba que el contenido quedara vacio. La matriz se ejecuto de menor a mayor modelo, descargando cada modelo al finalizar su bloque.
 
 ## 9. Guia de Ejecucion y Demo
 

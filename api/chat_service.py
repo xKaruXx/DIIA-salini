@@ -3,11 +3,13 @@ import json
 import logging
 import os
 import re
+import time
 import unicodedata
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict
 
+import aiohttp
 from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate, MessagesPlaceholder, SystemMessagePromptTemplate
@@ -127,6 +129,7 @@ class ChatService:
         RESTRICCIONES TÉCNICAS:
         - MUY IMPORTANTE: NO USES FORMATO MARKDOWN en tus respuestas.
         - La respuesta final debe salir en texto plano, sin títulos con asteriscos, sin listas numeradas markdown y sin viñetas con "*".
+        - NO muestres cadena de razonamiento interno, pasos ocultos ni bloques <think>. Responde solo con la respuesta final.
         - EXTREMADAMENTE IMPORTANTE: Cuando menciones URLs, NUNCA uses formato markdown. Presenta las URLs directamente sin ningún tipo de formato. 
           Por ejemplo, escribe "https://movilidad.coradir.com.ar/" en lugar de "[https://movilidad.coradir.com.ar/](https://movilidad.coradir.com.ar/)".
         - CRÍTICO: NUNCA uses HTML ni markdown. NO escribas <a href=...> ni [texto](url). Escribe las URLs directamente como texto plano. 
@@ -820,12 +823,28 @@ class ChatService:
         return any(cue in normalized for cue in name_cues)
 
     def _sanitize_response_text(self, text):
+        text = str(text or "")
+        text = self._remove_thinking_trace(text)
         text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"\2", text)
         text = re.sub(r"^\s*[*-]\s+", "", text, flags=re.MULTILINE)
         text = re.sub(r"^\s*\d+\.\s+", "", text, flags=re.MULTILINE)
         text = text.replace("**", "").replace("__", "")
         text = re.sub(r"\n{3,}", "\n\n", text)
         return text.strip()
+
+    def _remove_thinking_trace(self, text):
+        text = re.sub(r"(?is)<think\b[^>]*>.*?</think>", "", text)
+        text = re.sub(r"(?is)^.*?</think>\s*", "", text)
+        text = re.sub(r"(?is)<think\b[^>]*>.*$", "", text)
+        text = re.sub(r"(?im)^\s*(thinking|reasoning|razonamiento)\s*:\s*", "", text)
+        return text
+
+    def _contains_thinking_trace(self, text):
+        return bool(re.search(r"(?is)<think\b|</think>|^\s*(thinking|reasoning|razonamiento)\s*:", str(text or "")))
+
+    def _is_thinking_model_name(self, model_name):
+        lowered = str(model_name or "").lower()
+        return "qwen" in lowered or "thinking" in lowered
 
     def can_send_whatsapp_by_ip(self, user_ip):
         """
@@ -1360,6 +1379,95 @@ class ChatService:
             user_id=user_id,
             contact_data={"phone": phone, "name": name}
         )
+
+    async def compare_ollama_models_for_demo(self, question: str, model_names: list[str]) -> list[dict[str, Any]]:
+        """Compara respuestas de varios modelos Ollama sin modificar el chat productivo."""
+        unique_models = []
+        for model_name in model_names:
+            clean_name = str(model_name).strip()
+            if not clean_name or clean_name in unique_models:
+                continue
+            if not re.match(r"^[a-zA-Z0-9_.:-]+$", clean_name):
+                unique_models.append(clean_name)
+                continue
+            unique_models.append(clean_name)
+            if len(unique_models) >= 4:
+                break
+
+        try:
+            contexto_relevante = self._obtener_contexto_relevante(question)
+        except Exception as exc:
+            logger.warning("No se pudo obtener contexto vectorial para demo: %s", exc)
+            keyword_hits = self._keyword_search(question, limit=3)
+            contexto_relevante = "\n\n".join(
+                f"{title}\n{text}" if title else text
+                for _, title, text in keyword_hits
+            )
+        system_prompt = self.system_template.format(context=contexto_relevante)
+        base_url = (self.ollama_base_url or "http://127.0.0.1:11434").rstrip("/")
+        results = []
+        async with aiohttp.ClientSession() as session:
+            for model_name in unique_models:
+                start_time = time.perf_counter()
+                try:
+                    if not re.match(r"^[a-zA-Z0-9_.:-]+$", model_name):
+                        raise ValueError("Nombre de modelo invalido")
+
+                    payload = {
+                        "model": model_name,
+                        "stream": False,
+                        "keep_alive": "0s",
+                        "messages": [
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": question},
+                        ],
+                        "options": {
+                            "temperature": self.model_temperature,
+                            "num_predict": 280,
+                        },
+                    }
+                    payload["think"] = False
+
+                    async with session.post(
+                        f"{base_url}/api/chat",
+                        json=payload,
+                        timeout=aiohttp.ClientTimeout(total=120),
+                    ) as response:
+                        if response.status != 200:
+                            detail = await response.text()
+                            raise RuntimeError(f"Ollama HTTP {response.status}: {detail[:240]}")
+                        data = await response.json()
+
+                    message = data.get("message") or {}
+                    raw_response_text = str(message.get("content") or "")
+                    raw_thinking = str(message.get("thinking") or "")
+                    thinking_removed = bool(raw_thinking) or self._contains_thinking_trace(raw_response_text)
+                    response_text = self._sanitize_response_text(raw_response_text)
+                    if not response_text:
+                        if thinking_removed:
+                            raise RuntimeError("El modelo devolvio solo razonamiento thinking y no una respuesta final.")
+                        raise RuntimeError("Respuesta vacia del modelo.")
+                    results.append(
+                        {
+                            "model": model_name,
+                            "ok": True,
+                            "latency_seconds": round(time.perf_counter() - start_time, 2),
+                            "response": response_text,
+                            "thinking_removed": thinking_removed,
+                        }
+                    )
+                except Exception as exc:
+                    logger.warning("Error comparando modelo %s: %s", model_name, exc)
+                    results.append(
+                        {
+                            "model": model_name,
+                            "ok": False,
+                            "latency_seconds": round(time.perf_counter() - start_time, 2),
+                            "error": str(exc),
+                        }
+                    )
+
+        return results
 
     async def process_message(self, question, user_id="default", user_ip=None):
         """Procesa un mensaje del usuario y devuelve la respuesta"""

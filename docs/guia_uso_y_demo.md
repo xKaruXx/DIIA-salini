@@ -25,6 +25,21 @@ ollama pull qwen3.5:0.8b
 ollama pull nomic-embed-text
 ```
 
+Para comparar modelos en vivo desde la presentacion, descarga tambien los candidatos que quieras mostrar:
+
+```powershell
+ollama pull granite4:350m
+ollama pull lfm2.5-thinking:1.2b
+ollama pull deepseek-r1:1.5b
+ollama pull qwen3.5:4b
+```
+
+Ollama debe quedar corriendo antes de abrir la demo. En Windows normalmente se inicia con la aplicacion de Ollama; si hace falta levantarlo manualmente:
+
+```powershell
+ollama serve
+```
+
 Genera la base de conocimiento preprocesada:
 
 ```powershell
@@ -32,6 +47,22 @@ python scripts\prepare_dataset.py
 ```
 
 ## 3. Levantar el backend
+
+Para la presentacion final, la forma mas simple es usar el lanzador local:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1
+```
+
+Ese comando verifica Ollama, descarga los modelos principales si faltan, levanta FastAPI en el puerto `8851` y abre la presentacion en el navegador.
+
+Si tambien queres descargar los modelos livianos para la comparacion en vivo:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1 -PullComparisonModels
+```
+
+Modo manual:
 
 Inicia el servidor FastAPI:
 
@@ -100,6 +131,24 @@ Resultados disponibles en:
 - `docs/benchmark_real_strict_qwen35_latest.json`
 - `docs/benchmark_real_sales_qwen35_latest.json`
 
+## 6.1 Revision manual de modelos
+
+Para comparar calidad real de respuestas entre modelos locales, se agrego una matriz para revision manual del autor con 21 preguntas balanceadas: 7 factuales claras, 7 ambiguas y 7 fuera de dominio/no respondibles. Esta etapa es distinta de la primera evaluacion sintetica/automatica por keywords y latencia:
+
+```powershell
+py scripts\run_manual_model_evaluation.py --models gemma3:270m granite4:350m qwen3.5:0.8b lfm2.5-thinking:1.2b llama3.2:3b nemotron-3-nano:4b qwen3.5:4b --timeout 120
+```
+
+Salidas:
+
+- `docs/evaluacion_manual_modelos_respuestas.json`
+- `docs/evaluacion_manual_modelos_matriz.csv`
+- `docs/evaluacion_manual_modelos_matriz.md`
+
+El script completa respuestas, estado, latencia y un score preliminar `assistant_score_1_5`. El CSV se completa manualmente con `manual_correct`, `manual_score_1_5` y `manual_notes`.
+
+Para modelos Qwen o modelos `thinking`, el script usa `think: false`, remueve bloques `<think>...</think>` si aparecen y marca `thinking_removed`. Si no queda una respuesta final evaluable, el estado queda como `thinking_only`.
+
 ## 7. Presentacion con chat embebido
 
 La presentacion final incluye una seccion de demo que puede cargar el chat real dentro del HTML.
@@ -114,6 +163,17 @@ Luego ir a la seccion "Demo en vivo" y presionar `Cargar chat`.
 
 Importante: si se abre el HTML directamente desde el explorador de archivos, el chat embebido no puede pedir token local. Para la demo interactiva conviene abrirlo desde `http://localhost:8851/docs/presentacion_final_chatbot_coradir.html`.
 
+El boton `Cargar chat` no puede levantar el backend por si mismo si la presentacion se abrio como archivo local. El navegador no tiene permiso para ejecutar procesos del sistema. Por eso el flujo recomendado es ejecutar primero `scripts\start_presentation_demo.ps1`, que deja todo listo y abre la URL correcta.
+
+La misma seccion incluye una comparacion local de modelos:
+
+1. presionar `Cargar modelos`
+2. seleccionar hasta 4 modelos disponibles en Ollama
+3. escribir una pregunta
+4. presionar `Comparar respuestas`
+
+Esto ejecuta la misma pregunta contra los modelos seleccionados usando el mismo contexto RAG. No cambia el modelo configurado para el chat principal.
+
 ## 8. Problemas comunes
 
 ### El chat no abre
@@ -123,6 +183,7 @@ Verifica primero:
 - que `python run.py --host 127.0.0.1 --port 8851` siga corriendo
 - que `http://localhost:8851/health` responda
 - que Ollama este levantado
+- que la presentacion se haya abierto desde `http://localhost:8851/docs/presentacion_final_chatbot_coradir.html`, no como archivo local
 
 ### Error de modelo en Ollama
 

@@ -15,8 +15,10 @@ from fastapi import Depends, HTTPException, status, Cookie
 from fastapi.security import APIKeyHeader
 from typing import Optional
 import base64
+import aiohttp
 from openai import OpenAI
 from pathlib import Path
+from pydantic import BaseModel, Field
 import uuid
 from .webhook_service import WebhookService
 
@@ -90,6 +92,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3015", # Local
         "http://localhost:3000",
+        "http://127.0.0.1:8851",
+        "http://127.0.0.1",
         "http://10.0.0.187:3015", # Local en mi red
         "https://energia.coradir.com.ar", # dirección de la página web de Coradir energia
         "https://botener.coradir.ai",
@@ -118,6 +122,11 @@ if os.path.exists(docs_dir):
 
 # Crear una instancia del servicio de chat
 chat_service = ChatService()
+
+
+class DemoCompareRequest(BaseModel):
+    question: str = Field(..., min_length=1, max_length=600)
+    models: list[str] = Field(..., min_length=1, max_length=4)
 
 class ConnectionManager:
     def __init__(self):
@@ -176,6 +185,8 @@ async def generate_token(request: Request):
     allowed_origins = [
         "http://localhost:3015", # Local
         "http://localhost:3000",
+        "http://127.0.0.1:8851",
+        "http://127.0.0.1",
         "http://10.0.0.187:3015", # Local en mi red
         "https://energia.coradir.com.ar", # dirección de la página web de Coradir energia
         "https://botener.coradir.ai",
@@ -190,7 +201,7 @@ async def generate_token(request: Request):
     is_allowed = any(referer.startswith(origin) for origin in allowed_origins)
     
     # También permitir solicitudes desde dominios específicos (verificación más flexible)
-    allowed_domains = ["energia.coradir.com.ar", "localhost", "10.0.0.187", "botener.coradir.ai","botmov.coradir.ai","movilidad.coradir.com.ar","testbotmov.coradir.ai","test.coradir.ai"]
+    allowed_domains = ["energia.coradir.com.ar", "localhost", "127.0.0.1", "10.0.0.187", "botener.coradir.ai","botmov.coradir.ai","movilidad.coradir.com.ar","testbotmov.coradir.ai","test.coradir.ai"]
     is_allowed_domain = any(domain in referer for domain in allowed_domains)
     
     if not (is_allowed or is_allowed_domain):
@@ -694,3 +705,68 @@ async def test_whatsapp_webhook():
 @app.get("/health")
 async def health_check():
     return {"status": "ok", "message": "API funcionando correctamente"}
+
+
+@app.get("/demo/ollama-models")
+async def list_ollama_models():
+    """
+    Lista modelos locales de Ollama para la demo de evaluacion en vivo.
+    No inicia Ollama: requiere que el servicio ya este corriendo.
+    """
+    if chat_service.model_provider != "ollama":
+        return {
+            "status": "disabled",
+            "message": "El proveedor activo no es Ollama.",
+            "models": [],
+            "active_model": chat_service.model_name,
+        }
+
+    base_url = (chat_service.ollama_base_url or "http://127.0.0.1:11434").rstrip("/")
+    try:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=5)) as session:
+            async with session.get(f"{base_url}/api/tags") as response:
+                if response.status != 200:
+                    raise RuntimeError(f"Ollama respondio HTTP {response.status}")
+                payload = await response.json()
+    except Exception as exc:
+        logger.warning("No se pudieron listar modelos de Ollama: %s", exc)
+        return {
+            "status": "unavailable",
+            "message": "No se pudo conectar con Ollama. Verificar que 'ollama serve' este activo.",
+            "models": [chat_service.model_name],
+            "active_model": chat_service.model_name,
+        }
+
+    model_names = []
+    for item in payload.get("models", []):
+        name = item.get("name", "")
+        lowered = name.lower()
+        if not name or "embed" in lowered or "embedding" in lowered or "nomic" in lowered:
+            continue
+        model_names.append(name)
+
+    if chat_service.model_name not in model_names:
+        model_names.insert(0, chat_service.model_name)
+
+    return {
+        "status": "ok",
+        "message": "Modelos de Ollama disponibles.",
+        "models": sorted(set(model_names)),
+        "active_model": chat_service.model_name,
+    }
+
+
+@app.post("/demo/compare-models")
+async def compare_ollama_models(request: DemoCompareRequest):
+    """
+    Ejecuta la misma pregunta contra varios modelos locales usando el mismo contexto RAG.
+    Pensado solo para la presentacion final.
+    """
+    if chat_service.model_provider != "ollama":
+        raise HTTPException(status_code=400, detail="La comparacion en vivo requiere LLM_PROVIDER=ollama")
+
+    results = await chat_service.compare_ollama_models_for_demo(
+        question=request.question,
+        model_names=request.models,
+    )
+    return {"question": request.question, "results": results}

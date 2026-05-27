@@ -42,7 +42,7 @@ El sistema no indexa el JSON completo como un bloque: lo transforma en unidades 
 
 ### Fuente
 
-dataset/dataset_movilidad.json con informacion institucional, vehiculos, precios, agencias, carga, FAQs y condiciones comerciales.
+dataset/dataset_movilidad.json consolidado desde FAQs web, fichas tecnicas, informacion tecnica relevada, precios, agencias, carga y condiciones comerciales.
 
 ### Transformacion
 
@@ -52,9 +52,9 @@ scripts/prepare_dataset.py normaliza claves, corrige codificacion y genera datas
 
 Menos ruido en el contexto, respuestas mas concretas y mejor trazabilidad de la evidencia usada.
 
-## 4. Evaluacion - El benchmark inicial valida el MVP, el extendido muestra los limites
+## 4. Evaluacion - La primera evaluacion sintetica valida el MVP y muestra limites
 
-La evaluacion se separo en dos niveles: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales.
+La evaluacion inicial fue sintetica y automatica: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales mediante keywords, fuentes y latencia.
 
 - Benchmark MVP: 15/15 casos correctos en variantes strict y sales.
 - Benchmark extendido: 35/64 casos correctos.
@@ -135,17 +135,30 @@ La comparacion mostro que los modelos no debian recibir consultas que el sistema
 - La latencia queda en 0.0 s porque no se llama al LLM.
 - Esto permite usar modelos chicos con menor riesgo operativo.
 
-## 12. Demo - Demo en vivo dentro de la presentacion
+## 12. Revision manual - Nueva mejora: matriz para revision manual del autor
+
+Las respuestas en vivo mostraron que no alcanza con la evaluacion sintetica por keywords y latencia: algunas respuestas fueron vacias, lentas o poco utiles. Se agrega una matriz humana balanceada: 7 factuales, 7 ambiguas y 7 fuera de dominio.
+
+- Nuevo dataset: dataset/evaluacion_manual_modelos.json con 21 casos balanceados.
+- Nuevo script: scripts/run_manual_model_evaluation.py.
+- El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.
+- La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.
+- Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.
+- Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b y nemotron-3-nano:4b.
+- El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.
+
+## 13. Demo - Demo en vivo dentro de la presentacion
 
 La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.
 
 - Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?
 - Preguntar: Cual es el precio del TITO S5-300 AA?
 - Preguntar: Donde hago un reclamo o pido servicio tecnico?
-- Si el chat no carga, verificar que la API este levantada en http://localhost:8851.
+- Para preparar la demo completa en Windows, ejecutar scripts/start_presentation_demo.ps1.
+- Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.
 - Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.
 
-## 13. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
+## 14. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
 
 El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.
 

@@ -184,11 +184,126 @@
       background: #1e293b;
       color: var(--ink);
     }
+    .demo-toolbar button:disabled, #compareModelsDemo:disabled {
+      cursor: wait;
+      opacity: 0.62;
+    }
+    #modelQuestion:disabled, .model-choices input:disabled {
+      cursor: wait;
+      opacity: 0.7;
+    }
+    .model-demo {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .model-demo-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .model-demo-header h3 {
+      font-size: 18px;
+    }
+    .model-demo-header span, .question-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .model-choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .model-choices label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      max-width: 100%;
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #111827;
+      color: var(--ink);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+    .question-label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+    #modelQuestion {
+      width: 100%;
+      min-height: 78px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #020617;
+      color: var(--ink);
+      padding: 10px;
+      font: inherit;
+      font-size: 14px;
+    }
+    #compareModelsDemo {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--blue);
+      color: #082f49;
+      font-weight: 800;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+    .model-results {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .model-result {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #0b1220;
+      padding: 12px;
+    }
+    .model-result strong {
+      color: #5eead4;
+    }
+    .model-result small {
+      color: var(--muted);
+      margin-left: 8px;
+    }
+    .model-result p {
+      margin: 8px 0 0;
+      color: var(--ink);
+      white-space: pre-wrap;
+    }
     .demo-status {
       min-height: 38px;
       margin-bottom: 10px;
       color: var(--muted);
       font-size: 14px;
+    }
+    .demo-progress {
+      height: 8px;
+      margin: 0 0 10px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #020617;
+    }
+    .demo-progress[hidden] {
+      display: none;
+    }
+    .demo-progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--blue));
+      transition: width 0.35s ease;
     }
     #chatDemoFrame {
       display: block;
@@ -241,8 +356,9 @@
 <a href="#embeddings">9. Comparacion</a>
 <a href="#hardware">10. Hardware</a>
 <a href="#fuera-dominio">11. Guardrail</a>
-<a href="#demo">12. Demo</a>
-<a href="#cierre">13. Cierre</a></nav>
+<a href="#manual-modelos">12. Revision manual</a>
+<a href="#demo">13. Demo</a>
+<a href="#cierre">14. Cierre</a></nav>
   </header>
   <main>
     <section class="hero" id="portada">
@@ -310,7 +426,7 @@
 <div class="grid cards-3">
         <article class="card">
           <h3>Fuente</h3>
-          <p>dataset/dataset_movilidad.json con informacion institucional, vehiculos, precios, agencias, carga, FAQs y condiciones comerciales.</p>
+          <p>dataset/dataset_movilidad.json consolidado desde FAQs web, fichas tecnicas, informacion tecnica relevada, precios, agencias, carga y condiciones comerciales.</p>
         </article>
         
 
@@ -329,11 +445,11 @@
 <section class="section" id="evaluacion">
 <div class="section-copy">
 <span class="eyebrow">4. Evaluacion</span>
-<h2>El benchmark inicial valida el MVP, el extendido muestra los limites</h2>
-<p class="lead">La evaluacion se separo en dos niveles: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales.</p>
+<h2>La primera evaluacion sintetica valida el MVP y muestra limites</h2>
+<p class="lead">La evaluacion inicial fue sintetica y automatica: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales mediante keywords, fuentes y latencia.</p>
 <ul><li>Benchmark MVP: 15/15 casos correctos en variantes strict y sales.</li><li>Benchmark extendido: 35/64 casos correctos.</li><li>El descenso no invalida el proyecto: muestra que el nuevo dataset es mas exigente y sensible.</li><li>La lectura tecnica es que falta medir retrieval directamente.</li></ul>
 </div>
-<figure class="chart"><img src="charts_presentacion/accuracy_overview.png" alt="El benchmark inicial valida el MVP, el extendido muestra los limites"></figure>
+<figure class="chart"><img src="charts_presentacion/accuracy_overview.png" alt="La primera evaluacion sintetica valida el MVP y muestra limites"></figure>
 </section>
 <section class="section" id="metricas">
 <div class="section-copy">
@@ -420,27 +536,49 @@
 </div>
 <figure class="chart"><img src="charts_modelos/chat_no_respondibles_accuracy.png" alt="Casos por fuera: la mejora no fue cambiar de modelo, sino evitar alucinacion"></figure>
 </section>
+<section class="section" id="manual-modelos">
+<div class="section-copy">
+<span class="eyebrow">12. Revision manual</span>
+<h2>Nueva mejora: matriz para revision manual del autor</h2>
+<p class="lead">Las respuestas en vivo mostraron que no alcanza con la evaluacion sintetica por keywords y latencia: algunas respuestas fueron vacias, lentas o poco utiles. Se agrega una matriz humana balanceada: 7 factuales, 7 ambiguas y 7 fuera de dominio.</p>
+<ul><li>Nuevo dataset: dataset/evaluacion_manual_modelos.json con 21 casos balanceados.</li><li>Nuevo script: scripts/run_manual_model_evaluation.py.</li><li>El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.</li><li>La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.</li><li>Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.</li><li>Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b y nemotron-3-nano:4b.</li><li>El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.</li></ul>
+</div>
+</section>
 <section class="section" id="demo">
 <div class="section-copy">
-<span class="eyebrow">12. Demo</span>
+<span class="eyebrow">13. Demo</span>
 <h2>Demo en vivo dentro de la presentacion</h2>
 <p class="lead">La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.</p>
-<ol><li>Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?</li><li>Preguntar: Cual es el precio del TITO S5-300 AA?</li><li>Preguntar: Donde hago un reclamo o pido servicio tecnico?</li><li>Si el chat no carga, verificar que la API este levantada en http://localhost:8851.</li><li>Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.</li></ol>
+<ol><li>Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?</li><li>Preguntar: Cual es el precio del TITO S5-300 AA?</li><li>Preguntar: Donde hago un reclamo o pido servicio tecnico?</li><li>Para preparar la demo completa en Windows, ejecutar scripts/start_presentation_demo.ps1.</li><li>Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.</li><li>Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.</li></ol>
 </div>
 
             <div class="demo-panel">
               <div class="demo-toolbar">
                 <button type="button" id="loadChatDemo">Cargar chat</button>
+                <button type="button" id="loadModelDemo">Cargar modelos</button>
                 <a href="/chat_assets/chat.html" target="_blank" rel="noopener">Abrir fallback</a>
               </div>
-              <div id="chatDemoStatus" class="demo-status">Abrir esta presentacion desde http://localhost:8851/docs/presentacion_final_chatbot_coradir.html y presionar "Cargar chat".</div>
+              <div id="chatDemoStatus" class="demo-status">Para preparar todo: ejecutar scripts/start_presentation_demo.ps1. Luego presionar "Cargar chat".</div>
+              <div id="chatProgress" class="demo-progress" hidden><span></span></div>
               <iframe id="chatDemoFrame" title="Chatbot CORADIR embebido"></iframe>
+              <div class="model-demo">
+                <div class="model-demo-header">
+                  <h3>Comparacion local de modelos</h3>
+                  <span id="modelDemoStatus">Requiere Ollama activo y modelos descargados.</span>
+                </div>
+                <div id="modelProgress" class="demo-progress" hidden><span></span></div>
+                <div id="modelChoices" class="model-choices"></div>
+                <label class="question-label" for="modelQuestion">Pregunta de evaluacion</label>
+                <textarea id="modelQuestion" rows="3">Cual es el precio del TITO S5-300 AA y como se carga?</textarea>
+                <button type="button" id="compareModelsDemo">Comparar respuestas</button>
+                <div id="modelResults" class="model-results"></div>
+              </div>
             </div>
             
 </section>
 <section class="section" id="cierre">
 <div class="section-copy">
-<span class="eyebrow">13. Cierre</span>
+<span class="eyebrow">14. Cierre</span>
 <h2>El MVP no solo responde: tambien deja evidencia para auditarlo</h2>
 <p class="lead">El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.</p>
 </div>
@@ -468,11 +606,87 @@
     Fuentes internas: <code>docs/reporte_final_implementacion.md</code>, <code>docs/evaluacion_retrieval.md</code>, <code>docs/eda_corpus_rag.md</code>, <code>docs/evaluacion_no_respondibles.md</code> y <code>docs/optimizacion_hardware_modelos.md</code>.
   </footer>
   <script>
+    const progressTimers = {};
+
+    function startProgress(progressId, statusElement, label) {
+      const progress = document.getElementById(progressId);
+      const bar = progress ? progress.querySelector('span') : null;
+      if (!progress || !bar) return () => {};
+
+      if (progressTimers[progressId]) {
+        clearInterval(progressTimers[progressId]);
+      }
+
+      let value = 4;
+      progress.hidden = false;
+      bar.style.width = value + '%';
+      if (statusElement) statusElement.textContent = label + ' ' + value + '%';
+
+      progressTimers[progressId] = setInterval(() => {
+        const increment = Math.max(1, Math.round((94 - value) * 0.12));
+        value = Math.min(92, value + increment);
+        bar.style.width = value + '%';
+        if (statusElement) statusElement.textContent = label + ' ' + value + '%';
+      }, 700);
+
+      return (finalText) => {
+        clearInterval(progressTimers[progressId]);
+        delete progressTimers[progressId];
+        bar.style.width = '100%';
+        if (statusElement) statusElement.textContent = finalText || label + ' 100%';
+        setTimeout(() => {
+          progress.hidden = true;
+          bar.style.width = '0%';
+        }, 900);
+      };
+    }
+
+    function setProgress(progressId, value) {
+      const progress = document.getElementById(progressId);
+      const bar = progress ? progress.querySelector('span') : null;
+      if (!progress || !bar) return;
+      progress.hidden = false;
+      bar.style.width = Math.max(0, Math.min(100, value)) + '%';
+    }
+
+    function hideProgress(progressId) {
+      const progress = document.getElementById(progressId);
+      const bar = progress ? progress.querySelector('span') : null;
+      if (!progress || !bar) return;
+      setTimeout(() => {
+        progress.hidden = true;
+        bar.style.width = '0%';
+      }, 900);
+    }
+
+    function setDemoControlsDisabled(disabled) {
+      ['loadChatDemo', 'loadModelDemo', 'compareModelsDemo'].forEach((id) => {
+        const button = document.getElementById(id);
+        if (button) button.disabled = disabled;
+      });
+      document.querySelectorAll('#modelChoices input').forEach((input) => {
+        input.disabled = disabled;
+      });
+      const question = document.getElementById('modelQuestion');
+      if (question) question.disabled = disabled;
+    }
+
+    async function fetchWithTimeout(url, options = {}, timeoutMs = 120000) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        return await fetch(url, { ...options, signal: controller.signal });
+      } finally {
+        clearTimeout(timeout);
+      }
+    }
+
     async function loadChatDemo() {
       const status = document.getElementById('chatDemoStatus');
       const frame = document.getElementById('chatDemoFrame');
       if (!status || !frame) return;
-      status.textContent = 'Solicitando token local...';
+      setDemoControlsDisabled(true);
+      const finishProgress = startProgress('chatProgress', status, 'Solicitando token local...');
       try {
         const response = await fetch('/generate-token', { credentials: 'include' });
         if (!response.ok) {
@@ -480,15 +694,139 @@
         }
         const data = await response.json();
         frame.src = '/chat?token=' + encodeURIComponent(data.token);
-        status.textContent = 'Chat cargado. Probar una pregunta del recorrido sugerido.';
+        finishProgress('Chat cargado. Probar una pregunta del recorrido sugerido.');
       } catch (error) {
-        status.textContent = 'No se pudo cargar el chat embebido. Abrir la presentacion desde http://localhost:8851/docs/presentacion_final_chatbot_coradir.html con la API levantada. Detalle: ' + error.message;
+        finishProgress('No se pudo cargar el chat embebido. Abrir la presentacion desde http://localhost:8851/docs/presentacion_final_chatbot_coradir.html con la API levantada. Detalle: ' + error.message);
+      } finally {
+        setDemoControlsDisabled(false);
       }
     }
     document.addEventListener('DOMContentLoaded', () => {
       const button = document.getElementById('loadChatDemo');
       if (button) button.addEventListener('click', loadChatDemo);
+      const modelButton = document.getElementById('loadModelDemo');
+      if (modelButton) modelButton.addEventListener('click', loadModelChoices);
+      const compareButton = document.getElementById('compareModelsDemo');
+      if (compareButton) compareButton.addEventListener('click', compareModels);
     });
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      }[char]));
+    }
+
+    async function loadModelChoices() {
+      const status = document.getElementById('modelDemoStatus');
+      const container = document.getElementById('modelChoices');
+      if (!status || !container) return;
+      status.textContent = 'Consultando Ollama...';
+      container.innerHTML = '';
+      try {
+        const response = await fetch('/demo/ollama-models');
+        const data = await response.json();
+        status.textContent = data.message || 'Modelos cargados.';
+        const models = data.models || [];
+        if (!models.length) {
+          container.textContent = 'No hay modelos de chat disponibles.';
+          return;
+        }
+        container.innerHTML = models.map((model, index) => `
+          <label>
+            <input type="checkbox" value="${escapeHtml(model)}" ${index < 3 ? 'checked' : ''}>
+            <span>${escapeHtml(model)}</span>
+          </label>
+        `).join('');
+      } catch (error) {
+        status.textContent = 'No se pudieron cargar modelos. Abrir desde la API local y verificar Ollama. Detalle: ' + error.message;
+      }
+    }
+
+    async function compareModels() {
+      const status = document.getElementById('modelDemoStatus');
+      const results = document.getElementById('modelResults');
+      const question = document.getElementById('modelQuestion')?.value.trim();
+      const checked = Array.from(document.querySelectorAll('#modelChoices input:checked')).map((item) => item.value);
+      if (!status || !results) return;
+      if (!question) {
+        status.textContent = 'Escribir una pregunta para comparar.';
+        return;
+      }
+      if (!checked.length) {
+        status.textContent = 'Seleccionar al menos un modelo.';
+        return;
+      }
+      const models = checked.slice(0, 4);
+      setDemoControlsDisabled(true);
+      status.textContent = `Comparando respuestas: 0/${models.length} modelos completados.`;
+      results.innerHTML = '';
+      setProgress('modelProgress', 0);
+      try {
+        for (let index = 0; index < models.length; index += 1) {
+          const model = models[index];
+          const startedAt = Date.now();
+          const placeholder = document.createElement('article');
+          placeholder.className = 'model-result';
+          placeholder.innerHTML = `
+            <div><strong>${escapeHtml(model)}</strong><small>procesando...</small></div>
+            <p>Esperando respuesta del modelo local.</p>
+          `;
+          results.appendChild(placeholder);
+
+          const timer = setInterval(() => {
+            const seconds = Math.round((Date.now() - startedAt) / 1000);
+            const currentPercent = Math.round((index / models.length) * 100);
+            setProgress('modelProgress', currentPercent);
+            status.textContent = `Procesando modelo ${index + 1}/${models.length}: ${model}. ${seconds} s transcurridos.`;
+            const small = placeholder.querySelector('small');
+            if (small) small.textContent = `${seconds} s transcurridos`;
+          }, 1000);
+
+          try {
+            const response = await fetchWithTimeout('/demo/compare-models', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ question, models: [model] })
+            }, 120000);
+            if (!response.ok) {
+              throw new Error('HTTP ' + response.status);
+            }
+            const data = await response.json();
+            const item = (data.results || [])[0] || {
+              model,
+              ok: false,
+              latency_seconds: Math.round((Date.now() - startedAt) / 1000),
+              error: 'Sin respuesta del backend.'
+            };
+            placeholder.innerHTML = `
+              <div><strong>${escapeHtml(item.model)}</strong><small>${item.latency_seconds ?? '-'} s</small></div>
+              <p>${escapeHtml(item.ok ? item.response : item.error)}</p>
+            `;
+          } catch (error) {
+            const message = error.name === 'AbortError' ? 'Timeout de 120s sin respuesta.' : error.message;
+            placeholder.innerHTML = `
+              <div><strong>${escapeHtml(model)}</strong><small>error</small></div>
+              <p>${escapeHtml(message)}</p>
+            `;
+          } finally {
+            clearInterval(timer);
+            const completedPercent = Math.round(((index + 1) / models.length) * 100);
+            setProgress('modelProgress', completedPercent);
+            status.textContent = `Comparando respuestas: ${index + 1}/${models.length} modelos completados.`;
+          }
+        }
+        status.textContent = 'Comparacion finalizada.';
+        hideProgress('modelProgress');
+      } catch (error) {
+        status.textContent = 'No se pudo comparar. Detalle: ' + error.message;
+      } finally {
+        setDemoControlsDisabled(false);
+      }
+    }
   </script>
 </body>
 </html>
