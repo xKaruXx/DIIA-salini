@@ -197,7 +197,7 @@ Limitaciones actuales:
 - el flujo de audio sigue dependiendo de OpenAI y no forma parte del nucleo open source del MVP
 - persisten advertencias tecnicas en librerias de LangChain y Chroma que deberian actualizarse en una siguiente iteracion
 - la evaluacion actual prioriza exactitud factual; aun no mide satisfaccion de usuario ni robustez ante consultas ambiguas extensas
-- la evaluacion actual no mide todavia metricas especificas de retrieval como Precision@K, Recall@K o MRR
+- las metricas automaticas de generacion agregadas funcionan como proxies lexicales; no reemplazan una revision humana ni un juez semantico de faithfulness
 
 Trabajo futuro:
 
@@ -206,7 +206,8 @@ Trabajo futuro:
 - migrar a componentes mas nuevos de `langchain-chroma`
 - sumar pruebas automaticas de regresion para preguntas frecuentes
 - conectar formalmente la salida comercial con CRM o automatizaciones, si el caso de uso lo requiere
-- extender el benchmark para registrar documentos recuperados y calcular metricas RAG
+- guardar el contexto textual exacto usado por cada respuesta para auditar faithfulness con mayor precision
+- incorporar una revision humana o LLM-juez sobre una muestra critica para validar faithfulness semantico y utilidad de respuesta
 
 ## 8. Plan de Mejoras y Trazabilidad
 
@@ -231,6 +232,9 @@ Para dejar registradas las mejoras del sistema con formato ejecutivo y detalle t
 - `docs/evaluacion_modelos_livianos.md`
 - `docs/evaluacion_modelos_fuera_dominio.md`
 - `docs/evaluacion_embeddings_locales.md`
+- `docs/evaluacion_metricas_generacion_clase6.md`
+- `docs/auditoria_rag_chunks_clase6.md`
+- `docs/notebook_auditoria_rag_coradir.ipynb`
 
 El plan de mejoras funciona como bitacora viva del proyecto. Resume el baseline actual, las mejoras ya implementadas, la evidencia disponible, las limitaciones de medicion y los proximos pasos recomendados. Los anexos complementarios dejan una vista ejecutiva del benchmark, graficos de evaluacion, un benchmark extendido, medicion de retrieval y una matriz para revision factual manual.
 
@@ -266,6 +270,12 @@ Tambien se agrego manejo especifico para modelos thinking. Algunas variantes Qwe
 La corrida completa quedo resumida en `docs/evaluacion_manual_modelos_resumen.md`. En esa corrida, el ajuste efectivo para Qwen fue usar `think: false` en Ollama, ya que `/no_think` no evitaba que el contenido quedara vacio. La matriz se ejecuto de menor a mayor modelo, descargando cada modelo al finalizar su bloque.
 
 Sobre esa misma matriz se agregaron graficos a la presentacion final para justificar la seleccion del modelo. El ranking considera como aceptables las respuestas con `assistant_score_1_5` igual a 4 o 5, separa el resultado por preguntas factuales, ambiguas y fuera de dominio, y cruza acierto con latencia promedio y peso local aproximado. La lectura preliminar ubica a `qwen3.5:latest` como el de mayor acierto bruto, y a `qwen3.5:4b` como mejor candidato de compromiso por mantener calidad cercana con menor latencia y menor peso. Esta recomendacion queda marcada como preliminar hasta completar la revision manual del autor.
+
+El material de clase 6 permitio agregar una mejora metodologica sobre la etapa de generacion. Se incorporo `scripts/evaluate_generation_metrics.py`, que toma el benchmark extendido final ya ejecutado y calcula `Token Overlap` contra las keywords esperadas y `Context Faithfulness` contra el contexto recuperado reconstruido desde `knowledge_base_movilidad.jsonl`. Sobre 64 casos, la evaluacion obtuvo `Token Overlap=1.0` y `Context Faithfulness=0.8949`. La lectura es doble: el 64/64 por keywords queda confirmado, pero 13 casos requieren revision por posible informacion adicional o contexto no trazado. La evidencia queda documentada en `docs/evaluacion_metricas_generacion_clase6.md` y el grafico se incorporo a la presentacion final.
+
+Para auditar con mas detalle si el sistema recupera los chunks correctos, tambien se agrego `scripts/generate_rag_chunk_audit.py`. Este script genera `docs/auditoria_rag_chunks_clase6.json`, `docs/auditoria_rag_chunks_clase6.csv` y `docs/auditoria_rag_chunks_clase6.md` con pregunta, fuentes esperadas, chunks recuperados, contenido completo del chunk, scores/ranks, tokens y solapamientos contra pregunta, keywords y respuesta. La auditoria final muestra 61/64 casos con todas las fuentes esperadas dentro del top K, 63/64 con al menos una fuente esperada en top K y 56/64 con fuente esperada en top 1.
+
+Como evidencia reproducible para la defensa, se preparo `docs/notebook_auditoria_rag_coradir.ipynb`. El notebook recorre el proceso completo: carga del corpus RAG, EDA de chunks, benchmark extendido, auditoria de chunks recuperados, metricas de retrieval, metricas de generacion de clase 6 y tabla de decisiones tecnicas tomadas a partir de las mediciones.
 
 ## 9. Guia de Ejecucion y Demo
 

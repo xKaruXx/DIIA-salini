@@ -2,205 +2,197 @@
 
 ## Trabajo final - Chatbot RAG para CORADIR Movilidad Electrica
 
-MVP funcional para responder consultas frecuentes sobre vehiculos, precios, carga, garantias, agencias y condiciones comerciales.
+El proyecto no se centro solo en hacer responder a un LLM: transformo una base administrativa en un corpus RAG medible, recuperable y auditable.
 
-- Base de conocimiento cerrada y curada.
-- Backend FastAPI con chat web.
-- RAG con Chroma, embeddings locales y Ollama.
-- Benchmark reproducible y metricas RAG para auditar la calidad.
+- Base de conocimiento cerrada, curada y reprocesada.
+- Corpus JSONL con documentos mas chicos, trazables y orientados a retrieval.
+- Benchmark reproducible con metricas de respuesta y metricas de recuperacion.
+- La mejora de respuesta aparece como consecuencia del trabajo sobre datos, retrieval y guardrails.
 
-## 1. Problema - La informacion existia, pero no estaba lista para responder bien
+## 1. Problema - La informacion existia, pero no era evidencia recuperable
 
-El desafio no era solo conectar un LLM: habia que transformar datos administrativos en evidencia recuperable y auditable.
+El punto critico era de datos: el contenido estaba disponible, pero no estaba preparado para que un RAG encontrara la fuente correcta y respondiera sin mezclar informacion.
 
-### Datos jerarquicos
+### Formato administrativo
 
-El dataset original estaba en JSON, util para administrar informacion, pero poco conveniente para recuperacion semantica directa.
+El JSON original servia para almacenar catalogo, precios, agencias y FAQs, pero no para recuperar fragmentos semanticos precisos.
 
-### Riesgo de mezcla
+### Riesgo factual
 
-Una respuesta generativa libre podia combinar versiones, precios o condiciones comerciales de forma incorrecta.
+Modelos, precios, autonomias y condiciones comerciales podian mezclarse si el contexto llegaba con ruido o demasiado amplio.
 
-### Necesidad academica
+### Necesidad de evidencia
 
-La presentacion necesitaba evidencia medible, no solo una demo aparentemente correcta.
+La defensa no podia depender de una demo aislada: hacia falta medir corpus, retrieval, respuesta final y limites.
 
-## 2. Solucion - Un pipeline hibrido: recuperar, verificar y recien despues redactar
+## 2. Datos - Del JSON jerarquico a un corpus RAG auditable
 
-La mejora principal fue estructural: preprocesar la base, recuperar fragmentos mas precisos y usar una capa extractiva para datos factuales.
+La primera mejora fue convertir datos administrativos en documentos indexables: unidades mas chicas, con sentido propio y con fuente trazable.
 
-- 111 documentos indexables generados desde el dataset original.
-- Chroma como base vectorial local.
-- Ollama con qwen3.5:0.8b como default liviano y qwen3.5:latest como fallback.
-- Prompts baseline, sales y strict para comparar comportamiento.
+### Antes
 
-Flujo: Usuario -> FastAPI -> Clasificacion -> Retrieval -> Capa extractiva -> LLM -> Respuesta
+dataset/dataset_movilidad.json concentraba FAQs, fichas tecnicas, precios, agencias, contactos y condiciones comerciales en una estructura jerarquica.
 
-## 3. Datos - Preprocesamiento orientado a RAG
+### Proceso
 
-El sistema no indexa el JSON completo como un bloque: lo transforma en unidades semanticas mas chicas y consultables.
+scripts/prepare_dataset.py normaliza claves, corrige codificacion, separa subsecciones y genera documentos textuales coherentes.
 
-### Fuente
+### Despues
 
-dataset/dataset_movilidad.json consolidado desde FAQs web, fichas tecnicas, informacion tecnica relevada, precios, agencias, carga y condiciones comerciales.
-
-### Transformacion
-
-scripts/prepare_dataset.py normaliza claves, corrige codificacion y genera dataset/knowledge_base_movilidad.jsonl.
+dataset/knowledge_base_movilidad.jsonl deja 111 documentos indexables, cada uno orientado a una consulta o dato del dominio.
 
 ### Impacto
 
-Menos ruido en el contexto, respuestas mas concretas y mejor trazabilidad de la evidencia usada.
+El retrieval recibe menos ruido, las respuestas quedan mas trazables y los errores pueden diagnosticarse por fuente.
 
-## 4. Evaluacion - La primera evaluacion sintetica valida el MVP y muestra limites
+## 3. Documentacion - Decisiones tomadas sobre la documentacion
 
-La evaluacion inicial fue sintetica y automatica: un benchmark corto para demo/regresion y uno extendido para detectar fallas reales mediante keywords, fuentes y latencia.
+El trabajo principal fue convertir informacion comercial y tecnica en evidencia recuperable, sin perder trazabilidad hacia la fuente original.
 
-- Benchmark MVP: 15/15 casos correctos en variantes strict y sales.
-- Benchmark extendido: 35/64 casos correctos.
-- El descenso no invalida el proyecto: muestra que el nuevo dataset es mas exigente y sensible.
-- La lectura tecnica es que falta medir retrieval directamente.
+### Granularidad
 
-## 5. Metricas RAG - Mejora: separar recuperacion y redaccion
+No indexamos el JSON completo: separamos FAQs, precios, fichas tecnicas, agencias, contactos y condiciones en documentos mas chicos.
 
-A partir de los criterios trabajados durante la cursada, la evaluacion se amplio para distinguir si falla la busqueda de evidencia o la respuesta final.
+### Trazabilidad
 
-### Precision@K
+Cada chunk conserva `section`, `title` y `source_path`; eso permite saber exactamente que fuente recupero cada pregunta.
 
-De los documentos recuperados en el top K, cuantos eran relevantes. Ayuda a medir ruido en el contexto.
+### Normalizacion prudente
 
-### Recall@K
+Corregimos codificacion y espacios, pero no aplicamos lematizacion global porque el EDA no justificaba perder terminos comerciales exactos.
 
-De todos los documentos relevantes esperados, cuantos aparecieron en el top K. Ayuda a detectar omisiones.
+### Evaluacion con fuentes
 
-### MRR
+El dataset extendido agrega `expected_sources`; asi medimos si el retrieval trae el chunk correcto, no solo si la respuesta suena bien.
 
-Mide en que posicion aparece el primer documento relevante. Es importante cuando la respuesta debe salir rapido.
+## 4. EDA - Medimos el corpus antes de cambiar chunking o normalizacion
 
-### Faithfulness
-
-Evalua si cada afirmacion de la respuesta esta respaldada por las fuentes recuperadas.
-
-## 6. Resultados - Resultados actuales y lectura honesta
-
-El sistema funciona en el alcance MVP, pero el benchmark extendido muestra donde conviene mejorar antes de afirmar robustez general.
-
-- Los fallos aparecen sobre todo en vehiculos especificos, agencias puntuales e informacion institucional.
-- Puede haber fallos por recuperacion, respuesta parcial, keyword demasiado estricta o dato ausente.
-- El proximo paso metodologico es guardar fuentes recuperadas por consulta.
-
-## 7. Retrieval - Nueva mejora: medir si aparece la fuente correcta
-
-El benchmark ahora guarda documentos recuperados y calcula Precision@5, Recall@5, MRR y Top-1 source accuracy.
-
-- Corrida retrieval-only sobre 64 casos del dataset extendido.
-- Recall@5: 89.8%. La fuente esperada aparece en el top 5 en la mayoria de los casos.
-- Top-1: 65.6%. Todavia hay margen para ordenar mejor el contexto.
-- MRR: 75.9%. Sirve para distinguir fallas de recuperacion de fallas de redaccion.
-
-## 8. Corpus - Nueva mejora: EDA de chunks con TTR y MATTR
-
-Antes de lematizar o cambiar chunking, se midio la calidad del corpus RAG generado.
+El EDA permitio decidir con evidencia: no aplicar lematizacion global todavia y priorizar metadata, retrieval y revision de documentos extremos.
 
 - 111 documentos analizados desde knowledge_base_movilidad.jsonl.
-- Promedio de 44.21 tokens por documento.
-- MATTR promedio: 0.8538, una densidad lexica alta.
-- Decision: no aplicar lematizacion global por ahora; priorizar metadata y retrieval.
+- Promedio de 44.21 tokens por documento; mediana de 24 y p90 de 105.
+- MATTR promedio: 0.8538, sin senales de baja densidad lexica general.
+- Hallazgo: revisar documentos muy largos o muy cortos por seccion antes de fusionar o partir mas chunks.
 
-## 9. Comparacion - Nueva evidencia: los embeddings locales si cambian el retrieval
+## 5. Arquitectura - El pipeline queda gobernado por datos, no por prompt
 
-Al medir retrieval vectorial puro, los embeddings nuevos superaron al baseline nomic-embed-text.
+La solucion final recupera evidencia, aplica reglas de alcance y usa generacion solo cuando el contexto ya esta acotado.
+
+- Chroma conserva el indice vectorial local sobre el corpus curado.
+- La busqueda lexical ayuda con nombres propios, modelos, precios, telefonos y agencias.
+- La capa extractiva resuelve datos factuales antes de delegar al LLM.
+- Ollama permite reproducibilidad local sin depender de servicios pagos para la demo.
+
+Flujo: Usuario -> FastAPI -> Clasificacion -> Keyword + vector -> Capa extractiva -> LLM -> Respuesta
+
+## 6. Evaluacion - El benchmark mostro que responder bien no alcanza
+
+La primera medicion validaba el MVP, pero el dataset extendido obligo a separar errores de datos, retrieval, extraccion y redaccion.
+
+- Benchmark MVP: 15/15 casos correctos en variantes strict y sales.
+- Benchmark extendido inicial: 35/64 casos correctos.
+- El descenso fue util: revelo consultas mas exigentes sobre vehiculos, agencias e informacion institucional.
+- Decision metodologica: medir recuperacion de fuentes, no solo keywords en la respuesta.
+
+## 7. Metricas RAG - Medimos retrieval antes de confiar en la respuesta
+
+La decision no se tomo por intuicion: cada pregunta tiene fuentes esperadas y se mide si los chunks recuperados contienen esa evidencia.
+
+### Precision@5
+
+Cuantos de los cinco chunks recuperados son fuentes esperadas. Si baja, hay ruido en contexto.
+
+### Recall@5
+
+Si la fuente esperada aparece en el top 5. Si baja, falta evidencia y hay que corregir retrieval o datos.
+
+### MRR / Top-1
+
+Que tan temprano aparece el chunk correcto. Si baja, el problema es ranking, no necesariamente generacion.
+
+### Overlap y soporte
+
+Se cruza chunk contra pregunta, keywords y respuesta para justificar si el dato usado estaba realmente en contexto.
+
+## 8. Generacion - Clase 6: medimos si la respuesta es correcta y trazable
+
+Sumamos metricas de generacion sobre el benchmark final: Token Overlap confirma la cobertura factual y Context Faithfulness detecta respuestas que conviene revisar por trazabilidad.
+
+- Token Overlap promedio: 1.0 sobre 64 casos, consistente con el 64/64 por keywords.
+- Context Faithfulness promedio: 0.8949 contra el contexto recuperado.
+- 51/64 casos quedaron en el cuadrante sistema OK: respuesta correcta y respaldada por contexto.
+- 13/64 casos mantienen keywords correctas pero requieren revision por contexto no trazado o informacion adicional.
+
+## 9. Retrieval - Auditoria de chunks: que esta recuperando el sistema
+
+Para cada pregunta guardamos top chunks, score/rank, contenido, tokens y si el source_path coincide con la fuente esperada.
+
+- 61/64 casos tienen todas las fuentes esperadas dentro del top 5.
+- 63/64 casos tienen al menos una fuente esperada dentro del top 5.
+- 56/64 casos tienen una fuente esperada en el primer chunk recuperado.
+- Precision@5 promedio: 31.9%; Recall@5 promedio: 96.9%; MRR: 91.6%.
+- El CSV permite filtrar chunks con expected_keyword_overlap=0 o matches_expected_source=false.
+
+## 10. Decisiones - Como decidimos ajustes a partir de los chunks
+
+La lectura de metricas separa tres problemas distintos: falta de evidencia, ruido en contexto y respuesta con informacion no trazada.
+
+- Recall alto + Precision baja: el sistema encuentra el dato, pero trae ruido; conviene mejorar ranking y filtros, no cambiar primero el LLM.
+- Top-1 de 56/64: la mayoria queda bien ordenada; los casos restantes se marcan como ranking_review.
+- Casos missing_expected_source: revisar expected_sources, metadata del corpus o cobertura del dataset.
+- Context Faithfulness bajo: revisar capa extractiva para evitar datos adicionales o contexto no trazado.
+
+## 11. Embeddings - Los embeddings se evaluaron por retrieval, no por intuicion
+
+La comparacion local mostro que cambiar embeddings puede mejorar la recuperacion, pero la decision debe validarse contra accuracy final.
 
 - qwen3-embedding:0.6b obtuvo el mejor Recall@5: 81.2%.
 - embeddinggemma obtuvo el mejor MRR: 69.5% y Top-1: 60.9%.
 - nomic-embed-text fue el mas liviano, pero quedo bajo en retrieval vectorial puro.
-- Recomendacion: probar embeddinggemma como nuevo default y validar accuracy final.
+- Lectura: el embedding no se elige por marca o tamano, sino por fuentes recuperadas.
 
-## 10. Hardware - Nueva mejora: evaluar modelos mas chicos
+## 12. Respuesta - La respuesta mejora porque el contexto llega mejor preparado
 
-Como el sistema ya reduce la carga del LLM con retrieval y respuesta extractiva, se preparo una matriz para probar si modelos livianos alcanzan para preguntas frecuentes.
+El foco no fue maquillar el texto final: se corrigio el camino que lleva evidencia al modelo y se agrego extraccion para datos factuales.
 
-- Todos los modelos locales evaluados obtuvieron 15/15 en el benchmark MVP.
-- Con guardrail previo, los candidatos tambien obtuvieron 6/6 en casos por fuera.
-- granite4:350m, lfm2.5-thinking:1.2b y qwen3.5:0.8b son candidatos fuertes para rutas factuales.
-- El resultado muestra que la capa extractiva reduce la necesidad de un modelo grande.
-- Estrategia recomendada: modelo chico para FAQ factual y qwen3.5:latest como fallback complejo.
+- El benchmark extendido paso de exponer fallas a guiar mejoras concretas del pipeline.
+- La mejora de extraccion contextual final llego a 64/64 casos correctos en la corrida documentada.
+- La causa tecnica no fue solo prompt: fue corpus granular, fuentes recuperadas y reglas para datos factuales.
+- El resultado queda defendible porque se puede rastrear desde pregunta hasta fuente y respuesta.
 
-## 11. Guardrail - Casos por fuera: la mejora no fue cambiar de modelo, sino evitar alucinacion
+## 13. Guardrail - Tambien mejoramos cuando decidimos no responder
 
-La comparacion mostro que los modelos no debian recibir consultas que el sistema podia rechazar por reglas de alcance.
+Los casos por fuera del corpus se resolvieron antes del LLM: si la pregunta no pertenece al dominio o no hay dato disponible, se rechaza de forma controlada.
 
 - Antes del guardrail, la capa extractiva podia traer contexto irrelevante.
 - Despues del guardrail, todos los candidatos evaluados lograron 6/6.
 - La latencia queda en 0.0 s porque no se llama al LLM.
-- Esto permite usar modelos chicos con menor riesgo operativo.
+- Esto reduce alucinaciones y muestra que parte de la calidad viene del diseno del dato y del flujo.
 
-## 12. Revision manual - Nueva mejora: matriz para revision manual del autor
+## 14. Demo - Demo: mostrar pregunta, fuente y respuesta
 
-Las respuestas en vivo mostraron que no alcanza con la evaluacion sintetica por keywords y latencia: algunas respuestas fueron vacias, lentas o poco utiles. Se agrega una matriz humana balanceada: 7 factuales, 7 ambiguas y 7 fuera de dominio.
-
-- Nuevo dataset: dataset/evaluacion_manual_modelos.json con 21 casos balanceados.
-- Nuevo script: scripts/run_manual_model_evaluation.py.
-- El script genera respuestas, estados y latencias; la correccion, score 1-5 y notas quedan para revision manual.
-- La muestra homogenea evita favorecer modelos que solo responden bien preguntas factuales.
-- Los modelos Qwen/thinking se ejecutan con think:false y se remueven bloques <think> para evaluar solo la respuesta final.
-- Se incluyen modelos chicos nuevos detectados en Ollama: gemma3:270m, llama3.2:3b, granite4.1:3b y nemotron-3-nano:4b.
-- El objetivo es elegir el modelo por calidad real percibida, no solo por que complete keywords.
-
-## 13. Seleccion de modelo - Segun la matriz, Qwen 3.5 fue el candidato mas acertado
-
-La seleccion preliminar se basa en la preevaluacion sintetica sobre 21 respuestas balanceadas. Cuenta como respuesta aceptable un score 4 o 5; la decision final queda sujeta a la revision manual.
-
-- qwen3.5:latest obtuvo el mayor porcentaje de respuestas aceptables: 16/21.
-- qwen3.5:4b y nemotron-3-nano:4b empataron en aceptables: 15/21.
-- qwen3.5:4b queda como mejor compromiso preliminar entre calidad, latencia y peso.
-- granite4.1:3b quedo en nivel medio: 12/21 aceptables, 3.48 de score promedio y 1.58 s de latencia.
-- nemotron-3-nano:4b es fuerte para rechazar fuera de dominio, pero debe revisarse en factuales.
-- gemma3:270m y lfm2.5-thinking:1.2b no quedan recomendados por respuestas vacias o solo thinking.
-
-## 14. Criterios - La decision no depende de un solo promedio
-
-El segundo grafico separa el rendimiento por tipo de pregunta. Esto evita elegir un modelo que sea bueno solo en preguntas simples y flojo en ambiguas o fuera de dominio.
-
-- Las preguntas factuales miden precision contra datos tecnicos y comerciales.
-- Las preguntas ambiguas miden si el modelo pide contexto o responde con cautela.
-- Los casos fuera de dominio miden si evita inventar informacion.
-- La metrica automatica orienta la seleccion, pero la columna de score manual define la decision final.
-
-## 15. Costo operativo - La mejor decision cruza acierto, latencia y peso local
-
-El modelo recomendado no debe ser solo el de mayor score. Tambien importa cuanto tarda en responder y cuanto ocupa/carga en memoria para una demo local estable.
-
-- El eje vertical muestra respuestas aceptables sobre las 21 preguntas.
-- El eje horizontal muestra latencia promedio: mas a la izquierda es mejor.
-- El tamano de cada punto representa el peso local aproximado del modelo.
-- qwen3.5:latest logra el mayor acierto, pero tambien mayor latencia y peso.
-- qwen3.5:4b queda como candidato de equilibrio: alto acierto con menor costo que latest.
-
-## 16. Demo - Demo en vivo dentro de la presentacion
-
-La presentacion puede cargar el chat real si se abre desde la API local. Esto permite probar preguntas sin salir del recorrido.
+La demo debe reforzar la historia: no probar solo que el bot responde, sino que la respuesta sale de una base curada y de un retrieval medido.
 
 - Preguntar: Cuanta autonomia tiene el TITO S5 y como se carga?
 - Preguntar: Cual es el precio del TITO S5-300 AA?
 - Preguntar: Donde hago un reclamo o pido servicio tecnico?
 - Para preparar la demo completa en Windows, ejecutar scripts/start_presentation_demo.ps1.
 - Si el chat no carga, verificar API en http://localhost:8851/health y Ollama en http://127.0.0.1:11434.
-- Cerrar mostrando Precision@5, Recall@5, MRR, EDA de corpus, embeddings y modelos livianos.
+- Cerrar mostrando EDA del corpus, Recall@5, MRR y como eso sostiene la respuesta final.
 
-## 17. Cierre - El MVP no solo responde: tambien deja evidencia para auditarlo
+## 15. Conclusiones - La mejora de respuesta fue consecuencia del trabajo sobre datos
 
-El proyecto queda defendible porque combina implementacion, reproducibilidad, medicion y una hoja de ruta alineada con los contenidos de clase.
+El resultado defendible no es solo un chatbot funcionando: es un pipeline con datos curados, medicion de corpus, retrieval auditable, guardrails y evaluacion reproducible.
 
-### Implementado
+### Dato trabajado
 
-Chat web, backend, base preprocesada, RAG local, prompts comparables y benchmark automatizado.
+El JSON original se transformo en 111 documentos RAG con mejor granularidad y trazabilidad.
 
-### Validado
+### Retrieval medido
 
-15/15 en benchmark MVP y benchmark extendido preparado para encontrar limites reales.
+Se calcularon Precision@5, Recall@5, MRR y Top-1 para saber si aparece la fuente correcta.
 
-### Siguiente salto
+### Respuesta controlada
 
-Medir retrieval, revisar faithfulness y separar fallos de recuperacion de fallos de generacion.
+La capa extractiva y los guardrails reducen alucinacion y hacen que el LLM dependa menos de improvisar.
 

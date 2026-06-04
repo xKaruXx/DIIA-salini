@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la C:\\\\\\\\Repositorios\\\\\\\\DIIA-salini\\\\\\\\.env*)",
+      "Bash(ls C:\\\\\\\\Repositorios\\\\\\\\DIIA-salini\\\\\\\\dataset)",
+      "Bash(ls C:\\\\\\\\Repositorios\\\\\\\\DIIA-salini\\\\\\\\scripts)",
+      "Bash(ls C:\\\\\\\\Repositorios\\\\\\\\DIIA-salini\\\\\\\\docs)",
+      "Bash(ls C:\\\\\\\\Repositorios\\\\\\\\DIIA-salini\\\\\\\\api)"
+    ]
+  }
+}

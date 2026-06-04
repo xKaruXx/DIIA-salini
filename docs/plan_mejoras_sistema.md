@@ -88,6 +88,9 @@ La evidencia ejecutiva del benchmark ejecutado localmente el 2026-05-20 queda do
 | Evaluacion RAG avanzada | Implementada | `scripts/run_benchmark.py` | `docs/evaluacion_retrieval_extendida.md` | Precision@5, Recall@5, MRR, Top-1 | cruce retrieval vs respuesta |
 | Analisis respuesta vs retrieval | Implementada | `docs/analisis_fallas_respuesta_vs_retrieval.md` | 24 de 29 fallas tenian fuente en top 5 | clasificacion de fallas | mejorar capa extractiva |
 | Extraccion contextual por bloques | Implementada | `api/chat_service.py` | `docs/mejora_extraccion_contextual.md` | accuracy extendida 100.0% en 64 casos | validar con muestras nuevas |
+| Metricas de generacion clase 6 | Implementada | `scripts/evaluate_generation_metrics.py` | `docs/evaluacion_metricas_generacion_clase6.md` | Token Overlap 1.0, Context Faithfulness 0.8949 | guardar contexto textual exacto y validar con revision humana |
+| Auditoria de chunks recuperados | Implementada | `scripts/generate_rag_chunk_audit.py` | `docs/auditoria_rag_chunks_clase6.md` | 61/64 con todas las fuentes esperadas en top K, 56/64 en top 1 | revisar casos con ranking bajo o fuentes esperadas faltantes |
+| Notebook de auditoria RAG | Implementada | `docs/notebook_auditoria_rag_coradir.ipynb` | notebook ejecutable con corpus, EDA, retrieval, chunks y decisiones | reproduce 111 docs, 64 casos y metricas clase 6 | usar como soporte de defensa y demo tecnica |
 | EDA de chunks y riqueza lexica | Implementada | `scripts/analyze_rag_corpus.py` | `docs/eda_corpus_rag.md` | TTR, MATTR, longitud y densidad por documento | revisar outliers y metadata |
 | Metadatos de dominio para retrieval | Pendiente | `scripts/prepare_dataset.py` | `section`, `title`, `source_path` | trazabilidad basica | filtros por entidad, provincia, topico y tipo de respuesta |
 | Casos sin respuesta en el corpus | Implementada parcial | `dataset/evaluacion_no_respondibles.json` | `docs/evaluacion_no_respondibles.md` | dataset y reporte retrieval-only | tasa de rechazo correcto con LLM activo |
@@ -387,6 +390,44 @@ Se agrego `scripts/run_embedding_efficiency_matrix.py` para comparar embeddings 
 
 Estado actualizado: implementado. `embeddinggemma:latest` obtuvo el mejor `MRR` y `Top-1`, mientras que `qwen3-embedding:0.6b` obtuvo el mejor `Recall@5`. La evidencia queda en `docs/evaluacion_embeddings_locales.md`.
 
+### Prioridad 11 - Evaluar metricas de generacion de clase 6
+
+Se agrego `scripts/evaluate_generation_metrics.py` para calcular dos metricas automaticas sobre el benchmark extendido final sin volver a llamar al LLM:
+
+- `Token Overlap`: compara los tokens de la respuesta contra las keywords esperadas.
+- `Context Faithfulness`: compara los tokens de la respuesta contra el contexto recuperado reconstruido desde el corpus RAG.
+
+Estado actualizado: implementado. Sobre `docs/benchmark_extendido_strict_post_extraccion_v3.json`, la corrida obtuvo `Token Overlap=1.0` y `Context Faithfulness=0.8949`. Esto confirma la cobertura factual del benchmark, pero tambien identifica 13 casos con keywords correctas que conviene revisar por informacion adicional o contexto no trazado. La evidencia queda en `docs/evaluacion_metricas_generacion_clase6.md`.
+
+### Prioridad 12 - Auditar chunks recuperados con contenido y tokens
+
+Se agrego `scripts/generate_rag_chunk_audit.py` para reconstruir una auditoria completa del benchmark extendido final. El reporte cruza cada pregunta con:
+
+- fuentes esperadas
+- chunks recuperados y ranking
+- `keyword_score` o `vector_rank`
+- contenido completo del chunk desde `knowledge_base_movilidad.jsonl`
+- tokens de pregunta, keywords esperadas y respuesta
+- solapamiento pregunta/chunk, keywords/chunk y respuesta/chunk
+- diagnostico por caso
+
+Estado actualizado: implementado. La auditoria genero `docs/auditoria_rag_chunks_clase6.json`, `docs/auditoria_rag_chunks_clase6.csv` y `docs/auditoria_rag_chunks_clase6.md`. El resultado muestra 61/64 casos con todas las fuentes esperadas dentro del top K, 63/64 con alguna fuente esperada dentro del top K y 56/64 con fuente esperada en top 1.
+
+### Prioridad 13 - Preparar notebook reproducible para defensa
+
+Se agrego `docs/notebook_auditoria_rag_coradir.ipynb` como soporte tipo Colab/Jupyter. El notebook muestra el proceso completo sin llamar al LLM:
+
+- carga del corpus RAG
+- EDA de chunks
+- benchmark extendido
+- auditoria de chunks recuperados
+- metricas de retrieval
+- metricas de generacion de clase 6
+- inspeccion caso por caso
+- tabla de decisiones tecnicas basadas en evidencia
+
+Estado actualizado: implementado. El notebook contiene 32 celdas y reproduce los numeros clave: 111 documentos RAG, 64 casos auditados, 257 chunks recuperados, 61/64 con todas las fuentes esperadas en top K, `Token Overlap=1.0` y `Context Faithfulness=0.8949`.
+
 ## 7. Plan de trabajo recomendado
 
 | Orden | Paso | Resultado esperado |
@@ -402,7 +443,10 @@ Estado actualizado: implementado. `embeddinggemma:latest` obtuvo el mejor `MRR` 
 | 9 | Agregar casos no respondibles | medir rechazo correcto |
 | 10 | Evaluar modelos livianos | reducir hardware sin perder calidad |
 | 11 | Evaluar embeddings locales | mejorar retrieval vectorial |
-| 12 | Integrar resumen en `reporte_final_implementacion.md` | informe final mas robusto |
+| 12 | Evaluar metricas de generacion clase 6 | proxies de correccion y faithfulness |
+| 13 | Auditar chunks recuperados con contenido y tokens | evidencia por caso del retrieval |
+| 14 | Preparar notebook reproducible | soporte tipo Colab para defensa |
+| 15 | Integrar resumen en `reporte_final_implementacion.md` | informe final mas robusto |
 
 ## 8. Criterio de cierre academico
 
@@ -415,4 +459,4 @@ El proyecto queda mejor alineado con el material de clases si el informe final p
 - que metrica se uso
 - que limitacion queda pendiente
 
-Con la documentacion actual, el MVP ya tiene evidencia funcional. El siguiente salto de calidad es separar la evaluacion de respuesta final de la evaluacion de retrieval, porque esa distincion permite explicar con mas rigor por que el sistema responde bien y donde podria fallar.
+Con la documentacion actual, el MVP ya tiene evidencia funcional, evaluacion de corpus, retrieval, generacion y rechazo de casos por fuera. El siguiente salto de calidad es guardar el contexto textual exacto usado en cada respuesta y completar una revision humana o semantica de faithfulness sobre los casos marcados por las metricas de clase 6.

@@ -1,0 +1,2150 @@
+{
+  "summary": {
+    "total_cases": 64,
+    "mean_token_overlap": 1.0,
+    "mean_context_faithfulness": 0.8949,
+    "min_context_faithfulness": 0.2667,
+    "high_token_overlap_cases": 64,
+    "high_faithfulness_cases": 51,
+    "diagnosis_counts": {
+      "sistema_ok": 51,
+      "posible_alucinacion_o_contexto_no_trazado": 13
+    },
+    "by_category": {
+      "agencias": {
+        "cases": 6,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.9394
+      },
+      "app": {
+        "cases": 2,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 1.0
+      },
+      "beneficios": {
+        "cases": 1,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.8421
+      },
+      "carga": {
+        "cases": 4,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.763
+      },
+      "comercial": {
+        "cases": 1,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.6316
+      },
+      "compra": {
+        "cases": 5,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.894
+      },
+      "contacto": {
+        "cases": 1,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.2667
+      },
+      "empresa": {
+        "cases": 5,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.8661
+      },
+      "movilidad": {
+        "cases": 2,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 1.0
+      },
+      "posventa": {
+        "cases": 2,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 1.0
+      },
+      "precios": {
+        "cases": 12,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.8832
+      },
+      "sitios_web": {
+        "cases": 1,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.4286
+      },
+      "vehiculos": {
+        "cases": 22,
+        "mean_token_overlap": 1.0,
+        "mean_context_faithfulness": 0.9554
+      }
+    }
+  },
+  "methodology": {
+    "source": "Clase 6 - Metricas de Generacion en RAG",
+    "token_overlap": "tokens(respuesta) & tokens(keywords esperadas) / tokens(keywords esperadas)",
+    "context_faithfulness": "tokens(respuesta) & tokens(contexto recuperado) / tokens(respuesta)",
+    "thresholds": {
+      "token_overlap_high": 0.85,
+      "context_faithfulness_high": 0.8
+    },
+    "important_note": "Estas metricas son proxies automaticos; no reemplazan revision humana de utilidad ni faithfulness semantico."
+  },
+  "rows": [
+    {
+      "id": "tito_s5_autonomia_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánta autonomía tiene el TITO S5 y cómo se carga?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "carga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales\nnombre: TITO S5-300\nautonomía: 300 Km",
+      "expected_keywords": [
+        "300 km",
+        "220v",
+        "8 horas"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_s5_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 AA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 16.981,25\nprecio: USD 17.731,25\nprecio: USD 16.981,25\nprecio: USD 17.731,25",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S2"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_capacidad",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de carga y de pasajeros tiene la TITA S2-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "capacidad: 2 personas\ncapacidad caja: 500 Kg\ncarga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 8 horas / Admite recarga parciales",
+      "expected_keywords": [
+        "500 kg",
+        "2 personas"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITO S2"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_furgon_refrigerado_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con furgón refrigerado?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "aclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nautonomía: 300 Km\naccesorio: Furgón refrigerado\ndescripcion accesorio: Accesorio que convierte la pickup en furgón cerrado con sistema de refrigeración",
+      "expected_keywords": [
+        "23.632,00",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "chiki_autonomia_velocidad",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y velocidad máxima tiene el CHIKI de litio?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "velocidad maxima: 45 km/h\nnombre: CHIKI-L (110KM) LITIO\ndescripcion: Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.\nautonomia: 110km",
+      "expected_keywords": [
+        "110km",
+        "45 km/h"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+        "vehiculos_detalles.CHIKI",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+        "vehiculos_detalles.CHIKI",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "barre_tita_capacidad",
+      "category": "vehiculos",
+      "question": "¿Cuál es la capacidad de trabajo y el tanque de agua de la BARRE-TITA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "capacidad tanque agua: 150 Litros\ncapacidad trabajo: 15000 m2/h\ncapacidad papelera: 180 Litros\npeso neto: 900 KG",
+      "expected_keywords": [
+        "15000 m2/h",
+        "150 litros"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "garantia",
+      "category": "posventa",
+      "question": "¿Qué garantía tienen los vehículos?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Todos nuestros vehículos cuentan con una garantía de fábrica de un (1) año, que cubre la reparación de fallas o desperfectos de fabricación. Además, brindamos la posibilidad de extender la garantía hasta un total de tres (3) años, abonando el costo correspondiente a la extensión. Esta opción le permite disfrutar de mayor tranquilidad y respaldo durante un período prolongado.\nPregunta: ¿Qué garantía tienen los vehículos?\nNuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nEstos vehiculos están diseñados solo para circulación urbana, no se recomienda su uso en autopistas o rutas",
+      "expected_keywords": [
+        "1 año",
+        "3 años"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.mantenimiento[2]",
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.mantenimiento[0]",
+        "preguntas_frecuentes.general[2]"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.mantenimiento[2]",
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.mantenimiento[0]",
+        "preguntas_frecuentes.general[2]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "reclamos_servicio",
+      "category": "posventa",
+      "question": "¿Dónde hago un reclamo o pido servicio técnico?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Contamos con una amplia red de servicio técnico en todo el país. Para más información, puede contactar al (0266) 5264805\nPregunta: ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?\ndisponible: Servicio de entrega a domicilio disponible\n(0266) 5264805 (Se usa para llamar al área posventa y también se usa para servicio técnico y reclamos)",
+      "expected_keywords": [
+        "5264805",
+        "0266"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.mantenimiento[1]",
+        "condiciones_compra_entrega.servicio_entrega",
+        "contactos.telefono_movilidad_posventa",
+        "contactos.telefono_movilidad_ventas"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.mantenimiento[1]",
+        "condiciones_compra_entrega.servicio_entrega",
+        "contactos.telefono_movilidad_posventa",
+        "contactos.telefono_movilidad_ventas"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "leasing_suspendido",
+      "category": "comercial",
+      "question": "¿Tienen leasing o alquiler con opción a compra?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.6316,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "La modalidad de leasing (alquiler con opción a compra) de CORADIR está suspendida.\nSi un cliente consulta por leasing, aclarar que esta modalidad quedó pausada y sugerir alternativas como compra al contado u opciones de pago disponibles.\nActualmente no ofrecemos planes de leasing activos para ningún modelo.\nPuede adquirirlos en nuestras agencias oficiales distribuidas por todo el país. Consulte la lista completa en nuestro sitio web.",
+      "expected_keywords": [
+        "no",
+        "leasing",
+        "alquiler con opción a compra"
+      ],
+      "retrieved_sources": [
+        "leasing_estado_actual.descripcion",
+        "leasing_estado_actual.detalle",
+        "leasing_estado_actual.mensaje_principal"
+      ],
+      "matched_context_sources": [
+        "leasing_estado_actual.descripcion",
+        "leasing_estado_actual.detalle",
+        "leasing_estado_actual.mensaje_principal"
+      ],
+      "unsupported_response_tokens": [
+        "adquirirlos",
+        "agencias",
+        "completa",
+        "consulte",
+        "distribuidas",
+        "lista",
+        "nuestras",
+        "nuestro",
+        "oficiales",
+        "pais",
+        "puede",
+        "sitio",
+        "todo",
+        "web"
+      ]
+    },
+    {
+      "id": "beneficio_discapacidad",
+      "category": "beneficios",
+      "question": "¿Cómo es el trámite por beneficio de discapacidad?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.8421,
+      "diagnosis": "sistema_ok",
+      "response": "ley aplicable: Según lo que indica la ley 19279, debe realizar el trámite para verificar si se puede acceder a la franquicia impositiva\nproceso: La tramitación consiste en descargar los requisitos para realizar el mismo, junto con el formulario de solicitud de franquicia\npresentacion: Tanto la solicitud como los requisitos podrán ser presentados en la mesa de entradas del Servicio Nacional de Rehabilitación\nCarga Fácil: Directo a conector de 220v domiciliario",
+      "expected_keywords": [
+        "ley 19279",
+        "servicio nacional de rehabilitacion"
+      ],
+      "retrieved_sources": [
+        "beneficios_discapacidad.tramite_franquicia",
+        "beneficios_discapacidad.factura_proforma",
+        "beneficios_discapacidad.resolucion_final"
+      ],
+      "matched_context_sources": [
+        "beneficios_discapacidad.tramite_franquicia",
+        "beneficios_discapacidad.factura_proforma",
+        "beneficios_discapacidad.resolucion_final"
+      ],
+      "unsupported_response_tokens": [
+        "220v",
+        "carga",
+        "conector",
+        "directo",
+        "domiciliario",
+        "facil"
+      ]
+    },
+    {
+      "id": "agencia_san_luis",
+      "category": "agencias",
+      "question": "¿Tienen agencia oficial en San Luis?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: CORADIR MOVILIDAD; ciudad: SAN LUIS; direccion: Ruta 3 Sur Km 0.6 San Luis Argentina\nnombre: DE ROSSI MOTOS SRL; ciudad: FRONTERA; direccion: Calle 1 N°2105 - Localidad Frontera - Provincia Santa Fe - Cp2438\nnombre: Demagro S.R.L.; ciudad: VENADO TUERTO; direccion: Ruta Nacional 92 Km 29.2 Arequito - Santa Fe.\nnombre: ORIO HNOS S.A.; ciudad: SAN GENARO; direccion: Belgrano 1122",
+      "expected_keywords": [
+        "san luis",
+        "ruta 3 sur km 0.6"
+      ],
+      "retrieved_sources": [
+        "distribucion.agencias_oficiales_por_provincia.San Luis",
+        "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+        "contactos.direccion",
+        "preguntas_frecuentes.general[1]"
+      ],
+      "matched_context_sources": [
+        "distribucion.agencias_oficiales_por_provincia.San Luis",
+        "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+        "contactos.direccion",
+        "preguntas_frecuentes.general[1]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "carga_rapida",
+      "category": "carga",
+      "question": "¿Qué ventaja ofrece la carga rápida?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.6333,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "Normalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas.\nPregunta: ¿Cuánto tiempo toma cargar completamente la batería?\nEs una avanzada solución que reduce el tiempo de carga de 6-8 horas a aproximadamente 2 horas, brindando mayor comodidad y flexibilidad sin comprometer el rendimiento ni la autonomía del vehículo.\nPregunta: ¿Qué es la tecnología de carga rápida?",
+      "expected_keywords": [
+        "2 horas",
+        "6-8 horas"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.carga[2]",
+        "infraestructura_carga.ecocarga",
+        "preguntas_frecuentes.adquisicion[1]"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.carga[2]",
+        "infraestructura_carga.ecocarga",
+        "preguntas_frecuentes.adquisicion[1]"
+      ],
+      "unsupported_response_tokens": [
+        "bateria",
+        "cargar",
+        "completa",
+        "completamente",
+        "convencional",
+        "enchufe",
+        "entre",
+        "normalmente",
+        "nueva",
+        "significativamente",
+        "toma"
+      ]
+    },
+    {
+      "id": "instalacion_carga",
+      "category": "carga",
+      "question": "¿Necesito una instalación especial para cargar un vehículo?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "No, nuestros vehículos pueden cargarse desde un enchufe doméstico convencional de 220V. Para los modelos de mayor autonomía (300 km), se recomienda un tomacorriente de 20A.\nPregunta: ¿Necesito una instalación especial para cargar mi vehículo?\nNormalmente entre 7-8 horas para una carga completa en un enchufe convencional. Con la nueva tecnología de carga rápida, este tiempo se reduce significativamente a aproximadamente 2 horas.\nPregunta: ¿Cuánto tiempo toma cargar completamente la batería?",
+      "expected_keywords": [
+        "220v",
+        "20a"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.carga[0]",
+        "preguntas_frecuentes.vehiculos[1]",
+        "preguntas_frecuentes.carga[1]",
+        "preguntas_frecuentes.carga[2]"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.carga[0]",
+        "preguntas_frecuentes.vehiculos[1]",
+        "preguntas_frecuentes.carga[1]",
+        "preguntas_frecuentes.carga[2]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "reserva_entrega",
+      "category": "compra",
+      "question": "¿Cómo funciona la reserva y la entrega inmediata?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.8378,
+      "diagnosis": "sistema_ok",
+      "response": "proceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada\nreserva: USD 200 para reservar la unidad\nplazo confirmacion: 30 días para confirmar la compra con el 20% de anticipo\nEsta URL permite iniciar la reserva de un vehiculo https://movilidad.coradir.com.ar/reservas/\nPregunta: ¿Qué es eso de la entrega inmediata?",
+      "expected_keywords": [
+        "usd 200",
+        "72 horas"
+      ],
+      "retrieved_sources": [
+        "condiciones_compra_entrega.entrega_inmediata",
+        "preguntas_frecuentes.adquisicion[1]",
+        "condiciones_compra_entrega.reserva_pago_inicial"
+      ],
+      "matched_context_sources": [
+        "condiciones_compra_entrega.entrega_inmediata",
+        "preguntas_frecuentes.adquisicion[1]",
+        "condiciones_compra_entrega.reserva_pago_inicial"
+      ],
+      "unsupported_response_tokens": [
+        "https",
+        "iniciar",
+        "movilidad.coradir.com.ar",
+        "permite",
+        "reservas",
+        "url"
+      ]
+    },
+    {
+      "id": "telefono_ventas",
+      "category": "contacto",
+      "question": "¿Cuál es el teléfono de ventas de movilidad eléctrica?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.2667,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "(0266) 4305996 (Se usa para llamar al área de ventas de movilidad eléctrica)\n(0266) 5264805 (Se usa para llamar al área posventa y también se usa para servicio técnico y reclamos)\nPregunta: ¿Dónde puedo realizar el servicio técnico de mi vehículo o efectuar un reclamo?\nContamos con una amplia red de servicio técnico en todo el país. Para más información, puede contactar al (0266) 5264805",
+      "expected_keywords": [
+        "4305996",
+        "0266"
+      ],
+      "retrieved_sources": [
+        "contactos.telefono_movilidad_ventas",
+        "preguntas_frecuentes.general[0]",
+        "site_navigation.current_site"
+      ],
+      "matched_context_sources": [
+        "contactos.telefono_movilidad_ventas",
+        "preguntas_frecuentes.general[0]",
+        "site_navigation.current_site"
+      ],
+      "unsupported_response_tokens": [
+        "5264805",
+        "amplia",
+        "contactar",
+        "contamos",
+        "donde",
+        "efectuar",
+        "informacion",
+        "mas",
+        "mi",
+        "pais",
+        "posventa",
+        "puede",
+        "puedo",
+        "realizar",
+        "reclamo",
+        "reclamos",
+        "red",
+        "servicio",
+        "tambien",
+        "tecnico"
+      ]
+    },
+    {
+      "id": "empresa_que_es_coradir_movilidad",
+      "category": "empresa",
+      "question": "¿Qué es Coradir Movilidad Eléctrica?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nhttps://movilidad.coradir.com.ar/\nEsta URL permite iniciar la reserva de un vehiculo https://movilidad.coradir.com.ar/reservas/",
+      "expected_keywords": [
+        "CORADIR S.A.",
+        "2020"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.general[0]",
+        "sitios_web.movilidad_electrica",
+        "sitios_web.energias_renovables"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.general[0]",
+        "sitios_web.movilidad_electrica",
+        "sitios_web.movilidad_electrica_reservas",
+        "sitios_web.energias_renovables"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "empresa_donde_se_fabrican",
+      "category": "empresa",
+      "question": "¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Nuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nPregunta: ¿Dónde se fabrican los vehículos eléctricos de Coradir?\nPregunta: ¿Cuál es la autonomía de los vehículos eléctricos de Coradir?\nDependiendo del modelo, ofrecemos versiones con autonomía de 70 km hasta 300 km. La autonomía varía según el modelo y tipo de batería.",
+      "expected_keywords": [
+        "Argentina",
+        "Ruta 3 km 0.6",
+        "San Luis"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.vehiculos[0]",
+        "preguntas_frecuentes.adquisicion[0]",
+        "preguntas_frecuentes.general[0]"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.vehiculos[0]",
+        "preguntas_frecuentes.adquisicion[0]",
+        "preguntas_frecuentes.general[0]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "empresa_plantas_fabricacion",
+      "category": "empresa",
+      "question": "¿Qué plantas de fabricación tiene CORADIR?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: Planta San Luis; tipo: Casa Matriz; ubicacion: Ruta 3 km 0.6 (Sur), San Luis Capital (CP5700); capacidad: 5.000 m² de instalaciones\nnombre: Planta Buenos Aires; ubicacion: Uspallata 2853, Parque Patricios, CABA (CP1437); capacidad: 2.500 m² cubiertos",
+      "expected_keywords": [
+        "Planta San Luis",
+        "Planta Buenos Aires",
+        "Uspallata 2853"
+      ],
+      "retrieved_sources": [
+        "empresa.plantas_fabricacion",
+        "preguntas_frecuentes.general[0]",
+        "empresa.nombre",
+        "sitios_web.principal",
+        "contactos.telefono_general_empresa_coradir"
+      ],
+      "matched_context_sources": [
+        "empresa.plantas_fabricacion",
+        "preguntas_frecuentes.general[0]",
+        "empresa.nombre",
+        "sitios_web.principal",
+        "contactos.telefono_general_empresa_coradir"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "empresa_certificaciones_iso",
+      "category": "empresa",
+      "question": "¿Qué certificaciones ISO se mencionan en la historia de CORADIR?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.7368,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "descripcion: Obtención de la certificación ISO 9001, marcando su compromiso con la calidad\ndescripcion: Obtención de la certificación ISO 14001, destacando su compromiso con el medio ambiente\nDetectar si alguien ha movido el vehículo sin permiso\nCoradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.",
+      "expected_keywords": [
+        "ISO 9001",
+        "ISO 14001"
+      ],
+      "retrieved_sources": [
+        "aplicaciones_coradir.contactito_plus",
+        "empresa.historia",
+        "empresa.nombre",
+        "sitios_web.principal",
+        "contactos.telefono_general_empresa_coradir"
+      ],
+      "matched_context_sources": [
+        "aplicaciones_coradir.contactito_plus",
+        "empresa.historia",
+        "empresa.nombre",
+        "sitios_web.principal",
+        "contactos.telefono_general_empresa_coradir"
+      ],
+      "unsupported_response_tokens": [
+        "dedicamos",
+        "desde",
+        "division",
+        "electrica",
+        "fabricacion",
+        "innovacion",
+        "lider",
+        "movilidad",
+        "nos",
+        "tecnologica"
+      ]
+    },
+    {
+      "id": "empresa_valores",
+      "category": "empresa",
+      "question": "¿Qué valores destaca CORADIR para sus vehículos eléctricos?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.5938,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "Continuidad con el tiempo y no un producto de oportunidad\nServicio de reparaciones de la fábrica que lo produjo\nPrecio competitivo\nAtención especializada por la gente que desarrolló y testeó el producto\nNuestros vehículos se fabrican en Argentina, principalmente en nuestra planta de San Luis ubicada en Ruta 3 km 0.6 (Sur), San Luis Capital.\nPregunta: ¿Dónde se fabrican los vehículos eléctricos de Coradir?",
+      "expected_keywords": [
+        "precio competitivo",
+        "atención especializada"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.vehiculos[0]",
+        "site_navigation.main_menu",
+        "sitios_web.energias_renovables"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.vehiculos[0]",
+        "site_navigation.main_menu",
+        "sitios_web.energias_renovables"
+      ],
+      "unsupported_response_tokens": [
+        "atencion",
+        "competitivo",
+        "continuidad",
+        "desarrollo",
+        "especializada",
+        "fabrica",
+        "gente",
+        "oportunidad",
+        "producto",
+        "produjo",
+        "reparaciones",
+        "testeo",
+        "tiempo"
+      ]
+    },
+    {
+      "id": "movilidad_beneficios_generales",
+      "category": "movilidad",
+      "question": "¿Qué beneficios generales tiene la movilidad eléctrica de Coradir?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Económico: Relación 10 a 1 en gastos de movilidad\nCarga Fácil: Directo a conector de 220v domiciliario\nEcológico: Sin emisiones de CO2 ni gases de efecto invernadero\nRendimiento: Propulsor eléctrico de alta eficiencia\nSilencioso: Libre de ruido y vibración\nCoradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.",
+      "expected_keywords": [
+        "220v",
+        "silencioso",
+        "sin emisiones"
+      ],
+      "retrieved_sources": [
+        "movilidad_electrica.beneficios_generales",
+        "preguntas_frecuentes.general[0]",
+        "sitios_web.energias_renovables",
+        "preguntas_frecuentes.ambiental[0]"
+      ],
+      "matched_context_sources": [
+        "movilidad_electrica.beneficios_generales",
+        "preguntas_frecuentes.general[0]",
+        "sitios_web.energias_renovables",
+        "preguntas_frecuentes.ambiental[0]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "movilidad_relacion_gastos",
+      "category": "movilidad",
+      "question": "¿Qué relación de gastos de movilidad menciona Coradir?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Coradir Movilidad Eléctrica es una división de CORADIR S.A., empresa argentina líder en innovación tecnológica. Desde 2020, nos dedicamos al desarrollo y fabricación de vehículos eléctricos con tecnología argentina.\nPregunta: ¿Qué es Coradir Movilidad Eléctrica?\nEconómico: Relación 10 a 1 en gastos de movilidad\nautos@coradir.com.ar",
+      "expected_keywords": [
+        "10 a 1",
+        "movilidad"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.general[0]",
+        "movilidad_electrica.beneficios_generales",
+        "sitios_web.movilidad_electrica",
+        "sitios_web.principal",
+        "contactos.email_movilidad_ventas"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.general[0]",
+        "movilidad_electrica.beneficios_generales",
+        "sitios_web.movilidad_electrica",
+        "sitios_web.movilidad_electrica_reservas",
+        "sitios_web.principal",
+        "contactos.email_movilidad_ventas"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "app_contactito_funciones",
+      "category": "app",
+      "question": "¿Para qué sirve la app CONTACTITO?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Notificar cuando la batería alcanza el 100% de carga\ndescripcion: CONTACTITO es una app de notificaciones que te ayuda a mantenerte informado sobre cualquier actualización de tu TITO.\nfuncionalidades: Supervisar el nivel de carga mientras el TITO se está cargando; Notificar cuando la batería está por debajo del 10%; Notificar cuando la batería alcanza el 100% de carga; Facilitar información importante sobre el estado del vehículo\nfuncion principal: Advertir el estado de la batería del vehículo\nNotificar cuando la batería está por debajo del 10%\ngoogle play: https://play.google.com/store/apps/details?id=com.coradir.contactito",
+      "expected_keywords": [
+        "batería",
+        "10%",
+        "100%"
+      ],
+      "retrieved_sources": [
+        "aplicaciones_coradir.contactito_app",
+        "aplicaciones_coradir.contactito_plus",
+        "contactos.telefono_movilidad_posventa"
+      ],
+      "matched_context_sources": [
+        "aplicaciones_coradir.contactito_app",
+        "aplicaciones_coradir.contactito_plus",
+        "contactos.telefono_movilidad_posventa"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "app_contactito_plus",
+      "category": "app",
+      "question": "¿Qué agrega CONTACTITO Plus?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "descripcion: Versión premium de CONTACTITO con funcionalidad de geolocalización\nfuncionalidad geolocalizacion: descripcion: Permite verificar el estado de la batería y saber exactamente dónde se encuentra el vehículo en todo momento; beneficios:; No preocuparse por no saber dónde se estacionó el vehículo; Detectar si alguien ha movido el vehículo sin permiso; Historial completo de ubicación del vehículo; Mayor tranquilidad y seguridad\nmodalidad pago: opciones:; Mensual; Trimestral; Semestral; Anual; flexibilidad: El usuario puede elegir según sus necesidades y presupuesto\ndescripcion: Permite verificar el estado de la batería y saber exactamente dónde se encuentra el vehículo en todo momento\nHistorial completo de ubicación del vehículo; Mayor tranquilidad y seguridad; modalidad pago:; opciones:; Mensual; Trimestral; Semestral; Anual; flexibilidad: El usuario puede elegir según sus necesidades y presupuesto; valor agregado: Experiencia de conducción más segura y conveniente\nbeneficios: No preocuparse por no saber dónde se estacionó el vehículo; Detectar si alguien ha movido el vehículo sin permiso; Historial completo de ubicación del vehículo; Mayor tranquilidad y seguridad",
+      "expected_keywords": [
+        "geolocalización",
+        "historial",
+        "ubicación"
+      ],
+      "retrieved_sources": [
+        "aplicaciones_coradir.contactito_plus",
+        "aplicaciones_coradir.contactito_app",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "matched_context_sources": [
+        "aplicaciones_coradir.contactito_plus",
+        "aplicaciones_coradir.contactito_app",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "web_reservas",
+      "category": "sitios_web",
+      "question": "¿Cuál es la URL para iniciar la reserva de un vehículo?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.4286,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "Esta URL permite iniciar la reserva de un vehiculo https://movilidad.coradir.com.ar/reservas/\nreserva: USD 200 para reservar la unidad\nplazo confirmacion: 30 días para confirmar la compra con el 20% de anticipo\nurl: https://movilidad.coradir.com.ar/agencias/",
+      "expected_keywords": [
+        "movilidad.coradir.com.ar/reservas"
+      ],
+      "retrieved_sources": [
+        "sitios_web.movilidad_electrica_reservas",
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.mantenimiento[1]",
+        "preguntas_frecuentes.adquisicion[0]"
+      ],
+      "matched_context_sources": [
+        "sitios_web.movilidad_electrica",
+        "sitios_web.movilidad_electrica_reservas",
+        "preguntas_frecuentes.general[1]",
+        "preguntas_frecuentes.mantenimiento[1]",
+        "preguntas_frecuentes.adquisicion[0]"
+      ],
+      "unsupported_response_tokens": [
+        "20",
+        "200",
+        "30",
+        "anticipo",
+        "compra",
+        "confirmacion",
+        "confirmar",
+        "dias",
+        "plazo",
+        "reservar",
+        "unidad",
+        "usd"
+      ]
+    },
+    {
+      "id": "modelos_discontinuados",
+      "category": "vehiculos",
+      "question": "¿Qué pasó con los modelos de 100 km y el CHIKI-G?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "modelos discontinuados: TITO S2 100 (sin AA); TITO S2 100 AA; TITO S5 100 (sin AA); TITO S5 100 AA; TITA 4P 100 (sin AA); TITA 4P 100 AA; CHIKI G; modelos de 100km discontinuados; CHIKI-G\nTITO S2 100 (sin AA)\nTITO S2 100 AA\nTITO S5 100 (sin AA)\nTITO S5 100 AA\nTITA 4P 100 (sin AA)",
+      "expected_keywords": [
+        "100km",
+        "discontinuados",
+        "CHIKI-G"
+      ],
+      "retrieved_sources": [
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.CHIKI",
+        "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "matched_context_sources": [
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.CHIKI",
+        "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_s2_modelos_disponibles",
+      "category": "vehiculos",
+      "question": "¿Qué versiones están disponibles del TITO S2?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: TITO S2-300\nTITO S2-300:\nTITO S2-300 AA:\nversiones disponibles:",
+      "expected_keywords": [
+        "TITO S2-300",
+        "TITO S2-300 AA"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITA S2"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITA S2"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_s5_modelos_disponibles",
+      "category": "vehiculos",
+      "question": "¿Qué versiones están disponibles del TITO S5?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: TITO S5-300\nTITO S5-300:\nTITO S5-300 AA:\nversiones disponibles:",
+      "expected_keywords": [
+        "TITO S5-300",
+        "TITO S5-300 AA"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_s2_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S2-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 15.972,50\nprecio: USD 15.972,50\nprecio: USD 16.722,50\nTITO S2-300:",
+      "expected_keywords": [
+        "15.972,50",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_s2_300_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S2-300 AA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 15.972,50\nprecio: USD 16.722,50\nprecio: USD 15.972,50\nprecio: USD 16.722,50",
+      "expected_keywords": [
+        "16.722,50",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_s5_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del TITO S5-300 sin aire acondicionado?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 16.981,25\nprecio: USD 16.981,25\nprecio: USD 17.731,25\nTITO S5-300:",
+      "expected_keywords": [
+        "16.981,25",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S5",
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_capacidad_autonomia",
+      "category": "vehiculos",
+      "question": "¿Cuántas personas lleva un TITO y qué autonomía tienen las versiones actuales?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "capacidad: 4 personas\nnombre: TITO S2-300\nnombre: TITO S5-300\nautonomía: 300 Km",
+      "expected_keywords": [
+        "4 personas",
+        "300 Km"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "todos_los_vehiculos_disponibles.TITO S5"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S5"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene el TITO?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "potencia nominal: 4.5 KW\nvelocidad maxima: 65 km/h\nnombre: TITO S2-300\nnombre: TITO S5-300\nsistema potencia:\nbateria: Litio LFP 21kwh 2000 ciclos",
+      "expected_keywords": [
+        "65 km/h",
+        "4.5 KW"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tito_colores",
+      "category": "vehiculos",
+      "question": "¿Qué colores se ofrecen para el TITO?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "colores disponibles: Rosa; Blanco; Amarillo; Celeste; Naranja; Verde; Negro; Rosa Bicolor (carrocería rosa, techo negro); Blanco Bicolor (carrocería blanca, techo negro); Amarillo Bicolor (carrocería amarilla, techo negro); Celeste Bicolor (carrocería celeste, techo negro); Naranja Bicolor (carrocería naranja, techo negro); Verde Bicolor (carrocería verde, techo negro)",
+      "expected_keywords": [
+        "Rosa",
+        "Verde",
+        "Bicolor"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITO",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_300_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA S2-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 16.981,25\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nprecio: USD 16.981,25",
+      "expected_keywords": [
+        "16.981,25",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITA S2"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_300_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA S2-300 AA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 16.981,25\nprecio: USD 17.731,25\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD",
+      "expected_keywords": [
+        "17.731,25",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITA S2"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_furgon_precio",
+      "category": "precios",
+      "question": "¿Cuánto cuesta la TITA S2 300 AA con Furgón?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.9,
+      "diagnosis": "sistema_ok",
+      "response": "aclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\ndescripcion: TITA S2 300 AA + accesorio furgón\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nautonomía: 300 Km",
+      "expected_keywords": [
+        "20.632,00",
+        "2.900",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado",
+        "Precios_Vehiculos_Actualizados.TITA S2"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+      ],
+      "unsupported_response_tokens": [
+        "autonomia",
+        "km"
+      ]
+    },
+    {
+      "id": "tita_s2_dimensiones",
+      "category": "vehiculos",
+      "question": "¿Cuáles son las dimensiones de la TITA S2-300 y de su caja?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "dimensiones caja: 2000x1310x350 mm\nnombre: TITA S2-300 (también conocida como TITA 300)\ndimensiones: 3750x1370x1720 mm\nTITA S2-300:\nTITA S2-300 AA:\nTITA S2-300 con Furgón:",
+      "expected_keywords": [
+        "3750x1370x1720",
+        "2000x1310x350"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITO S2"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S2"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA S2-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: TITA S2-300 (también conocida como TITA 300)\npotencia nominal: 4 KW\nvelocidad maxima: 45 km/h\nsistema potencia:\nbateria: Litio LFP 21kwh 2000 ciclos\nTITA S2-300:",
+      "expected_keywords": [
+        "45 km/h",
+        "4 KW"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "todos_los_vehiculos_disponibles.TITO S2"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "todos_los_vehiculos_disponibles.TITO S2"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_accesorios",
+      "category": "vehiculos",
+      "question": "¿Qué accesorios están disponibles para la TITA S2-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "accesorio: Furgón refrigerado\ndescripcion accesorio: Accesorio que convierte la pickup en furgón cerrado con sistema de refrigeración\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\naccesorios disponibles: furgon:; nombre: Furgón; descripcion: Accesorio que convierte la pickup TITA en furgón cerrado para mayor protección de la carga; compatible con: TITA S2-300; furgon refrigerado:; nombre: Furgón Refrigerado; descripcion: Accesorio que convierte la pickup TITA en furgón cerrado con sistema de refrigeración, ideal para transporte de productos que requieren cadena de frío; compatible con: TITA S2-300\nTITA S2-300 con Furgón Refrigerado:\naccesorio: Furgón refrigerado",
+      "expected_keywords": [
+        "Furgón",
+        "Furgón Refrigerado"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITA S2"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_s2_color",
+      "category": "vehiculos",
+      "question": "¿Qué color está disponible para la TITA S2-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "colores disponibles: Blanco",
+      "expected_keywords": [
+        "Blanco"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA S2 300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 AA",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón",
+        "vehiculos_detalles.TITA S2 300.versiones_disponibles.TITA S2-300 con Furgón Refrigerado",
+        "todos_los_vehiculos_disponibles.TITA S2",
+        "todos_los_vehiculos_disponibles.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_4p_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA 4P-300?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 17.981,25\nprecio: USD 17.981,25\nprecio: USD 18.731,25\nTITA 4P-300:",
+      "expected_keywords": [
+        "17.981,25",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "vehiculos_detalles.TITA 4P Cuadrilla"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "vehiculos_detalles.TITA 4P Cuadrilla",
+        "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300",
+        "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_4p_aa_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la TITA 4P-300 AA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "precio: USD 17.981,25\nprecio: USD 18.731,25\nprecio: USD 17.981,25\nprecio: USD 18.731,25",
+      "expected_keywords": [
+        "18.731,25",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITO S5"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITO S5",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300",
+        "Precios_Vehiculos_Actualizados.TITO S5.TITO S5-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_4p_capacidades",
+      "category": "vehiculos",
+      "question": "¿Qué capacidad de pasajeros, carga y caja tiene la TITA 4P Cuadrilla?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "capacidad carga: 350kg\ncapacidad caja: 250kg\ncapacidad: 4 personas\ncarga: Enchufe 220V 50hz - Ficha 2073",
+      "expected_keywords": [
+        "4 personas",
+        "350kg",
+        "250kg"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA 4P Cuadrilla",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA 4P Cuadrilla",
+        "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300",
+        "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "tita_4p_velocidad_potencia",
+      "category": "vehiculos",
+      "question": "¿Qué velocidad máxima y potencia nominal tiene la TITA 4P Cuadrilla?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "potencia nominal: 4Kw\nvelocidad maxima: 50 Km/h\nnombre: TITA 4P-300 Cuadrilla\nsistema potencia:\nbateria: Litio LFP 21kwh 2000 ciclos\nTITA 4P-300:",
+      "expected_keywords": [
+        "50 Km/h",
+        "4Kw"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.TITA 4P Cuadrilla",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.TITA 4P Cuadrilla",
+        "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300",
+        "vehiculos_detalles.TITA 4P Cuadrilla.versiones_disponibles.TITA 4P-300 AA",
+        "todos_los_vehiculos_disponibles.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "barre_tita_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio de la BARRE-TITA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.4211,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "precio: USD 29.990,00\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nprecio: USD 16.981,25",
+      "expected_keywords": [
+        "29.990,00",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "condiciones_compra_entrega.aclaracion_entrega",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "condiciones_compra_entrega.aclaracion_entrega",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300",
+        "Precios_Vehiculos_Actualizados.TITA 4P Cuadrilla.TITA 4P-300 AA"
+      ],
+      "unsupported_response_tokens": [
+        "16.981.25",
+        "17.731.25",
+        "2.900",
+        "20.632.00",
+        "23.632.00",
+        "5.900",
+        "accesorio",
+        "cuesta",
+        "obtiene",
+        "s2",
+        "sumar"
+      ]
+    },
+    {
+      "id": "barre_tita_dimensiones_peso",
+      "category": "vehiculos",
+      "question": "¿Qué dimensiones, ancho de limpieza y peso neto tiene la BARRE-TITA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.6111,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "peso neto: 900 KG\ndimensiones: 1950x1900x1900mm\nancho limpieza: 1900 mm\ndimensiones caja: 2000x1310x350 mm\ndimensiones: 3750x1370x1720 mm\nnombre: TITA S2-300 (también conocida como TITA 300)",
+      "expected_keywords": [
+        "1950x1900x1900mm",
+        "1900 mm",
+        "900 KG"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "condiciones_compra_entrega.aclaracion_entrega"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "condiciones_compra_entrega.aclaracion_entrega"
+      ],
+      "unsupported_response_tokens": [
+        "2000x1310x350",
+        "300",
+        "3750x1370x1720",
+        "caja",
+        "conocida",
+        "s2",
+        "tambien"
+      ]
+    },
+    {
+      "id": "barre_tita_autonomia_bateria",
+      "category": "vehiculos",
+      "question": "¿Qué autonomía y batería tiene la BARRE-TITA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.875,
+      "diagnosis": "sistema_ok",
+      "response": "bateria: Litio 7,2 Kwh\nautonomia: 4-6 horas\nbateria: Litio LFP 21kwh 2000 ciclos\nnombre: TITA S2-300 (también conocida como TITA 300)\nautonomía: 300 Km\nbateria: Litio LFP 21kwh 2000 ciclos",
+      "expected_keywords": [
+        "4-6 horas",
+        "Litio 7,2 Kwh"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES",
+        "vehiculos_detalles.TITO"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.NOTAS_IMPORTANTES",
+        "vehiculos_detalles.TITO",
+        "vehiculos_detalles.TITO.modelos_disponibles[0]",
+        "vehiculos_detalles.TITO.modelos_disponibles[1]"
+      ],
+      "unsupported_response_tokens": [
+        "conocida",
+        "tambien"
+      ]
+    },
+    {
+      "id": "barre_tita_accesorios",
+      "category": "vehiculos",
+      "question": "¿Qué incluye el kit de accesorios de la BARRE-TITA?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.6154,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "kit accesorios: Hidrolavadora, cañon rociador, lanza y pistola de hidrolavadora\naccesorio: Furgón refrigerado\ndescripcion accesorio: Accesorio que convierte la pickup en furgón cerrado con sistema de refrigeración\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\naccesorios disponibles: furgon:; nombre: Furgón; descripcion: Accesorio que convierte la pickup TITA en furgón cerrado para mayor protección de la carga; compatible con: TITA S2-300; furgon refrigerado:; nombre: Furgón Refrigerado; descripcion: Accesorio que convierte la pickup TITA en furgón cerrado con sistema de refrigeración, ideal para transporte de productos que requieren cadena de frío; compatible con: TITA S2-300\naccesorio: Furgón refrigerado",
+      "expected_keywords": [
+        "Hidrolavadora",
+        "cañon rociador",
+        "lanza"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "condiciones_compra_entrega.aclaracion_entrega",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.BARRE-TITA",
+        "todos_los_vehiculos_disponibles.BARRE-TITA",
+        "condiciones_compra_entrega.aclaracion_entrega",
+        "Precios_Vehiculos_Actualizados.TITA S2",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2-300 AA",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón",
+        "Precios_Vehiculos_Actualizados.TITA S2.TITA S2 300 AA con Furgón Refrigerado"
+      ],
+      "unsupported_response_tokens": [
+        "cadena",
+        "carga",
+        "cerrado",
+        "compatible",
+        "convierte",
+        "frio",
+        "ideal",
+        "mayor",
+        "pickup",
+        "productos",
+        "proteccion",
+        "refrigeracion",
+        "requieren",
+        "sistema",
+        "transporte"
+      ]
+    },
+    {
+      "id": "chiki_precio",
+      "category": "precios",
+      "question": "¿Cuál es el precio del CHIKI-L de litio?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.2778,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "precio: USD 9.900,00\nprecio: USD 9.900,00\nnombre: CHIKI-L (110KM) LITIO\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD",
+      "expected_keywords": [
+        "9.900,00",
+        "usd"
+      ],
+      "retrieved_sources": [
+        "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+        "Precios_Vehiculos_Actualizados.CHIKI",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.CHIKI"
+      ],
+      "matched_context_sources": [
+        "Precios_Vehiculos_Actualizados.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.CHIKI"
+      ],
+      "unsupported_response_tokens": [
+        "17.731.25",
+        "2.900",
+        "20.632.00",
+        "300",
+        "aa",
+        "accesorio",
+        "aclaracion",
+        "cuesta",
+        "furgon",
+        "obtiene",
+        "s2",
+        "sumar",
+        "tita"
+      ]
+    },
+    {
+      "id": "chiki_capacidad_puertas",
+      "category": "vehiculos",
+      "question": "¿Cuántas puertas y qué capacidad tiene el CHIKI-L?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "capacidad: 1 persona\nnombre: CHIKI-L (110KM) LITIO\ncarga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 7hs / admite cargas parciales",
+      "expected_keywords": [
+        "2",
+        "1 persona"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.CHIKI",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.CHIKI",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "chiki_bateria_ciclos",
+      "category": "vehiculos",
+      "question": "¿Qué batería y ciclos tiene el CHIKI-L?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.9167,
+      "diagnosis": "sistema_ok",
+      "response": "bateria: Litio NCM 4,5 KWh - 2000 ciclos\ndescripcion: Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.\nnombre: CHIKI-L (110KM) LITIO\nCHIKI-L (110KM) LITIO\nCHIKI-L (110KM) LITIO:\nbateria: Litio LFP 21kwh 2000 ciclos",
+      "expected_keywords": [
+        "Litio NCM 4,5 KWh",
+        "2000 ciclos"
+      ],
+      "retrieved_sources": [
+        "vehiculos_detalles.CHIKI",
+        "preguntas_frecuentes.vehiculos[1]",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "matched_context_sources": [
+        "vehiculos_detalles.CHIKI",
+        "preguntas_frecuentes.vehiculos[1]",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "vehiculos_detalles.ACLARACION_IMPORTANTE"
+      ],
+      "unsupported_response_tokens": [
+        "21kwh",
+        "lfp"
+      ]
+    },
+    {
+      "id": "chiki_tiempo_carga",
+      "category": "vehiculos",
+      "question": "¿Cuánto tarda en cargar el CHIKI-L y desde qué enchufe carga?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "carga: Enchufe 220V 50hz - Ficha 2073\ntiempo carga: 7hs / admite cargas parciales\nnombre: CHIKI-L (110KM) LITIO\nsistema cargado inteligente: Si",
+      "expected_keywords": [
+        "7hs",
+        "220V"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.carga[0]",
+        "preguntas_frecuentes.vehiculos[1]",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI",
+        "vehiculos_detalles.CHIKI"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.carga[0]",
+        "preguntas_frecuentes.vehiculos[1]",
+        "todos_los_vehiculos_disponibles.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI",
+        "Precios_Vehiculos_Actualizados.CHIKI.CHIKI-L (110KM) LITIO",
+        "vehiculos_detalles.CHIKI"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "reserva_anticipo",
+      "category": "compra",
+      "question": "¿Cuál es la reserva inicial y el anticipo para confirmar la compra?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "reserva: USD 200 para reservar la unidad\nplazo confirmacion: 30 días para confirmar la compra con el 20% de anticipo\nproceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada",
+      "expected_keywords": [
+        "USD 200",
+        "30 días",
+        "20%"
+      ],
+      "retrieved_sources": [
+        "condiciones_compra_entrega.reserva_pago_inicial",
+        "condiciones_compra_entrega.entrega_inmediata",
+        "preguntas_frecuentes.adquisicion[1]"
+      ],
+      "matched_context_sources": [
+        "condiciones_compra_entrega.reserva_pago_inicial",
+        "condiciones_compra_entrega.entrega_inmediata",
+        "preguntas_frecuentes.adquisicion[1]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "entrega_inmediata_plazo",
+      "category": "compra",
+      "question": "¿Cuánto tiempo queda asignada la unidad en entrega inmediata?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "proceso: Una vez realizada la reserva de USD 200, se asigna una unidad por 72 horas\nplazo pago: Dentro de las 72 horas se debe saldar la unidad, caso contrario la unidad será liberada\nEsta modalidad básicamente consiste en que el cliente puede comprar un vehículo y llevarlo al instante, sin necesidad de esperar la fabricación del mismo.\nPregunta: ¿Qué es eso de la entrega inmediata?",
+      "expected_keywords": [
+        "72 horas",
+        "saldar"
+      ],
+      "retrieved_sources": [
+        "condiciones_compra_entrega.entrega_inmediata",
+        "preguntas_frecuentes.adquisicion[1]",
+        "condiciones_compra_entrega.plazos_entrega"
+      ],
+      "matched_context_sources": [
+        "condiciones_compra_entrega.entrega_inmediata",
+        "preguntas_frecuentes.adquisicion[1]",
+        "condiciones_compra_entrega.plazos_entrega"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "costos_no_incluidos",
+      "category": "compra",
+      "question": "¿Qué costos no están incluidos en el precio final?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.7297,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "costos adicionales: Los costos de patentamiento y flete NO están incluidos en el precio final y deben abonarse cuando la unidad esté lista\nplazo standard: 30 días posteriores a completar los trámites de patentamiento\naclaración: El precio 20.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón que cuesta 2.900 USD\naclaración: El precio 23.632,00 se obtiene de sumar a 17.731,25 USD (precio de TITA S2 300 AA) el accesorio furgón refrigerado que cuesta 5.900 USD\nprecio: USD 16.981,25\nprecio: USD 17.731,25",
+      "expected_keywords": [
+        "patentamiento",
+        "flete",
+        "NO están incluidos"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.ambiental[1]",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "condiciones_compra_entrega.servicio_entrega",
+        "condiciones_compra_entrega.plazos_entrega",
+        "condiciones_compra_entrega.aclaracion_entrega"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.ambiental[1]",
+        "Precios_Vehiculos_Actualizados.TITO S2",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300",
+        "Precios_Vehiculos_Actualizados.TITO S2.TITO S2-300 AA",
+        "condiciones_compra_entrega.servicio_entrega",
+        "condiciones_compra_entrega.plazos_entrega",
+        "condiciones_compra_entrega.aclaracion_entrega"
+      ],
+      "unsupported_response_tokens": [
+        "16.981.25",
+        "17.731.25",
+        "2.900",
+        "20.632.00",
+        "23.632.00",
+        "5.900",
+        "accesorio",
+        "cuesta",
+        "obtiene",
+        "sumar"
+      ]
+    },
+    {
+      "id": "tipo_cambio_bna",
+      "category": "compra",
+      "question": "¿Qué tipo de cambio se usa para los pagos en pesos?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.9024,
+      "diagnosis": "sistema_ok",
+      "response": "peso neto: 900 KG\nEntrega de acuerdo a disponibilidad. El valor del dólar es el BNA tipo vendedor del día del efectivo pago. Los precios incluyen todos los impuestos, entre estos el IVA (TITO y CHIKI 21% - TITA, TITA Cuadrilla, TITA con Furgón, TITA con Furgón Refrigerado y BARRE-TITA 10,5%). No incluyen fletes, ni patentamiento, ni seguros.\nforma pago: Pagos en pesos a cambio oficial del cierre anterior al día del efectivo pago",
+      "expected_keywords": [
+        "BNA",
+        "tipo vendedor",
+        "efectivo pago"
+      ],
+      "retrieved_sources": [
+        "condiciones_compra_entrega.reserva_pago_inicial",
+        "preguntas_frecuentes.vehiculos[0]",
+        "condiciones_compra_entrega.aclaracion_entrega",
+        "condiciones_compra_entrega.entrega_inmediata"
+      ],
+      "matched_context_sources": [
+        "condiciones_compra_entrega.reserva_pago_inicial",
+        "preguntas_frecuentes.vehiculos[0]",
+        "condiciones_compra_entrega.aclaracion_entrega",
+        "condiciones_compra_entrega.entrega_inmediata"
+      ],
+      "unsupported_response_tokens": [
+        "900",
+        "kg",
+        "neto",
+        "peso"
+      ]
+    },
+    {
+      "id": "cargas_parciales",
+      "category": "carga",
+      "question": "¿Puedo hacer cargas parciales o tengo que esperar a que se agote la batería?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.4186,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "Sí, todos nuestros vehículos admiten cargas parciales. No es necesario esperar a que la batería se agote completamente para recargarla.\nPregunta: ¿Puedo realizar cargas parciales?\nbateria: Litio NCM 4,5 KWh - 2000 ciclos\ntiempo carga: 7hs / admite cargas parciales\ndescripcion: Versión con batería de litio del CHIKI, ofreciendo mayor autonomía y ciclos de vida, ideal para desplazamientos urbanos. NOTA: CHIKI-G ha sido discontinuado.\ncarga: Enchufe 220V 50hz - Ficha 2073",
+      "expected_keywords": [
+        "cargas parciales",
+        "no es necesario"
+      ],
+      "retrieved_sources": [
+        "preguntas_frecuentes.carga[1]",
+        "preguntas_frecuentes.vehiculos[1]",
+        "movilidad_electrica.caracteristicas_vehiculos"
+      ],
+      "matched_context_sources": [
+        "preguntas_frecuentes.carga[1]",
+        "preguntas_frecuentes.vehiculos[1]",
+        "movilidad_electrica.caracteristicas_vehiculos"
+      ],
+      "unsupported_response_tokens": [
+        "2000",
+        "2073",
+        "220v",
+        "4.5",
+        "50hz",
+        "7hs",
+        "autonomia",
+        "chiki",
+        "ciclos",
+        "descripcion",
+        "desplazamientos",
+        "discontinuado",
+        "ficha",
+        "ha",
+        "ideal",
+        "kwh",
+        "litio",
+        "mayor",
+        "ncm",
+        "nota"
+      ]
+    },
+    {
+      "id": "ecocarga_negocios",
+      "category": "carga",
+      "question": "¿Qué ventajas tiene instalar puntos de carga para un negocio?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "Reducción de tiempo: De 6-8 horas a solo 2 horas de carga\nventajas negocio: Atrae nuevos clientes: Conductores de vehículos CORADIR; Mejora imagen del negocio: Posicionamiento como empresa innovadora y comprometida; Costo mínimo: Instalación gratuita o con costo mínimo; Reconocimiento local: Beneficio a la comunidad; Alianzas estratégicas: Posibles asociaciones con fabricantes o servicios públicos; Liderazgo en innovación: Posicionamiento como líder en el sector; Incentivos gubernamentales: Posibles beneficios fiscales; Ingresos adicionales: Posibilidad de establecer tarifas por uso\npuntos carga:\ndescripcion: CORADIR se complace en anunciar dos importantes avances que transformarán la experiencia de movilidad eléctrica en Argentina: expansión de infraestructura de carga y tecnología de carga rápida.",
+      "expected_keywords": [
+        "Atrae nuevos clientes",
+        "Instalación gratuita",
+        "Ingresos adicionales"
+      ],
+      "retrieved_sources": [
+        "infraestructura_carga.ecocarga",
+        "preguntas_frecuentes.vehiculos[1]",
+        "preguntas_frecuentes.carga[2]",
+        "preguntas_frecuentes.carga[0]"
+      ],
+      "matched_context_sources": [
+        "infraestructura_carga.ecocarga",
+        "preguntas_frecuentes.vehiculos[1]",
+        "preguntas_frecuentes.carga[2]",
+        "preguntas_frecuentes.carga[0]"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "agencia_buenos_aires_moreno",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Moreno, Buenos Aires?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: CHIAMO MOTORS SRL / Barbalace; ciudad: MORENO; direccion: Av. Colectora Acceso Oeste Sur 12.802 (km 42.5)\nnombre: AUTOMOTORES BERGAMO; ciudad: TRES ARROYOS; direccion: Av. Moreno Nº 624\nnombre: Car Max; ciudad: 9 DE JULIO; direccion: Av. Vedia 712, 9 De Julio, Provincia De Buenos Aires\nnombre: EIA- Tresa; ciudad: BERAZATEGUI; direccion: Av. Mitre 866, Berazategui, Provincia De Buenos Aires",
+      "expected_keywords": [
+        "CHIAMO MOTORS",
+        "Acceso Oeste Sur 12.802"
+      ],
+      "retrieved_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+        "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+        "distribucion.agencias_oficiales_por_provincia.Chubut",
+        "distribucion.agencias_oficiales_por_provincia.La Pampa"
+      ],
+      "matched_context_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+        "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+        "distribucion.agencias_oficiales_por_provincia.Chubut",
+        "distribucion.agencias_oficiales_por_provincia.La Pampa"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "agencia_rosario_volts",
+      "category": "agencias",
+      "question": "¿Hay una agencia VOLTS en Rosario y cuál es su dirección?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: Maquinarias Pyramiz SRL; ciudad: ROSARIO; direccion: Ruta 9 (autopista Buenos Aires-rosario) Km 280.5 (2126)\nnombre: Martelli Hnos S.R.L; ciudad: ROSARIO; direccion: Av Candido Carballo 171\nnombre: VOLTS; ciudad: ROSARIO; direccion: Ovidio Lagos 895 - Rosario - Santa Fe\nnombre: WAPA S.A.; ciudad: ROSARIO; direccion: Av. Eva Perón 7605, Rosario, Santa Fe",
+      "expected_keywords": [
+        "VOLTS",
+        "Ovidio Lagos 895"
+      ],
+      "retrieved_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+        "contactos.telefono_movilidad_ventas",
+        "site_navigation.special_actions_quiero_ser_agencia"
+      ],
+      "matched_context_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Santa Fe",
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+        "contactos.telefono_movilidad_ventas",
+        "site_navigation.special_actions_quiero_ser_agencia"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "agencia_cordoba_signature",
+      "category": "agencias",
+      "question": "¿Qué dirección tiene SIGNATURE S.A. en Córdoba?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: SIGNATURE S.A.; ciudad: CORDOBA; direccion: Av. Colon 4875\nnombre: SIGNATURE S.A.\nnombre: Franchi Automotores; ciudad: JESUS MARIA; direccion: Pedro J. Frías 35, Jesús María, Córdoba\nnombre: DEVENIR GROUP S.A.S; ciudad: MARCOS JUAREZ; direccion: 9 De Julio 262-centro- Marcos Juarez\nnombre: Publicos, vivienda y credito TIO PUJIO LTDA; ciudad: TIO PUJIO; direccion: Juan Domingo Peron 386 Esq. Eva Duarte\nnombre: Virglinio Automotores; ciudad: ONCATIVO; direccion: Av. Del Libertador 126",
+      "expected_keywords": [
+        "SIGNATURE",
+        "Av. Colon 4875"
+      ],
+      "retrieved_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Cordoba",
+        "contactos.direccion",
+        "distribucion.agencias_oficiales_por_provincia.Entre Rios",
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+      ],
+      "matched_context_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Cordoba",
+        "contactos.direccion",
+        "distribucion.agencias_oficiales_por_provincia.Entre Rios",
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires"
+      ],
+      "unsupported_response_tokens": []
+    },
+    {
+      "id": "agencia_mendoza_valentino",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Godoy Cruz, Mendoza?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 0.6364,
+      "diagnosis": "posible_alucinacion_o_contexto_no_trazado",
+      "response": "nombre: Valentino Motos S.A.S; ciudad: GODOY CRUZ; direccion: San Martin Sur 1055\nnombre: MATIAS JAVIER LEONETTI; ciudad: RIO GALLEGOS; direccion: Pellegrini 54, Río Gallegos, Santa Cruz\nnombre: Car Max; ciudad: 9 DE JULIO; direccion: Av. Vedia 712, 9 De Julio, Provincia De Buenos Aires\nnombre: EIA- Tresa; ciudad: BERAZATEGUI; direccion: Av. Mitre 866, Berazategui, Provincia De Buenos Aires",
+      "expected_keywords": [
+        "Valentino Motos",
+        "San Martin Sur 1055"
+      ],
+      "retrieved_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Mendoza",
+        "distribucion.agencias_oficiales_por_provincia.Santa Cruz",
+        "distribucion.agencias_oficiales_por_provincia.Cordoba",
+        "distribucion.agencias_oficiales_por_provincia.La Pampa"
+      ],
+      "matched_context_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Mendoza",
+        "distribucion.agencias_oficiales_por_provincia.Santa Cruz",
+        "distribucion.agencias_oficiales_por_provincia.Cordoba",
+        "distribucion.agencias_oficiales_por_provincia.La Pampa"
+      ],
+      "unsupported_response_tokens": [
+        "712",
+        "866",
+        "aires",
+        "berazategui",
+        "buenos",
+        "car",
+        "eia",
+        "max",
+        "mitre",
+        "provincia",
+        "tresa",
+        "vedia"
+      ]
+    },
+    {
+      "id": "agencia_neuquen_sur_car",
+      "category": "agencias",
+      "question": "¿Qué agencia figura en Neuquén?",
+      "passed_keyword_check": true,
+      "token_overlap": 1.0,
+      "context_faithfulness": 1.0,
+      "diagnosis": "sistema_ok",
+      "response": "nombre: Sur Car S.A.; ciudad: NEUQUEN; direccion: Perticone 1197\nnombre: Car Max; ciudad: 9 DE JULIO; direccion: Av. Vedia 712, 9 De Julio, Provincia De Buenos Aires\nnombre: EIA- Tresa; ciudad: BERAZATEGUI; direccion: Av. Mitre 866, Berazategui, Provincia De Buenos Aires\nnombre: CHIAMO MOTORS SRL / Barbalace; ciudad: MORENO; direccion: Av. Colectora Acceso Oeste Sur 12.802 (km 42.5)",
+      "expected_keywords": [
+        "Sur Car",
+        "Perticone 1197"
+      ],
+      "retrieved_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Neuquen",
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+        "site_navigation.special_actions_quiero_ser_agencia",
+        "distribucion.agencias_oficiales_por_provincia.La Pampa"
+      ],
+      "matched_context_sources": [
+        "distribucion.agencias_oficiales_por_provincia.Neuquen",
+        "distribucion.agencias_oficiales_por_provincia.Buenos Aires",
+        "site_navigation.special_actions_quiero_ser_agencia",
+        "distribucion.agencias_oficiales_por_provincia.La Pampa"
+      ],
+      "unsupported_response_tokens": []
+    }
+  ]
+}
