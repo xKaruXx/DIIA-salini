@@ -18,21 +18,42 @@ pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Descarga los modelos que usa el MVP:
+Descarga los modelos que usa el MVP. Si usas el lanzador `scripts\start_presentation_demo.ps1`, esto se hace automaticamente para el modelo configurado en `.env` y para el embedding principal.
 
 ```powershell
-ollama pull qwen3.5:0.8b
+ollama pull qwen3.5:4b
 ollama pull nomic-embed-text
 ```
 
-Para comparar modelos en vivo desde la presentacion, descarga tambien los candidatos que quieras mostrar:
+Para comparar modelos en vivo desde la presentacion, la forma mas simple es dejar que el lanzador descargue los modelos de prueba que falten:
 
 ```powershell
+powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1 -PullComparisonModels
+```
+
+Ese comando incluye los modelos de chat usados para la matriz de prueba:
+
+```powershell
+ollama pull gemma3:270m
 ollama pull granite4:350m
 ollama pull lfm2.5-thinking:1.2b
+ollama pull qwen3.5:0.8b
 ollama pull deepseek-r1:1.5b
+ollama pull llama3.2:3b
 ollama pull granite4.1:3b
 ollama pull qwen3.5:4b
+ollama pull qwen3.5:latest
+ollama pull nemotron-3-nano:4b
+ollama pull gemma4:e4b
+```
+
+Embeddings que se evaluaron para retrieval:
+
+```powershell
+ollama pull nomic-embed-text
+ollama pull embeddinggemma
+ollama pull qwen3-embedding:0.6b
+ollama pull nomic-embed-text-v2-moe
 ```
 
 Ollama debe quedar corriendo antes de abrir la demo. En Windows normalmente se inicia con la aplicacion de Ollama; si hace falta levantarlo manualmente:
@@ -57,7 +78,7 @@ powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1
 
 Ese comando verifica Ollama, descarga los modelos principales si faltan, levanta FastAPI en el puerto `8851` y abre la presentacion en el navegador.
 
-Si tambien queres descargar los modelos livianos para la comparacion en vivo:
+Si tambien queres descargar los modelos de prueba para la comparacion en vivo:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1 -PullComparisonModels

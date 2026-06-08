@@ -12,11 +12,35 @@ PoC/MVP de un chatbot web para consultas frecuentes de CORADIR Movilidad Electri
 
 ## Configuracion de ejecucion del MVP
 
+### Inicio rapido para la presentacion final
+
+Desde PowerShell, en la carpeta del repo:
+
+```powershell
+cd C:\Users\Charly\Documents\Repositorios\DIIA-salini
+pip install -r requirements.txt
+Copy-Item .env.example .env
+python scripts\prepare_dataset.py
+powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1
+```
+
+Ese ultimo comando verifica Ollama, descarga si faltan el modelo de chat configurado en `.env` y el modelo de embeddings, levanta FastAPI en el puerto `8851` y abre la presentacion final en el navegador.
+
+Para preparar tambien la comparacion de modelos de prueba de la presentacion, usar:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\start_presentation_demo.ps1 -PullComparisonModels
+```
+
+Con `-PullComparisonModels`, el script descarga automaticamente los modelos de prueba que no esten instalados en Ollama.
+
+### Ejecucion manual
+
 1. Instala dependencias:
    `pip install -r requirements.txt`
 2. Copia `.env.example` a `.env`
 3. Si vas a usar el stack open source local:
-   `ollama pull qwen3.5:0.8b`
+   `ollama pull qwen3.5:4b`
    `ollama pull nomic-embed-text`
 4. Genera la base de conocimiento preprocesada:
    `python scripts/prepare_dataset.py`
@@ -26,10 +50,44 @@ PoC/MVP de un chatbot web para consultas frecuentes de CORADIR Movilidad Electri
 La configuracion por defecto ya queda apuntando a:
 
 - `LLM_PROVIDER=ollama`
-- `CHAT_MODEL_NAME=qwen3.5:0.8b`
+- `CHAT_MODEL_NAME=qwen3.5:4b` en `.env.example` (`qwen3.5:0.8b` queda como fallback liviano si no se define variable)
 - `EMBEDDING_PROVIDER=ollama`
 - `EMBEDDING_MODEL_NAME=nomic-embed-text:latest`
 - `DATABASE_URL=sqlite:///./chatbot_movilidad.db`
+
+## Modelos Ollama usados
+
+Modelo principal para la demo:
+
+```powershell
+ollama pull qwen3.5:4b
+ollama pull nomic-embed-text
+```
+
+Modelos de chat usados para pruebas y comparacion:
+
+```powershell
+ollama pull gemma3:270m
+ollama pull granite4:350m
+ollama pull lfm2.5-thinking:1.2b
+ollama pull qwen3.5:0.8b
+ollama pull deepseek-r1:1.5b
+ollama pull llama3.2:3b
+ollama pull granite4.1:3b
+ollama pull nemotron-3-nano:4b
+ollama pull qwen3.5:4b
+ollama pull qwen3.5:latest
+ollama pull gemma4:e4b
+```
+
+Embeddings evaluados localmente:
+
+```powershell
+ollama pull nomic-embed-text
+ollama pull embeddinggemma
+ollama pull qwen3-embedding:0.6b
+ollama pull nomic-embed-text-v2-moe
+```
 
 ## Benchmark
 

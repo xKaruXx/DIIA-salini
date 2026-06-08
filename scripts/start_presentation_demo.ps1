@@ -110,10 +110,17 @@ Ensure-OllamaModel -ModelName $embeddingModel
 
 if ($PullComparisonModels) {
     @(
+        "gemma3:270m",
         "granite4:350m",
         "lfm2.5-thinking:1.2b",
+        "qwen3.5:0.8b",
         "deepseek-r1:1.5b",
-        "qwen3.5:4b"
+        "llama3.2:3b",
+        "granite4.1:3b",
+        "nemotron-3-nano:4b",
+        "qwen3.5:4b",
+        "qwen3.5:latest",
+        "gemma4:e4b"
     ) | ForEach-Object { Ensure-OllamaModel -ModelName $_ }
 }
 
