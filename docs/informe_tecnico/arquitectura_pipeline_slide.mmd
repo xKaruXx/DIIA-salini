@@ -1,0 +1,27 @@
+---
+config:
+  theme: neutral
+  themeVariables:
+    fontSize: "18px"
+  flowchart:
+    nodeSpacing: 40
+    rankSpacing: 55
+---
+flowchart TB
+    subgraph OFFLINE["Pipeline offline — ingesta e indexado"]
+        direction LR
+        A["dataset_movilidad.json<br/>(KB administrativa)"] -->|"prepare_dataset.py"| B["JSONL — 111 docs atómicos<br/>con source_path trazable"]
+        B -->|"nomic-embed-text-v2-moe"| C[("Chroma<br/>chroma_db/")]
+    end
+
+    subgraph ONLINE["Pipeline online — consulta"]
+        direction LR
+        U["Usuario<br/>(WebSocket)"] --> F["FastAPI +<br/>Guardrails"]
+        F --> E{"Ruta extractiva<br/>léxico top-8 + focus terms"}
+        E -->|"dato exacto · 0,01 s"| R["Respuesta<br/>+ fuente"]
+        E -->|"sin match"| H["Retrieval híbrido top-5<br/>léxico + vectorial"]
+        H --> L["LLM qwen3.5<br/>prompt strict"]
+        L --> R
+    end
+
+    OFFLINE ~~~ ONLINE

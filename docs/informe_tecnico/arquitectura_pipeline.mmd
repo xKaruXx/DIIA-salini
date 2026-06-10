@@ -1,0 +1,33 @@
+---
+config:
+  theme: neutral
+  flowchart:
+    nodeSpacing: 35
+    rankSpacing: 45
+---
+flowchart LR
+    subgraph OFFLINE["Pipeline offline — ingesta e indexado"]
+        direction LR
+        A["dataset_movilidad.json<br/>(KB administrativa CORADIR)"] -->|"scripts/prepare_dataset.py<br/>normalización + aplanado"| B["knowledge_base_movilidad.jsonl<br/>111 documentos atómicos<br/>con source_path trazable"]
+        B -->|"embeddings nomic-embed-text-v2-moe<br/>(Ollama)"| C[("Chroma<br/>chroma_db/")]
+    end
+
+    subgraph ONLINE["Pipeline online — consulta"]
+        direction LR
+        U["Usuario<br/>chat web<br/>(WebSocket)"] --> F["FastAPI<br/>api/main.py"]
+        F --> G{"Guardrails"}
+        G -->|"sin match"| E{"Ruta extractiva<br/>léxico top-8 +<br/>focus terms"}
+        G -->|"match"| R["Respuesta"]
+        E -->|"respuesta<br/>extraída"| R
+        E -->|"sin respuesta"| O{"Clasificador<br/>off-topic (LLM)"}
+        O -->|"fuera de<br/>dominio"| W["Aviso / cierre<br/>de sesión"]
+        O -->|"en dominio"| Q["Reformulación<br/>con historial (LLM)"]
+        Q --> H["Retrieval híbrido top-5<br/>léxico (máx. 2) + vectorial"]
+        H --> L["LLM qwen3.5 (Ollama)<br/>prompt strict + contexto"]
+        L -->|"sanitización"| R
+        R --> S[("SQLite<br/>sesiones e<br/>historial")]
+    end
+
+    OFFLINE ~~~ ONLINE
+    C -.->|"índice vectorial"| H
+    B -.->|"índice léxico<br/>en memoria"| E
