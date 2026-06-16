@@ -363,7 +363,7 @@ class ChatService:
         text = text.translate(replacements)
         return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
-    def _keyword_search(self, question, limit=3):
+    def _keyword_search_with_metadata(self, question, limit=3):
         normalized_question = self._normalize_search_text(question)
         query_terms = self._extract_query_terms(normalized_question)
         focus_terms = self._get_focus_terms(question)
@@ -416,10 +416,24 @@ class ChatService:
                     score -= 6
 
             if score > 0:
-                ranked.append((score, title, text))
+                ranked.append(
+                    {
+                        "mode": "lexico",
+                        "score": score,
+                        "title": title,
+                        "content": text,
+                        "metadata": dict(metadata or {}),
+                    }
+                )
 
-        ranked.sort(key=lambda item: item[0], reverse=True)
+        ranked.sort(key=lambda item: item["score"], reverse=True)
         return ranked[:limit]
+
+    def _keyword_search(self, question, limit=3):
+        return [
+            (item["score"], item["title"], item["content"])
+            for item in self._keyword_search_with_metadata(question, limit=limit)
+        ]
 
     def _extract_query_terms(self, normalized_question):
         stopwords = {
@@ -984,7 +998,115 @@ class ChatService:
                 break
 
         return "\n\n".join(fragmentos)
-    
+
+    def get_retrieval_evidence_for_demo(self, question: str, top_k: int = 5) -> dict[str, Any]:
+        """Devuelve evidencia recuperada para explicar la demo sin llamar al LLM."""
+        try:
+            top_k = max(1, min(int(top_k), 8))
+        except Exception:
+            top_k = 5
+
+        evidence_items: list[dict[str, Any]] = []
+        seen = set()
+
+        def repair_display_text(value: str) -> str:
+            text = str(value or "")
+            if any(marker in text for marker in ("Ã", "Â", "â")):
+                try:
+                    text = text.encode("latin1").decode("utf-8")
+                except Exception:
+                    pass
+            replacements = {
+                "â€”": "-",
+                "â€“": "-",
+                "â€œ": '"',
+                "â€": '"',
+                "â€™": "'",
+                "Â¿": "¿",
+                "Â¡": "¡",
+            }
+            for bad, good in replacements.items():
+                text = text.replace(bad, good)
+            return text
+
+        def clean_excerpt(value: str, max_chars: int = 760) -> str:
+            text = repair_display_text(value).strip()
+            text = re.sub(r"\n{3,}", "\n\n", text)
+            if len(text) <= max_chars:
+                return text
+            return text[:max_chars].rstrip() + "..."
+
+        def add_item(mode: str, title: str, content: str, metadata: dict[str, Any] | None, **scores):
+            metadata = metadata or {}
+            source_path = str(metadata.get("source_path") or metadata.get("id") or "").strip()
+            key = (
+                source_path,
+                str(title or "").strip(),
+                str(content or "").strip()[:240],
+            )
+            if key in seen:
+                return
+            seen.add(key)
+
+            selected_lines = self._extract_relevant_lines(question, title or "", content or "")
+            excerpt = "\n".join(selected_lines[:4]) if selected_lines else clean_excerpt(content)
+
+            item = {
+                "rank": len(evidence_items) + 1,
+                "mode": mode,
+                "title": repair_display_text(title or metadata.get("title") or "Documento recuperado"),
+                "section": repair_display_text(metadata.get("section") or ""),
+                "source_path": source_path,
+                "excerpt": clean_excerpt(excerpt),
+            }
+            item.update(scores)
+            evidence_items.append(item)
+
+        keyword_hits = self._keyword_search_with_metadata(question, limit=3)
+        for hit in keyword_hits[:2]:
+            add_item(
+                "lexico",
+                hit["title"],
+                hit["content"],
+                hit["metadata"],
+                score=hit["score"],
+            )
+            if len(evidence_items) >= top_k:
+                break
+
+        vector_error = None
+        if len(evidence_items) < top_k:
+            try:
+                vector_hits = self.vectorstore.similarity_search_with_score(question, k=top_k)
+                for doc, distance in vector_hits:
+                    metadata = dict(doc.metadata or {})
+                    add_item(
+                        "vectorial",
+                        metadata.get("title", ""),
+                        doc.page_content,
+                        metadata,
+                        distance=round(float(distance), 4) if distance is not None else None,
+                    )
+                    if len(evidence_items) >= top_k:
+                        break
+            except Exception as exc:
+                vector_error = str(exc)
+                logger.warning("No se pudo obtener evidencia vectorial para demo: %s", exc)
+
+        guardrail_response = self._build_guardrail_response(question)
+        extractive_response = None if guardrail_response else self._build_extractive_response(question)
+
+        return {
+            "question": question,
+            "top_k": top_k,
+            "policy": "Primero hasta 2 resultados lexicos; luego resultados vectoriales hasta completar top-k.",
+            "note": "Esta vista no llama al LLM: muestra evidencia recuperada antes de generar la respuesta.",
+            "guardrail_response": repair_display_text(guardrail_response) if guardrail_response else None,
+            "extractive_response": repair_display_text(extractive_response) if extractive_response else None,
+            "vector_error": vector_error,
+            "items": evidence_items[:top_k],
+        }
+
     def _get_user_memory(self, user_id="default"):
         """Obtiene o crea la memoria para un usuario específico"""
         if user_id not in self.memories:
@@ -1469,7 +1591,55 @@ class ChatService:
 
         return results
 
-    async def process_message(self, question, user_id="default", user_ip=None):
+    async def _generate_ollama_response_for_demo(self, question, context, chat_history):
+        """Genera una respuesta demo con Ollama usando el mismo contexto RAG."""
+        base_url = (self.ollama_base_url or "http://127.0.0.1:11434").rstrip("/")
+        messages = [{"role": "system", "content": self.system_template.format(context=context)}]
+
+        for item in chat_history[-4:]:
+            content = str(getattr(item, "content", "") or "").strip()
+            if not content:
+                continue
+            role = "user" if isinstance(item, HumanMessage) else "assistant"
+            messages.append({"role": role, "content": content})
+
+        messages.append({"role": "user", "content": question})
+
+        payload = {
+            "model": self.model_name,
+            "stream": False,
+            "keep_alive": "5m",
+            "messages": messages,
+            "options": {
+                "temperature": self.model_temperature,
+                "num_predict": 280,
+            },
+        }
+        payload["think"] = False
+
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                f"{base_url}/api/chat",
+                json=payload,
+                timeout=aiohttp.ClientTimeout(total=120),
+            ) as response:
+                if response.status != 200:
+                    detail = await response.text()
+                    raise RuntimeError(f"Ollama HTTP {response.status}: {detail[:240]}")
+                data = await response.json()
+
+        message = data.get("message") or {}
+        raw_response_text = str(message.get("content") or "")
+        response_text = self._sanitize_response_text(raw_response_text)
+        if response_text:
+            return response_text
+
+        raw_thinking = str(message.get("thinking") or "")
+        if raw_thinking or self._contains_thinking_trace(raw_response_text):
+            raise RuntimeError("El modelo devolvio solo razonamiento thinking y no una respuesta final.")
+        raise RuntimeError("Respuesta vacia del modelo.")
+
+    async def process_message(self, question, user_id="default", user_ip=None, force_llm=False):
         """Procesa un mensaje del usuario y devuelve la respuesta"""
         try:
             # Variables para controlar webhooks (se resetean en cada llamada)
@@ -1497,7 +1667,7 @@ class ChatService:
             chat_history = memory.load_memory_variables({})["chat_history"]
 
             respuesta_texto = self._build_guardrail_response(question)
-            if not respuesta_texto:
+            if not respuesta_texto and not force_llm:
                 respuesta_texto = self._build_extractive_response(question)
             has_domain_match = bool(respuesta_texto) or self._has_strong_domain_match(question)
 
@@ -1548,6 +1718,15 @@ class ChatService:
                 
                 # Obtener contexto relevante
                 contexto_relevante = self._obtener_contexto_relevante(consulta_mejorada)
+
+                if force_llm and self.model_provider == "ollama":
+                    respuesta_texto = await self._generate_ollama_response_for_demo(
+                        question,
+                        contexto_relevante,
+                        chat_history,
+                    )
+                    memory.save_context({"input": question}, {"output": respuesta_texto})
+                    return respuesta_texto
                 
                 # Crear la plantilla de prompt
                 prompt = ChatPromptTemplate.from_messages([

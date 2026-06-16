@@ -17,7 +17,7 @@ PoC/MVP de un chatbot web para consultas frecuentes de CORADIR Movilidad Electri
 Desde PowerShell, en la carpeta del repo:
 
 ```powershell
-cd C:\Users\Charly\Documents\Repositorios\DIIA-salini
+cd C:\Repositorios\DIIA-salini
 pip install -r requirements.txt
 Copy-Item .env.example .env
 python scripts\prepare_dataset.py
@@ -41,7 +41,7 @@ Con `-PullComparisonModels`, el script descarga automaticamente los modelos de p
 2. Copia `.env.example` a `.env`
 3. Si vas a usar el stack open source local:
    `ollama pull qwen3.5:4b`
-   `ollama pull nomic-embed-text`
+   `ollama pull nomic-embed-text-v2-moe`
 4. Genera la base de conocimiento preprocesada:
    `python scripts/prepare_dataset.py`
 5. Inicia la API:
@@ -52,7 +52,7 @@ La configuracion por defecto ya queda apuntando a:
 - `LLM_PROVIDER=ollama`
 - `CHAT_MODEL_NAME=qwen3.5:4b` en `.env.example` (`qwen3.5:0.8b` queda como fallback liviano si no se define variable)
 - `EMBEDDING_PROVIDER=ollama`
-- `EMBEDDING_MODEL_NAME=nomic-embed-text:latest`
+- `EMBEDDING_MODEL_NAME=nomic-embed-text-v2-moe:latest`
 - `DATABASE_URL=sqlite:///./chatbot_movilidad.db`
 
 ## Modelos Ollama usados
@@ -61,7 +61,7 @@ Modelo principal para la demo:
 
 ```powershell
 ollama pull qwen3.5:4b
-ollama pull nomic-embed-text
+ollama pull nomic-embed-text-v2-moe
 ```
 
 Modelos de chat usados para pruebas y comparacion:
@@ -97,7 +97,7 @@ Casos de validacion:
 
 Ejecucion:
 
-`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:0.8b --embedding-provider ollama --embedding-model nomic-embed-text:latest`
+`python scripts/run_benchmark.py --prompt-variant strict --llm-provider ollama --chat-model qwen3.5:latest --embedding-provider ollama --embedding-model nomic-embed-text-v2-moe:latest`
 
 Resultados generados:
 

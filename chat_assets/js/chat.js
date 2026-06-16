@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isTyping = false;
     let waitingForResponse = false;
     let chatToken = null;
+    const demoLlmMode = new URLSearchParams(window.location.search).get('mode') === 'llm';
     
     // ===== VARIABLES DE AUDIO =====
     let mediaRecorder = null;
@@ -404,6 +405,17 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollToBottom();
     }
 
+    function showDemoModeBanner() {
+        if (!demoLlmMode || document.getElementById('demoModeBanner')) {
+            return;
+        }
+        const banner = document.createElement('div');
+        banner.id = 'demoModeBanner';
+        banner.className = 'demo-mode-banner';
+        banner.textContent = 'Modo demo LLM: fuerza generación con el contexto recuperado. El modo normal prioriza respuesta extractiva exacta.';
+        messagesContainer.before(banner);
+    }
+
     function showTypingIndicator() {
         if (!isTyping) {
             isTyping = true;
@@ -465,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageInput.disabled = true;
         sendButton.disabled = true;
         
-        socket.send(JSON.stringify({ message: message }));
+        socket.send(JSON.stringify({ message: message, force_llm: demoLlmMode }));
         addMessage('user', message);
         messageInput.value = '';
     }
@@ -492,6 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Conexión WebSocket establecida');
             isConnected = true;
             hideConnectionStatus();
+            showDemoModeBanner();
             messageInput.disabled = false;
             sendButton.disabled = false;
             messageInput.focus();

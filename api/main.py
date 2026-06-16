@@ -128,6 +128,11 @@ class DemoCompareRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=600)
     models: list[str] = Field(..., min_length=1, max_length=4)
 
+
+class DemoRetrievalRequest(BaseModel):
+    question: str = Field(..., min_length=1, max_length=600)
+    top_k: int = Field(default=5, ge=1, le=8)
+
 class ConnectionManager:
     def __init__(self):
         self.active_connections = {}
@@ -462,6 +467,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
         while True:
             data = await websocket.receive_text()
             data = json.loads(data)
+            force_llm = bool(data.get("force_llm", False)) if isinstance(data, dict) else False
             
             # Verificar si el mensaje es de audio o texto
             if isinstance(data, dict) and data.get("message_type") == "audio":
@@ -537,7 +543,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
             await manager.send_message(json.dumps(typing_message), client_id)
             
             # Procesar mensaje con el servicio de chat
-            response = await chat_service.process_message(user_message, client_id, real_ip)
+            response = await chat_service.process_message(
+                user_message,
+                client_id,
+                real_ip,
+                force_llm=force_llm,
+            )
             
             # Verificar si es una señal para terminar la sesión
             if isinstance(response, str) and response.startswith("SESSION_TERMINATE||"):
@@ -770,3 +781,16 @@ async def compare_ollama_models(request: DemoCompareRequest):
         model_names=request.models,
     )
     return {"question": request.question, "results": results}
+
+
+@app.post("/demo/retrieval-evidence")
+async def retrieval_evidence_for_demo(request: DemoRetrievalRequest):
+    """
+    Devuelve los documentos/chunks recuperados para explicar trazabilidad en vivo.
+    No llama al LLM: solo muestra evidencia previa a la generacion.
+    """
+    evidence = chat_service.get_retrieval_evidence_for_demo(
+        question=request.question,
+        top_k=request.top_k,
+    )
+    return evidence
